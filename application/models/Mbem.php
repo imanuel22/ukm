@@ -3,7 +3,7 @@ class Mbem extends CI_Model
 {
 	public function prosesviewukm(){
 		$this->db->select('*');
-		$this->db->from('tb_ukm');
+		$this->db->from('ketua');
 		$query = $this->db->get();
 		return $query->result();
 
@@ -42,5 +42,12 @@ class Mbem extends CI_Model
 		$this->db->delete('tb_ukm');
 		redirect(base_url('cbem/ukm'),'_self');
 
+	}
+
+	public function prosesviewmhs(){
+		$this->db->select('*');
+		$this->db->from('tb_mahasiswa');
+		$query = $this->db->get();
+		return $query->result();
 	}
 }

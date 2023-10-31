@@ -21,7 +21,7 @@
 					<tr>
 						<td><?=$no++?></td>
 						<td><?=$row->nama_ukm?></td>
-						<td></td>
+						<td><?=$row->nama?></td>
 						<td><a href="<?= base_url('cbem/updateukm/').$row->id_ukm ?>" class="btn btn-warning"><i class="bi bi-pencil-fill"></i></a> <a href="<?= base_url('cbem/prosesdeleteukm/').$row->id_ukm ?>" class="btn btn-danger"><i class="bi bi-trash-fill"></i></a></td>
 					</tr>
 					<?php endforeach; ?>

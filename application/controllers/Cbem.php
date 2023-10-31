@@ -27,7 +27,7 @@ class Cbem extends CI_Controller{
 		$dataukm=$this->mbem->prosesviewukm();
 		$data=['judul'=>'dashboard',
 				'tombol'=>'active',
-				'data_ukm'=>$dataukm
+				'data_ukm'=>$dataukm			
 			];
 
 		$this->load->view('test/header.php',$data);
@@ -63,7 +63,6 @@ class Cbem extends CI_Controller{
 	}
 
 	public function prosesdeleteukm($id_ukm){
-
 		$this->mbem->prosesdeleteukm($id_ukm);
 	}
 	
