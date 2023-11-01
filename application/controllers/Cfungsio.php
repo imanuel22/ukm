@@ -58,6 +58,49 @@ class Cfungsio extends CI_Controller{
 	}
 
 
+	public function proker() {
+		$dataproker=$this->mfungsio->getviewproker();
+		$data=['judul'=>'dashboard',
+			   'data_proker'=>$dataproker
+			];
+		$this->load->view('fungsio/header.php',$data);
+		$this->load->view('fungsio/proker/proker.php',$data);
+		$this->load->view('fungsio/footer.php');
+	}
+
+	public function forminsertproker(){
+		$dataproker=$this->mfungsio->getviewproker();
+		$data=['judul'=>'dashboard',
+			   'data_proker'=>$dataproker
+			];
+		$this->load->view('fungsio/header.php',$data);
+		$this->load->view('fungsio/proker/insert.php',$data);
+		$this->load->view('fungsio/footer.php');
+	}
+
+	public function prosesinsertproker() {
+		$this->mfungsio->prosesinsertproker();
+	}
+
+	public function prosesdeleteproker($id) {
+		$this->mfungsio->prosesdeleteproker($id);
+	}
+
+	public function formupdateproker($id){
+		$dataprokerdetail=$this->mfungsio->getdataproker($id);
+		$data=['judul'=>'dashboard',
+				'tombol'=>'active',
+				'data_proker1'=>$dataprokerdetail
+			];
+		$this->load->view('test/header.php',$data);
+		$this->load->view('fungsio/proker/update.php',$data);
+		$this->load->view('test/footer.php');
+	}
+	public function prosesupdateproker(){
+		$this->mfungsio->prosesupdateproker();
+	}
+
+
 
 
 

@@ -50,4 +50,9 @@ class Mbem extends CI_Model
 		$query = $this->db->get();
 		return $query->result();
 	}
+
+	public function getdatamahasiswa(){
+		$query = $this->db->get('tb_mahasiswa');
+		return $query->result();
+	}
 }

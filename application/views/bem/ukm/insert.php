@@ -7,7 +7,12 @@
 		</div>
 		<div class="mb-3">
 			<label for="nku" class="form-label">Nama Ketua UKM</label>
-			<input type="text" name="nku" class="form-control" id="nku">
+			<select class="form-select" aria-label="Default select example">
+				<option hidden>Open this select menu</option>
+				<?php foreach($datamhs as $row):?>
+					<option value="<?=$row->$id_mahasiswa?>"><?=$row->$nama?></option>
+				<?php endforeach?>
+			</select>
 		</div>
 		<div class="mb-3">
 			<button type="submit" class="btn btn-primary col-12">Submit</button>

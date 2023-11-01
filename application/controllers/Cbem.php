@@ -36,10 +36,14 @@ class Cbem extends CI_Controller{
 	}
 
 	public function insertukm(){
+		$datamhs=$this->mbem->getdatamahasiswa();
+		echo "<pre>".print_r($datamhs)."</pre>";
 		$data=['judul'=>'dashboard',
-				'tombol'=>'active'];
+				'tombol'=>'active',
+				'datamhs'=>$datamhs
+			];
 		$this->load->view('test/header.php',$data);
-		$this->load->view('bem/ukm/insert.php');
+		$this->load->view('bem/ukm/insert.php',$data);
 		$this->load->view('test/footer.php');
 	}
 
