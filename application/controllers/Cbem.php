@@ -46,9 +46,9 @@ class Cbem extends CI_Controller{
 		$this->mbem->insert_data_mhs();
 	}
 
-	public function insert_data_mhs()
+	public function update_data_mhs()
 	{
-		$this->mbem->insert_data_mhs();
+		$this->mbem->update_data_mhs();
 	}
 
 }

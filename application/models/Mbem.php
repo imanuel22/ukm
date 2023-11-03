@@ -67,5 +67,12 @@ class Mbem extends CI_Model
 		return $query->result();
 	}
 
-	//public function 
+	public function update_data_mhs(){
+		$data=$_POST;
+		$id_ukm =  $this->input->post('id_ukm');
+		$this->db->where('id_ukm',$id_ukm);
+		$this->db->update('tb_mahasiswa',$data);
+		echo "<script>alert('databas sudah berhasil di simpan');</script>";
+		redirect(base_url('cbem/home'),'_self');
+	}
 }
