@@ -59,7 +59,7 @@ class Mbem extends CI_Model
 		$data=$_POST;
 		$this->db->insert('tb_mahasiswa',$data);
 		echo "<script>alert('databas sudah berhasil di simpan');</script>";
-		redirect(base_url('cbem/home'),'_self');
+		redirect(base_url('cbem/mahasiswa'),'_self');
 	}
 
 	public function getdataprodi(){
@@ -73,7 +73,7 @@ class Mbem extends CI_Model
 		$this->db->where('id_mahasiswa',$id_mahasiswa);
 		$this->db->update('tb_mahasiswa',$data);
 		echo "<script>alert('databas sudah berhasil di simpan');</script>";
-		redirect(base_url('cbem/home'),'_self');
+		redirect(base_url('cbem/mahasiswa'),'_self');
 	}
 
 	public function getdatamahasiswawhere($id_mahasiswa){
@@ -86,6 +86,71 @@ class Mbem extends CI_Model
 		$this->db->where('id_mahasiswa',$id_mahasiswa);
 		$this->db->delete('tb_mahasiswa');
 		echo "<script>alert('databas sudah berhasil di simpan');</script>";
-		redirect(base_url('cbem/home'),'_self');
+		redirect(base_url('cbem/mahasiswa'),'_self');
+	}
+
+	public function getdatajurusan(){
+		$query = $this->db->get('tb_jurusan');
+		return $query->result();
+	}
+
+	//jurusan
+	public function insert_data_jurusan(){
+		$data=$_POST;
+		$this->db->insert('tb_jurusan',$data);
+		echo "<script>alert('databas sudah berhasil di simpan');</script>";
+		redirect(base_url('cbem/jurusan'),'_self');
+	}
+
+	public function delete_data_jurusan($id_jurusan){
+		$this->db->where('id_jurusan',$id_jurusan);
+		$this->db->delete('tb_jurusan');
+		echo "<script>alert('databas sudah berhasil di simpan');</script>";
+		redirect(base_url('cbem/jurusan'),'_self');
+	}
+
+	public function getdatajurusanwhere($id_jurusan){
+		$this->db->where('id_jurusan',$id_jurusan);
+		$query = $this->db->get('tb_jurusan');
+		return $query->row();
+	}
+
+	public function update_data_jurusan(){
+		$data=$_POST;
+		$id_jurusan =  $this->input->post('id_jurusan');
+		$this->db->where('id_jurusan',$id_jurusan);
+		$this->db->update('tb_jurusan',$data);
+		echo "<script>alert('databas sudah berhasil di simpan');</script>";
+		redirect(base_url('cbem/jurusan'),'_self');
+	}
+
+	//prodi
+	public function insert_data_prodi(){
+		$data=$_POST;
+		$this->db->insert('tb_prodi',$data);
+		echo "<script>alert('databas sudah berhasil di simpan');</script>";
+		redirect(base_url('cbem/prodi'),'_self');
+	}
+
+	public function delete_data_prodi($id_prodi){
+		$this->db->where('id_prodi',$id_prodi);
+		$this->db->delete('tb_prodi');
+		echo "<script>alert('databas sudah berhasil di simpan');</script>";
+		redirect(base_url('cbem/prodi'),'_self');
+	}
+
+	public function getdataprodiwhere($id_prodi){
+		$this->db->where('id_prodi',$id_prodi);
+		$query = $this->db->get('tb_prodi');
+		return $query->row();
+	}
+
+	public function update_data_prodi(){
+		$data=$_POST;
+		$id_prodi =  $this->input->post('id_prodi');
+		$this->db->where('id_prodi',$id_prodi);
+		$this->db->update('tb_prodi',$data);
+		echo "<script>alert('databas sudah berhasil di simpan');</script>";
+		redirect(base_url('cbem/prodi'),'_self');
 	}
 }
