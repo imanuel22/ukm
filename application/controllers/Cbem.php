@@ -93,6 +93,41 @@ class Cbem extends CI_Controller{
 	public function delete_data_jurusan($id_jurusan){
 		$this->mbem->delete_data_jurusan($id_jurusan);
 	}
+	//halaman prodi
+	public function prodi() {
+		$data1['data_prodi']=$this->mbem->getdataprodi();
+		$data1['data_jurusan']=$this->mbem->getdatajurusan();
+		$data=[
+			'title'=>'Data prodi',
+			'konten'=>$this->load->view('bem/prodi/form_prodi_insert',$data1,TRUE),
+			'table'=>$this->load->view('bem/prodi/table_prodi',$data1,TRUE),
+		];
+		$this->load->view('bem/dashboard.php',$data);
+	}
+	public function prodi_edit($id_prodi)
+	{	
+		$data1['data_prodi']=$this->mbem->getdataprodi();
+		$data1['data_prodi_where']=$this->mbem->getdataprodiwhere($id_prodi);
+		$data1['data_jurusan']=$this->mbem->getdatajurusan();
+		$data=[
+			'title'=>'Data prodi',
+			'konten'=>$this->load->view('bem/prodi/form_prodi_update',$data1,TRUE),
+			'table'=>$this->load->view('bem/prodi/table_prodi',$data1,TRUE),
+		];
+		$this->load->view('bem/dashboard.php',$data);
+	}
+	public function insert_data_prodi()
+	{
+		$this->mbem->insert_data_prodi();
+	}
+	public function update_data_prodi()
+	{
+		$this->mbem->update_data_prodi();
+	}
+
+	public function delete_data_prodi($id_prodi){
+		$this->mbem->delete_data_prodi($id_prodi);
+	}
 
 
 }
