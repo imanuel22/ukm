@@ -29,9 +29,10 @@ class Cbem extends CI_Controller{
 		$this->load->view('bem/home.php',$data);
 	}
 
-	public function mahasiswa_edit()
+	public function mahasiswa_edit($id_mahasiswa)
 	{	
 		$data1['data_mhs']=$this->mbem->getdatamahasiswa();
+		$data1['data_mhs_where']=$this->mbem->getdatamahasiswawhere($id_mahasiswa);
 		$data1['data_prodi']=$this->mbem->getdataprodi();
 		$data=[
 			'title'=>'dashboard',
@@ -49,6 +50,10 @@ class Cbem extends CI_Controller{
 	public function update_data_mhs()
 	{
 		$this->mbem->update_data_mhs();
+	}
+
+	public function delete_data_mhs($id_ukm){
+		$this->mbem->delete_data_mhs($id_ukm);
 	}
 
 }

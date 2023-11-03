@@ -1,5 +1,11 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="<?=base_url('assets/bootstrap/css/bootstrap.min.css')?>">
+	<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
-<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css' rel='stylesheet'>
 <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
@@ -222,7 +228,7 @@
 		<div class="l-navbar" id="nav-bar">
 			<nav class="nav">
 				<div>
-					<a href="<?= base_url(''); ?>" class="nav_logo">
+					<a href="<?= base_url('cbem/dashboard'); ?>" class="nav_logo">
 						<i class='bx bx-layer nav_logo-icon'></i>
 						<span class="nav_logo-name">NAME WEB</span>
 					</a>
@@ -252,9 +258,12 @@
 			</nav>
 		</div>
 		<div class="container">
-			<?php
+		<?php
 		if (empty($konten) && empty($table)) {
-			echo 'selamat datang';
+		?>
+		
+		<h2></h2>
+		<?php
 		}
 		else{
 			if(empty($konten)){
