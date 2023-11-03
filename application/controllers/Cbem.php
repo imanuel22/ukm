@@ -128,6 +128,22 @@ class Cbem extends CI_Controller{
 	public function delete_data_prodi($id_prodi){
 		$this->mbem->delete_data_prodi($id_prodi);
 	}
+	//halaman ukm
+	public function ukm() {
+		$data1['data_ukm']=$this->mbem->getdataukm();
+		$data1['data_mhs_level']=$this->mbem->getdatamahasiswawherel('user');
+		$data=[
+			'title'=>'Data ukm',
+			'konten'=>$this->load->view('bem/ukm/form_ukm_insert',$data1,TRUE),
+			'table'=>$this->load->view('bem/ukm/table_ukm',$data1,TRUE),
+		];
+		$this->load->view('bem/dashboard.php',$data);
+	}
+
+	public function insert_data_ukm()
+	{
+		$this->mbem->insert_data_ukm();
+	}
 
 
 }
