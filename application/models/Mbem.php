@@ -159,6 +159,7 @@ class Mbem extends CI_Model
 		$query = $this->db->get('masterukm');
 		return $query->result();
 	}
+
 	public function insert_data_ukm(){
 		$nama_ukm =  $this->input->post('nama_ukm');
 		$data= array(
@@ -190,4 +191,16 @@ class Mbem extends CI_Model
 		$query = $this->db->get('tb_ukm');
 		return $query->row();
 	}
+
+	//verif mhs
+	public function getdataverifmhs(){
+		$query = $this->db->get('tb_daftar_mhs');
+		return $query->result();
+	}
+	public function getdataverifmhswhere($id_daftar_mhs){
+		$this->db->where('id_daftar_mhs',$id_daftar_mhs);
+		$query = $this->db->get('tb_daftar_mhs');
+		return $query->row();
+	}
+
 }
