@@ -1,4 +1,4 @@
-<h1>form tambah prodi</h1>
+<h1>form edit ukm</h1>
 <form action="<?= base_url('cketua/update_data_ukm')?>" method="post">
 		<div class="mb-3">
 			<label for="deskripsi" class="form-label">deskripsi</label>

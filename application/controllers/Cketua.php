@@ -10,10 +10,17 @@ class Cketua extends CI_Controller{
 		}
 	
 	public function dashboard(){
-		$data=['judul'=>'dashboard'];
-		$this->load->view('test/header.php',$data);
-		$this->load->view('ketua/dasboard.php');
-		$this->load->view('test/footer.php');
+		// $data=['judul'=>'dashboard'];
+		// $this->load->view('test/header.php',$data);
+		// $this->load->view('ketua/dasboard.php');
+		// $this->load->view('test/footer.php');
+
+		$data=[
+			'title'=>'Dashboard',
+			'konten'=>'',
+			'table'=>''
+		];
+		$this->load->view('ketua/dashboard.php',$data);
 	}
 	function logout()
 		{
