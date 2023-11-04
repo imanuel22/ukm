@@ -254,6 +254,10 @@
 						<i class='bx bxs-data'></i>
 							<span class="nav_name">CRUD Prodi</span>
 						</a>
+						<a href="<?= base_url('cbem/verifmhs'); ?>" class="nav_link">
+						<i class='bx bx-user'></i>
+							<span class="nav_name">Verifikasi Mahasiswa</span>
+						</a>
 					</div>
 				</div>
 			</nav>

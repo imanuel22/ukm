@@ -190,4 +190,11 @@ class Mbem extends CI_Model
 		$query = $this->db->get('tb_ukm');
 		return $query->row();
 	}
+
+
+	//verif mhs
+	public function getdataverifmhs(){
+		$query = $this->db->get('tb_daftar_mhs');
+		return $query->result();
+	}
 }

@@ -145,6 +145,16 @@ class Cbem extends CI_Controller{
 		$this->mbem->insert_data_ukm();
 	}
 
+	//verif mhs
+	public function verifmhs() {
+		$data1['data_verifmhs']=$this->mbem->getdataverifmhs();
+		$data=[
+			'title'=>'Data verifmhs',
+			'konten'=>'',
+			'table'=>$this->load->view('bem/verifmhs/table_verifmhs',$data1,TRUE),
+		];
+		$this->load->view('bem/dashboard.php',$data);
+	}
 
 }
 ?>
