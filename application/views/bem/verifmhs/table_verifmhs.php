@@ -10,7 +10,6 @@
 			<th>tb_daftar_mhscol</th>
 			<th>img_ktm</th>
 			<th>img_mahasiswa</th>
-			<th>password</th>
 			<th>no_telp</th>
 			<th>id_prodi </th>
 			<th>Action</th>
@@ -28,7 +27,6 @@
 				<td><?=$row->tb_daftar_mhscol?></td>
 				<td><?=$row->img_ktm?></td>
 				<td><?=$row->img_mahasiswa?></td>
-				<td><?=$row->password?></td>
 				<td><?=$row->no_telp?></td>
 				<td><?=$row->id_prodi ?></td>
 				<td>
@@ -48,7 +46,7 @@
 	});
 
 	function verif(id_daftar_mhs){
-		window.open("<?=base_url('cbem/verif_form/')?>"+id_daftar_mhs,'_self');
+		window.open("<?=base_url('cbem/verifmhs_form/')?>"+id_daftar_mhs,'_self');
 	}
 	function hapus(id_daftar_mhs){
 		if (confirm('apakah ingin menghapus data id '+id_daftar_mhs+' ini?')) {
