@@ -29,7 +29,7 @@ class Cketua extends CI_Controller{
 		}
 
 	function ukm() {
-		$data1['data_mhs']=$this->mketua->getdataukm();
+		$data1['data_ukm']=$this->mketua->getdataukm();
 		$data1['data_prodi']=$this->mketua->getdataproker();
 		$data=[
 			'title'=>'Data UKM',
