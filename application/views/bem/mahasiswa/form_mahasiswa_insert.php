@@ -1,5 +1,6 @@
 <h1>form tambah mahasiswa</h1>
 <form action="<?= base_url('cbem/insert_data_mhs')?>" method="post">
+	<input type="hidden" name="level" value="user">
 		<div class="mb-3">
 			<label for="nim" class="form-label">nim</label>
 			<input type="text" name="nim" class="form-control" id="nim">
