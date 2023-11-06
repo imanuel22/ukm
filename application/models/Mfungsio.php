@@ -11,11 +11,7 @@ class Mfungsio extends CI_Model
 		$deskripsi=$this->input->post('deskripsi');
 		$peraturan=$this->input->post('peraturan');
 
-		$data=[
-		'nama_ukm'=>$nama_ukm,
-		'deskripsi'=>$deskripsi,
-		'peraturan'=>$peraturan
-		];
+		$data=$_POST
 
 		$this->db->insert('tb_ukm',$data);
 		echo "<script>alert('databas sudah berhasil di simpan');</script>";

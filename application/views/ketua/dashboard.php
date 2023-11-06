@@ -229,34 +229,30 @@
 		<div class="l-navbar" id="nav-bar">
 			<nav class="nav">
 				<div>
-					<a href="<?= base_url('cmahasiswa/dashboard'); ?>" class="nav_logo">
+					<a href="<?= base_url('cketua/dashboard'); ?>" class="nav_logo">
 						<i class='bx bx-layer nav_logo-icon'></i>
 						<span class="nav_logo-name">NAME WEB</span>
 					</a>
 					<div class="nav_list">
-						<a href="<?= base_url('cmahasiswa/dashboard'); ?>" class="nav_link ">
+						<a href="<?= base_url('cketua/dashboard'); ?>" class="nav_link ">
 							<i class='bx bxs-home' ></i>
 							<span class="nav_name">Home</span>
 						</a>
-						<a href="<?= base_url('cmahasiswa/'); ?>" class="nav_link ">
+						<a href="<?= base_url('cketua/ukm'); ?>" class="nav_link ">
 							<i class='bx bxs-data'></i>
-							<span class="nav_name">daftar?</span>
+							<span class="nav_name">Data UKM</span>
 						</a>
-						<a href="<?= base_url('cmahasiswa/'); ?>" class="nav_link ">
+						<a href="<?= base_url('cketua/'); ?>" class="nav_link ">
 							<i class='bx bxs-data'></i>
 							<span class="nav_name">CRUD UKM</span>
 						</a>
-						<a href="<?= base_url('cmahasiswa/'); ?>" class="nav_link">
+						<a href="<?= base_url('cketua/'); ?>" class="nav_link">
 						<i class='bx bxs-data'></i>
 							<span class="nav_name">CRUD Jurusan</span>
 						</a>
-						<a href="<?= base_url('cmahasiswa/'); ?>" class="nav_link">
+						<a href="<?= base_url('cketua/'); ?>" class="nav_link">
 						<i class='bx bxs-data'></i>
 							<span class="nav_name">CRUD Prodi</span>
-						</a>
-						<a href="<?= base_url('cmahasiswa/'); ?>" class="nav_link">
-						<i class='bx bx-user'></i>
-							<span class="nav_name">Verifikasi Mahasiswa</span>
 						</a>
 					</div>
 				</div>
@@ -345,4 +341,3 @@
 </body>
 
 </html>
-
