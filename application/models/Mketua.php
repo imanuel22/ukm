@@ -5,11 +5,6 @@
             return $query->result();
         }
 
-        public function getdataproker(){
-            $query = $this->db->get('tb_proker');
-            return $query->result();
-        }
-
         public function update_data_ukm(){
             $data=$_POST;
             $id_ukm =  $this->input->post('id_ukm');
