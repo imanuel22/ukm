@@ -1,5 +1,7 @@
 <h1>form edit ukm</h1>
 <form action="<?= base_url('cketua/update_data_ukm')?>" method="post">
+<input type="hidden" name="id_ukm" value="<?=$data_ukm_where->id_ukm?>">
+<input type="hidden" name="nama_ukm" value="<?=$data_ukm_where->nama_ukm?>">
 		<div class="mb-3">
 			<label for="deskripsi" class="form-label">deskripsi</label>
 			<input type="text" name="deskripsi" class="form-control" id="deskripsi" value="<?=$data_ukm_where->deskripsi?>">

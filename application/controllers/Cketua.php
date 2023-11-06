@@ -38,6 +38,16 @@ class Cketua extends CI_Controller{
 		$this->load->view('ketua/dashboard.php',$data);
 	}
 
+	function ukm_edit($id_ukm) {
+		$data1['data_ukm']=$this->mketua->getdataukm();
+		$data1['data_ukm_where']=$this->mketua->getdataukmwhere($id_ukm);
+		$data=[
+			'title'=>'Data UKM',
+			'konten'=>$this->load->view('ketua/ukm/form_ukm_update',$data1,true),
+			'table'=>$this->load->view('ketua/ukm/table_ukm',$data1,TRUE),
+		];
+		$this->load->view('ketua/dashboard.php',$data);
+	}
 	public function update_data_ukm()
 	{
 		$this->mketua->update_data_ukm();

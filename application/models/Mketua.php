@@ -13,5 +13,13 @@
             echo "<script>alert('database sudah berhasil di simpan');</script>";
             redirect(base_url('cketua/ukm'),'_self');
         }
+		public function getdataukmwhere($id_ukm){
+			$this->db->where('id_ukm',$id_ukm);
+			$query = $this->db->get('tb_ukm');
+			return $query->row();
+		}
+    
+		
+		
     }
 ?>
