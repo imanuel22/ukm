@@ -10,7 +10,7 @@
 		<div class="d-flex justify-content-center">
 			<div class="card mt-5 p-4 col-8">
 
-			<h1 class="text-center p-3">LOGIN</h1>
+			<h1 class="text-center p-3">Register</h1>
 			<?php
 				$pesan=$this->session->flashdata('pesan');
 				if ($pesan=="")
@@ -33,15 +33,35 @@
 					<input type="text" class="form-control" id="nim" name="nim">
 				</div>
 				<div class="form-group mt-3">
-					<label for="password">password</label>
-					<input type="password" class="form-control" id="password" name="password">
+					<label for="nama_mhs">nama_mhs</label>
+					<input type="text" class="form-control" id="nama_mhs" name="nama_mhs">
 				</div>
 				<div class="form-group mt-3">
-					<button class="btn btn-primary col-12" type="submit">LOGIN</button>
+					<label for="img_ktm">img_ktm</label>
+					<input type="file" class="form-control" id="img_ktm" name="img_ktm">
+				</div>
+				<div class="form-group mt-3">
+					<label for="img_mahasiswa">img_mahasiswa</label>
+					<input type="file" class="form-control" id="img_mahasiswa" name="img_mahasiswa">
+				</div>
+				<div class="form-group mt-3">
+					<label for="password">password</label>
+					<input type="text" class="form-control" id="password" name="password">
+				</div>
+				<div class="form-group mt-3">
+					<label for="no_telp">no_telp</label>
+					<input type="text" class="form-control" id="no_telp" name="no_telp">
+				</div>
+				<div class="form-group mt-3">
+					<label for="id_prodi">id_prodi</label>
+					<input type="id_prodi" class="form-control" id="id_prodi" name="id_prodi">
+				</div>
+				<div class="form-group mt-3">
+					<button class="btn btn-primary col-12" type="submit">REGISTER</button>
 				</div>
 				<hr>
 				<div class="col-12 text-center p-2">
-					<button type="button" class="btn col-12" onclick="daftar()">Belum punya akun</button>
+					<button type="button" class="btn col-12" onclick="login()">Sudah punya Akun</button>
 				</div>
 			</form>
 		</div>
@@ -49,8 +69,8 @@
 	</div>
 
 	<script language='javascript'>
-		function daftar(){
-			window.open("<?= base_url('chome/register')?>","_self");
+		function login(){
+			window.open("<?= base_url('chome/login')?>","_self");
 		}
 	</script>
 
