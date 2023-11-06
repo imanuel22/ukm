@@ -167,6 +167,11 @@ class Cbem extends CI_Controller{
 		$this->load->view('bem/dashboard.php',$data);
 	}
 	
-
+	public function proses_verif(){
+		if($this->input->post('status')){
+		$this->mbem->proses_verif_berhasil();
+		}else{
+		$this->mbem->proses_verif_gagal();}
+	}
 }
 ?>

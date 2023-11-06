@@ -1,17 +1,12 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
 <div class=" rounded-5 p-4">
-<h1>table prodi</h1>
+<h1>table mhs belum di verif</h1>
 <table id="myTable" class="display">
     <thead>
         <tr>
             <th>no</th>
             <th>nama_mhs</th>
 			<th>nim_mhs</th>
-			<th>tb_daftar_mhscol</th>
-			<th>img_ktm</th>
-			<th>img_mahasiswa</th>
-			<th>no_telp</th>
-			<th>id_prodi </th>
 			<th>Action</th>
         </tr>
     </thead>
@@ -24,11 +19,6 @@
 				<td><?=$no++?></td>
 				<td><?=$row->nama_mhs?></td>
 				<td><?=$row->nim_mhs?></td>
-				<td><?=$row->tb_daftar_mhscol?></td>
-				<td><?=$row->img_ktm?></td>
-				<td><?=$row->img_mahasiswa?></td>
-				<td><?=$row->no_telp?></td>
-				<td><?=$row->id_prodi ?></td>
 				<td>
 					<button type="button" class="btn btn-warning" onclick="verif(<?=$row->id_daftar_mhs?>)"><i class="bi bi-check2-circle"></i></button>
 					<button type="button" class="btn btn-danger" onclick="hapus(<?=$row->id_daftar_mhs?>)"><i class="bi bi-trash3"></i></button>

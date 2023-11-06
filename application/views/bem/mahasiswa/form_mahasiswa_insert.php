@@ -33,6 +33,7 @@
 				<option value="tidakaktif">tidakaktif</option>
 			</select>
 		</div>
+	
 		<div class="mb-3">
 			<label for="id_prodi" class="form-label">id_prodi</label>
 			<select name="id_prodi" id="" class="form-control">
