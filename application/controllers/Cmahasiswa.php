@@ -9,10 +9,12 @@ class Cmahasiswa extends CI_Controller{
 		}
 	
 	public function dashboard(){
-		$data=['judul'=>'dashboard'];
-		$this->load->view('test/header.php',$data);
-		$this->load->view('mahasiswa/dasboard.php');
-		$this->load->view('test/footer.php');
+		$data=[
+			'title'=>'Dashboard',
+			'konten'=>'',
+			'table'=>''
+		];
+		$this->load->view('mahasiswa/dashboard.php',$data);
 	}
 	function logout()
 		{
