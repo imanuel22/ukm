@@ -9,13 +9,6 @@
             $query = $this->db->get('tb_proker');
             return $query->result();
         }
-    
-        public function insert_data_ukm(){
-            $data=$_POST;
-            $this->db->insert('tb_ukm',$data);
-            echo "<script>alert('database sudah berhasil di simpan');</script>";
-            redirect(base_url('cketua/ukm'),'_self');
-        }
 
         public function update_data_ukm(){
             $data=$_POST;
