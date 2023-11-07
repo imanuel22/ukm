@@ -20,13 +20,14 @@
 	:root {
 		--header-height: 3rem;
 		--nav-width: 68px;
-		--first-color: #4723D9;
-		--first-color-light: #AFA5D9;
-		--white-color: #F7F6FB;
-		--body-font: 'Nunito', sans-serif;
+		--first-color: #213555;
+		--seacond-color: #4F709C;
+		--fourth-color: #E5D283;
+		--third-color: #F0F0F0;
+		--body-font: 'Montserrat', sans-serif;
 		--normal-font-size: 1rem;
 		--z-fixed: 100;
-		--body--color: #f1f1f1;
+		--body--color: #F0F0F0;
 	}
 
 	*,
@@ -46,6 +47,7 @@
 	}
 
 	a {
+		color: var(--third-color);
 		text-decoration: none
 	}
 
@@ -59,7 +61,7 @@
 		align-items: center;
 		justify-content: space-between;
 		padding: 0 1rem;
-		background-color: var(--white-color);
+		background-color: var(--first-color);
 		z-index: var(--z-fixed);
 		transition: .5s
 	}
@@ -118,23 +120,23 @@
 
 	.nav_logo-icon {
 		font-size: 1.25rem;
-		color: var(--white-color)
+		color: var(--third-color)
 	}
 
 	.nav_logo-name {
-		color: var(--white-color);
+		color: var(--third-color);
 		font-weight: 700
 	}
 
 	.nav_link {
 		position: relative;
-		color: var(--first-color-light);
+		color: var(--third-color);
 		margin-bottom: 1.5rem;
 		transition: .3s
 	}
 
 	.nav_link:hover {
-		color: var(--white-color)
+		color: var(--third-color)
 	}
 
 	.nav_icon {
@@ -150,7 +152,7 @@
 	}
 
 	.active {
-		color: var(--white-color)
+		color: var(--third-color)
 	}
 
 	.active::before {
@@ -159,7 +161,7 @@
 		left: 0;
 		width: 2px;
 		height: 32px;
-		background-color: var(--white-color)
+		background-color: var(--third-color)
 	}
 
 	.height-100 {

@@ -66,7 +66,7 @@
 	}
 	else {
 		?>
-			<h3>selamat datang </h3>
+			<h1>selamat datang </h1>
 			<?php
 	}
 	?>
