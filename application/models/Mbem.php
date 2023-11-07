@@ -205,10 +205,16 @@ class Mbem extends CI_Model
 	public function proses_verif_berhasil(){
 		$data = $_POST;
 		$this->db->insert('tb_mahasiswa',$data);
+		$this->proses_verif_gagal();
 		redirect(base_url('cbem/verifmhs'),'_self');
 	}
 	public function proses_verif_gagal(){
 
+	}
+	public function getdataprodiwherejurusan($id_jurusan){
+		$this->db->where('id_jurusan',$id_jurusan);
+		$query=$this->db->get('tb_prodi');
+		return$query->result();
 	}
 
 }
