@@ -6,7 +6,7 @@
 	<title> <?=$title?> </title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="<?=base_url();?>assets/bootstrap-5.3.2/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="<?=base_url();?>assets/icon/bootstrap-icons-1.11.1/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="<?=base_url();?>assets/icon/bootstrap-icons-1.11.1/bootstrap-icons.css">
 	<link rel="stylesheet" href="<?=base_url();?>assets/icon/boxicons-2.1.4/css/boxicons.min.css">
 	<link rel="stylesheet" href="<?=base_url();?>assets/css/style.css">
 	<link rel="stylesheet" href="<?=base_url();?>assets/DataTables/datatables.min.css">
@@ -117,7 +117,6 @@
 				}
 				linkColor.forEach(l => l.addEventListener('click', colorLink))
 
-				// Your code to run since DOM is loaded and ready
 			});
 
 		</script>
@@ -130,7 +129,7 @@
 
 	</body>
 </body>
-	<script src="<?=base_url();?>asset/jquery/jquery.min"></script>
+	<script src="<?=base_url();?>assets/jquery/jquery.min.js"></script>
 	<script src="<?=base_url();?>assets/DataTables/datatables.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
 	<script src="<?=base_url();?>assets/bootstrap-5.3.2/dist/js/bootstrap.min.js"></script>
