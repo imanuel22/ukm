@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
 <div class=" rounded-5 p-4">
 <h1>table jurusan</h1>
 <table id="myTable" class="display">
