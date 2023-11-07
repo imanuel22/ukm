@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -15,7 +15,7 @@
 <body className='snippet-body'>
 	<body id="body-pd">
 		<header class="header" id="header">
-			<div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+			<div class="header_toggle"> <a href="#"><i class='bx bx-menu' id="header-toggle"></i></a> </div>
 			<div class="p-3">
 				<a href="">
 					<h3 class="">LOGIN</h3>
@@ -108,9 +108,9 @@
 
 				/*===== LINK ACTIVE =====*/
 				const linkColor = document.querySelectorAll('.nav_link')
-
+				
 				function colorLink() {
-					if (linkColor) {
+					if (linkColor) {	
 						linkColor.forEach(l => l.classList.remove('active'))
 						this.classList.add('active')
 					}
