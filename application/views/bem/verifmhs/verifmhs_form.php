@@ -2,7 +2,6 @@
 <form action="<?=base_url('cbem/proses_verif')?>" method="post">
 	<table class="table table-warning">
 		<input type="hidden" name="level" value="user">
-		<input type="hidden" name="id_" value="user">
 		<tr>
 			<th>Nama mahasiswa</th>
 			<td><input type="text" class="form-control-plaintext" value="<?=$datamhs->nama_mhs?>" readonly name="nama_mahasiswa"></td>

@@ -40,7 +40,7 @@
 	}
 	function hapus(id_daftar_mhs){
 		if (confirm('apakah ingin menghapus data id '+id_daftar_mhs+' ini?')) {
-			window.open("<?=base_url('cbem/delete_data_prodi/')?>"+id_prodi,'_self');
+			window.open("<?=base_url('cbem/proseshapus/')?>"+id_daftar_mhs,'_self');
 		}
 	}
 </script>

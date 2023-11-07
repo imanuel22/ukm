@@ -58,7 +58,7 @@
 			$.ajax({
 				type : "POST",
 				dataType : "JSON",
-				url : "<?= base_url();?>Cbem/getdataprodi",
+				url : "Cbem/getdataprodi",
 				data : {jurusan: getjurusan},
 				success : function(data){console.log(data);
 				}
