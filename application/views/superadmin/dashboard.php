@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,8 +9,12 @@
 	<link rel="stylesheet" href="<?=base_url();?>assets/bootstrap-5.3.2/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?=base_url();?>assets/icon/bootstrap-icons-1.11.1/bootstrap-icons.css">
 	<link rel="stylesheet" href="<?=base_url();?>assets/icon/boxicons-2.1.4/css/boxicons.min.css">
+	<link rel="stylesheet" href="<?=base_url();?>assets/icon/fontawesome/css/fontawesome.css">
 	<link rel="stylesheet" href="<?=base_url();?>assets/css/style.css">
 	<link rel="stylesheet" href="<?=base_url();?>assets/DataTables/datatables.min.css">
+	<link rel="stylesheet" href="<?=base_url();?>assets/icon/fontawesome/css/fontawesome.css" >
+	<link rel="stylesheet" href="<?=base_url();?>assets/icon/fontawesome/css/brands.css" >
+	<link rel="stylesheet" href="<?=base_url();?>assets/icon/fontawesome/css/solid.css" >
 </head>
 
 <body className='snippet-body'>
@@ -30,29 +35,21 @@
 						<span class="nav_logo-name">NAME WEB</span>
 					</a>
 					<div class="nav_list">
-						<a href="<?= base_url('cbem/dashboard'); ?>" class="nav_link ">
-							<i class='bx bxs-home'></i>
+						<a href="<?= base_url('csuperadmin/dashboard'); ?>" class="nav_link ">
+							<i class="fa-solid fa-house"></i>							
 							<span class="nav_name">Home</span>
 						</a>
-						<a href="<?= base_url('cbem/mahasiswa'); ?>" class="nav_link ">
-							<i class='bx bxs-data'></i>
-							<span class="nav_name">CRUD MAHASISWA</span>
+						<a href="<?= base_url('csuperadmin/bem'); ?>" class="nav_link ">
+							<i class="fa-solid fa-database"></i>
+							<span class="nav_name">CRUD BEM</span>
 						</a>
-						<a href="<?= base_url('cbem/ukm'); ?>" class="nav_link ">
-							<i class='bx bxs-data'></i>
-							<span class="nav_name">CRUD UKM</span>
-						</a>
-						<a href="<?= base_url('cbem/jurusan'); ?>" class="nav_link">
-							<i class='bx bxs-data'></i>
+						<a href="<?= base_url('csuperadmin/jurusan'); ?>" class="nav_link">
+							<i class="fa-solid fa-database"></i>
 							<span class="nav_name">CRUD Jurusan</span>
 						</a>
-						<a href="<?= base_url('cbem/prodi'); ?>" class="nav_link">
-							<i class='bx bxs-data'></i>
+						<a href="<?= base_url('csuperadmin/prodi'); ?>" class="nav_link">
+							<i class="fa-solid fa-user"></i>
 							<span class="nav_name">CRUD Prodi</span>
-						</a>
-						<a href="<?= base_url('cbem/verifmhs'); ?>" class="nav_link">
-							<i class='bx bx-user'></i>
-							<span class="nav_name">Verifikasi Mahasiswa</span>
 						</a>
 					</div>
 				</div>
@@ -129,6 +126,9 @@
 
 	</body>
 </body>
+	<script defer src="<?=base_url();?>assets/icon/fontawesome/js/brands.js"></script>
+	<script defer src="<?=base_url();?>assets/icon/fontawesome/js/solid.js"></script>
+	<script defer src="<?=base_url();?>assets/icon/fontawesome/js/fontawesome.js"></script>
 	<script src="<?=base_url();?>assets/jquery/jquery.min.js"></script>
 	<script src="<?=base_url();?>assets/DataTables/datatables.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
