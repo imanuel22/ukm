@@ -10,9 +10,7 @@ class Cmahasiswa extends CI_Controller{
 		}
 	
 	public function dashboard(){
-		$data2['data_ukm']=$this->mmahasiswa->getdataukm();
-		echo"<pre>".print_r($data1)."</pre>";
-		$data1['data']=$data2;
+		$data1['data_ukm']=$this->mmahasiswa->getdataukm();
 		$data=[
 			'title'=>'Dashboard',
 			'konten'=>$this->load->view('mahasiswa/table_ukm',$data1,TRUE),
