@@ -33,17 +33,39 @@
 				<option value="tidakaktif">tidakaktif</option>
 			</select>
 		</div>
-	
 		<div class="mb-3">
-			<label for="id_prodi" class="form-label">id_prodi</label>
-			<select name="id_prodi" id="" class="form-control">
+			<label for="id_prodi">prodi</label>
+			<select name="id_prodi" id="id_prodi" class="form-control">
 				<option value="" hidden>pilih</option>
 				<?php foreach($data_prodi as $row):?>
 				<option value="<?=$row->id_prodi?>"><?=$row->nama_prodi?></option>
 				<?php endforeach;?>
 			</select>
 		</div>		
+		
 		<div class="mb-3">
 			<button type="submit" class="btn btn-primary col-12">Submit</button>
 		</div>
 	</form>
+	<!-- <script src="asset/js/jquery-3.7.1.min.js"></script>
+	<script type='text/javascript'>
+	$(document).ready(function(){
+	loadprodi();
+	});
+	function loadprodi(){
+		$("#id_jurusan").change(function(){
+			var getjurusan=$("#id_jurusan").val
+			$.ajax({
+				type : "POST",
+				dataType : "JSON",
+				url : "Cbem/getdataprodi",
+				data : {jurusan: getjurusan},
+				success : function(data){console.log(data);
+				}
+			})
+		});
+}
+	</script> -->
+
+
+

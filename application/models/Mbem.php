@@ -205,10 +205,33 @@ class Mbem extends CI_Model
 	public function proses_verif_berhasil(){
 		$data = $_POST;
 		$this->db->insert('tb_mahasiswa',$data);
-		redirect(base_url('cbem/verifmhs'),'_self');
+		$id_daftar_mhs = $this->getdatadaftarmhswhere($data['nim']);
+		$id_daftar_mhs1 = $id_daftar_mhs->id_daftar_mhs;
+		$this->proseshapus($id_daftar_mhs1);
 	}
 	public function proses_verif_gagal(){
+		$data =$_POST;
+		$id_daftar_mhs = $this->getdatadaftarmhswhere($data['nim']);
+		$id_daftar_mhs1 = $id_daftar_mhs->id_daftar_mhs;
+		$this->proseshapus($id_daftar_mhs1);
+	}
+	
 
+	public function getdatadaftarmhswhere($nim) {
+		$this->db->select('id_daftar_mhs');
+		$this->db->where('nim_mhs',$nim);
+		$query=$this->db->get('tb_daftar_mhs');
+		return $query->row();
+	}
+	public function proseshapus($id_daftar_mhs){
+		$this->db->where('id_daftar_mhs',$id_daftar_mhs);
+		$this->db->delete('tb_daftar_mhs');
+		redirect(base_url('cbem/verifmhs'),'_self');
+	}
+	public function getdataprodiwherejurusan($id_jurusan){
+		$this->db->where('id_jurusan',$id_jurusan);
+		$query=$this->db->get('tb_prodi');
+		return$query->result();
 	}
 
 }
