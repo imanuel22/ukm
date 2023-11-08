@@ -1,6 +1,8 @@
-<div class=" rounded-5 p-4">
+<link rel="stylesheet" href="<?=base_url();?>assets/DataTables/datatables.min.css">
+
+<div class=" rounded-5 p-4 bg-2">
 <h1>table jurusan</h1>
-<table id="myTable" class="display">
+<table id="myTable" class="table display">
     <thead>
         <tr>
             <th>no</th>
@@ -32,8 +34,11 @@
     </tbody>
 </table>
 </div>
-  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+
+<script src="<?=base_url();?>assets/DataTables/datatables.min.js"></script>
 <script>
+	
+	// new DataTable('#myTable');
 	let table = new DataTable('#myTable', {
     // options
 	responsive: true

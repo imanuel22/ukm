@@ -21,8 +21,8 @@
 <body className='snippet-body'>
 
 	<body id="body-pd">
-		<header class="header" id="header">
-			<div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+	<header class="header" id="header">
+			<div class="header_toggle"> <a href="#"><i class='bx bx-menu' id="header-toggle"></i></a> </div>
 			<div class="p-3">
 				<a href="">
 					<h3 class="">LOGIN</h3>
@@ -32,9 +32,9 @@
 		<div class="l-navbar" id="nav-bar">
 			<nav class="nav">
 				<div>
-					<a href="<?= base_url('cmahasiswa/dashboard'); ?>" class="nav_logo">
-						<i class='bx bx-layer nav_logo-icon'></i>
-						<span class="nav_logo-name">NAME WEB</span>
+				<a href="<?= base_url('cbem/dashboard'); ?>" class="nav_logo">
+					<i class="fa-solid fa-image"></i>
+						<span class="nav_logo-name">UKM</span>
 					</a>
 					<div class="nav_list">
 						<a href="<?= base_url('cmahasiswa/dashboard'); ?>" class="nav_link ">

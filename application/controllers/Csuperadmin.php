@@ -14,7 +14,15 @@ class Csuperadmin extends CI_Controller{
 			];
 
 		$this->load->view('superadmin/dashboard',$data);
-		
+	}
+	public function jurusan() {
+		$data1['data_jurusan']=$this->mbem->getdatajurusan();
+		$data = [
+			'title'=>'jurusan',
+			'konten'=>'',
+			'table'=>$this->load->view('superadmin/jurusan/table_jurusan',$data1,TRUE),
+			];
+		$this->load->view('superadmin/dashboard',$data);
 	}
 
 }

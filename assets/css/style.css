@@ -21,9 +21,13 @@
 		--header-height: 3rem;
 		--nav-width: 68px;
 		--first-color: #213555;
-		--seacond-color: #4F709C;
+		--second-color: #4F709C;
 		--fourth-color: #E5D283;
 		--third-color: #F0F0F0;
+		--rgb-first-color: rgb(33,53,85);
+		--rgb-second-color: rgb(79, 112, 156);
+		--rgb-fourth-color: rgb(229, 210, 131);
+		--rgb-third-color: rgb(240, 240, 240);
 		--body-font: 'Montserrat', sans-serif;
 		--normal-font-size: 1rem;
 		--z-fixed: 100;
@@ -197,6 +201,20 @@
 		color: white;
 	}
 
-	.card_bg1{
-		background-color: var(--fourth-color);
+	.bg-1{
+		--bs-bg-opacity: 1;
+  		background-color: rgba(var(--rgb-first-color), var(--bs-bg-opacity)) !important;
+	}
+	.bg-2{
+		--bs-bg-opacity: 1;
+  		background-color: rgba(var(--rgb-second-color), var(--bs-bg-opacity)) !important;
+	}
+	.bg-3{
+		--bs-bg-opacity: 1;
+  		background-color: rgba(var(--rgb-third-color), var(--bs-bg-opacity)) !important;
+	}
+	.bg-4{
+		--bs-bg-opacity: 1;
+  		background-color: rgba(var(--rgb-fourth-color), var(--bs-bg-opacity)) !important;
+		
 	}
