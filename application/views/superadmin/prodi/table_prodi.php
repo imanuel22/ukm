@@ -46,9 +46,9 @@
 	function edit(id_prodi){
 		window.open("<?=base_url('cbem/prodi_edit/')?>"+id_prodi,'_self');
 	}
-	function hapus(id_prodi){
-		if (confirm('apakah ingin menghapus data id '+id_prodi+' ini?')) {
-			window.open("<?=base_url('cbem/delete_data_prodi/')?>"+id_prodi,'_self');
+		function hapus(id_prodi){
+			if (confirm('apakah ingin menghapus data id '+id_prodi+' ini?')) {
+				window.open("<?=base_url('cbem/delete_data_prodi/')?>"+id_prodi,'_self');
+			}
 		}
-	}
 </script>
