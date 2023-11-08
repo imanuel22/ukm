@@ -31,8 +31,8 @@
 			<nav class="nav">
 				<div>
 					<a href="<?= base_url('cbem/dashboard'); ?>" class="nav_logo">
-						<i class='bx bx-layer nav_logo-icon'></i>
-						<span class="nav_logo-name">NAME WEB</span>
+					<i class="fa-solid fa-image"></i>
+						<span class="nav_logo-name">UKM</span>
 					</a>
 					<div class="nav_list">
 						<a href="<?= base_url('csuperadmin/dashboard'); ?>" class="nav_link ">
@@ -65,8 +65,10 @@
 	}
 	}
 	else {
-		?>
+		?>	
+		<div class="card_bg1 p-2 rounded-4">
 			<h1>selamat datang </h1>
+		</div>
 			<?php
 	}
 	?>

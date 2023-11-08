@@ -196,3 +196,7 @@
 	hr {
 		color: white;
 	}
+
+	.card_bg1{
+		background-color: var(--fourth-color);
+	}
