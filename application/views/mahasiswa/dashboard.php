@@ -1,225 +1,28 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
+
+<head>
+	<meta charset="utf-8">
 	<title> <?=$title?> </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="<?=base_url('assets/bootstrap/css/bootstrap.min.css')?>">
-	<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
-<link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-<style>
-	@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css");
-
-	::-webkit-scrollbar {
-		width: 8px;
-	}
-
-	/* Track */
-	::-webkit-scrollbar-track {
-		background: #f1f1f1;
-	}
-
-	/* Handle */
-	::-webkit-scrollbar-thumb {
-		background: #888;
-	}
-
-	/* Handle on hover */
-	::-webkit-scrollbar-thumb:hover {
-		background: #555;
-	}
-
-	@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
-
-	:root {
-		--header-height: 3rem;
-		--nav-width: 68px;
-		--first-color: #4723D9;
-		--first-color-light: #AFA5D9;
-		--white-color: #F7F6FB;
-		--body-font: 'Nunito', sans-serif;
-		--normal-font-size: 1rem;
-		--z-fixed: 100;
-		--body--color: #f1f1f1;
-	}
-
-	*,
-	::before,
-	::after {
-		box-sizing: border-box
-	}
-
-	body {
-		position: relative;
-		background-color: var(--body--color);
-		margin: var(--header-height) 0 0 0;
-		padding: 0 1rem;
-		font-family: var(--body-font);
-		font-size: var(--normal-font-size);
-		transition: .5s
-	}
-
-	a {
-		text-decoration: none
-	}
-
-	.header {
-		width: 100%;
-		height: var(--header-height);
-		position: fixed;
-		top: 0;
-		left: 0;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		padding: 0 1rem;
-		background-color: var(--white-color);
-		z-index: var(--z-fixed);
-		transition: .5s
-	}
-
-	.header_toggle {
-		color: var(--first-color);
-		font-size: 1.5rem;
-		cursor: pointer
-	}
-
-	.header_img {
-		width: 35px;
-		height: 35px;
-		display: flex;
-		justify-content: center;
-		border-radius: 50%;
-		overflow: hidden
-	}
-
-	.header_img img {
-		width: 40px
-	}
-
-	.l-navbar {
-		position: fixed;
-		top: 0;
-		left: -30%;
-		width: var(--nav-width);
-		height: 100vh;
-		background-color: var(--first-color);
-		padding: .5rem 1rem 0 0;
-		transition: .5s;
-		z-index: var(--z-fixed)
-	}
-
-	.nav {
-		height: 100%;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		overflow: hidden
-	}
-
-	.nav_logo,
-	.nav_link {
-		display: grid;
-		grid-template-columns: max-content max-content;
-		align-items: center;
-		column-gap: 1rem;
-		padding: .5rem 0 .5rem 1.5rem
-	}
-
-	.nav_logo {
-		margin-bottom: 2rem
-	}
-
-	.nav_logo-icon {
-		font-size: 1.25rem;
-		color: var(--white-color)
-	}
-
-	.nav_logo-name {
-		color: var(--white-color);
-		font-weight: 700
-	}
-
-	.nav_link {
-		position: relative;
-		color: var(--first-color-light);
-		margin-bottom: 1.5rem;
-		transition: .3s
-	}
-
-	.nav_link:hover {
-		color: var(--white-color)
-	}
-
-	.nav_icon {
-		font-size: 1.25rem
-	}
-
-	.show {
-		left: 0
-	}
-
-	.body-pd {
-		padding-left: calc(var(--nav-width) + 1rem)
-	}
-
-	.active {
-		color: var(--white-color)
-	}
-
-	.active::before {
-		content: '';
-		position: absolute;
-		left: 0;
-		width: 2px;
-		height: 32px;
-		background-color: var(--white-color)
-	}
-
-	.height-100 {
-		height: 100vh
-	}
-
-	@media screen and (min-width: 768px) {
-		body {
-			margin: calc(var(--header-height) + 1rem) 0 0 0;
-			padding-left: calc(var(--nav-width) + 2rem)
-		}
-
-		.header {
-			height: calc(var(--header-height) + 1rem);
-			padding: 0 2rem 0 calc(var(--nav-width) + 2rem)
-		}
-
-		.l-navbar {
-			left: 0;
-			padding: 1rem 1rem 0 0
-		}
-
-		.show {
-			width: calc(var(--nav-width) + 156px)
-		}
-
-		.body-pd {
-			padding-left: calc(var(--nav-width) + 188px)
-		}
-	}
-
-	hr {
-		color: white;
-	}
-
-</style>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="<?=base_url();?>assets/bootstrap-5.3.2/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="<?=base_url();?>assets/icon/bootstrap-icons-1.11.1/bootstrap-icons.css">
+	<link rel="stylesheet" href="<?=base_url();?>assets/icon/boxicons-2.1.4/css/boxicons.min.css">
+	<link rel="stylesheet" href="<?=base_url();?>assets/icon/fontawesome/css/fontawesome.css">
+	<link rel="stylesheet" href="<?=base_url();?>assets/css/style.css">
+	<link rel="stylesheet" href="<?=base_url();?>assets/DataTables/datatables.min.css">
+	<link rel="stylesheet" href="<?=base_url();?>assets/icon/fontawesome/css/fontawesome.css" >
+	<link rel="stylesheet" href="<?=base_url();?>assets/icon/fontawesome/css/brands.css" >
+	<link rel="stylesheet" href="<?=base_url();?>assets/icon/fontawesome/css/solid.css" >
 </head>
+
 
 <body className='snippet-body'>
 
 	<body id="body-pd">
-		<header class="header" id="header">
-			<div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+	<header class="header" id="header">
+			<div class="header_toggle"> <a href="#"><i class='bx bx-menu' id="header-toggle"></i></a> </div>
 			<div class="p-3">
 				<a href="">
 					<h3 class="">LOGIN</h3>
@@ -229,9 +32,9 @@
 		<div class="l-navbar" id="nav-bar">
 			<nav class="nav">
 				<div>
-					<a href="<?= base_url('cmahasiswa/dashboard'); ?>" class="nav_logo">
-						<i class='bx bx-layer nav_logo-icon'></i>
-						<span class="nav_logo-name">NAME WEB</span>
+				<a href="<?= base_url('cbem/dashboard'); ?>" class="nav_logo">
+					<i class="fa-solid fa-image"></i>
+						<span class="nav_logo-name">UKM</span>
 					</a>
 					<div class="nav_list">
 						<a href="<?= base_url('cmahasiswa/dashboard'); ?>" class="nav_link ">
@@ -268,9 +71,6 @@
 		if (empty($konten) && empty($table)) {
 		?>
 		<h2>Selamat datang</h2>
-        <form action="">
-                
-        </form>
 		<?php
 		}
 		else{
@@ -290,11 +90,9 @@
 		</div>
 
 
-		<script type='text/javascript'
-			src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
-		<script type='text/javascript' src='#'></script>
-		<script type='text/javascript' src='#'></script>
-		<script type='text/javascript' src='#'></script>
+		<script type='text/javascript' src='#'>
+		
+		</script>
 		<script type='text/javascript'>
 			document.addEventListener("DOMContentLoaded", function (event) {
 
@@ -323,29 +121,33 @@
 
 				/*===== LINK ACTIVE =====*/
 				const linkColor = document.querySelectorAll('.nav_link')
-
+				
 				function colorLink() {
-					if (linkColor) {
+					if (linkColor) {	
 						linkColor.forEach(l => l.classList.remove('active'))
 						this.classList.add('active')
 					}
 				}
 				linkColor.forEach(l => l.addEventListener('click', colorLink))
 
-				// Your code to run since DOM is loaded and ready
 			});
 
 		</script>
 		<script type='text/javascript'>
 			var myLink = document.querySelector('a[href="#"]');
-			myLink.addEventListener('click', function (e) {
-				e.preventDefault();
-			});
+			myLink.addEventListener('click', function (e){	e.preventDefault();});
 
 		</script>
 
+
 	</body>
 </body>
+	<script defer src="<?=base_url();?>assets/icon/fontawesome/js/brands.js"></script>
+	<script defer src="<?=base_url();?>assets/icon/fontawesome/js/solid.js"></script>
+	<script defer src="<?=base_url();?>assets/icon/fontawesome/js/fontawesome.js"></script>
+	<script src="<?=base_url();?>assets/jquery/jquery.min.js"></script>
+	<script src="<?=base_url();?>assets/DataTables/datatables.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+	<script src="<?=base_url();?>assets/bootstrap-5.3.2/dist/js/bootstrap.min.js"></script>
 
 </html>
-

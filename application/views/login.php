@@ -27,21 +27,21 @@
 			<?php
 				}
 			?>
-			<form action="<?= base_url('cdaftar/prosseslogin') ?>" method="post">
+			<form action="<?= base_url('chome/proses_login') ?>" method="post">
 				<div class="form-group mt-3">
-					<label for="username">username</label>
-					<input type="text" class="form-control" id="username" name="Username">
+					<label for="nim">nim</label>
+					<input type="text" class="form-control" id="nim" name="nim">
 				</div>
 				<div class="form-group mt-3">
 					<label for="password">password</label>
-					<input type="password" class="form-control" id="password" name="Password">
+					<input type="password" class="form-control" id="password" name="password">
 				</div>
 				<div class="form-group mt-3">
 					<button class="btn btn-primary col-12" type="submit">LOGIN</button>
 				</div>
 				<hr>
 				<div class="col-12 text-center p-2">
-					<button type="button" class="btn col-12" onclick="daftar()">Sudah punya akun</button>
+					<button type="button" class="btn col-12" onclick="daftar()">Belum punya akun</button>
 				</div>
 			</form>
 		</div>
@@ -50,7 +50,7 @@
 
 	<script language='javascript'>
 		function daftar(){
-			window.open("<?= base_url('ctampil/daftar')?>","_self");
+			window.open("<?= base_url('chome/register')?>","_self");
 		}
 	</script>
 

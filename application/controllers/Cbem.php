@@ -19,11 +19,19 @@ class Cbem extends CI_Controller{
 		$this->load->view('bem/dashboard.php',$data);
 	}
 
+	//coba
+	function getdataprodi() {
+		$id_jurusan = $this->input->post('jurusan');
+		$getdataprodi = $this->mbem->getdataprodiwherejurusan($id_jurusan);
+		var_dump($getdataprodi);
+	}
+
 	//halaman mahasiswa
 	public function mahasiswa()
 	{	
 		$data1['data_mhs']=$this->mbem->getdatamahasiswa();
 		$data1['data_prodi']=$this->mbem->getdataprodi();
+		$data1['data_jurusan']=$this->mbem->getdatajurusan();
 		$data=[
 			'title'=>'Data Mahasiswa',
 			'konten'=>$this->load->view('bem/mahasiswa/form_mahasiswa_insert',$data1,TRUE),
@@ -167,6 +175,11 @@ class Cbem extends CI_Controller{
 		$this->load->view('bem/dashboard.php',$data);
 	}
 	
-
+	public function proses_verif(){
+		if($this->input->post('status')){
+		$this->mbem->proses_verif_berhasil();
+		}else{
+		$this->mbem->proses_verif_gagal();}
+	}
 }
 ?>
