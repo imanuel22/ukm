@@ -5,13 +5,14 @@
 	<meta charset="utf-8">
 	<title> <?=$title?> </title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="<?=base_url();?>assets/bootstrap-5.3.2/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="<?=base_url();?>assets/bootstrap-5.3.2/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="<?=base_url();?>assets/css/style.css">
 	<link rel="stylesheet" href="<?=base_url();?>assets/icon/bootstrap-icons-1.11.1/bootstrap-icons.css">
 	<link rel="stylesheet" href="<?=base_url();?>assets/icon/boxicons-2.1.4/css/boxicons.min.css">
-	<link rel="stylesheet" href="<?=base_url();?>assets/css/style.css">
 	<link rel="stylesheet" href="<?=base_url();?>assets/icon/fontawesome/css/fontawesome.css">
 	<link rel="stylesheet" href="<?=base_url();?>assets/icon/fontawesome/css/brands.css">
 	<link rel="stylesheet" href="<?=base_url();?>assets/icon/fontawesome/css/solid.css">
+	<link href="<?=base_url();?>assets/Toast/toast.style.min.css" rel="stylesheet">
 </head>
 
 <body className='snippet-body'>
@@ -20,8 +21,8 @@
 		<header class="header" id="header">
 			<div class="header_toggle"> <a href="#"><i class='bx bx-menu' id="header-toggle"></i></a> </div>
 			<div class="p-3">
-				<a href="">
-					<h3 class="">LOGIN</h3>
+				<a href="<?=base_url('csuperadmin/logout')?>">
+					<h3 class="">LOGOUT</h3>
 				</a>
 			</div>
 		</header>
@@ -53,8 +54,21 @@
 				</div>
 			</nav>
 		</div>
-		<div class="container">
+		<div class="container mt-5">
 			<br>
+			<?php
+			$pesan = $this->session->flashdata('pesan');
+			$color = $this->session->flashdata('color');
+			if(!empty($pesan)):
+			?>
+			<div class="alert alert-<?=$color?> alert-dismissible fade show" role="alert">
+				<?=$pesan?>
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+		
+			<?php
+			endif;
+			?>
 			<?php
 		if(!empty($konten)||!empty($table)){
 			if(!empty($konten)){
@@ -74,7 +88,6 @@
 	?>
 		</div>
 		<script type='text/javascript' src='#'>
-
 		</script>
 		<script type='text/javascript'>
 			document.addEventListener("DOMContentLoaded", function (event) {
@@ -127,6 +140,8 @@
 
 	</body>
 </body>
+<script src="<?=base_url();?>assets/Toast/jquery.min.js"></script>
+<script src="<?=base_url();?>assets/Toast/toast.script.js"></script>
 <script defer src="<?=base_url();?>assets/icon/fontawesome/js/brands.js"></script>
 <script defer src="<?=base_url();?>assets/icon/fontawesome/js/solid.js"></script>
 <script defer src="<?=base_url();?>assets/icon/fontawesome/js/fontawesome.js"></script>

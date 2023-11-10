@@ -234,4 +234,5 @@ class Mbem extends CI_Model
 		return$query->result();
 	}
 
+	
 }
