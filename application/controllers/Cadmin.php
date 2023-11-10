@@ -12,4 +12,5 @@ class Cadmin extends CI_Controller{
 	public function login_proses(){
 		$this->madmin->login_proses();
 	}
+	
 }

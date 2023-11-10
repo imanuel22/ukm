@@ -12,9 +12,11 @@ class Madmin extends CI_Model
 				'id_superadmin'=>$data->id_superadmin,
 				'username'=>$data->username,
 				'email'=>$data->email,
+				'level'=>'admin'
 			];	
 			$this->session->set_userdata($array);	
 			redirect(base_url('csuperadmin/dashboard'),'refresh');
+
 		}
 		else{
 			$data1=['pesan'=>"login gagal",'color'=>'danger'];
