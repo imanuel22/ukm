@@ -16,6 +16,7 @@
             <th>nim</th>
             <th>nama_mahasiswa</th>
             <th>angkatan</th>
+            <th>password</th>
             <th>no_telp</th>
             <th>img_mahasiswa</th>
             <th>status</th>
@@ -33,6 +34,7 @@
 				<td><?=$row->nim?></td>
 				<td><?=$row->nama_mahasiswa?></td>
 				<td><?=$row->angkatan?></td>
+				<td><?=$row->password?></td>
 				<td><?=$row->no_telp?></td>
 				<td><?=$row->img_mahasiswa?></td>
 				<td><?=$row->status?></td>

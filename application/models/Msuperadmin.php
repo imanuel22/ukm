@@ -105,9 +105,18 @@ class Msuperadmin extends CI_Model{
 		$this->db->where('level','admin');
 		$query = $this->db->get('tb_mahasiswa');
 		return $query->result();
+		
+	}
+	public function getdatabem_id($id_mahasiswa) {
+		$this->db->where('id_mahasiswa',$id_mahasiswa);
+		$this->db->where('level','admin');
+		$query = $this->db->get('tb_mahasiswa');
+		return $query->row();
+		
 	}
 	public function insert_data_bem(){
 		$data = $_POST;
+		$data['level']='admin';
 		$this->db->insert('tb_mahasiswa',$data);
 		$query = $this->db->affected_rows();
 		if($query>0){

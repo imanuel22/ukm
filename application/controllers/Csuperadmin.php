@@ -123,7 +123,8 @@ class Csuperadmin extends CI_Controller{
 	}
 	public function edit_bem($id) {
 		$data1['data_bem']=$this->msuperadmin->getdatabem();
-		$data1['data_jurusan']=$this->msuperadmin->getdatajurusan();
+		$data1['data_prodi']=$this->msuperadmin->getdataprodi();
+		$data1['data_bem_id']=$this->msuperadmin->getdatabem_id($id);
 		$data = [
 			'title'=>'bem',
 			'konten'=>$this->load->view('superadmin/bem/form_bem_update',$data1,TRUE),
