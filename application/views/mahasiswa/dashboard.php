@@ -268,6 +268,9 @@
 		if (empty($konten) && empty($table)) {
 		?>
 		<h2>Selamat datang</h2>
+        <form action="">
+                
+        </form>
 		<?php
 		}
 		else{
