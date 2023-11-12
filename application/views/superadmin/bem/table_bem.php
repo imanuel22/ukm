@@ -5,11 +5,12 @@
 			<h1 class="fw-bold ">Table bem</h1>
 		</div>
 		<div class="col-2">
-			<button type="button" onclick="tambah()" class="btn btn-primary col-12">+Data</button>
+			<button type="button" onclick="tambah()" class="btn btn-primary p-1 col-12">+Data</button>
 		</div>
 	</div>
-	
-<table id="myTable" class="table display table-warning">
+	<div  style="overflow-x:auto;">
+
+<table id="myTable" class="table display table-warning table-hover table-responsive">
     <thead>
         <tr>
             <th>no</th>
@@ -47,7 +48,8 @@
 		<?php endforeach;?>
     </tbody>
 </table>
-</div>
+
+</div></div>
 <script src="<?=base_url();?>assets/DataTables/datatables.js"></script>
 <script>
 	//var DataTable = require( 'datatables.net' );
