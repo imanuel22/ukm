@@ -21,8 +21,8 @@
 		<header class="header" id="header">
 			<div class="header_toggle"> <a href="#"><i class='bx bx-menu' id="header-toggle"></i></a> </div>
 			<div class="p-3">
-				<a href="">
-					<h3 class="">LOGIN</h3>
+				<a href="<?=base_url('csuperadmin/logout')?>">
+					<h3 class="">LOGOUT</h3>
 				</a>
 			</div>
 		</header>
@@ -38,17 +38,17 @@
 							<i class="fa-solid fa-house"></i>
 							<span class="nav_name">Home</span>
 						</a>
-						<a href="<?= base_url('cbem/bem'); ?>" class="nav_link ">
+						<a href="<?= base_url('cbem/verifmhs'); ?>" class="nav_link ">
 							<i class="fa-solid fa-database"></i>
-							<span class="nav_name">CRUD BEM</span>
+							<span class="nav_name">Verif Mahasiswa</span>
 						</a>
-						<a href="<?= base_url('cbem/jurusan'); ?>" class="nav_link">
+						<a href="<?= base_url('cbem/mahasiswa'); ?>" class="nav_link">
 							<i class="fa-solid fa-database"></i>
-							<span class="nav_name">CRUD Jurusan</span>
+							<span class="nav_name">Data Mahasiswa</span>
 						</a>
-						<a href="<?= base_url('cbem/prodi'); ?>" class="nav_link">
+						<a href="<?= base_url('cbem/ukm'); ?>" class="nav_link">
 							<i class="fa-solid fa-user"></i>
-							<span class="nav_name">CRUD Prodi</span>
+							<span class="nav_name">Data UKM</span>
 						</a>
 					</div>
 				</div>

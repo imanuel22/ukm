@@ -49,7 +49,8 @@
     </tbody>
 </table>
 
-</div></div>
+</div>
+</div>
 <script src="<?=base_url();?>assets/DataTables/datatables.js"></script>
 <script>
 	//var DataTable = require( 'datatables.net' );
