@@ -1,7 +1,7 @@
-<h1>data verif</h1>
+<div class="rounded-4 p-4 bg-info mt-3">
+<h1>Data Verif</h1>
 <form action="<?=base_url('cbem/proses_verif')?>" method="post">
 	<table class="table table-warning">
-		<input type="hidden" name="level" value="user">
 		<tr>
 			<th>Nama mahasiswa</th>
 			<td><input type="text" class="form-control-plaintext" value="<?=$datamhs->nama_mhs?>" readonly name="nama_mahasiswa"></td>
@@ -36,8 +36,13 @@
 			</td>
 		</tr>
 	</table>
-	<div class="mb-3">
-		<button type="submit" name="status" value="aktif" class="btn btn-success">Terima</button>
-		<button type="submit" name="status" value="tidakaktif" class="btn btn-danger">tolak</button>
+	<div class="mb-3 row">
+		<div class="col-6">
+			<button type="submit" name="status" value="terima" class="btn btn-success col-12">Terima</button>
+		</div>
+		<div class="col-6">
+			<button type="submit" name="status" value="tolak" class="btn btn-danger col-12">tolak</button>
+		</div>
 	</div>
 </form>
+</div>

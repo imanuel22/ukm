@@ -1,7 +1,16 @@
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
-<div class=" rounded-5 p-4">
-<h1>table ukm</h1>
-<table id="myTable" class="display">
+<link rel="stylesheet" href="<?=base_url();?>assets/DataTables/datatables.css">
+<div class="rounded-4 p-4 bg-info mt-3">
+	<div class="row mb-2">
+		<div class="col-10">
+			<h1 class="fw-bold ">Table ukm</h1>
+		</div>
+		<div class="col-2">
+			<button type="button" onclick="tambah()" class="btn btn-primary p-1 col-12">+Data</button>
+		</div>
+	</div>
+	<div  style="overflow-x:auto;">
+
+<table id="myTable" class="table display table-warning table-hover table-responsive">
     <thead>
         <tr>
             <th>no</th>
@@ -28,13 +37,15 @@
     </tbody>
 </table>
 </div>
-  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+<script src="<?=base_url();?>assets/DataTables/datatables.js"></script>
 <script>
 	let table = new DataTable('#myTable', {
     // options
 	responsive: true
 	});
-
+	function tambah(){
+		window.open("<?=base_url('cbem/ukm_tambah/')?>",'_self');
+	}
 	function edit(id_ukm){
 		window.open("<?=base_url('cbem/ukm_edit/')?>"+id_ukm,'_self');
 	}

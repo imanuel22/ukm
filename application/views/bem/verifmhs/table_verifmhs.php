@@ -4,11 +4,9 @@
 		<div class="col-10">
 			<h1 class="fw-bold ">Table Verif Mahasiswa	</h1>
 		</div>
-		<div class="col-2">
-			<button type="button" onclick="tambah()" class="btn btn-primary p-1 col-12">+Data</button>
-		</div>
 	</div>
-<div  style="overflow-x:auto;">
+	<div  style="overflow-x:auto;">
+
 <table id="myTable" class="table display table-warning table-hover table-responsive">
     <thead>
         <tr>
@@ -40,11 +38,10 @@
 </div>
 <script src="<?=base_url();?>assets/DataTables/datatables.js"></script>
 <script>
-	let table = new DataTable('#myTable1', {
+	let table = new DataTable('#myTable', {
     // options
 	responsive: true
 	});
-
 	function verif(id_daftar_mhs){
 		window.open("<?=base_url('cbem/verifmhs_form/')?>"+id_daftar_mhs,'_self');
 	}

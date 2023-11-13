@@ -1,3 +1,5 @@
+<div class="rounded-4 p-4 bg-info mt-3">
+
 <h1>form edit mahasiswa</h1>
 <form action="<?= base_url('cbem/update_data_mhs')?>" method="post">
 <input type="hidden" name="id_mahasiswa" value="<?=$data_mhs_where->id_mahasiswa?>">
@@ -46,3 +48,4 @@
 			<button type="submit" class="btn btn-primary col-12">Submit</button>
 		</div>
 	</form>
+</div>

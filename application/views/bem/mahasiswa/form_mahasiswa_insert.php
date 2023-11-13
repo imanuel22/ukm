@@ -1,3 +1,4 @@
+<div class="rounded-4 p-4 bg-info mt-3">
 <h1>form tambah mahasiswa</h1>
 <form action="<?= base_url('cbem/insert_data_mhs')?>" method="post">
 	<input type="hidden" name="level" value="user">
@@ -47,6 +48,7 @@
 			<button type="submit" class="btn btn-primary col-12">Submit</button>
 		</div>
 	</form>
+</div>
 	<!-- <script src="asset/js/jquery-3.7.1.min.js"></script>
 	<script type='text/javascript'>
 	$(document).ready(function(){

@@ -34,6 +34,18 @@ class Cbem extends CI_Controller{
 		$data1['data_jurusan']=$this->mbem->getdatajurusan();
 		$data=[
 			'title'=>'Data Mahasiswa',
+			'konten'=>'',
+			'table'=>$this->load->view('bem/mahasiswa/table_mahasiswa',$data1,TRUE),
+		];
+		$this->load->view('bem/dashboard.php',$data);
+	}
+	public function mahasiswa_tambah()
+	{	
+		$data1['data_mhs']=$this->mbem->getdatamahasiswa();
+		$data1['data_prodi']=$this->mbem->getdataprodi();
+		$data1['data_jurusan']=$this->mbem->getdatajurusan();
+		$data=[
+			'title'=>'Data Mahasiswa',
 			'konten'=>$this->load->view('bem/mahasiswa/form_mahasiswa_insert',$data1,TRUE),
 			'table'=>$this->load->view('bem/mahasiswa/table_mahasiswa',$data1,TRUE),
 		];
@@ -142,6 +154,16 @@ class Cbem extends CI_Controller{
 		$data1['data_mhs_level']=$this->mbem->getdatamahasiswawherel('user');
 		$data=[
 			'title'=>'Data ukm',
+			'konten'=>'',
+			'table'=>$this->load->view('bem/ukm/table_ukm',$data1,TRUE),
+		];
+		$this->load->view('bem/dashboard.php',$data);
+	}
+	public function ukm_tambah() {
+		$data1['data_ukm']=$this->mbem->getdataukm();
+		$data1['data_mhs_level']=$this->mbem->getdatamahasiswawherel('user');
+		$data=[
+			'title'=>'Data ukm',
 			'konten'=>$this->load->view('bem/ukm/form_ukm_insert',$data1,TRUE),
 			'table'=>$this->load->view('bem/ukm/table_ukm',$data1,TRUE),
 		];
@@ -151,6 +173,9 @@ class Cbem extends CI_Controller{
 	public function insert_data_ukm()
 	{
 		$this->mbem->insert_data_ukm();
+	}
+	public function delete_data_ukm($id_ukm){
+		$this->mbem->delete_data_ukm($id_ukm);
 	}
 
 	//verif mhs
@@ -176,10 +201,13 @@ class Cbem extends CI_Controller{
 	}
 	
 	public function proses_verif(){
-		if($this->input->post('status')){
+		if($this->input->post('status')=='terima'){
 		$this->mbem->proses_verif_berhasil();
 		}else{
 		$this->mbem->proses_verif_gagal();}
+	}
+	public function proseshapus($id){
+		$this->mbem->proseshapus($id);
 	}
 }
 ?>

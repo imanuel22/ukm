@@ -51,16 +51,12 @@
 
 </div>
 </div>
-<script src="<?=base_url();?>assets/DataTables/datatables.js"></script>
+<script src="<?=base_url();?>assets/DataTables/datatables.min.js"></script>
 <script>
-	//var DataTable = require( 'datatables.net' );
- 
 	let table = new DataTable('#myTable', {
-		// config options...
+    // options
+	responsive: true
 	});
-</script>
-<script>
-
 	function tambah(){
 		window.open("<?=base_url('csuperadmin/tambah_bem/')?>",'_self');
 
