@@ -21,9 +21,7 @@
 		<header class="header" id="header">
 			<div class="header_toggle"> <a href="#"><i class='bx bx-menu' id="header-toggle"></i></a> </div>
 			<div class="p-3">
-				<a href="<?=base_url('csuperadmin/logout')?>">
-					<h3 class="">LOGOUT</h3>
-				</a>
+			<li><a href="<?php echo base_url('clogin/logout'); ?>"><span class="bi bi-box-arrow-right"></span> Logout</a></li>
 			</div>
 		</header>
 		<div class="l-navbar" id="nav-bar">
@@ -81,7 +79,7 @@
 		else {
 		?>
 			<div class="card_bg1 p-2 rounded-4">
-				<h1>selamat datang </h1>
+				<h1>selamat datang di sistem informasi Unit Kegiatan Mahasiswa Politeknik Negeri Bali</h1>
 			</div>
 			<?php
 	}
