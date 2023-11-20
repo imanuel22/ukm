@@ -5,6 +5,7 @@ class Clogin extends CI_Controller{
 		$this->load->view('login');
 	}
 	public function proseslogin(){
-		$t
+		$this->load->model('mlogin');
+		$this->mlogin->proseslogin();
 	}
 }

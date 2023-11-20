@@ -1,21 +1,29 @@
 <?php
 class Mlogin extends CI_Model
 {
-	function prosseslogin() {
-		$username=$this->input->post('Username');
-		$password=$this->input->post('Password');
-		$sql="SELECT * FROM tbdaftar where Email='$username' AND Password='$password'";
+	function proseslogin() {
+		$nim=$this->input->post('nim');
+		$password=$this->input->post('password');
+		$sql="SELECT * FROM tb_mahasiswa where nim='$nim' AND password='$password'";
 		
 		$query=$this->db->query($sql);
 		if ($query->num_rows()>0) {
 			//session
 			$data=$query->row();
 			$array=array(
-				'KodeDaftar'=>$data->KodeDaftar,
-				'NamaLengkap'=>$data->NamaLengkap
+				'id_mahasiswa'=>$data->id_mahasiswa,
+				'nim'=>$data->nim,
+				'nama_mahasiswa'=>$data->nama_mahasiswa
 			);	
-			$this->session->set_userdata($array);	
-			redirect(base_url('cadmin/aindex'),'refresh');
+			$this->session->set_userdata($array);
+			//bem
+			if($data->level=="admin"){
+				redirect(base_url('cbem/dashboard'),'refresh');
+			}
+			//mahasiswa
+			else{
+				redirect(base_url('cmahasiswa/dashboard'),'refresh');
+			}
 		}
 		else{
 			$this->session->set_flashdata('pesan','Login gagal...');
