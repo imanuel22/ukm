@@ -6,7 +6,7 @@
 			if ($this->session->userdata('NamaLengkap')=='')
 			{
 				echo "<script>alert ('Anda tidak dapat mengakses halaman ini..!');</script>";
-				redirect('ctampil/login','refresh');
+				redirect('clogin/login','refresh');
 			}
 		}
 		

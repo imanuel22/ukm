@@ -5,6 +5,6 @@ class Clogin extends CI_Controller{
 		$this->load->view('login');
 	}
 	public function proseslogin(){
-
+		$t
 	}
 }
