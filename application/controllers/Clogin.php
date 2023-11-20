@@ -9,3 +9,4 @@ class Clogin extends CI_Controller{
 		$this->mlogin->proseslogin();
 	}
 }
+?>
