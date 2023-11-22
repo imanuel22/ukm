@@ -13,7 +13,17 @@ class Cmahasiswa extends CI_Controller{
 		$data1['data_ukm']=$this->mmahasiswa->getdataukm();
 		$data=[
 			'title'=>'Dashboard',
-			'konten'=>$this->load->view('mahasiswa/table_ukm',$data1,TRUE),
+			'konten'=>'',
+			'table'=>''
+		];
+		$this->load->view('mahasiswa/dashboard.php',$data);
+	}	
+
+	public function ukm(){
+		$data1['data_ukm']=$this->mmahasiswa->getdataukm();
+		$data=[
+			'title'=>'Dashboard',
+			'konten'=>$this->load->view('mahasiswa/ukm',$data1,TRUE),
 			'table'=>''
 		];
 		$this->load->view('mahasiswa/dashboard.php',$data);

@@ -6,6 +6,7 @@ class Cbem extends CI_Controller{
 		parent::__construct();
 		$this->load->model('mvalidasi');
 		$this->mvalidasi->validasi();
+		
 		$this->load->model('mbem');
 	}
 

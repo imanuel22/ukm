@@ -64,6 +64,7 @@ class Mbem extends CI_Model
 
 	public function getdataprodi(){
 		$query = $this->db->get('tb_prodi');
+		$this->db->get();
 		return $query->result();
 	}
 
@@ -193,7 +194,7 @@ class Mbem extends CI_Model
 	}
 
 	public function delete_data_ukm($id_ukm){
-		$this->db->where('id_daftar_mhs',$id_daftarid_ukm_mhs);
+		$this->db->where('id_daftar_mhs',$id_ukm);
 		$this->db->delete('tb_daftar_mhs');
 		redirect(base_url('cbem/verifmhs'),'_self');
 	}
