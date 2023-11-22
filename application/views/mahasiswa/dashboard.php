@@ -41,7 +41,7 @@
 							<i class='bx bxs-home' ></i>
 							<span class="nav_name">Home</span>
 						</a>
-						<a href="<?= base_url('cmahasiswa/'); ?>" class="nav_link ">
+						<a href="<?= base_url('cmahasiswa/daftar_ukm'); ?>" class="nav_link ">
 							<i class='bx bxs-data'></i>
 							<span class="nav_name">daftar?</span>
 						</a>

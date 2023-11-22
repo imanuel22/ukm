@@ -27,11 +27,21 @@ class Cmahasiswa extends CI_Controller{
 			'table'=>''
 		];
 		$this->load->view('mahasiswa/dashboard.php',$data);
+
 	}
 
 	// public function informasi_ukm () {
 	// 	$this->mmahasiswa->getdataukm();
 	// }
+	public function daftar_ukm(){
+		$data1['data_ukm']=$this->mmahasiswa->getdataukm();
+		$data=[
+			'title'=>'daftar_ukm',
+			'konten'=>$this->load->view('mahasiswa/daftar_ukm',$data1,TRUE),
+			'table'=>''
+		];
+		$this->load->view('mahasiswa/dashboard.php',$data);
+	}
 
 	function logout()
 		{
