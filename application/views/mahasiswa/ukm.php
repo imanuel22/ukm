@@ -144,10 +144,15 @@ main {
               <?=$row->deskripsi?>
             </p>
             <div class="card__info">
-              <p class="card__price text--medium">Free</p>
+              <button type="button" onclick="opens(<?=$row->id_ukm?>)" class="card__price text--medium">View</button>
             </div>
           </div>
         </div>
 		<?php endforeach; ?>
       </section>
 </main>
+<script>
+  function opens(id_ukm){
+		window.open("<?=base_url('cmahasiswa/ukm_where/')?>"+id_ukm,'_self');
+	}
+</script>

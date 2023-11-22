@@ -43,6 +43,16 @@ class Cmahasiswa extends CI_Controller{
 		$this->load->view('mahasiswa/dashboard.php',$data);
 	}
 
+	public function ukm_where($id) {
+		$data1['data_ukm']=$this->mmahasiswa->getdataukmwhere($id);
+		$data=[
+			'title'=>'ukm',
+			'konten'=>$this->load->view('mahasiswa/ukm_where',$data1,TRUE),
+			'table'=>''
+		];
+		$this->load->view('mahasiswa/dashboard.php',$data);
+	}
+
 	function logout()
 		{
 			$this->session->sess_destroy();
