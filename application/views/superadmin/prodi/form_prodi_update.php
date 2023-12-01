@@ -1,7 +1,7 @@
 
 <div class="rounded-4 p-4 bg-info mt-3">
 <h1 class="fw-bold ">Edit prodi</h1>
-<form action="<?= base_url('csuperadmin/update_data_prodi')?>" method="post">
+<form action="<?= base_url('csuperadmin/update_prodi')?>" method="post">
 <input type="hidden" name="id_prodi" value="<?=$data_prodi_id->id_prodi?>">
 		<div class="mb-3">
 			<label for="nama_prodi" class="form-label">nama prodi</label>

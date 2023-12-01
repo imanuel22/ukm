@@ -1,7 +1,7 @@
 
 <div class="rounded-4 p-4 bg-info mt-3">
 <h1 class="fw-bold ">Tambah bem</h1>
-<form action="<?= base_url('csuperadmin/insert_data_bem')?>" method="post">
+<form action="<?= base_url('csuperadmin/insert_bem')?>" method="post">
 		<div class="mb-3">
 			<label for="nim" class="form-label">nim</label>
 			<input type="text" name="nim" class="form-control" id="nim">

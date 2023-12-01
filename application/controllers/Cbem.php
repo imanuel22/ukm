@@ -7,7 +7,10 @@ class Cbem extends CI_Controller{
 		$this->load->model('mvalidasi');
 		$this->mvalidasi->validasi();
 		
-		$this->load->model('mbem');
+		$this->load->model('mdm');
+		$this->load->model('mmahasiswa');
+		$this->load->model('mjurusan');
+		$this->load->model('mprodi');
 	}
 
 
@@ -32,9 +35,8 @@ class Cbem extends CI_Controller{
 	//halaman mahasiswa
 	public function mahasiswa()
 	{	
-		$data1['data_mhs']=$this->mbem->getdatamahasiswa();
-		$data1['data_prodi']=$this->mbem->getdataprodi();
-		$data1['data_jurusan']=$this->mbem->getdatajurusan();
+		$data1['data_mhs']=$this->mmahasiswa->get_mahasiswa();
+		$data1['data_prodi']=$this->mprodi->get_prodi();
 		$data=[
 			'title'=>'Data Mahasiswa',
 			'konten'=>'',
@@ -82,75 +84,6 @@ class Cbem extends CI_Controller{
 		$this->mbem->delete_data_mhs($id_mhs);
 	}
 
-	//halaman jurusan
-	public function jurusan() {
-		$data1['data_jurusan']=$this->mbem->getdatajurusan();
-		$data=[
-			'title'=>'Data Jurusan',
-			'konten'=>$this->load->view('bem/jurusan/form_jurusan_insert',$data1,TRUE),
-			'table'=>$this->load->view('bem/jurusan/table_jurusan',$data1,TRUE),
-		];
-		$this->load->view('bem/dashboard.php',$data);
-	}
-	public function jurusan_edit($id_jurusan)
-	{	
-		$data1['data_jurusan']=$this->mbem->getdatajurusan();
-		$data1['data_jurusan_where']=$this->mbem->getdatajurusanwhere($id_jurusan);
-		$data1['data_prodi']=$this->mbem->getdataprodi();
-		$data=[
-			'title'=>'Data jurusan',
-			'konten'=>$this->load->view('bem/jurusan/form_jurusan_update',$data1,TRUE),
-			'table'=>$this->load->view('bem/jurusan/table_jurusan',$data1,TRUE),
-		];
-		$this->load->view('bem/dashboard.php',$data);
-	}
-	public function insert_data_jurusan()
-	{
-		$this->mbem->insert_data_jurusan();
-	}
-	public function update_data_jurusan()
-	{
-		$this->mbem->update_data_jurusan();
-	}
-
-	public function delete_data_jurusan($id_jurusan){
-		$this->mbem->delete_data_jurusan($id_jurusan);
-	}
-	//halaman prodi
-	public function prodi() {
-		$data1['data_prodi']=$this->mbem->getdataprodi();
-		$data1['data_jurusan']=$this->mbem->getdatajurusan();
-		$data=[
-			'title'=>'Data prodi',
-			'konten'=>$this->load->view('bem/prodi/form_prodi_insert',$data1,TRUE),
-			'table'=>$this->load->view('bem/prodi/table_prodi',$data1,TRUE),
-		];
-		$this->load->view('bem/dashboard.php',$data);
-	}
-	public function prodi_edit($id_prodi)
-	{	
-		$data1['data_prodi']=$this->mbem->getdataprodi();
-		$data1['data_prodi_where']=$this->mbem->getdataprodiwhere($id_prodi);
-		$data1['data_jurusan']=$this->mbem->getdatajurusan();
-		$data=[
-			'title'=>'Data prodi',
-			'konten'=>$this->load->view('bem/prodi/form_prodi_update',$data1,TRUE),
-			'table'=>$this->load->view('bem/prodi/table_prodi',$data1,TRUE),
-		];
-		$this->load->view('bem/dashboard.php',$data);
-	}
-	public function insert_data_prodi()
-	{
-		$this->mbem->insert_data_prodi();
-	}
-	public function update_data_prodi()
-	{
-		$this->mbem->update_data_prodi();
-	}
-
-	public function delete_data_prodi($id_prodi){
-		$this->mbem->delete_data_prodi($id_prodi);
-	}
 	//halaman ukm
 	public function ukm() {
 		$data1['data_ukm']=$this->mbem->getdataukm();
@@ -191,9 +124,11 @@ class Cbem extends CI_Controller{
 		$this->mbem->delete_data_ukm($id_ukm);
 	}
 
+
+
 	//verif mhs
 	public function verifmhs() {
-		$data1['data_verifmhs']=$this->mbem->getdataverifmhs();
+		$data1['data_verifmhs']=$this->mdm->get_daftafmhs();
 		$data=[
 			'title'=>'Data verifmhs',
 			'konten'=>'',
@@ -203,8 +138,8 @@ class Cbem extends CI_Controller{
 	}
 
 	public function verifmhs_form($id_daftar_mhs){
-		$data1['data_verifmhs']=$this->mbem->getdataverifmhs();
-		$data1['datamhs']=$this->mbem->getdataverifmhswhere($id_daftar_mhs);
+		$data1['data_verifmhs']=$this->mdm->get_daftafmhs();
+		$data1['datamhs']=$this->mdm->get_daftarmhs_id($id_daftar_mhs);
 		$data=[
 			'title'=>'Data verifmhs',
 			'konten'=>$this->load->view('bem/verifmhs/verifmhs_form',$data1,TRUE),
@@ -215,12 +150,12 @@ class Cbem extends CI_Controller{
 	
 	public function proses_verif(){
 		if($this->input->post('status')=='terima'){
-		$this->mbem->proses_verif_berhasil();
+		$this->mdm->proses_verif_berhasil();
 		}else{
-		$this->mbem->proses_verif_gagal();}
+		$this->mdm->proses_verif_gagal();}
 	}
 	public function proseshapus($id){
-		$this->mbem->proseshapus($id);
+		$this->mdm->proseshapus($id);
 	}
 }
 ?>

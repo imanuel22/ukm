@@ -11,7 +11,7 @@
     <thead>
         <tr>
             <th>no</th>
-            <th>nama_mhs</th>
+            <th>nama_mahasiswa</th>
 			<th>nim_mhs</th>
 			<th>Action</th>
         </tr>
@@ -23,11 +23,11 @@
 		?>
 			<tr>
 				<td><?=$no++?></td>
-				<td><?=$row->nama_mhs?></td>
-				<td><?=$row->nim_mhs?></td>
+				<td><?=$row->nama_mahasiswa?></td>
+				<td><?=$row->nim_mahasiswa?></td>
 				<td>
-					<button type="button" class="btn btn-warning" onclick="verif(<?=$row->id_daftar_mhs?>)"><i class="bi bi-check2-circle"></i></button>
-					<button type="button" class="btn btn-danger" onclick="hapus(<?=$row->id_daftar_mhs?>)"><i class="bi bi-trash3"></i></button>
+					<button type="button" class="btn btn-warning" onclick="verif(<?=$row->id_daftar_mahasiswa?>)"><i class="bi bi-check2-circle"></i></button>
+					<button type="button" class="btn btn-danger" onclick="hapus(<?=$row->id_daftar_mahasiswa?>)"><i class="bi bi-trash3"></i></button>
 				</td>
 			</tr>
 		<?php endforeach;?>

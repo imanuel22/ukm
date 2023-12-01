@@ -4,11 +4,11 @@
 	<table class="table table-warning">
 		<tr>
 			<th>Nama mahasiswa</th>
-			<td><input type="text" class="form-control-plaintext" value="<?=$datamhs->nama_mhs?>" readonly name="nama_mahasiswa"></td>
+			<td><input type="text" class="form-control-plaintext" value="<?=$datamhs->nama_mahasiswa?>" readonly name="nama_mahasiswa"></td>
 		</tr>
 		<tr>
 			<th>Nim</th>
-			<td><input type="text" class="form-control-plaintext" value="<?=$datamhs->nim_mhs?>" readonly name="nim"></td>
+			<td><input type="text" class="form-control-plaintext" value="<?=$datamhs->nim_mahasiswa?>" readonly name="nim"></td>
 		</tr>
 		<tr>
 			<th>angkatan</th>
@@ -16,7 +16,7 @@
 		</tr>
 		<tr>
 			<th>prodi</th>
-			<td><input type="text" class="form-control-plaintext" value="<?=$datamhs->id_prodi?>" readonly name="id_prodi"></td>
+			<td><input type="text" class="form-control-plaintext" value="<?=$datamhs->nama_prodi?>" readonly name="id_prodi"></td>
 		</tr>
 		<tr>
 			<th>no telp</th>

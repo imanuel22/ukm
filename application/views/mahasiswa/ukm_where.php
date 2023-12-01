@@ -32,41 +32,28 @@
 
 <div class="rounded-4 p-4 bg-info mt-3">
 <h1>Daftar UKM</h1>
-<form action="<?= base_url('cmahasiswa/insert_data_mhs')?>" method="post">
-	<input type="hidden" name="level" value="user">
+<form action="<?= base_url('cmahasiswa/daftaranggota')?>" method="post">
 		<div class="mb-3">
 			<label for="nim" class="form-label">nim</label>
-			<input type="text" name="nim" class="form-control" id="nim">
+			<p class="form-control"><?= $this->session->userdata('nim')?></p>
 		</div>
 		<div class="mb-3">
 			<label for="nama_mahasiswa" class="form-label">nama_mahasiswa</label>
-			<input type="text" name="nama_mahasiswa" class="form-control" id="nama_mahasiswa">
+			<p class="form-control"><?= $this->session->userdata('nama_mahasiswa')?></p>
 		</div>
 		<div class="mb-3">
 			<label for="angkatan" class="form-label">angkatan</label>
-			<input type="text" name="angkatan" class="form-control" id="angkatan">
+			<p class="form-control"><?= $this->session->userdata('angkatan')?></p>
 		</div>
-		<div class="mb-3">
-			<label for="divisi" class="form-label">divisi</label>
-			<input type="text" name="divisi" class="form-control" id="divisi">
-		</div>
-		<div class="mb-3">
-			<label for="id_jurusan">prodi</label>
-			<select name="id_jurusan" id="id_jurusan" class="form-control">
-				<option value="" hidden>pilih</option>
-				<?php foreach($data_jurusan as $row):?>
-				<option value="<?=$row->id_jurusan?>"><?=$row->nama_jurusan?></option>
-				<?php endforeach;?>
-			</select>
-		</div>		
 		<div class="mb-3">
 			<label for="id_prodi">prodi</label>
-			<select name="id_prodi" id="id_prodi" class="form-control">
-				<option value="" hidden>pilih</option>
-				<?php foreach($data_prodi as $row):?>
-				<option value="<?=$row->id_prodi?>"><?=$row->nama_prodi?></option>
-				<?php endforeach;?>
-			</select>
+			<p class="form-control"><?= $this->session->userdata('id_prodi')?></p>
+		</div>		
+		<input type="hidden" name="id_ukm" value="<?=$id_ukm?>">
+		<input type="hidden" name="id_mahasiswa" value="<?= $this->session->userdata('nim')?>">
+		<div class="mb-3">
+			<label for="devisi" class="form-label">devisi</label>
+			<input type="text" name="devisi" class="form-control" id="devisi">
 		</div>
         <div class="mb-3">
 			<label for="alasan" class="form-label">alasan</label>

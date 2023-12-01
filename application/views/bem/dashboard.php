@@ -21,7 +21,7 @@
 		<header class="header" id="header">
 			<div class="header_toggle"> <a href="#"><i class='bx bx-menu' id="header-toggle"></i></a> </div>
 			<div class="p-3">
-				<a href="<?=base_url('csuperadmin/logout')?>">
+				<a href="<?=base_url('cauth/logout')?>">
 					<h3 class="">LOGOUT</h3>
 				</a>
 			</div>

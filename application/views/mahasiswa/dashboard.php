@@ -21,32 +21,28 @@
 		<header class="header" id="header">
 			<div class="header_toggle"> <a href="#"><i class='bx bx-menu' id="header-toggle"></i></a> </div>
 			<div class="p-3">
-			<li><a href="<?php echo base_url('clogin/logout'); ?>"><span class="bi bi-box-arrow-right"></span> Logout</a></li>
+			<li><a href="<?php echo base_url('cauth/logout'); ?>"><span class="bi bi-box-arrow-right"></span> Logout</a></li>
 			</div>
 		</header>
 		<div class="l-navbar" id="nav-bar">
 			<nav class="nav">
 				<div>
-					<a href="<?= base_url('csuperadmin/dashboard'); ?>" class="nav_logo">
+					<a href="<?= base_url('cmahasiswa/dashboard'); ?>" class="nav_logo">
 						<i class="fa-solid fa-image"></i>
 						<span class="nav_logo-name">UKM</span>
 					</a>
 					<div class="nav_list">
-						<a href="<?= base_url('csuperadmin/dashboard'); ?>" class="nav_link ">
+						<a href="<?= base_url('cmahasiswa/dashboard'); ?>" class="nav_link ">
 							<i class="fa-solid fa-house"></i>
 							<span class="nav_name">Home</span>
 						</a>
-						<a href="<?= base_url('csuperadmin/bem'); ?>" class="nav_link ">
+						<a href="<?= base_url('cmahasiswa/ukm'); ?>" class="nav_link ">
 							<i class="fa-solid fa-database"></i>
-							<span class="nav_name">CRUD BEM</span>
+							<span class="nav_name">UKM</span>
 						</a>
-						<a href="<?= base_url('csuperadmin/jurusan'); ?>" class="nav_link">
+						<a href="<?= base_url('cmahasiswa/card'); ?>" class="nav_link">
 							<i class="fa-solid fa-database"></i>
-							<span class="nav_name">CRUD Jurusan</span>
-						</a>
-						<a href="<?= base_url('csuperadmin/prodi'); ?>" class="nav_link">
-							<i class="fa-solid fa-user"></i>
-							<span class="nav_name">CRUD Prodi</span>
+							<span class="nav_name">CARD ANGGOTA</span>
 						</a>
 					</div>
 				</div>

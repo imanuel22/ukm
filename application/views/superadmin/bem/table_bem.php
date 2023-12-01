@@ -21,7 +21,7 @@
             <th>no_telp</th>
             <th>img_mahasiswa</th>
             <th>status</th>
-            <th>id_prodi</th>
+            <th>nama prodi</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -39,7 +39,7 @@
 				<td><?=$row->no_telp?></td>
 				<td><?=$row->img_mahasiswa?></td>
 				<td><?=$row->status?></td>
-				<td><?=$row->id_prodi ?></td>
+				<td><?=$row->nama_prodi?></td>
 				<td class="text-center">
 					<button type="button" class="btn btn-warning" onclick="edit(<?=$row->id_mahasiswa?>)"><i class="bi bi-pencil"></i></button>
 					<button type="button" class="btn btn-danger" onclick="hapus(<?=$row->id_mahasiswa?>)"><i class="bi bi-trash3"></i></button>
@@ -66,7 +66,7 @@
 	}
 	function hapus(id_mahasiswa){
 		if (confirm('apakah ingin menghapus data id '+id_mahasiswa+' ini?')) {
-			window.open("<?=base_url('csuperadmin/delete_data_bem/')?>"+id_mahasiswa,'_self');
+			window.open("<?=base_url('csuperadmin/delete_bem/')?>"+id_mahasiswa,'_self');
 		}
 	}
 </script>

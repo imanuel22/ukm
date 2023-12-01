@@ -1,7 +1,7 @@
 
 <div class="rounded-4 p-4 bg-info mt-3">
 <h1 class="fw-bold ">Edit bem</h1>
-<form action="<?= base_url('csuperadmin/update_data_bem')?>" method="post">
+<form action="<?= base_url('csuperadmin/update_bem')?>" method="post">
 <input type="hidden" name="id_mahasiswa" class="form-control"value="<?=$data_bem_id->id_mahasiswa?>">
 		<div class="mb-3">
 			<label for="nim" class="form-label">nim</label>

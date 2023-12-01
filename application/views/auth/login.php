@@ -75,7 +75,7 @@
                     }
                 ?>
 
-                <form action="<?= base_url('clogin/proseslogin') ?>" method="post">
+                <form action="<?= base_url('cauth/proseslogin') ?>" method="post">
                     <div class="form-group mt-3">
                         <label for="nim">NIM</label>
                         <input type="text" class="form-control" id="nim" name="nim">
@@ -98,7 +98,7 @@
 
     <script language='javascript'>
         function daftar() {
-            window.open("<?= base_url('chome/register')?>", "_self");
+            window.open("<?= base_url('cauth/register')?>", "_self");
         }
     </script>
 

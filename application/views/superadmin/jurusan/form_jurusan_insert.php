@@ -1,7 +1,7 @@
 
 <div class="rounded-4 p-4 bg-info mt-3">
 <h1 class="fw-bold ">Tambah Jurusan</h1>
-<form action="<?= base_url('csuperadmin/insert_data_jurusan')?>" method="post">
+<form action="<?= base_url('csuperadmin/insert_jurusan')?>" method="post">
 		<div class="mb-3">
 			<label for="nama_jurusan" class="form-label">nama_jurusan</label>
 			<input type="text" name="nama_jurusan" class="form-control" id="nama_jurusan">

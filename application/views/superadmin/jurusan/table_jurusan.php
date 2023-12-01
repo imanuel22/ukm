@@ -60,7 +60,7 @@
 	}
 	function hapus(id_jurusan){
 		if (confirm('apakah ingin menghapus data id '+id_jurusan+' ini?')) {
-			window.open("<?=base_url('csuperadmin/delete_data_jurusan/')?>"+id_jurusan,'_self');
+			window.open("<?=base_url('csuperadmin/delete_jurusan/')?>"+id_jurusan,'_self');
 		}
 	}
 </script>

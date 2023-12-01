@@ -7,15 +7,7 @@ class Madmin extends CI_Model
 		$result = $this->db->affected_rows();
 		if ($result>0) {
 			//session
-			$data=$query->row();
-			$array=[
-				'id_superadmin'=>$data->id_superadmin,
-				'username'=>$data->username,
-				'email'=>$data->email,
-				'level'=>'admin'
-			];	
-			$this->session->set_userdata($array);	
-			redirect(base_url('csuperadmin/dashboard'),'refresh');
+			
 
 		}
 		else{

@@ -30,7 +30,7 @@
 			<tr>
 				<td><?=$no++?></td>
 				<td><?=$row->nama_prodi?></td>
-				<td><?=$row->id_jurusan?></td>
+				<td><?=$row->nama_jurusan?></td>
 				<td><?=$row->jenjang?></td>
 				<td><?=$row->NoSKProdi?></td>
 				<td><?=$row->Kaprodi?></td>
@@ -63,7 +63,7 @@
 	}
 	function hapus(id_prodi){
 		if (confirm('apakah ingin menghapus data id '+id_prodi+' ini?')) {
-			window.open("<?=base_url('csuperadmin/delete_data_prodi/')?>"+id_prodi,'_self');
+			window.open("<?=base_url('csuperadmin/delete_prodi/')?>"+id_prodi,'_self');
 		}
 	}
 </script>

@@ -1,7 +1,7 @@
 <div class="rounded-4 p-4 bg-info mt-3">
 
 <h1 class="fw-bold ">EDIT Jurusan</h1>
-<form action="<?= base_url('csuperadmin/update_data_jurusan')?>" method="post">
+<form action="<?= base_url('csuperadmin/update_jurusan')?>" method="post">
 <input type="hidden" name="id_jurusan" value="<?=$data_jurusan_id->id_jurusan?>">
 		<div class="mb-3">
 			<label for="nama_jurusan" class="form-label">nama_jurusan</label>

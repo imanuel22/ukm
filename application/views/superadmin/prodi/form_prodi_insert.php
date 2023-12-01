@@ -1,7 +1,7 @@
 
 <div class="rounded-4 p-4 bg-info mt-3">
 <h1 class="fw-bold ">Tambah prodi</h1>
-<form action="<?= base_url('csuperadmin/insert_data_prodi')?>" method="post">
+<form action="<?= base_url('csuperadmin/insert_prodi')?>" method="post">
 		<div class="mb-3">
 			<label for="nama_prodi" class="form-label">nama prodi</label>
 			<input type="text" name="nama_prodi" class="form-control" id="nama_prodi">

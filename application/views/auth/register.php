@@ -52,10 +52,10 @@
                 <?php
                 }
                 ?>
-                <form action="<?= base_url('chome/login') ?>" method="post">
+                <form action="<?= base_url('cauth/prosesregister') ?>" method="post">
                     <div class="mb-3">
                         <label for="nim" class="form-label">NIM:</label>
-                        <input type="text" class="form-control" id="nim" name="nim" required>
+                        <input type="text" class="form-control" id="nim" name="nim_mahasiswa" required>
                     </div>
                     <div class="mb-3">
                         <label for="nama_mhs" class="form-label">Nama Mahasiswa:</label>
@@ -79,7 +79,18 @@
                     </div>
                     <div class="mb-3">
                         <label for="id_prodi" class="form-label">ID Prodi:</label>
-                        <input type="text" class="form-control" id="id_prodi" name="id_prodi" required>
+                        <select class="form-control" name="id_prodi" id="id_prodi" required>
+                            <option value="0" hidden>pilih</option>
+                            <?php 
+                            foreach($data_prodi as $row):
+                            ?>
+                            <option value="<?=$row->id_prodi?>"><?=$row->nama_prodi?></option>
+                            <?php endforeach;?>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="angkatan" class="form-label">angkatan:</label>
+                        <input type="text" class="form-control" id="angkatan" name="angkatan" required>
                     </div>
                     <div class="mb-3">
                         <button class="btn btn-primary col-12" type="submit">REGISTER</button>

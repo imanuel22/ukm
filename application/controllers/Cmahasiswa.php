@@ -4,8 +4,8 @@ class Cmahasiswa extends CI_Controller{
 	public function __construct()
 		{
 			parent::__construct();
-			// $this->load->model('mvalidasi');
-			// $this->mvalidasi->validasi();
+			$this->load->model('mvalidasi');
+			$this->mvalidasi->validasi();
 			$this->load->model('mmahasiswa');
 		}
 	
@@ -43,14 +43,25 @@ class Cmahasiswa extends CI_Controller{
 		$this->load->view('mahasiswa/dashboard.php',$data);
 	}
 
+	
+
 	public function ukm_where($id) {
+		$this->mvalidasi->cekanggota($id);
+		if ($this->session->userdata('level')=='mahasiswa') {
+		
 		$data1['data_ukm']=$this->mmahasiswa->getdataukmwhere($id);
+		$data1['id_ukm']=$id;
 		$data=[
 			'title'=>'ukm',
 			'konten'=>$this->load->view('mahasiswa/ukm_where',$data1,TRUE),
 			'table'=>''
 		];
 		$this->load->view('mahasiswa/dashboard.php',$data);
+		}
+	}
+
+	public function daftaranggota(){
+		$this->mmahasiswa->daftaranggota();
 	}
 
 	function logout()

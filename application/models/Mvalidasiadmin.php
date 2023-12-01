@@ -9,6 +9,5 @@
 				redirect('cadmin/login','refresh');
 			}
 		}
-		
 	}
 ?>

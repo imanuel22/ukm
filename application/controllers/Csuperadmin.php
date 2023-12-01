@@ -5,7 +5,9 @@ class Csuperadmin extends CI_Controller{
 		parent::__construct();
 		$this->load->model('mvalidasiadmin');
 		$this->mvalidasiadmin->validasi();
-		$this->load->model('msuperadmin');
+		$this->load->model('mprodi');
+		$this->load->model('mjurusan');
+		$this->load->model('mbem');
 	}
 	function logout()
 	{
@@ -23,7 +25,7 @@ class Csuperadmin extends CI_Controller{
 		$this->load->view('superadmin/dashboard',$data);
 	}
 	public function jurusan() {
-		$data1['data_jurusan']=$this->msuperadmin->getdatajurusan();
+		$data1['data_jurusan']=$this->mjurusan->get_jurusan();
 		$data = [
 			'title'=>'jurusan',
 			'konten'=>'',
@@ -32,7 +34,7 @@ class Csuperadmin extends CI_Controller{
 		$this->load->view('superadmin/dashboard',$data);
 	}
 	public function tambah_jurusan() {
-		$data1['data_jurusan']=$this->msuperadmin->getdatajurusan();
+		$data1['data_jurusan']=$this->mjurusan->get_jurusan();
 		$data = [
 			'title'=>'jurusan',
 			'konten'=>$this->load->view('superadmin/jurusan/form_jurusan_insert','',TRUE),
@@ -41,8 +43,8 @@ class Csuperadmin extends CI_Controller{
 		$this->load->view('superadmin/dashboard',$data);
 	}
 	public function edit_jurusan($id) {
-		$data1['data_jurusan']=$this->msuperadmin->getdatajurusan();
-		$data1['data_jurusan_id']=$this->msuperadmin->getdatajurusan_id($id);
+		$data1['data_jurusan']=$this->mjurusan->get_jurusan();
+		$data1['data_jurusan_id']=$this->mjurusan->get_jurusan_id($id);
 		$data = [
 			'title'=>'jurusan',
 			'konten'=>$this->load->view('superadmin/jurusan/form_jurusan_update',$data1,TRUE),
@@ -50,19 +52,19 @@ class Csuperadmin extends CI_Controller{
 			];
 		$this->load->view('superadmin/dashboard',$data);
 	}
-	public function insert_data_jurusan(){
-		$this->msuperadmin->insert_data_jurusan();
+	public function insert_jurusan(){
+		$this->mjurusan->insert_jurusan();
 	}
-	public function update_data_jurusan(){
-		$this->msuperadmin->update_data_jurusan();
+	public function update_jurusan(){
+		$this->mjurusan->update_jurusan();
 	}
-	public function delete_data_jurusan($id){
-		$this->msuperadmin->delete_data_jurusan($id);
+	public function delete_jurusan($id){
+		$this->mjurusan->delete_jurusan($id);
 	}
 
 	//prodi
 	public function prodi() {
-		$data1['data_prodi']=$this->msuperadmin->getdataprodi();
+		$data1['data_prodi']=$this->mprodi->view_prodi();
 		$data = [
 			'title'=>'prodi',
 			'konten'=>'',
@@ -71,8 +73,8 @@ class Csuperadmin extends CI_Controller{
 		$this->load->view('superadmin/dashboard',$data);
 	}
 	public function tambah_prodi() {
-		$data1['data_prodi']=$this->msuperadmin->getdataprodi();
-		$data1['data_jurusan']=$this->msuperadmin->getdatajurusan();
+		$data1['data_prodi']=$this->mprodi->view_prodi();
+		$data1['data_jurusan']=$this->mjurusan->get_jurusan();
 		$data = [
 			'title'=>'prodi',
 			'konten'=>$this->load->view('superadmin/prodi/form_prodi_insert',$data1,TRUE),
@@ -81,9 +83,9 @@ class Csuperadmin extends CI_Controller{
 		$this->load->view('superadmin/dashboard',$data);
 	}
 	public function edit_prodi($id) {
-		$data1['data_prodi']=$this->msuperadmin->getdataprodi();
-		$data1['data_jurusan']=$this->msuperadmin->getdatajurusan();
-		$data1['data_prodi_id']=$this->msuperadmin->getdataprodi_id($id);
+		$data1['data_prodi']=$this->mprodi->view_prodi();
+		$data1['data_jurusan']=$this->mjurusan->get_jurusan();
+		$data1['data_prodi_id']=$this->mprodi->get_prodi_id($id);
 		$data = [
 			'title'=>'prodi',
 			'konten'=>$this->load->view('superadmin/prodi/form_prodi_update',$data1,TRUE),
@@ -91,18 +93,18 @@ class Csuperadmin extends CI_Controller{
 			];
 		$this->load->view('superadmin/dashboard',$data);
 	}
-	public function insert_data_prodi(){
-		$this->msuperadmin->insert_data_prodi();
+	public function insert_prodi(){
+		$this->mprodi->insert_prodi();
 	}
-	public function update_data_prodi(){
-		$this->msuperadmin->update_data_prodi();
+	public function update_prodi(){
+		$this->mprodi->update_prodi();
 	}
-	public function delete_data_prodi($id){
-		$this->msuperadmin->delete_data_prodi($id);
+	public function delete_prodi($id){
+		$this->mprodi->delete_prodi($id);
 	}
 
 	public function bem() {
-		$data1['data_bem']=$this->msuperadmin->getdatabem();
+		$data1['data_bem']=$this->mbem->get_bem();
 		$data = [
 			'title'=>'bem',
 			'konten'=>'',
@@ -111,8 +113,8 @@ class Csuperadmin extends CI_Controller{
 		$this->load->view('superadmin/dashboard',$data);
 	}
 	public function tambah_bem() {
-		$data1['data_bem']=$this->msuperadmin->getdatabem();
-		$data1['data_prodi']=$this->msuperadmin->getdataprodi();
+		$data1['data_bem']=$this->mbem->get_bem();
+		$data1['data_prodi']=$this->mprodi->get_prodi();
 
 		$data = [
 			'title'=>'bem',
@@ -122,9 +124,9 @@ class Csuperadmin extends CI_Controller{
 		$this->load->view('superadmin/dashboard',$data);
 	}
 	public function edit_bem($id) {
-		$data1['data_bem']=$this->msuperadmin->getdatabem();
-		$data1['data_prodi']=$this->msuperadmin->getdataprodi();
-		$data1['data_bem_id']=$this->msuperadmin->getdatabem_id($id);
+		$data1['data_bem']=$this->mbem->get_bem();
+		$data1['data_prodi']=$this->mprodi->get_prodi();
+		$data1['data_bem_id']=$this->mbem->get_bem_id($id);
 		$data = [
 			'title'=>'bem',
 			'konten'=>$this->load->view('superadmin/bem/form_bem_update',$data1,TRUE),
@@ -132,14 +134,14 @@ class Csuperadmin extends CI_Controller{
 			];
 		$this->load->view('superadmin/dashboard',$data);
 	}
-	public function insert_data_bem(){
-		$this->msuperadmin->insert_data_bem();
+	public function insert_bem(){
+		$this->mbem->insert_bem();
 	}
-	public function update_data_bem(){
-		$this->msuperadmin->update_data_bem();
+	public function update_bem(){
+		$this->mbem->update_bem();
 	}
-	public function delete_data_bem($id){
-		$this->msuperadmin->delete_data_bem($id);
+	public function delete_bem($id){
+		$this->mbem->delete_bem($id);
 	}
 }
 ?>

@@ -1,19 +1,19 @@
 <?php
-class Mbem extends CI_Model{
-	public function get_bem() {
-		return $this->db->get('bem')->result();
+class Mprodi extends CI_Model{
+
+    public function get_prodi() {
+		return $this->db->get('prodi')->result();
 	}
-	public function get_bem_id($id_mahasiswa) {
-		$this->db->where('id_mahasiswa',$id_mahasiswa);
-		$this->db->where('level','admin');
-		$query = $this->db->get('tb_mahasiswa');
-		return $query->row();
-		
+	public function get_prodi_id($id_prodi){
+		return $this->db->get_where('tb_prodi',['id_prodi'=>$id_prodi])->row();
 	}
-	public function insert_bem(){
+	public function view_prodi() {
+		return $this->db->get('prodi')->result();
+	}
+
+	public function insert_prodi(){
 		$data = $_POST;
-		$data['level']='admin';
-		$this->db->insert('tb_mahasiswa',$data);
+		$this->db->insert('tb_prodi',$data);
 		$query = $this->db->affected_rows();
 		if($query>0){
 			$this->session->set_flashdata('pesan','data berhasil Tersimpan');
@@ -22,12 +22,12 @@ class Mbem extends CI_Model{
 			$this->session->set_flashdata('pesan','data gagal Tersimpan');
 			$this->session->set_flashdata('color','danger');
 		}
-		redirect(base_url('csuperadmin/bem'),'_self');
+		redirect(base_url('csuperadmin/prodi'),'_self');
 	}
-	public function update_bem(){
+	public function update_prodi(){
 		$data=$_POST;
-		$this->db->where('id_mahasiswa',$data['id_mahasiswa']);
-		$this->db->update('tb_mahasiswa',$data);
+		$this->db->where('id_prodi',$data['id_prodi']);
+		$this->db->update('tb_prodi',$data);
 		$query = $this->db->affected_rows();
 		if($query>0){
 			$this->session->set_flashdata('pesan','data berhasil Terupdate');
@@ -36,11 +36,11 @@ class Mbem extends CI_Model{
 			$this->session->set_flashdata('pesan','data gagal Terupdate');
 			$this->session->set_flashdata('color','danger');
 		}
-		redirect(base_url('csuperadmin/bem'),'_self');
+		redirect(base_url('csuperadmin/prodi'),'_self');
 	}
-	public function delete_bem($id_mahasiswa){
-		$this->db->where('id_mahasiswa',$id_mahasiswa);
-		$this->db->delete('tb_mahasiswa');
+	public function delete_prodi($id_prodi){
+		$this->db->where('id_prodi',$id_prodi);
+		$this->db->delete('tb_prodi');
 		$query = $this->db->affected_rows();
 		if($query>0){
 			$this->session->set_flashdata('pesan','data berhasil Terhapus');
@@ -49,10 +49,6 @@ class Mbem extends CI_Model{
 			$this->session->set_flashdata('pesan','data gagal Terhapus');
 			$this->session->set_flashdata('color','danger');
 		}
-		redirect(base_url('csuperadmin/bem'),'_self');
+		redirect(base_url('csuperadmin/prodi'),'_self');
 	}
-	
-	
 }
-
-?>

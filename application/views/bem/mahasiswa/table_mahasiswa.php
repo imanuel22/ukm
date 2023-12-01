@@ -38,10 +38,8 @@
 				<td><?=$row->password?></td>
 				<td><?=$row->no_telp?></td>
 				<td><img src="" alt="<?=$row->img_mahasiswa?>" width="100" height="150" class="rounded"></td>
-				<style>
-				</style>
 				<td><?=$row->status?></td>
-				<td><?=$row->id_prodi?></td>
+				<td><?=$row->nama_prodi?></td>
 				<td>
 					<button type="button" class="btn btn-warning" onclick="edit(<?=$row->id_mahasiswa?>)"><i class="bi bi-pencil"></i></button>
 					<button type="button" class="btn btn-danger" onclick="hapus(<?=$row->id_mahasiswa?>)"><i class="bi bi-trash3"></i></button>
