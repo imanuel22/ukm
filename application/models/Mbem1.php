@@ -56,48 +56,7 @@ class Mbem extends CI_Model
 	}
 
 	//ukm
-	public function getdataukm(){
-		$query = $this->db->get('masterukm');
-		return $query->result();
-	}
-
-	public function insert_data_ukm(){
-		$nama_ukm =  $this->input->post('nama_ukm');
-		$data= array(
-			'nama_ukm'=>$nama_ukm
-		);
-		$this->db->insert('tb_ukm',$data);
-		$id_mahasiswa = $this->input->post('id_mahasiswa');
-		$id_ukm1 = $this->getdataukmwhere($nama_ukm);
-		$id= $id_ukm1->id_ukm;
-		$data1= array(
-			'id_ukm'=>$id,
-			'id_mahasiswa'=>$id_mahasiswa,
-			'jabatan'=>'ketua',
-			'status'=>'aktif'
-		);
-		$this->db->insert('tb_inti_ukm',$data1);
-		echo "<script>alert('databas sudah berhasil di simpan');</script>";
-		redirect(base_url('cbem/ukm'),'_self');
-	}
 	
-	public function getdatamahasiswawherel($user){
-		$this->db->where('level',$user);
-		$query = $this->db->get('tb_mahasiswa');
-		return $query->result();
-	}
-	public function getdataukmwhere($nama_ukm){
-		$this->db->select('id_ukm');
-		$this->db->where('nama_ukm',$nama_ukm);
-		$query = $this->db->get('tb_ukm');
-		return $query->row();
-	}
-
-	public function delete_data_ukm($id_ukm){
-		$this->db->where('id_daftar_mhs',$id_ukm);
-		$this->db->delete('tb_daftar_mhs');
-		redirect(base_url('cbem/verifmhs'),'_self');
-	}
 
 	//verif mhs
 	

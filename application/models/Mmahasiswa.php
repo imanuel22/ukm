@@ -1,7 +1,10 @@
 <?php 
-class Mmahasiswa extends CI_Model{
+class Mmahasiswa extends CI_Model{  
     public function get_mahasiswa(){
 		return $this->db->get('mahasiswa')->result();
+	}
+    public function get_mahasiswa_id($id_mahasiswa){
+		return$this->db->get_where('tb_mahasiswa',['id_mahasiswa'=>$id_mahasiswa])->row();
 	}
 
 	public function insert_data_mhs(){
@@ -20,11 +23,7 @@ class Mmahasiswa extends CI_Model{
 		redirect(base_url('cbem/mahasiswa'),'_self');
 	}
 
-	public function getdatamahasiswawhere($id_mahasiswa){
-		$this->db->where('id_mahasiswa',$id_mahasiswa);
-		$query = $this->db->get('tb_mahasiswa');
-		return $query->row();
-	}
+	
 
 	public function delete_data_mhs($id_mahasiswa){
 		$this->db->where('id_mahasiswa',$id_mahasiswa);

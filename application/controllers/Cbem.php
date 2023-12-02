@@ -11,6 +11,7 @@ class Cbem extends CI_Controller{
 		$this->load->model('mmahasiswa');
 		$this->load->model('mjurusan');
 		$this->load->model('mprodi');
+		$this->load->model('mukm');
 	}
 
 
@@ -46,9 +47,8 @@ class Cbem extends CI_Controller{
 	}
 	public function mahasiswa_tambah()
 	{	
-		$data1['data_mhs']=$this->mbem->getdatamahasiswa();
-		$data1['data_prodi']=$this->mbem->getdataprodi();
-		$data1['data_jurusan']=$this->mbem->getdatajurusan();
+		$data1['data_mhs']=$this->mmahasiswa->get_mahasiswa();
+		$data1['data_prodi']=$this->mprodi->get_prodi();
 		$data=[
 			'title'=>'Data Mahasiswa',
 			'konten'=>$this->load->view('bem/mahasiswa/form_mahasiswa_insert',$data1,TRUE),
@@ -59,9 +59,9 @@ class Cbem extends CI_Controller{
 
 	public function mahasiswa_edit($id_mahasiswa)
 	{	
-		$data1['data_mhs']=$this->mbem->getdatamahasiswa();
-		$data1['data_mhs_where']=$this->mbem->getdatamahasiswawhere($id_mahasiswa);
-		$data1['data_prodi']=$this->mbem->getdataprodi();
+		$data1['data_mhs']=$this->mmahasiswa->get_mahasiswa();
+		$data1['data_mhs_where']=$this->mmahasiswa->get_mahasiswa_id($id_mahasiswa);
+		$data1['data_prodi']=$this->mprodi->get_prodi();
 		$data=[
 			'title'=>'Data Mahasiswa',
 			'konten'=>$this->load->view('bem/mahasiswa/form_mahasiswa_update',$data1,TRUE),
@@ -72,22 +72,21 @@ class Cbem extends CI_Controller{
 
 	public function insert_data_mhs()
 	{
-		$this->mbem->insert_data_mhs();
+		$this->mmahasiswa->insert_data_mhs();
 	}
 
 	public function update_data_mhs()
 	{
-		$this->mbem->update_data_mhs();
+		$this->mmahasiswa->update_data_mhs();
 	}
 
 	public function delete_data_mhs($id_mhs){
-		$this->mbem->delete_data_mhs($id_mhs);
+		$this->mmahasiswa->delete_data_mhs($id_mhs);
 	}
 
 	//halaman ukm
 	public function ukm() {
-		$data1['data_ukm']=$this->mbem->getdataukm();
-		$data1['data_mhs_level']=$this->mbem->getdatamahasiswawherel('user');
+		$data1['data_ukm']=$this->mukm->get_masterukm();
 		$data=[
 			'title'=>'Data ukm',
 			'konten'=>'',
@@ -96,8 +95,8 @@ class Cbem extends CI_Controller{
 		$this->load->view('bem/dashboard.php',$data);
 	}
 	public function ukm_tambah() {
-		$data1['data_ukm']=$this->mbem->getdataukm();
-		$data1['data_mhs_level']=$this->mbem->getdatamahasiswawherel('user');
+		$data1['data_ukm']=$this->mukm->get_masterukm();
+		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa();
 		$data=[
 			'title'=>'Data ukm',
 			'konten'=>$this->load->view('bem/ukm/form_ukm_insert',$data1,TRUE),
@@ -106,8 +105,7 @@ class Cbem extends CI_Controller{
 		$this->load->view('bem/dashboard.php',$data);
 	}
 	public function ukm_edit() {
-		$data1['data_ukm']=$this->mbem->getdataukm();
-		$data1['data_mhs_level']=$this->mbem->getdatamahasiswawherel('user');
+		$data1['data_ukm']=$this->mukm->get_masterukm();
 		$data=[
 			'title'=>'Data ukm',
 			'konten'=>$this->load->view('bem/ukm/form_ukm_insert',$data1,TRUE),
@@ -116,12 +114,12 @@ class Cbem extends CI_Controller{
 		$this->load->view('bem/dashboard.php',$data);
 	}
 
-	public function insert_data_ukm()
+	public function insert_ukm()
 	{
-		$this->mbem->insert_data_ukm();
+		$this->mukm->insert_ukm();
 	}
-	public function delete_data_ukm($id_ukm){
-		$this->mbem->delete_data_ukm($id_ukm);
+	public function delete_ukm($id_ukm){
+		$this->mukm->delete_ukm($id_ukm);
 	}
 
 

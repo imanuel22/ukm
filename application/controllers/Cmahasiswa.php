@@ -6,11 +6,13 @@ class Cmahasiswa extends CI_Controller{
 			parent::__construct();
 			$this->load->model('mvalidasi');
 			$this->mvalidasi->validasi();
+			$this->load->model('mukm');
 			$this->load->model('mmahasiswa');
+			$this->load->model('mdanggota');
 		}
 	
 	public function dashboard(){
-		$data1['data_ukm']=$this->mmahasiswa->getdataukm();
+		$data1['data_ukm']=$this->mukm->get_ukm();
 		$data=[
 			'title'=>'Dashboard',
 			'konten'=>'',
@@ -20,7 +22,7 @@ class Cmahasiswa extends CI_Controller{
 	}	
 
 	public function ukm(){
-		$data1['data_ukm']=$this->mmahasiswa->getdataukm();
+		$data1['data_ukm']=$this->mukm->get_ukm();
 		$data=[
 			'title'=>'Dashboard',
 			'konten'=>$this->load->view('mahasiswa/ukm',$data1,TRUE),
@@ -34,7 +36,7 @@ class Cmahasiswa extends CI_Controller{
 	// 	$this->mmahasiswa->getdataukm();
 	// }
 	public function daftar_ukm(){
-		$data1['data_ukm']=$this->mmahasiswa->getdataukm();
+		$data1['data_ukm']=$this->mukm->get_ukm();
 		$data=[
 			'title'=>'daftar_ukm',
 			'konten'=>$this->load->view('mahasiswa/daftar_ukm',$data1,TRUE),
@@ -43,25 +45,35 @@ class Cmahasiswa extends CI_Controller{
 		$this->load->view('mahasiswa/dashboard.php',$data);
 	}
 
+	public function cek_level_user($id_ukm){
+
+		$this->mvalidasi->cek_level_user($id_ukm);
+
+		if($this->session->userdata('level')=='anggota_ukm'){
+			echo 'anggota_ukm';
+		}else if($this->session->userdata('level')=='koordinator'){
+			echo 'koordinator';
+		}else if($this->session->userdata('level')=='fungsionaris'){
+			redirect('cfungsionaris/ukm_where/'.$id_ukm);
+		}else{
+			echo 'mahasiswa';
+		}
+	}
 	
 
 	public function ukm_where($id) {
-		$this->mvalidasi->cekanggota($id);
-		if ($this->session->userdata('level')=='mahasiswa') {
-		
-		$data1['data_ukm']=$this->mmahasiswa->getdataukmwhere($id);
-		$data1['id_ukm']=$id;
-		$data=[
-			'title'=>'ukm',
-			'konten'=>$this->load->view('mahasiswa/ukm_where',$data1,TRUE),
-			'table'=>''
-		];
-		$this->load->view('mahasiswa/dashboard.php',$data);
-		}
+			$data1['data_ukm']=$this->mukm->get_ukm_id($id);
+			$data1['id_ukm']=$id;
+			$data=[
+				'title'=>'ukm',
+				'konten'=>$this->load->view('mahasiswa/ukm_where',$data1,TRUE),
+				'table'=>$this->load->view('mahasiswa/form_daftar_anggota',$data1,TRUE),
+			];
+			$this->load->view('mahasiswa/dashboard.php',$data);
 	}
 
-	public function daftaranggota(){
-		$this->mmahasiswa->daftaranggota();
+	public function daftar_anggota(){
+		$this->mdanggota->daftar_anggota();
 	}
 
 	function logout()

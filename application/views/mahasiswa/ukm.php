@@ -153,6 +153,6 @@ main {
 </main>
 <script>
   function opens(id_ukm){
-		window.open("<?=base_url('cmahasiswa/ukm_where/')?>"+id_ukm,'_self');
+		window.open("<?=base_url('cmahasiswa/cek_level_user/')?>"+id_ukm,'_self');
 	}
 </script>
