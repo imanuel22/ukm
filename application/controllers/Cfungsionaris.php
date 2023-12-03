@@ -5,6 +5,7 @@ class Cfungsionaris extends CI_Controller{
 		parent::__construct();
 		$this->load->model('mukm');
 		$this->load->model('mdevisi');
+		$this->load->model('mfungsionaris');
 	}
 
 	public function ukm_where($id) {
@@ -28,16 +29,69 @@ class Cfungsionaris extends CI_Controller{
 		];
 		$this->load->view('fungsionaris/dashboard.php',$data);
 	}
-	public function ukm_devisi($id) {
-		$data1['data_devisi']=$this->mdevisi->get_devisi_id($id);
+	public function devisi($id) {
+		$data1['data_devisi']=$this->mdevisi->get_devisi($id);
 		$data1['id_ukm']=$id;
 		$data=[
 			'title'=>'ukm',
-			'konten'=>$this->load->view('fungsionaris/ukm/ukm_devisi',$data1,TRUE),
-			'table'=>'',
+			'konten'=>'',
+			'table'=>$this->load->view('fungsionaris/devisi/devisi',$data1,TRUE),
 		];
 		$this->load->view('fungsionaris/dashboard.php',$data);
 	}
+	public function devisi_tambah($id) {
+		$data1['data_devisi']=$this->mdevisi->get_devisi($id);
+		$data1['id_ukm']=$id;
+		$data=[
+			'title'=>'ukm',
+			'konten'=>$this->load->view('fungsionaris/devisi/devisi_insert',$data1,TRUE),
+			'table'=>$this->load->view('fungsionaris/devisi/devisi',$data1,TRUE),
+		];
+		$this->load->view('fungsionaris/dashboard.php',$data);
+	}
+	public function devisi_edit($id_ukm,$id_devisi) {
+		$data1['data_devisi']=$this->mdevisi->get_devisi($id_ukm);
+		$data1['data_devisi_id']=$this->mdevisi->get_devisi_id($id_devisi);
+		$data1['id_ukm']=$id_ukm;
+		echo "<pre>".print_r($data1)."</pre>";
+		$data=[
+			'title'=>'ukm',
+			'konten'=>$this->load->view('fungsionaris/devisi/devisi_update',$data1,TRUE),
+			'table'=>$this->load->view('fungsionaris/devisi/devisi',$data1,TRUE),
+		];
+		$this->load->view('fungsionaris/dashboard.php',$data);
+	}
+
+	public function insert_devisi() {
+		$this->mdevisi->insert_devisi();
+	}
+	public function update_devisi() {
+		$this->mdevisi->update_devisi();
+	}
+	public function delete_devisi($id_ukm,$id_devisi) {
+		$this->mdevisi->delete_devisi($id_ukm,$id_devisi);
+	}
+
+	public function fungsionaris($id) {
+		$data1['data_fungsionaris']=$this->mfungsionaris->get_fungsionaris($id);
+		$data1['id_ukm']=$id;
+		$data=[
+			'title'=>'ukm',
+			'konten'=>'',
+			'table'=>$this->load->view('fungsionaris/fungsionaris/fungsionaris',$data1,TRUE),
+		];
+		$this->load->view('fungsionaris/dashboard.php',$data);
+	}
+
+
+
+
+
+
+
+
+
+
 
 	public function proses_ukm() {
 		$this->mukm->proses_ukm();

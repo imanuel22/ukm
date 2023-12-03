@@ -61,7 +61,7 @@
             <h1>Fungsionaris</h1>
         </div>
         <div class=" text-end col-1">
-            <button type="button" class="btn btn-primary">Edit</button>
+        <button type="button" class="btn btn-primary" onclick="edit3(<?=$id_ukm?>)">Edit</button>
 	    </div>
     </div>
 
@@ -72,6 +72,9 @@
         window.open('<?=base_url('cfungsionaris/ukm_edit/')?>'+id_ukm,'_self')
     }
     function edit2(id_ukm){
-        window.open('<?=base_url('cfungsionaris/ukm_devisi/')?>'+id_ukm,'_self')
+        window.open('<?=base_url('cfungsionaris/devisi/')?>'+id_ukm,'_self')
+    }
+    function edit3(id_ukm){
+        window.open('<?=base_url('cfungsionaris/fungsionaris/')?>'+id_ukm,'_self')
     }
 </script>
