@@ -45,14 +45,14 @@
 	});
 
     function tambah(id_ukm){
-		window.open("<?=base_url('cfungsionaris/devisi_tambah/')?>"+id_ukm,'_self');
+		window.open("<?=base_url('cfungsionaris/fungsionaris_tambah/')?>"+id_ukm,'_self');
 	};
 	function edit(id_ukm,id_fungsionaris){
-		window.open("<?=base_url('cfungsionaris/devisi_edit/')?>"+id_ukm+'/'+id_fungsionaris,'_self');
+		window.open("<?=base_url('cfungsionaris/fungsionaris_edit/')?>"+id_ukm+'/'+id_fungsionaris,'_self');
 	};
 	function hapus(id_ukm,id_fungsionaris){
 		if (confirm('apakah ingin menghapus data id '+id_fungsionaris+' ini?')) {
-			window.open("<?=base_url('cfungsionaris/delete_devisi/')?>"+id_ukm+'/'+id_fungsionaris,'_self');
+			window.open("<?=base_url('cfungsionaris/delete_fungsionaris/')?>"+id_ukm+'/'+id_fungsionaris,'_self');
 		}
 	};
 </script>

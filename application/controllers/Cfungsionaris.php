@@ -6,6 +6,7 @@ class Cfungsionaris extends CI_Controller{
 		$this->load->model('mukm');
 		$this->load->model('mdevisi');
 		$this->load->model('mfungsionaris');
+		$this->load->model('mmahasiswa');
 	}
 
 	public function ukm_where($id) {
@@ -81,6 +82,38 @@ class Cfungsionaris extends CI_Controller{
 			'table'=>$this->load->view('fungsionaris/fungsionaris/fungsionaris',$data1,TRUE),
 		];
 		$this->load->view('fungsionaris/dashboard.php',$data);
+	}
+	public function fungsionaris_tambah($id) {
+		$data1['data_fungsionaris']=$this->mfungsionaris->get_fungsionaris($id);
+		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa();
+		$data1['id_ukm']=$id;
+		$data=[
+			'title'=>'ukm',
+			'konten'=>$this->load->view('fungsionaris/fungsionaris/fungsionaris_insert',$data1,TRUE),
+			'table'=>$this->load->view('fungsionaris/fungsionaris/fungsionaris',$data1,TRUE),
+		];
+		$this->load->view('fungsionaris/dashboard.php',$data);
+	}
+	public function fungsionaris_edit($id_ukm,$id_fungsionaris) {
+		$data1['data_fungsionaris']=$this->mfungsionaris->get_fungsionaris($id_ukm);
+		$data1['data_fungsionaris_id']=$this->mfungsionaris->get_fungsionaris_id($id_fungsionaris);
+		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa();
+		$data1['id_ukm']=$id_ukm;
+		$data=[
+			'title'=>'ukm',
+			'konten'=>$this->load->view('fungsionaris/fungsionaris/fungsionaris_update',$data1,TRUE),
+			'table'=>$this->load->view('fungsionaris/fungsionaris/fungsionaris',$data1,TRUE),
+		];
+		$this->load->view('fungsionaris/dashboard.php',$data);
+	}
+	public function insert_fungsionaris() {
+		$this->mfungsionaris->insert_fungsionaris();
+	}
+	public function update_fungsionaris() {
+		$this->mfungsionaris->update_fungsionaris();
+	}
+	public function delete_fungsionaris($id_ukm,$id_fungsionaris) {
+		$this->mfungsionaris->delete_fungsionaris($id_ukm,$id_fungsionaris);
 	}
 
 

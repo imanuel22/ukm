@@ -66,7 +66,17 @@
     </div>
 
 </div>
+<div class="bg-info rounded-4 p-3 mb-3">
+    <div class="row">
+        <div class="col-11">
+            <h1>Koordinator</h1>
+        </div>
+        <div class=" text-end col-1">
+        <button type="button" class="btn btn-primary" onclick="edit4(<?=$id_ukm?>)">Edit</button>
+	    </div>
+    </div>
 
+</div>
 <script>
     function edit1(id_ukm){
         window.open('<?=base_url('cfungsionaris/ukm_edit/')?>'+id_ukm,'_self')
