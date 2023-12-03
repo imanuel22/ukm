@@ -7,6 +7,7 @@ class Cfungsionaris extends CI_Controller{
 		$this->load->model('mdevisi');
 		$this->load->model('mfungsionaris');
 		$this->load->model('mmahasiswa');
+		$this->load->model('mproker');
 	}
 
 	public function ukm_where($id) {
@@ -116,6 +117,48 @@ class Cfungsionaris extends CI_Controller{
 		$this->mfungsionaris->delete_fungsionaris($id_ukm,$id_fungsionaris);
 	}
 
+	public function proker($id) {
+		$data1['data_proker']=$this->mproker->get_proker($id);
+		$data1['id_ukm']=$id;
+		$data=[
+			'title'=>'ukm',
+			'konten'=>'',
+			'table'=>$this->load->view('fungsionaris/proker/proker',$data1,TRUE),
+		];
+		$this->load->view('fungsionaris/dashboard.php',$data);
+	}
+	public function proker_tambah($id) {
+		$data1['data_proker']=$this->mproker->get_proker($id);
+		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa();
+		$data1['id_ukm']=$id;
+		$data=[
+			'title'=>'ukm',
+			'konten'=>$this->load->view('fungsionaris/proker/proker_insert',$data1,TRUE),
+			'table'=>$this->load->view('fungsionaris/proker/proker',$data1,TRUE),
+		];
+		$this->load->view('fungsionaris/dashboard.php',$data);
+	}
+	public function proker_edit($id_ukm,$id_proker) {
+		$data1['data_proker']=$this->mproker->get_proker($id_ukm);
+		$data1['data_proker_id']=$this->mproker->get_proker_id($id_proker);
+		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa();
+		$data1['id_ukm']=$id_ukm;
+		$data=[
+			'title'=>'ukm',
+			'konten'=>$this->load->view('fungsionaris/proker/proker_update',$data1,TRUE),
+			'table'=>$this->load->view('fungsionaris/proker/proker',$data1,TRUE),
+		];
+		$this->load->view('fungsionaris/dashboard.php',$data);
+	}
+	public function insert_proker() {
+		$this->mproker->insert_proker();
+	}
+	public function update_proker() {
+		$this->mproker->update_proker();
+	}
+	public function delete_proker($id_ukm,$id_proker) {
+		$this->mproker->delete_proker($id_ukm,$id_proker);
+	}
 
 
 
@@ -206,33 +249,33 @@ class Cfungsionaris extends CI_Controller{
 	}
 
 
-	public function proker() {
-		$dataproker=$this->mfungsio->getviewproker();
-		$data=['judul'=>'dashboard',
-			   'data_proker'=>$dataproker
-			];
-		$this->load->view('fungsio/header.php',$data);
-		$this->load->view('fungsio/proker/proker.php',$data);
-		$this->load->view('fungsio/footer.php');
-	}
+	// public function proker() {
+	// 	$dataproker=$this->mfungsio->getviewproker();
+	// 	$data=['judul'=>'dashboard',
+	// 		   'data_proker'=>$dataproker
+	// 		];
+	// 	$this->load->view('fungsio/header.php',$data);
+	// 	$this->load->view('fungsio/proker/proker.php',$data);
+	// 	$this->load->view('fungsio/footer.php');
+	// }
 
-	public function forminsertproker(){
-		$dataproker=$this->mfungsio->getviewproker();
-		$data=['judul'=>'dashboard',
-			   'data_proker'=>$dataproker
-			];
-		$this->load->view('fungsio/header.php',$data);
-		$this->load->view('fungsio/proker/insert.php',$data);
-		$this->load->view('fungsio/footer.php');
-	}
+	// public function forminsertproker(){
+	// 	$dataproker=$this->mfungsio->getviewproker();
+	// 	$data=['judul'=>'dashboard',
+	// 		   'data_proker'=>$dataproker
+	// 		];
+	// 	$this->load->view('fungsio/header.php',$data);
+	// 	$this->load->view('fungsio/proker/insert.php',$data);
+	// 	$this->load->view('fungsio/footer.php');
+	// }
 
-	public function prosesinsertproker() {
-		$this->mfungsio->prosesinsertproker();
-	}
+	// public function prosesinsertproker() {
+	// 	$this->mfungsio->prosesinsertproker();
+	// }
 
-	public function prosesdeleteproker($id) {
-		$this->mfungsio->prosesdeleteproker($id);
-	}
+	// public function prosesdeleteproker($id) {
+	// 	$this->mfungsio->prosesdeleteproker($id);
+	// }
 
 	public function formupdateproker($id){
 		$dataprokerdetail=$this->mfungsio->getdataproker($id);

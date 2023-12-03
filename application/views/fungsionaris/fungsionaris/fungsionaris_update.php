@@ -20,6 +20,7 @@
 				<option value="wakilketua">wakilketua</option>
 				<option value="seketaris">seketaris</option>
 				<option value="bendahara">bendahara</option>
+				<option value="anggota">anggota</option>
 
 			</select>
 	</div>	
