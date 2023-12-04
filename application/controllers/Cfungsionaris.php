@@ -8,6 +8,7 @@ class Cfungsionaris extends CI_Controller{
 		$this->load->model('mfungsionaris');
 		$this->load->model('mmahasiswa');
 		$this->load->model('mproker');
+		$this->load->model('mjabatan');
 	}
 
 	public function ukm_where($id) {
@@ -160,6 +161,48 @@ class Cfungsionaris extends CI_Controller{
 		$this->mproker->delete_proker($id_ukm,$id_proker);
 	}
 
+	public function jabatan($id) {
+		$data1['data_jabatan']=$this->mjabatan->get_jabatan($id);
+		$data1['id_ukm']=$id;
+		$data=[
+			'title'=>'ukm',
+			'konten'=>'',
+			'table'=>$this->load->view('fungsionaris/jabatan/jabatan',$data1,TRUE),
+		];
+		$this->load->view('fungsionaris/dashboard.php',$data);
+	}
+	public function jabatan_tambah($id) {
+		$data1['data_jabatan']=$this->mjabatan->get_jabatan($id);
+		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa();
+		$data1['id_ukm']=$id;
+		$data=[
+			'title'=>'ukm',
+			'konten'=>$this->load->view('fungsionaris/jabatan/jabatan_insert',$data1,TRUE),
+			'table'=>$this->load->view('fungsionaris/jabatan/jabatan',$data1,TRUE),
+		];
+		$this->load->view('fungsionaris/dashboard.php',$data);
+	}
+	public function jabatan_edit($id_ukm,$id_jabatan) {
+		$data1['data_jabatan']=$this->mjabatan->get_jabatan($id_ukm);
+		$data1['data_jabatan_id']=$this->mjabatan->get_jabatan_id($id_jabatan);
+		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa();
+		$data1['id_ukm']=$id_ukm;
+		$data=[
+			'title'=>'ukm',
+			'konten'=>$this->load->view('fungsionaris/jabatan/jabatan_update',$data1,TRUE),
+			'table'=>$this->load->view('fungsionaris/jabatan/jabatan',$data1,TRUE),
+		];
+		$this->load->view('fungsionaris/dashboard.php',$data);
+	}
+	public function insert_jabatan() {
+		$this->mjabatan->insert_jabatan();
+	}
+	public function update_jabatan() {
+		$this->mjabatan->update_jabatan();
+	}
+	public function delete_jabatan($id_ukm,$id_jabatan) {
+		$this->mjabatan->delete_jabatan($id_ukm,$id_jabatan);
+	}
 
 
 
