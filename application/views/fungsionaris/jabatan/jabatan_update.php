@@ -11,10 +11,6 @@
 			<label for="deskripsi_jabatan" class="form-label">deskripsi_jabatan</label>
 			<input type="text" name="deskripsi_jabatan" id="deskripsi_jabatan" class="form-control"  value="<?=$data_jabatan_id->deskripsi_jabatan?>">
 	</div>	
-	<div class="mb-3">
-			<label for="peraturan" class="form-label">peraturan</label>
-			<input type="text" name="peraturan" id="peraturan" class="form-control"  value="<?=$data_jabatan_id->peraturan?>">
-	</div>	
     <div class="mb-3 row">
         <div class="col-6">
             <button class="btn btn-primary col-12" type="submit">SUBMIT</button>

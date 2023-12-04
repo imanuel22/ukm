@@ -1,7 +1,7 @@
 <?php
     class Mfungsionaris extends CI_Model {
         public function get_fungsionaris($id_ukm){
-            $query = $this->db->get_where('tb_fungsionaris',['id_ukm'=>$id_ukm]);
+            $query = $this->db->get_where('fungsionaris',['id_ukm'=>$id_ukm]);
             return $query->result();
         }public function get_fungsionaris_id($id_fungsionaris){
             $query = $this->db->get_where('tb_fungsionaris',['id_fungsionaris'=>$id_fungsionaris]);

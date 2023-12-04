@@ -1,6 +1,6 @@
 <?php 
 class Mjabatan extends CI_Model{
-    public function get_jabatan($id_ukm) {
+    public function get_jabatan($id_ukm) {  
         return $this->db->get_where('tb_jabatan',['id_ukm'=>$id_ukm])->result();
     }
     public function get_jabatan_id($id_jabatan) {

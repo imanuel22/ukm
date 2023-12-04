@@ -14,8 +14,8 @@
     <thead>
         <tr>
             <th>no</th>
-            <th>id_mahasiswa</th>
-            <th>jabatan</th>
+            <th>nama_mahasiswa</th>
+            <th>nama_jabatan</th>
             <th>Aktion</th>
         </tr>
     </thead>
@@ -26,8 +26,8 @@
 		?>
 			<tr>
 				<td><?=$no++?></td>
-				<td><?=$row->id_mahasiswa?></td>
-				<td><?=$row->jabatan?></td>
+				<td><?=$row->nama_mahasiswa?></td>
+				<td><?=$row->nama_jabatan?></td>
 				<td>
 					<button type="button" class="btn btn-warning" onclick="edit(<?=$id_ukm?>,<?=$row->id_fungsionaris?>)"><i class="bi bi-pencil"></i></button>
 					<button type="button" class="btn btn-danger" onclick="hapus(<?=$id_ukm?>,<?=$row->id_fungsionaris?>)"><i class="bi bi-trash3"></i></button>

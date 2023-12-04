@@ -13,13 +13,11 @@
 	</div>	
     <div class="mb-3">
 			<label for="jabatan" class="form-label">jabatan</label>
-			<select name="jabatan" id="jabatan" class="form-control">
+			<select name="id_jabatan" id="id_jabatan" class="form-control">
 				<option value="" hidden>pilih</option>
-				<option value="ketua">ketua</option>
-				<option value="wakilketua">wakilketua</option>
-				<option value="seketaris">seketaris</option>
-				<option value="bendahara">bendahara</option>				
-				<option value="anggota">anggota</option>
+				<?php foreach($data_jabatan as $row):?>
+				<option value="<?=$row->id_jabatan?>"><?=$row->nama_jabatan?></option>
+				<?php endforeach;?>
 			</select>
 	</div>	
     <div class="mb-3 row">
