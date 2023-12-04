@@ -141,7 +141,11 @@ main {
 			<?=$row->nama_ukm?>
 			</p>
             <p class="card__info text--medium">
-              <?=substr($row->deskripsi,0,200)?>
+              <?php 
+              if(!empty($row->deskripsi)){
+                echo substr($row->deskripsi,0,200);
+              }
+              ?>
             </p>
             <div class="card__info">
               <button type="button" onclick="opens(<?=$row->id_ukm?>)" class="card__price text--medium">View</button>

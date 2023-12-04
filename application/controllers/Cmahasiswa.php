@@ -46,17 +46,13 @@ class Cmahasiswa extends CI_Controller{
 	}
 
 	public function cek_level_user($id_ukm){
-
 		$this->mvalidasi->cek_level_user($id_ukm);
-
 		if($this->session->userdata('level')=='anggota_ukm'){
-			echo 'anggota_ukm';
-		}else if($this->session->userdata('level')=='koordinator'){
-			echo 'koordinator';
+			redirect('canggota/ukm_where/'.$id_ukm);
 		}else if($this->session->userdata('level')=='fungsionaris'){
 			redirect('cfungsionaris/ukm_where/'.$id_ukm);
 		}else{
-			echo 'mahasiswa';
+			redirect('cmahasiswa/ukm_where/'.$id_ukm);
 		}
 	}
 	

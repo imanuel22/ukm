@@ -23,8 +23,6 @@ class Mmahasiswa extends CI_Model{
 		redirect(base_url('cbem/mahasiswa'),'_self');
 	}
 
-	
-
 	public function delete_data_mhs($id_mahasiswa){
 		$this->db->where('id_mahasiswa',$id_mahasiswa);
 		$this->db->delete('tb_mahasiswa');

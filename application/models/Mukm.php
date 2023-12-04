@@ -26,7 +26,7 @@ class Mukm extends CI_Model{
 		$data1= array(
 			'id_ukm'=>$id_ukm,
 			'id_mahasiswa'=>$id_mahasiswa,
-			'jabatan'=>'ketua',
+			'id_jabatan'=>'1',
 			'status'=>'aktif'
 		);
 		$this->db->insert('tb_fungsionaris',$data1);

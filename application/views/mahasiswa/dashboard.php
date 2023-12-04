@@ -19,7 +19,7 @@
 
 	<body id="body-pd">
 		<header class="header" id="header">
-			<div class="header_toggle"> <a href="#"><i class='bx bx-menu' id="header-toggle"></i></a> </div>
+			<div class="header_toggle">	 <a href="#"><i class='bx bx-menu' id="header-toggle"></i></a> </div>
 			<div class="p-3">
 			<li><a href="<?php echo base_url('cauth/logout'); ?>"><span class="bi bi-box-arrow-right"></span> Logout</a></li>
 			</div>
