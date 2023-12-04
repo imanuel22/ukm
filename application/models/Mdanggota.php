@@ -1,17 +1,34 @@
 <?php
 
 class Mdanggota extends CI_Model{
-    public function daftar_anggota(){
-        $data = $_POST;
-        $this->db->insert('tb_daftar_anggota',$data);
-        $query = $this->db->affected_rows();
-        if($query>0){
-            $this->session->set_flashdata('pesan','anda sudah berhasil terdaftar mohon menunggu verifikasi');
-            $this->session->set_flashdata('color','success');
-        }else {
-            $this->session->set_flashdata('pesan','anda gagal terdaftar');
-            $this->session->set_flashdata('color','danger');
-        }
-        redirect(base_url('cmahasiswa/ukm'),'_self');
-    }
+    public function get_daftar_anggota(){
+		return $this->db->get('tb_daftar_anggota')->result();
+	}
+	public function get_daftar_anggota_id($id_daftar_anggota){
+		return $this->db->get_where('tb_daftar_anggota',['id_daftar_anggota'=>$id_daftar_anggota])->row();
+	}
+    public function get_daftar_anggota_nim($nim) {
+		return $this->db->get_where('tb_daftar_anggota',['nim_mahasiswa',$nim])->row();
+	}
+
+	public function proses_verif_berhasil(){
+		$data = $_POST;
+		$data['status']='aktif';
+		$data['level']='user';
+		$this->db->insert('tb_anggota_ukm',$data);
+		$query = $this->get_daftar_anggota_nim($data['nim']);
+		$id_daftar_anggota1 = $query->id_daftar_anggota;
+		$this->proseshapus($id_daftar_anggota1);
+	}
+	public function proses_verif_gagal(){
+		$data =$_POST;
+		$query = $this->get_daftar_anggota_nim($data['nim']);
+		$id_daftar_anggota1 = $query->id_daftar_anggota;
+		$this->proseshapus($id_daftar_anggota1);
+	}
+	public function proseshapus($id_daftar_anggota){
+		$this->db->where('id_daftar_anggota',$id_daftar_anggota);
+		$this->db->delete('tb_daftar_anggota');
+		redirect(base_url('cbem/verifmhs'),'_self');
+	}
 }

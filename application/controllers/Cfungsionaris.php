@@ -7,6 +7,8 @@ class Cfungsionaris extends CI_Controller{
 		$this->load->model('mdevisi');
 		$this->load->model('mfungsionaris');
 		$this->load->model('mmahasiswa');
+		$this->load->model('mdanggota');
+		$this->load->model('mdfungsionaris');
 		$this->load->model('mproker');
 		$this->load->model('mjabatan');
 	}
@@ -206,22 +208,77 @@ class Cfungsionaris extends CI_Controller{
 		$this->mjabatan->delete_jabatan($id_ukm,$id_jabatan);
 	}
 
-
-
-
-
-
-
-
-
 	public function proses_ukm() {
 		$this->mukm->proses_ukm();
 	}
 
 
+	//verif anggota
+	public function verif_anggota() {
+		$data1['data_verif_anggota']=$this->mdanggota->get_daftar_anggota();
+		$data=[
+			'title'=>'Data verif_anggota',
+			'konten'=>'',
+			'table'=>$this->load->view('fungsionaris/verif_anggota/table_verif_anggota',$data1,TRUE),
+		];
+		$this->load->view('fungsionaris/dashboard.php',$data);
+	}
+
+	public function verif_anggota_form($id_daftar_anggota){
+		$data1['data_verif_anggota']=$this->mdanggota->get_daftar_anggota();
+		$data1['datamhs']=$this->mdanggota->get_daftar_anggota_id($id_daftar_anggota);
+		$data=[
+			'title'=>'Data verif_anggota',
+			'konten'=>$this->load->view('fungsionaris/verif_anggota/verif_anggota_form',$data1,TRUE),
+			'table'=>$this->load->view('fungsionaris/verif_anggota/table_verif_anggota',$data1,TRUE),
+		];
+		$this->load->view('fungsionaris/dashboard.php',$data);
+	}
+	
+	public function proses_verif_anggota(){
+		if($this->input->post('status')=='terima'){
+		$this->mdanggota->proses_verif_anggota_berhasil();
+		}else{
+		$this->mdanggota->proses_verif_anggota_gagal();}
+	}
+	public function proseshapus1($id){
+		$this->mdanggota->proseshapus($id);
+	}
+
+	//verif fungsionaris
+	public function verif_fungsionaris() {
+		$data1['data_verif_fungsionaris']=$this->mdfungsionaris->get_daftar_fungsionaris();
+		$data=[
+			'title'=>'Data verif_fungsionaris',
+			'konten'=>'',
+			'table'=>$this->load->view('fungsionaris/verif_fungsionaris/table_verif_fungsionaris',$data1,TRUE),
+		];
+		$this->load->view('fungsionaris/dashboard.php',$data);
+	}
+
+	public function verif_fungsionaris_form($id_daftar_fungsionaris){
+		$data1['data_verif_fungsionaris']=$this->mdfungsionaris->get_daftar_fungsionaris();
+		$data1['datamhs']=$this->mdfungsionaris->get_daftar_fungsionaris_id($id_daftar_fungsionaris);
+		$data=[
+			'title'=>'Data verif_fungsionaris',
+			'konten'=>$this->load->view('fungsionaris/verif_fungsionaris/verif_fungsionaris_form',$data1,TRUE),
+			'table'=>$this->load->view('fungsionaris/verif_fungsionaris/table_verif_fungsionaris',$data1,TRUE),
+		];
+		$this->load->view('fungsionaris/dashboard.php',$data);
+	}
+	
+	public function proses_verif_fungsionaris(){
+		if($this->input->post('status')=='terima'){
+		$this->mdfungsionaris->proses_verif_fungsionaris_berhasil();
+		}else{
+		$this->mdfungsionaris->proses_verif_fungsionaris_gagal();}
+	}
+	public function proseshapus2($id){
+		$this->mdfungsionaris->proseshapus($id);
+	}
 
 
-
+	
 
 
 
@@ -242,109 +299,109 @@ class Cfungsionaris extends CI_Controller{
 
 
 		
-		//old
-	public function dashboard(){
-		$data=['judul'=>'dashboard'
-			];
-		$this->load->view('fungsio/header.php',$data);
-		$this->load->view('fungsio/dasboard.php');
-		$this->load->view('fungsio/footer.php');
-	}
-
-	public function ukm() {
-		$dataukm=$this->mfungsio->getviewukm();
-		$data=['judul'=>'dashboard',
-			   'data_ukm'=>$dataukm
-			];
-		$this->load->view('fungsio/header.php',$data);
-		$this->load->view('fungsio/ukm/ukm.php',$data);
-		$this->load->view('fungsio/footer.php');
-	}
-
-	public function forminsertukm(){
-		$dataukm=$this->mfungsio->getviewukm();
-		$data=['judul'=>'dashboard',
-			   'data_ukm'=>$dataukm
-			];
-		$this->load->view('fungsio/header.php',$data);
-		$this->load->view('fungsio/ukm/insert.php',$data);
-		$this->load->view('fungsio/footer.php');
-	}
-
-	public function prosesinsertukm() {
-		$this->mfungsio->prosesinsertukm();
-	}
-
-	public function prosesdeleteukm($id) {
-		$this->mfungsio->prosesdeleteukm($id);
-	}
-
-	public function formupdateukm($id){
-		$dataukmdetail=$this->mfungsio->getdataukm($id);
-		$data=['judul'=>'dashboard',
-				'tombol'=>'active',
-				'data_ukm1'=>$dataukmdetail
-			];
-		$this->load->view('test/header.php',$data);
-		$this->load->view('fungsio/ukm/update.php',$data);
-		$this->load->view('test/footer.php');
-	}
-	public function prosesupdateukm(){
-		$this->mfungsio->prosesupdateukm();
-	}
-
-
-	// public function proker() {
-	// 	$dataproker=$this->mfungsio->getviewproker();
-	// 	$data=['judul'=>'dashboard',
-	// 		   'data_proker'=>$dataproker
+	// 	//old
+	// public function dashboard(){
+	// 	$data=['judul'=>'dashboard'
 	// 		];
 	// 	$this->load->view('fungsio/header.php',$data);
-	// 	$this->load->view('fungsio/proker/proker.php',$data);
+	// 	$this->load->view('fungsio/dasboard.php');
 	// 	$this->load->view('fungsio/footer.php');
 	// }
 
-	// public function forminsertproker(){
-	// 	$dataproker=$this->mfungsio->getviewproker();
+	// public function ukm() {
+	// 	$dataukm=$this->mfungsio->getviewukm();
 	// 	$data=['judul'=>'dashboard',
-	// 		   'data_proker'=>$dataproker
+	// 		   'data_ukm'=>$dataukm
 	// 		];
 	// 	$this->load->view('fungsio/header.php',$data);
-	// 	$this->load->view('fungsio/proker/insert.php',$data);
+	// 	$this->load->view('fungsio/ukm/ukm.php',$data);
 	// 	$this->load->view('fungsio/footer.php');
 	// }
 
-	// public function prosesinsertproker() {
-	// 	$this->mfungsio->prosesinsertproker();
+	// public function forminsertukm(){
+	// 	$dataukm=$this->mfungsio->getviewukm();
+	// 	$data=['judul'=>'dashboard',
+	// 		   'data_ukm'=>$dataukm
+	// 		];
+	// 	$this->load->view('fungsio/header.php',$data);
+	// 	$this->load->view('fungsio/ukm/insert.php',$data);
+	// 	$this->load->view('fungsio/footer.php');
 	// }
 
-	// public function prosesdeleteproker($id) {
-	// 	$this->mfungsio->prosesdeleteproker($id);
+	// public function prosesinsertukm() {
+	// 	$this->mfungsio->prosesinsertukm();
 	// }
 
-	public function formupdateproker($id){
-		$dataprokerdetail=$this->mfungsio->getdataproker($id);
-		$data=['judul'=>'dashboard',
-				'tombol'=>'active',
-				'data_proker1'=>$dataprokerdetail
-			];
-		$this->load->view('test/header.php',$data);
-		$this->load->view('fungsio/proker/update.php',$data);
-		$this->load->view('test/footer.php');
-	}
-	public function prosesupdateproker(){
-		$this->mfungsio->prosesupdateproker();
-	}
+	// public function prosesdeleteukm($id) {
+	// 	$this->mfungsio->prosesdeleteukm($id);
+	// }
+
+	// public function formupdateukm($id){
+	// 	$dataukmdetail=$this->mfungsio->getdataukm($id);
+	// 	$data=['judul'=>'dashboard',
+	// 			'tombol'=>'active',
+	// 			'data_ukm1'=>$dataukmdetail
+	// 		];
+	// 	$this->load->view('test/header.php',$data);
+	// 	$this->load->view('fungsio/ukm/update.php',$data);
+	// 	$this->load->view('test/footer.php');
+	// }
+	// public function prosesupdateukm(){
+	// 	$this->mfungsio->prosesupdateukm();
+	// }
+
+
+	// // public function proker() {
+	// // 	$dataproker=$this->mfungsio->getviewproker();
+	// // 	$data=['judul'=>'dashboard',
+	// // 		   'data_proker'=>$dataproker
+	// // 		];
+	// // 	$this->load->view('fungsio/header.php',$data);
+	// // 	$this->load->view('fungsio/proker/proker.php',$data);
+	// // 	$this->load->view('fungsio/footer.php');
+	// // }
+
+	// // public function forminsertproker(){
+	// // 	$dataproker=$this->mfungsio->getviewproker();
+	// // 	$data=['judul'=>'dashboard',
+	// // 		   'data_proker'=>$dataproker
+	// // 		];
+	// // 	$this->load->view('fungsio/header.php',$data);
+	// // 	$this->load->view('fungsio/proker/insert.php',$data);
+	// // 	$this->load->view('fungsio/footer.php');
+	// // }
+
+	// // public function prosesinsertproker() {
+	// // 	$this->mfungsio->prosesinsertproker();
+	// // }
+
+	// // public function prosesdeleteproker($id) {
+	// // 	$this->mfungsio->prosesdeleteproker($id);
+	// // }
+
+	// public function formupdateproker($id){
+	// 	$dataprokerdetail=$this->mfungsio->getdataproker($id);
+	// 	$data=['judul'=>'dashboard',
+	// 			'tombol'=>'active',
+	// 			'data_proker1'=>$dataprokerdetail
+	// 		];
+	// 	$this->load->view('test/header.php',$data);
+	// 	$this->load->view('fungsio/proker/update.php',$data);
+	// 	$this->load->view('test/footer.php');
+	// }
+	// public function prosesupdateproker(){
+	// 	$this->mfungsio->prosesupdateproker();
+	// }
 
 
 
 
 
 
-	function logout()
-		{
-			$this->session->sess_destroy();
-			redirect('clogin/login','refresh');	
-		}
+	// function logout()
+	// 	{
+	// 		$this->session->sess_destroy();
+	// 		redirect('clogin/login','refresh');	
+	// 	}
 
 }
