@@ -48,6 +48,10 @@
 							<i class="fa-solid fa-database"></i>
 							<span class="nav_name">Verifikasi Fungsionaris</span>
 						</a>
+						<a href="<?= base_url('cmahasiswa/card'); ?>" class="nav_link">
+							<i class="fa-solid fa-database"></i>
+							<span class="nav_name">Verifikasi Anggota ukm</span>
+						</a>
 					</div>
 				</div>
 			</nav>

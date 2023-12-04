@@ -1,5 +1,5 @@
 <?php
-class Mdm extends CI_Model{
+class Mdmahasiswa extends CI_Model{
     public function get_daftafmhs(){
 		return $this->db->get('daftar_mahasiswa')->result();
 	}

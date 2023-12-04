@@ -72,6 +72,15 @@ class Cmahasiswa extends CI_Controller{
 		$this->mdanggota->daftar_anggota();
 	}
 
+	public function card()  {
+		$data=[
+			'title'=>'card',
+			'konten'=>$this->load->view('mahasiswa/card','',TRUE),
+			'table'=>'',
+		];
+		$this->load->view('mahasiswa/dashboard.php',$data);
+	}
+
 	function logout()
 		{
 			$this->session->sess_destroy();
