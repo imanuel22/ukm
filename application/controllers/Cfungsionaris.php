@@ -9,6 +9,7 @@ class Cfungsionaris extends CI_Controller{
 		$this->load->model('mmahasiswa');
 		$this->load->model('mdanggota');
 		$this->load->model('mdfungsionaris');
+		$this->load->model('manggotaukm');
 		$this->load->model('mproker');
 		$this->load->model('mjabatan');
 	}
@@ -277,6 +278,16 @@ class Cfungsionaris extends CI_Controller{
 		$this->mdfungsionaris->proseshapus($id);
 	}
 
+	public function anggota_ukm($id) {
+		$data1['data_anggota_ukm']=$this->manggotaukm->get_anggota_ukm($id);
+		$data1['id_ukm']=$id;
+		$data=[
+			'title'=>'ukm',
+			'konten'=>'',
+			'table'=>$this->load->view('fungsionaris/anggota_ukm/anggota_ukm',$data1,TRUE),
+		];
+		$this->load->view('fungsionaris/dashboard.php',$data);
+	}
 
 	
 
