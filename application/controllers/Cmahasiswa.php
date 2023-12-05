@@ -7,6 +7,7 @@ class Cmahasiswa extends CI_Controller{
 			$this->load->model('mvalidasi');
 			$this->mvalidasi->validasi();
 			$this->load->model('mukm');
+			$this->load->model('mdevisi');
 			$this->load->model('mmahasiswa');
 			$this->load->model('mdanggota');
 		}
@@ -59,6 +60,7 @@ class Cmahasiswa extends CI_Controller{
 
 	public function ukm_where($id) {
 			$data1['data_ukm']=$this->mukm->get_ukm_id($id);
+			$data1['data_devisi']=$this->mdevisi->get_devisi($id);
 			$data1['id_ukm']=$id;
 			$data=[
 				'title'=>'ukm',

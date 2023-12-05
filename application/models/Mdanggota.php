@@ -31,4 +31,10 @@ class Mdanggota extends CI_Model{
 		$this->db->delete('tb_daftar_anggota');
 		redirect(base_url('cbem/verifmhs'),'_self');
 	}
+	public function daftar_fungsionaris() {
+        $data=$_POST;
+            $this->db->insert('tb_daftar_fungsionaris',$data);
+            $this->session->set_flashdata('pesan','Data Sudah Disimpan...');
+			redirect('cmahasiswa/dashboard','refresh');
+	}
 }

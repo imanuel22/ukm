@@ -18,11 +18,15 @@
 			<label for="id_prodi">prodi</label>
 			<p class="form-control"><?= $this->session->userdata('id_prodi')?></p>
 		</div>		
-		<input type="hidden" name="id_ukm" value="<?=$id_ukm?>">
 		<input type="hidden" name="id_mahasiswa" value="<?= $this->session->userdata('id_mahasiswa')?>">
 		<div class="mb-3">
-			<label for="devisi" class="form-label">devisi</label>
-			<input type="text" name="devisi" class="form-control" id="devisi">
+			<label for="id_devisi">devisi</label>
+			<select name="id_devisi" id="id_devisi" class="form-control">
+				<option value="" hidden>pilih</option>
+				<?php foreach($data_devisi as $row):?>	
+				<option value="<?=$row->id_devisi?>"><?=$row->nama_devisi?></option>
+				<?php endforeach;?>
+			</select>
 		</div>
         <div class="mb-3">
 			<label for="alasan" class="form-label">alasan</label>

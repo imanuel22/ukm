@@ -1,7 +1,7 @@
 <?php 
 class Mmahasiswa extends CI_Model{  
     public function get_mahasiswa(){
-		return $this->db->get('mahasiswa')->result();
+		return $this->db->get('tb_mahasiswa')->result();
 	}
     public function get_mahasiswa_id($id_mahasiswa){
 		return$this->db->get_where('tb_mahasiswa',['id_mahasiswa'=>$id_mahasiswa])->row();
@@ -29,5 +29,7 @@ class Mmahasiswa extends CI_Model{
 		echo "<script>alert('databas sudah berhasil di simpan');</script>";
 		redirect(base_url('cbem/mahasiswa'),'_self');
 	}
+
+
 
 }

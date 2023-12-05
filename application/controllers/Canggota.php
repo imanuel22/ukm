@@ -4,6 +4,9 @@ class Canggota extends CI_Controller{
 	 public function __construct()
 	 	{
 	 		parent::__construct();
+			$this->load->model('mdevisi');
+			$this->load->model('mdanggota');
+			$this->load->model('mjabatan');
 	 		$this->load->model('mvalidasi');
 	 		$this->load->model('mukm');
 	 		$this->mvalidasi->validasi();
@@ -19,6 +22,8 @@ class Canggota extends CI_Controller{
 	
 		}
 		public function ukm_where($id) {
+			$data1['data_devisi']=$this->mdevisi->get_devisi($id);
+			$data1['data_jabatan']=$this->mjabatan->get_jabatan($id);
 			$data1['data_ukm']=$this->mukm->get_ukm_id($id);
 			$data1['id_ukm']=$id;
 			$data=[
@@ -30,18 +35,8 @@ class Canggota extends CI_Controller{
 	}
 
 	
-	public function daftar_fungsio(){
-		$data=[
-			'title'=>'daftar_fungsio',
-			'konten'=>$this->load->view('anggota/daftar_fungsio','',TRUE),
-			'table'=>''
-		];
-		$this->load->view('anggota/dashboard.php',$data);
-	}
-	function logout()
-		{
-			$this->session->sess_destroy();
-			redirect('clogin/login','refresh');	
+	public function daftar_fungsionaris(){
+		$this->mdanggota->daftar_fungsionaris();
 		}
 
 }
