@@ -219,7 +219,7 @@ class Cfungsionaris extends CI_Controller{
 		$data=[
 			'title'=>'Data verif_anggota',
 			'konten'=>'',
-			'table'=>$this->load->view('fungsionaris/verif_anggota/table_verif_anggota',$data1,TRUE),
+			'table'=>$this->load->view('fungsionaris/fungsionaris/verif_anggota/table_verif_anggota',$data1,TRUE),
 		];
 		$this->load->view('fungsionaris/dashboard.php',$data);
 	}
@@ -229,8 +229,8 @@ class Cfungsionaris extends CI_Controller{
 		$data1['datamhs']=$this->mdanggota->get_daftar_anggota_id($id_daftar_anggota);
 		$data=[
 			'title'=>'Data verif_anggota',
-			'konten'=>$this->load->view('fungsionaris/verif_anggota/verif_anggota_form',$data1,TRUE),
-			'table'=>$this->load->view('fungsionaris/verif_anggota/table_verif_anggota',$data1,TRUE),
+			'konten'=>$this->load->view('fungsionaris/fungsionaris/verif_anggota/verif_anggota_form',$data1,TRUE),
+			'table'=>$this->load->view('fungsionaris/fungsionaris/verif_anggota/table_verif_anggota',$data1,TRUE),
 		];
 		$this->load->view('fungsionaris/dashboard.php',$data);
 	}
@@ -251,7 +251,7 @@ class Cfungsionaris extends CI_Controller{
 		$data=[
 			'title'=>'Data verif_fungsionaris',
 			'konten'=>'',
-			'table'=>$this->load->view('fungsionaris/verif_fungsionaris/table_verif_fungsionaris',$data1,TRUE),
+			'table'=>$this->load->view('fungsionaris/fungsionaris/verif_fungsionaris/table_verif_fungsionaris',$data1,TRUE),
 		];
 		$this->load->view('fungsionaris/dashboard.php',$data);
 	}
@@ -261,8 +261,8 @@ class Cfungsionaris extends CI_Controller{
 		$data1['datamhs']=$this->mdfungsionaris->get_daftar_fungsionaris_id($id_daftar_fungsionaris);
 		$data=[
 			'title'=>'Data verif_fungsionaris',
-			'konten'=>$this->load->view('fungsionaris/verif_fungsionaris/verif_fungsionaris_form',$data1,TRUE),
-			'table'=>$this->load->view('fungsionaris/verif_fungsionaris/table_verif_fungsionaris',$data1,TRUE),
+			'konten'=>$this->load->view('fungsionaris/fungsionaris/verif_fungsionaris/verif_fungsionaris_form',$data1,TRUE),
+			'table'=>$this->load->view('fungsionaris/fungsionaris/verif_fungsionaris/table_verif_fungsionaris',$data1,TRUE),
 		];
 		$this->load->view('fungsionaris/dashboard.php',$data);
 	}

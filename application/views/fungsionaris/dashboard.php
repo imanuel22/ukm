@@ -44,14 +44,7 @@
 							<i class="fa-solid fa-database"></i>
 							<span class="nav_name">CARD ANGGOTA</span>
 						</a>
-						<a href="<?= base_url('cfungsionaris/verif_fungsionaris'); ?>" class="nav_link">
-							<i class="fa-solid fa-database"></i>
-							<span class="nav_name">Verifikasi Fungsionaris</span>
-						</a>
-						<a href="<?= base_url('cfungsionaris/verif_anggota'); ?>" class="nav_link">
-							<i class="fa-solid fa-database"></i>
-							<span class="nav_name">Verifikasi Anggota ukm</span>
-						</a>
+
 					</div>
 				</div>
 			</nav>

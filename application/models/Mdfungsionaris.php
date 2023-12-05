@@ -2,20 +2,20 @@
 
 class Mdfungsionaris extends CI_Model{
     public function get_daftar_fungsionaris(){
-		return $this->db->get('daftar_fungsionaris')->result();
+		return $this->db->get('tb_daftar_fungsionaris')->result();
 	}
 	public function get_daftar_fungsionaris_id($id_daftar_fungsionaris){
-		return $this->db->get_where('daftar_fungsionaris',['id_daftar_fungsionaris'=>$id_daftar_fungsionaris])->row();
+		return $this->db->get_where('tb_daftar_fungsionaris',['id_daftar_fungsionaris'=>$id_daftar_fungsionaris])->row();
 	}
     public function get_daftar_fungsionaris_nim($nim) {
-		return $this->db->get_where('daftar_fungsionaris',['nim_mahasiswa',$nim])->row();
+		return $this->db->get_where('tb_daftar_fungsionaris',['nim_mahasiswa',$nim])->row();
 	}
 
 	public function proses_verif_berhasil(){
 		$data = $_POST;
 		$data['status']='aktif';
 		$data['level']='user';
-		$this->db->insert('tb_mahasiswa',$data);
+		$this->db->insert('tb_fungsionaris',$data);
 		$query = $this->get_daftar_fungsionaris_nim($data['nim']);
 		$id_daftar_fungsionaris1 = $query->id_daftar_fungsionaris;
 		$this->proseshapus($id_daftar_fungsionaris1);
