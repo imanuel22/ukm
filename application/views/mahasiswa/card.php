@@ -7,7 +7,7 @@ foreach($data_card as $row):
     <p><?=$row['nama_ukm']?></p>
     <p><?=$row['nama_mahasiswa']?></p>
     <div class="text-end">
-        <button type="button" class="col-2 btn btn-primary">Print</button>
+        <a href="<?=base_url('Pdfview')?>" class="col-2 btn btn-primary">Print</a>
     </div>
 </div>
 <?php endforeach;?>
