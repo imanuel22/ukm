@@ -3,14 +3,14 @@
         public function get_anggota_ukm($id_ukm){
             $query = $this->db->get_where('anggota_ukm',['id_ukm'=>$id_ukm]);
             return $query->result();
-        }public function get_fungsionaris_id($id_fungsionaris){
-            $query = $this->db->get_where('tb_fungsionaris',['id_fungsionaris'=>$id_fungsionaris]);
+        }public function get_anggota_id($id_anggota_ukm){
+            $query = $this->db->get_where('tb_anggota_ukm',['id_anggota_ukm'=>$id_anggota_ukm]);
             return $query->row();
         }
-        public function insert_fungsionaris(){
+        public function insert_anggota(){
             $data = $_POST;
             $data['status'] = 'aktif';
-            $this->db->insert('tb_fungsionaris',$data);
+            $this->db->insert('tb_anggota_ukm',$data);
             $query = $this->db->affected_rows();
             if($query>0){
                 $this->session->set_flashdata('pesan','data berhasil Tersimpan');
@@ -19,13 +19,13 @@
                 $this->session->set_flashdata('pesan','data gagal Tersimpan');
                 $this->session->set_flashdata('color','danger');
             }
-            redirect(base_url('cfungsionaris/fungsionaris/').$data['id_ukm'],'_self');
+            redirect(base_url('cfungsionaris/anggota_ukm/').$data['id_ukm'],'_self');
         }
-        public function update_fungsionaris(){
+        public function update_anggota(){
             $data = $_POST;
             $data['status'] = 'aktif';
-            $this->db->where('id_fungsionaris',$data['id_fungsionaris']);
-            $this->db->update('tb_fungsionaris',$data);
+            $this->db->where('id_anggota_ukm',$data['id_anggota_ukm']);
+            $this->db->update('tb_anggota_ukm',$data);
             $query = $this->db->affected_rows();
             if($query>0){
                 $this->session->set_flashdata('pesan','data berhasil Tersimpan');
@@ -34,12 +34,12 @@
                 $this->session->set_flashdata('pesan','data gagal Tersimpan');
                 $this->session->set_flashdata('color','danger');
             }
-            redirect(base_url('cfungsionaris/fungsionaris/').$data['id_ukm'],'_self');
+            redirect(base_url('cfungsionaris/anggota_ukm/').$data['id_ukm'],'_self');
         }
 
-        public function delete_fungsionaris($id_ukm,$id_fungsionaris) {
-            $this->db->where('id_fungsionaris',$id_fungsionaris);
-            $this->db->delete('tb_fungsionaris');
+        public function delete_anggota($id_ukm,$id_anggota_ukm) {
+            $this->db->where('id_anggota_ukm',$id_anggota_ukm);
+            $this->db->delete('tb_anggota_ukm');
             $query = $this->db->affected_rows();
             if($query>0){
                 $this->session->set_flashdata('pesan','data berhasil Tersimpan');
@@ -48,7 +48,7 @@
                 $this->session->set_flashdata('pesan','data gagal Tersimpan');
                 $this->session->set_flashdata('color','danger');
             }
-            redirect(base_url('cfungsionaris/fungsionaris/').$id_ukm,'_self');
+            redirect(base_url('cfungsionaris/anggota_ukm/').$id_ukm,'_self');
         }
 
     }
