@@ -16,7 +16,7 @@
 		</tr>
 		<tr>
 			<th>prodi</th>
-			<td><input type="text" class="form-control-plaintext" value="<?=$datamhs->nama_prodi?>" readonly name="id_prodi"></td>
+			<td><input type="text" class="form-control-plaintext" value="<?=$datamhs->id_prodi?>" readonly name="id_prodi"></td>
 		</tr>
 		<tr>
 			<th>no telp</th>

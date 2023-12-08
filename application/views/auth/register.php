@@ -52,7 +52,7 @@
                 <?php
                 }
                 ?>
-                <form action="<?= base_url('cauth/prosesregister') ?>" method="post">
+                <form action="<?= base_url('cauth/prosesregister') ?>" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="nim" class="form-label">NIM:</label>
                         <input type="text" class="form-control" id="nim" name="nim_mahasiswa" required>

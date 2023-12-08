@@ -221,27 +221,28 @@ class Cfungsionaris extends CI_Controller{
 		$data=[
 			'title'=>'Data verif_anggota',
 			'konten'=>'',
-			'table'=>$this->load->view('fungsionaris/fungsionaris/verif_anggota/table_verif_anggota',$data1,TRUE),
+			'table'=>$this->load->view('fungsionaris/anggota_ukm/verif_anggota/table_verif_anggota',$data1,TRUE),
 		];
 		$this->load->view('fungsionaris/dashboard.php',$data);
 	}
 
-	public function verif_anggota_form($id_daftar_anggota){
+	public function verif_anggota_form($id){
 		$data1['data_verif_anggota']=$this->mdanggota->get_daftar_anggota();
-		$data1['datamhs']=$this->mdanggota->get_daftar_anggota_id($id_daftar_anggota);
+		$data1['data_verif_anggota_id']=$this->mdanggota->get_daftar_anggota_id($id);
 		$data=[
 			'title'=>'Data verif_anggota',
-			'konten'=>$this->load->view('fungsionaris/fungsionaris/verif_anggota/verif_anggota_form',$data1,TRUE),
-			'table'=>$this->load->view('fungsionaris/fungsionaris/verif_anggota/table_verif_anggota',$data1,TRUE),
+			'konten'=>$this->load->view('fungsionaris/anggota_ukm/verif_anggota/verif_anggota_form',$data1,TRUE),
+			'table'=>$this->load->view('fungsionaris/anggota_ukm/verif_anggota/table_verif_anggota',$data1,TRUE),
 		];
 		$this->load->view('fungsionaris/dashboard.php',$data);
 	}
 	
 	public function proses_verif_anggota(){
-		if($this->input->post('status')=='terima'){
-		$this->mdanggota->proses_verif_anggota_berhasil();
+		if($this->input->post('btn')=='berhasil'){
+			$this->mdanggota->proses_verif_berhasil();
 		}else{
-		$this->mdanggota->proses_verif_anggota_gagal();}
+			$this->mdanggota->proseshapus($this->input->post('id_daftar_anggota'));
+		}
 	}
 	public function proseshapus1($id){
 		$this->mdanggota->proseshapus($id);
@@ -260,7 +261,7 @@ class Cfungsionaris extends CI_Controller{
 
 	public function verif_fungsionaris_form($id_daftar_fungsionaris){
 		$data1['data_verif_fungsionaris']=$this->mdfungsionaris->get_daftar_fungsionaris();
-		$data1['datamhs']=$this->mdfungsionaris->get_daftar_fungsionaris_id($id_daftar_fungsionaris);
+		$data1['data_verif_fungsionaris_id']=$this->mdfungsionaris->get_daftar_fungsionaris_id($id_daftar_fungsionaris);
 		$data=[
 			'title'=>'Data verif_fungsionaris',
 			'konten'=>$this->load->view('fungsionaris/fungsionaris/verif_fungsionaris/verif_fungsionaris_form',$data1,TRUE),
@@ -270,10 +271,10 @@ class Cfungsionaris extends CI_Controller{
 	}
 	
 	public function proses_verif_fungsionaris(){
-		if($this->input->post('status')=='terima'){
-		$this->mdfungsionaris->proses_verif_fungsionaris_berhasil();
+		if($this->input->post('btn')=='berhasil'){
+		$this->mdfungsionaris->proses_verif_berhasil();
 		}else{
-		$this->mdfungsionaris->proses_verif_fungsionaris_gagal();}
+		$this->mdfungsionaris->proseshapus($this->input->post('id_daftar_anggota'));}
 	}
 	public function proseshapus2($id){
 		$this->mdfungsionaris->proseshapus($id);
