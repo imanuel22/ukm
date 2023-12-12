@@ -118,6 +118,11 @@ class Cbem extends CI_Controller{
 	{
 		$this->mukm->insert_ukm();
 	}
+
+	public function update_data_ukm(){
+		$this->mukm->update_data_ukm();
+	} 
+
 	public function delete_ukm($id_ukm){
 		$this->mukm->delete_ukm($id_ukm);
 	}
