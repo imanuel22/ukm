@@ -8,6 +8,7 @@ class Cmahasiswa extends CI_Controller{
 			$this->mvalidasi->validasi();
 			$this->load->model('mukm');
 			$this->load->model('mdevisi');
+			$this->load->model('mprodi');
 			$this->load->model('mmahasiswa');
 			$this->load->model('mdanggota');
 		}
@@ -33,9 +34,7 @@ class Cmahasiswa extends CI_Controller{
 
 	}
 
-	// public function informasi_ukm () {
-	// 	$this->mmahasiswa->getdataukm();
-	// }
+	
 	public function daftar_ukm(){
 		$data1['data_ukm']=$this->mukm->get_ukm();
 		$data=[
@@ -57,7 +56,30 @@ class Cmahasiswa extends CI_Controller{
 		}
 	}
 	
+	public function profile($id_mahasiswa){
+		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa_id($id_mahasiswa);
+		$data=[
+			'title'=>'Dashboard',
+			'konten'=>$this->load->view('mahasiswa/profile',$data1,true),
+			'table'=>''
+		];
+		$this->load->view('mahasiswa/dashboard.php',$data);
 
+	}
+	public function profile_edit($id_mahasiswa){
+		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa_id($id_mahasiswa);
+		$data1['data_prodi']=$this->mprodi->get_prodi();
+		$data=[
+			'title'=>'Dashboard',
+			'konten'=>$this->load->view('mahasiswa/profile_edit',$data1,true),
+			'table'=>''
+		];
+		$this->load->view('mahasiswa/dashboard.php',$data);
+
+	}
+	public function proses_edit_profile () {
+		$this->mmahasiswa->proses_edit_profile();
+	}
 	public function ukm_where($id) {
 			$data1['data_ukm']=$this->mukm->get_ukm_id($id);
 			$data1['data_devisi']=$this->mdevisi->get_devisi($id);

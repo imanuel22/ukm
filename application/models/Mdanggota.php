@@ -37,7 +37,8 @@ class Mdanggota extends CI_Model{
 	public function daftar_anggota() {
         $data=$_POST;
             $this->db->insert('tb_daftar_anggota',$data);
-            $this->session->set_flashdata('pesan','Data Sudah Disimpan...');
+            $this->session->set_flashdata('pesan','Silakan tunggu verifikasi');
+            $this->session->set_flashdata('color','info');
 			redirect('cmahasiswa/dashboard','refresh');
 	}
 }

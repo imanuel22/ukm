@@ -291,27 +291,27 @@ class Cfungsionaris extends CI_Controller{
 		$this->load->view('fungsionaris/dashboard.php',$data);
 	}
 	public function anggota_tambah($id) {
-		$data1['data_anggota']=$this->manggotaukm->get_anggota($id);
+		$data1['data_anggota_ukm']=$this->manggotaukm->get_anggota_ukm($id);
 		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa();
-		$data1['data_jabatan']=$this->mjabatan->get_jabatan($id);
+		$data1['data_devisi']=$this->mdevisi->get_devisi($id);
 		$data1['id_ukm']=$id;
 		$data=[
 			'title'=>'ukm',
-			'konten'=>$this->load->view('funsionaris/anggota_ukm/anggota_insert',$data1,TRUE),
-			'table'=>$this->load->view('funsionaris/anggota_ukm/anggota_ukm',$data1,TRUE),
+			'konten'=>$this->load->view('fungsionaris/anggota_ukm/anggota_insert',$data1,TRUE),
+			'table'=>$this->load->view('fungsionaris/anggota_ukm/anggota_ukm',$data1,TRUE),
 		];
 		$this->load->view('fungsionaris/dashboard.php',$data);
 	}
-	public function anggota_edit($id_ukm,$id_anggota) {
-		$data1['data_anggota']=$this->manggotaukm->get_anggota_ukm($id_ukm);
+	public function form_edit_anggota($id_ukm,$id_anggota) {
+		$data1['data_anggota_ukm']=$this->manggotaukm->get_anggota_ukm($id_ukm);
 		$data1['data_anggota_id']=$this->manggotaukm->get_anggota_id($id_anggota);
 		$data1['data_jabatan']=$this->mjabatan->get_jabatan($id_ukm);
 		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa();
 		$data1['id_ukm']=$id_ukm;
 		$data=[
 			'title'=>'ukm',
-			'konten'=>$this->load->view('funsionaris/anggota_ukm/form_edit_anggota',$data1,TRUE),
-			'table'=>$this->load->view('funsionaris/anggota_ukm/anggota_ukm',$data1,TRUE),
+			'konten'=>$this->load->view('fungsionaris/anggota_ukm/form_edit_anggota',$data1,TRUE),
+			'table'=>$this->load->view('fungsionaris/anggota_ukm/anggota_ukm',$data1,TRUE),
 		];
 		$this->load->view('fungsioaris/dashboard.php',$data);
 	}

@@ -52,18 +52,14 @@
                 <?php
                 }
                 ?>
-                <form action="<?= base_url('cauth/prosesregister') ?>" method="post" enctype="multipart/form-data">
+                <?php echo form_open_multipart('cauth/prosesregister');?>
                     <div class="mb-3">
                         <label for="nim" class="form-label">NIM:</label>
-                        <input type="text" class="form-control" id="nim" name="nim_mahasiswa" required>
+                        <input type="text" class="form-control" id="nim" name="nim" required>
                     </div>
                     <div class="mb-3">
-                        <label for="nama_mhs" class="form-label">Nama Mahasiswa:</label>
-                        <input type="text" class="form-control" id="nama_mhs" name="nama_mahasiswa" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="img_ktm" class="form-label">Upload KTM:</label>
-                        <input type="file" class="form-control" id="img_ktm" name="img_ktm" required>
+                        <label for="nama_mahasiswa" class="form-label">Nama Mahasiswa:</label>
+                        <input type="text" class="form-control" id="nama_mahasiswa" name="nama_mahasiswa" required>
                     </div>
                     <div class="mb-3">
                         <label for="img_mahasiswa" class="form-label">Upload Foto Mahasiswa:</label>

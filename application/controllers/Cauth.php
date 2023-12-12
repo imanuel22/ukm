@@ -5,6 +5,8 @@ class Cauth extends CI_Controller{
 		parent::__construct();
 		$this->load->model('mauth');
 		$this->load->model('mprodi');
+		$this->load->helper(array('form', 'url'));
+
 	}
 	public function login(){
 		$this->load->view('auth/login');
