@@ -5,6 +5,7 @@ class Canggota extends CI_Controller{
 	 	{
 	 		parent::__construct();
 			$this->load->model('mdevisi');
+			$this->load->model('mmahasiswa');
 			$this->load->model('mdanggota');
 			$this->load->model('mjabatan');
 	 		$this->load->model('mvalidasi');
@@ -34,6 +35,7 @@ class Canggota extends CI_Controller{
 			$this->load->view('anggota/dashboard.php',$data);
 	}
 
+	
 	
 	public function daftar_fungsionaris(){
 		$this->mdanggota->daftar_fungsionaris();

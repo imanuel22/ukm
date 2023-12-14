@@ -9,7 +9,6 @@
 		</div>
 	</div>
 	<div  style="overflow-x:auto;">
-
 <table id="myTable" class="table display table-warning table-hover table-responsive">
     <thead>
         <tr>

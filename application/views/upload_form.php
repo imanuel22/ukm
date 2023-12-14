@@ -8,7 +8,8 @@
 
 <?php echo form_open_multipart('upload/do_upload');?>
 
-<input type="file" name="userfile" size="20" />
+<input type="file" name="img_mahasiswa" size="20" />
+<input type="file" name="img_ktm" size="20" />
 
 <br /><br />
 

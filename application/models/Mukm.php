@@ -46,16 +46,6 @@ class Mukm extends CI_Model{
 		return $query->row();
 	}
 
-	public function update_data_ukm(){
-		$data=$_POST;
-		$id_ukm =  $this->input->post('id_ukm');
-		$this->db->where('id_ukm',$id_ukm);
-		$this->db->update('tb_ukm',$data);
-		echo "<script>alert('databas sudah berhasil di simpan');</script>";
-		redirect(base_url('cbem/ukm'),'_self');
-	} 
-  
-
 	public function delete_data_ukm($id_ukm){
 		$this->db->where('id_daftar_mhs',$id_ukm);
 		$this->db->delete('tb_daftar_mhs');

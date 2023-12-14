@@ -8,8 +8,12 @@
             return $query->row();
         }
         public function insert_anggota(){
-            $data = $_POST;
-            $data['status'] = 'aktif';
+            $data = [
+                'id_mahasiswa'=>$this->input->post('id_mahasiswa'),
+                'id_devisi'=>$this->input->post('id_devisi'),
+                'status' => 'aktif',
+                'tgl_mulai' => date('Ymd'),
+            ];
             $this->db->insert('tb_anggota_ukm',$data);
             $query = $this->db->affected_rows();
             if($query>0){
@@ -19,7 +23,7 @@
                 $this->session->set_flashdata('pesan','data gagal Tersimpan');
                 $this->session->set_flashdata('color','danger');
             }
-            redirect(base_url('cfungsionaris/anggota_ukm/').$data['id_ukm'],'_self');
+            redirect(base_url('cfungsionaris/anggota_ukm/').$this->input->post('id_ukm'),'_self');
         }
         public function update_anggota(){
             $data = $_POST;

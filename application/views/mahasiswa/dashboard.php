@@ -44,6 +44,10 @@
 							<i class="fa-solid fa-database"></i>
 							<span class="nav_name">CARD ANGGOTA</span>
 						</a>
+						<a href="<?= base_url('cmahasiswa/profile/').$this->session->userdata('id_mahasiswa'); ?>" class="nav_link">
+							<i class="fa-solid fa-database"></i>
+							<span class="nav_name">CARD ANGGOTA</span>
+						</a>
 					</div>
 				</div>
 			</nav>
