@@ -5,8 +5,10 @@
 		{
 			if ($this->session->userdata('id_mahasiswa')=='')
 			{
-				echo "<script>alert ('Anda tidak dapat mengakses halaman ini..!');</script>";
-				redirect('cauth/login','refresh');
+				if ($this->session->userdata('username')==''){
+					echo "<script>alert ('Anda tidak dapat mengakses halaman ini..!');</script>";
+					redirect('cauth/login','refresh');
+				}
 			}
 		}
 		public function cek_level_user($id_ukm) {

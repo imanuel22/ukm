@@ -3,8 +3,8 @@ class Csuperadmin extends CI_Controller{
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('mvalidasiadmin');
-		$this->mvalidasiadmin->validasi();
+		$this->load->model('mvalidasi');
+		$this->mvalidasi->validasi();
 		$this->load->model('mprodi');
 		$this->load->model('mjurusan');
 		$this->load->model('mbem');
