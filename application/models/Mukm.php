@@ -14,22 +14,37 @@ class Mukm extends CI_Model{
         $query = $this->db->get('tb_ukm');
         return $query->row();
     }
+	public function get_ukm_nama($nama_ukm){
+		$this->db->select('id_ukm');
+		$this->db->where('nama_ukm',$nama_ukm);
+		$query = $this->db->get('tb_ukm');
+		return $query->row();
+	}
+
 	public function insert_ukm(){
 		$nama_ukm =  $this->input->post('nama_ukm');
-		$data= array(
-			'nama_ukm'=>$nama_ukm
-		);
+		$data= [
+			'nama_ukm'=>$nama_ukm,
+		];
 		$this->db->insert('tb_ukm',$data);
-		$id_mahasiswa = $this->input->post('id_mahasiswa');
-		$id_ukm1 = $this->get_ukm_nama($nama_ukm);
-		$id_ukm= $id_ukm1->id_ukm;
-		$data1= array(
+		$data_ukm = $this->get_ukm_nama($nama_ukm);
+		$id_ukm= $data_ukm->id_ukm;
+		$data1 = [
 			'id_ukm'=>$id_ukm,
+			'nama_jabatan'=>'ketua fungsionaris',
+			'deskripsi_jabatan'=>'ketua fungsionaris'
+		];
+		$this->db->insert('tb_jabatan',$data1);
+		$data_jabatan = $this->db->get_where('tb_jabatan',['id_ukm'=>$id_ukm,'nama_jabatan'=>'ketua fungsionaris'])->row();
+		$id_jabatan = $data_jabatan->id_jabatan;
+		$id_mahasiswa = $this->input->post('id_mahasiswa');
+		$data2= [
 			'id_mahasiswa'=>$id_mahasiswa,
-			'id_jabatan'=>'1',
-			'status'=>'aktif'
-		);
-		$this->db->insert('tb_fungsionaris',$data1);
+			'id_jabatan'=>$id_jabatan,
+			'status'=>'aktif',
+			'tgl_mulai'=>date('Ymd'),
+		];
+		$this->db->insert('tb_fungsionaris',$data2);
 		echo "<script>alert('databas sudah berhasil di simpan');</script>";
 		redirect(base_url('cbem/ukm'),'_self');
 	}
@@ -39,13 +54,7 @@ class Mukm extends CI_Model{
 		$query = $this->db->get('tb_mahasiswa');
 		return $query->result();
 	}
-	public function get_ukm_nama($nama_ukm){
-		$this->db->select('id_ukm');
-		$this->db->where('nama_ukm',$nama_ukm);
-		$query = $this->db->get('tb_ukm');
-		return $query->row();
-	}
-
+	
 	public function update_data_ukm(){
 		$data=$_POST;
 		$id_ukm =  $this->input->post('id_ukm');

@@ -38,10 +38,10 @@
 							<i class="fa-solid fa-house"></i>
 							<span class="nav_name">Home</span>
 						</a>
-						<a href="<?= base_url('cbem/verifmhs'); ?>" class="nav_link ">
+						<!-- <a href="<?= base_url('cbem/verifmhs'); ?>" class="nav_link ">
 							<i class="fa-solid fa-database"></i>
 							<span class="nav_name">Verif Mahasiswa</span>
-						</a>
+						</a> -->
 						<a href="<?= base_url('cbem/mahasiswa'); ?>" class="nav_link">
 							<i class="fa-solid fa-database"></i>
 							<span class="nav_name">Data Mahasiswa</span>
