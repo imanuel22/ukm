@@ -7,7 +7,7 @@ class Cbem extends CI_Controller{
 		$this->load->model('mvalidasi');
 		$this->mvalidasi->validasi();
 		
-		$this->load->model('mdmahasiswa');
+		// $this->load->model('mdmahasiswa');
 		$this->load->model('mmahasiswa');
 		$this->load->model('mjurusan');
 		$this->load->model('mprodi');
@@ -127,35 +127,35 @@ class Cbem extends CI_Controller{
 
 
 	//verif mhs
-	public function verifmhs() {
-		$data1['data_verifmhs']=$this->mdmahasiswa->get_daftafmhs();
-		$data=[
-			'title'=>'Data verifmhs',
-			'konten'=>'',
-			'table'=>$this->load->view('bem/verifmhs/table_verifmhs',$data1,TRUE),
-		];
-		$this->load->view('bem/dashboard.php',$data);
-	}
+	// public function verifmhs() {
+	// 	$data1['data_verifmhs']=$this->mdmahasiswa->get_daftafmhs();
+	// 	$data=[
+	// 		'title'=>'Data verifmhs',
+	// 		'konten'=>'',
+	// 		'table'=>$this->load->view('bem/verifmhs/table_verifmhs',$data1,TRUE),
+	// 	];
+	// 	$this->load->view('bem/dashboard.php',$data);
+	// }
 
-	public function verifmhs_form($id_daftar_mhs){
-		$data1['data_verifmhs']=$this->mdmahasiswa->get_daftafmhs();
-		$data1['datamhs']=$this->mdmahasiswa->get_daftarmhs_id($id_daftar_mhs);
-		$data=[
-			'title'=>'Data verifmhs',
-			'konten'=>$this->load->view('bem/verifmhs/verifmhs_form',$data1,TRUE),
-			'table'=>$this->load->view('bem/verifmhs/table_verifmhs',$data1,TRUE),
-		];
-		$this->load->view('bem/dashboard.php',$data);
-	}
+	// public function verifmhs_form($id_daftar_mhs){
+	// 	$data1['data_verifmhs']=$this->mdmahasiswa->get_daftafmhs();
+	// 	$data1['datamhs']=$this->mdmahasiswa->get_daftarmhs_id($id_daftar_mhs);
+	// 	$data=[
+	// 		'title'=>'Data verifmhs',
+	// 		'konten'=>$this->load->view('bem/verifmhs/verifmhs_form',$data1,TRUE),
+	// 		'table'=>$this->load->view('bem/verifmhs/table_verifmhs',$data1,TRUE),
+	// 	];
+	// 	$this->load->view('bem/dashboard.php',$data);
+	// }
 	
-	public function proses_verif(){
-		if($this->input->post('status')=='terima'){
-		$this->mdmahasiswa->proses_verif_berhasil();
-		}else{
-		$this->mdmahasiswa->proses_verif_gagal();}
-	}
-	public function proseshapus($id){
-		$this->mdmahasiswa->proseshapus($id);
-	}
+	// public function proses_verif(){
+	// 	if($this->input->post('status')=='terima'){
+	// 	$this->mdmahasiswa->proses_verif_berhasil();
+	// 	}else{
+	// 	$this->mdmahasiswa->proses_verif_gagal();}
+	// }
+	// public function proseshapus($id){
+	// 	$this->mdmahasiswa->proseshapus($id);
+	// }
 }
 ?>
