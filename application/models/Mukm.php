@@ -28,7 +28,7 @@ class Mukm extends CI_Model{
 		];
 		$this->db->insert('tb_ukm',$data);
 		$data_ukm = $this->get_ukm_nama($nama_ukm);
-		$id_ukm= $data_ukm->id_ukm;
+		$id_ukm= $data_ukm->id_ukm;	
 		$data1 = [
 			'id_ukm'=>$id_ukm,
 			'nama_jabatan'=>'ketua fungsionaris',
