@@ -1,25 +1,32 @@
-
-<div class="rounded-4 p-4 bg-info mt-3">
-<h1 class="fw-bold ">Tambah Jurusan</h1>
-<form action="<?= base_url('csuperadmin/insert_jurusan')?>" method="post">
-		<div class="mb-3">
-			<label for="nama_jurusan" class="form-label">nama_jurusan</label>
-			<input type="text" name="nama_jurusan" class="form-control" id="nama_jurusan">
+<h3 class="mb-4">Form Tambah Jurusan</h3>
+<div class="card bg-primary ">
+	<div class="card-body">
+	<form action="<?= base_url('csuperadmin/insert_jurusan')?>" method="post">
+	<div class="mb-3">
+			<label for="nama_jurusan" class="form-label text-light">Nama Jurusan</label>
+			<input type="text" name="nama_jurusan" class="form-control bg-light" id="nama_jurusan">
 		</div>
 		<div class="mb-3">
-			<label for="NoSKJurusan" class="form-label">NoSKJurusan</label>
-			<input type="text" name="NoSKJurusan" class="form-control" id="NoSKJurusan">
+			<label for="NoSKJurusan" class="form-label text-light">NoSk. Jurusan</label>
+			<input type="text" name="NoSKJurusan" class="form-control bg-light" id="NoSKJurusan">
 		</div>
 		<div class="mb-3">
-			<label for="Kajur" class="form-label">Kajur</label>
-			<input type="text" name="Kajur" class="form-control" id="Kajur">
+			<label for="Kajur" class="form-label text-light">Kepala Jurusan</label>
+			<input type="text" name="Kajur" class="form-control bg-light" id="Kajur">
 		</div>
 		<div class="mb-3">
-			<label for="keterangan" class="form-label">keterangan</label>
-			<input type="text" name="keterangan" class="form-control" id="keterangan">
-		</div>	
-		<div class="mb-3">
-			<button type="submit" class="btn btn-primary col-12">Submit</button>
+			<label for="keterangan" class="form-label text-light">Keterangan</label>
+			<input type="text" name="keterangan" class="form-control bg-light" id="keterangan">
 		</div>
-	</form>
+		<div class="mb-3 row">
+			<div class="col-6">
+				<button type="submit" class="btn btn-success col-12">Submit</button>
+			</div>
+			<div class="col-6">
+				<button type="reset" class="btn btn-danger col-12">Reset</button>
+			</div>
+		</div>
+		</form>
+	</div>
 </div>
+<hr class="border border-primary border-2 opacity-50">

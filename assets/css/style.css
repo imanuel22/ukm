@@ -15,8 +15,9 @@
 	/* Handle on hover */
 	::-webkit-scrollbar-thumb:hover {
 		background: #555;
+		overflow-x:scroll;
 	}
-
+	
 	:root {
 		--header-height: 3rem;
 		--nav-width: 68px;
