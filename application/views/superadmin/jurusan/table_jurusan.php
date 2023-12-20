@@ -7,14 +7,14 @@
 	<div class="card-body">
 	<div style="overflow-x:scroll;">
 		<table id="myTable" class="table table-bordered display table-striped ">
-			<thead class="table-light ">
+			<thead class="table-light">
 				<tr>
-					<th>no</th>
-					<th>nama_jurusan</th>
-					<th>NoSKJurusan</th>
-					<th>Kajur</th>
-					<th>keterangan</th>
-					<th>Action</th>
+					<th class="text-center">No</th>
+					<th class="text-center">Nama Jurusan</th>
+					<th class="text-center">NoSK.Jurusan</th>
+					<th class="text-center">Kepala Jurusan</th>
+					<th class="text-center">Keterangan</th>
+					<th class="text-center">Action</th>
 				</tr>
 			</thead>
 			<tbody class="table-light">
