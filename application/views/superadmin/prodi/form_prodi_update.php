@@ -1,4 +1,4 @@
-<h3 class="mb-4">Form Tambah Prodi</h3>
+<h3 class="mb-4">Form Edit Prodi</h3>
 <div class="card bg-primary ">
 	<div class="card-body">
 <form action="<?= base_url('csuperadmin/update_prodi')?>" method="post">

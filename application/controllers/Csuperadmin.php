@@ -43,7 +43,7 @@ class Csuperadmin extends CI_Controller{
 	}
 	public function tambah_jurusan() {
 		$data1['data_jurusan']=$this->mjurusan->get_jurusan();
-		$title['title']= 'Dashboard';
+		$title['title']= 'Jurusan';
 		$data = [
 			'header'=>$this->load->view('superadmin/partial/header',$title,true),
 			'sitebar'=>$this->load->view('superadmin/partial/sitebar','',true),
@@ -57,7 +57,7 @@ class Csuperadmin extends CI_Controller{
 	public function edit_jurusan($id) {
 		$data1['data_jurusan']=$this->mjurusan->get_jurusan();
 		$data1['data_jurusan_id']=$this->mjurusan->get_jurusan_id($id);
-		$title['title']= 'Dashboard';
+		$title['title']= 'Jurusan';
 		$data = [
 			'header'=>$this->load->view('superadmin/partial/header',$title,true),
 			'sitebar'=>$this->load->view('superadmin/partial/sitebar','',true),
@@ -95,7 +95,7 @@ class Csuperadmin extends CI_Controller{
 	public function tambah_prodi() {
 		$data1['data_prodi']=$this->mprodi->view_prodi();
 		$data1['data_jurusan']=$this->mjurusan->get_jurusan();
-		$title['title']= 'Dashboard';
+		$title['title']= 'Prodi';
 		$data = [
 			'header'=>$this->load->view('superadmin/partial/header',$title,true),
 			'sitebar'=>$this->load->view('superadmin/partial/sitebar','',true),
@@ -110,7 +110,7 @@ class Csuperadmin extends CI_Controller{
 		$data1['data_prodi']=$this->mprodi->view_prodi();
 		$data1['data_jurusan']=$this->mjurusan->get_jurusan();
 		$data1['data_prodi_id']=$this->mprodi->get_prodi_id($id);
-		$title['title']= 'Dashboard';
+		$title['title']= 'Prodi';
 		$data = [
 			'header'=>$this->load->view('superadmin/partial/header',$title,true),
 			'sitebar'=>$this->load->view('superadmin/partial/sitebar','',true),
@@ -148,7 +148,7 @@ class Csuperadmin extends CI_Controller{
 		$data1['data_bem']=$this->mbem->get_bem();
 		$data1['data_prodi']=$this->mprodi->get_prodi();
 
-		$title['title']= 'Dashboard';
+		$title['title']= 'BEM';
 		$data = [
 			'header'=>$this->load->view('superadmin/partial/header',$title,true),
 			'sitebar'=>$this->load->view('superadmin/partial/sitebar','',true),
@@ -163,7 +163,7 @@ class Csuperadmin extends CI_Controller{
 		$data1['data_bem']=$this->mbem->get_bem();
 		$data1['data_prodi']=$this->mprodi->get_prodi();
 		$data1['data_bem_id']=$this->mbem->get_bem_id($id);
-		$title['title']= 'Dashboard';
+		$title['title']= 'BEM';
 		$data = [
 			'header'=>$this->load->view('superadmin/partial/header',$title,true),
 			'sitebar'=>$this->load->view('superadmin/partial/sitebar','',true),
