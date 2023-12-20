@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="<?=base_url();?>assets/DataTables/datatables.css">
-<h3 class="mb-4">Table Prodi</h3>
+<h3 class="mb-4">Table BEM</h3>
 <div class="card bg-primary mt-3 text-light">
 	<div class="card-header d-flex justify-content-end">
 		<button type="button" onclick="tambah()" class="btn btn-light px-5">+Data</button>
@@ -16,7 +16,7 @@
             <th class=" text-center">Nomer Telphone</th>
             <th class=" text-center">Img</th>
             <th class=" text-center">Status</th>
-            <th class=" text-center">Nama Prodi</th>
+            <th class=" text-center">Prodi</th>
             <th class=" text-center">Action</th>
         </tr>
     </thead>

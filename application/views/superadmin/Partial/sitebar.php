@@ -3,7 +3,7 @@
     	<!-- Sidebar scroll-->
     	<div>
     		<div class="brand-logo d-flex align-items-center justify-content-between">
-    			<a href="./index.html" class="text-nowrap logo-img">
+    			<a href="<?=base_url('csuperadmin/dashboard')?>" class="text-nowrap logo-img">
     				<img src="<?=base_url()?>vendor/src/assets/images/logos/dark-logo.svg" width="180" alt="" />
     			</a>
     			<div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
