@@ -5,12 +5,18 @@
 		{
 			if ($this->session->userdata('id_mahasiswa')=='')
 			{
-				if ($this->session->userdata('username')==''){
 					echo "<script>alert ('Anda tidak dapat mengakses halaman ini..!');</script>";
 					redirect('cauth/login','refresh');
-				}
+
 			}
 		}
+		function validasisuperadmin() {
+			if ($this->session->userdata('username')==''){
+				echo "<script>alert ('Anda tidak dapat mengakses halaman ini..!');</script>";
+				redirect('cauth/login','refresh');
+			}
+		}
+		
 		public function cek_level_user($id_ukm) {
             $id_mahasiswa = $this->session->userdata('id_mahasiswa');
             $query = $this->db->get_where('cekfungsionaris',['id_mahasiswa'=>$id_mahasiswa,'id_ukm'=>$id_ukm]);

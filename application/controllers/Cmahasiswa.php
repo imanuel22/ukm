@@ -15,34 +15,46 @@ class Cmahasiswa extends CI_Controller{
 	
 	public function dashboard(){
 		$data1['data_ukm']=$this->mukm->get_ukm();
-		$data=[
-			'title'=>'Dashboard',
+		$title['title']= 'Mahasiswa';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('mahasiswa/partial/sitebar','',true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>'',
 			'table'=>''
 		];
-		$this->load->view('mahasiswa/dashboard.php',$data);
+		$this->load->view('dashboard.php',$data);
 	}	
 
 	public function ukm(){
 		$data1['data_ukm']=$this->mukm->get_ukm();
-		$data=[
-			'title'=>'Dashboard',
+		$title['title']= 'Mahasiswa';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('mahasiswa/partial/sitebar','',true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>$this->load->view('mahasiswa/ukm',$data1,TRUE),
 			'table'=>''
 		];
-		$this->load->view('mahasiswa/dashboard.php',$data);
+		$this->load->view('dashboard.php',$data);
 
 	}
 
 	
 	public function daftar_ukm(){
 		$data1['data_ukm']=$this->mukm->get_ukm();
-		$data=[
-			'title'=>'daftar_ukm',
+		$title['title']= 'Mahasiswa';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('mahasiswa/partial/sitebar','',true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>$this->load->view('mahasiswa/daftar_ukm',$data1,TRUE),
 			'table'=>''
 		];
-		$this->load->view('mahasiswa/dashboard.php',$data);
+		$this->load->view('dashboard.php',$data);
 	}
 
 	public function cek_level_user($id_ukm){
@@ -58,23 +70,31 @@ class Cmahasiswa extends CI_Controller{
 	
 	public function profile($id_mahasiswa){
 		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa_id($id_mahasiswa);
-		$data=[
-			'title'=>'Dashboard',
+		$title['title']= 'Mahasiswa';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('mahasiswa/partial/sitebar','',true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>$this->load->view('mahasiswa/profile',$data1,true),
 			'table'=>''
 		];
-		$this->load->view('mahasiswa/dashboard.php',$data);
+		$this->load->view('dashboard.php',$data);
 
 	}
 	public function profile_edit($id_mahasiswa){
 		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa_id($id_mahasiswa);
 		$data1['data_prodi']=$this->mprodi->get_prodi();
-		$data=[
-			'title'=>'Dashboard',
+		$title['title']= 'Mahasiswa';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('mahasiswa/partial/sitebar','',true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>$this->load->view('mahasiswa/profile_edit',$data1,true),
 			'table'=>''
 		];
-		$this->load->view('mahasiswa/dashboard.php',$data);
+		$this->load->view('dashboard.php',$data);
 
 	}
 	public function proses_edit_profile () {
@@ -85,12 +105,16 @@ class Cmahasiswa extends CI_Controller{
 			$data1['data_devisi']=$this->mdevisi->get_devisi($id);
 			$data1['data_devisi']=$this->mdevisi->get_devisi($id);
 			$data1['id_ukm']=$id;
-			$data=[
-				'title'=>'ukm',
+		$title['title']= 'Mahasiswa';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('mahasiswa/partial/sitebar','',true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 				'konten'=>$this->load->view('mahasiswa/ukm_where',$data1,TRUE),
 				'table'=>$this->load->view('mahasiswa/form_daftar_anggota',$data1,TRUE),
 			];
-			$this->load->view('mahasiswa/dashboard.php',$data);
+			$this->load->view('dashboard.php',$data);
 	}
 
 	public function daftar_anggota(){
@@ -98,18 +122,17 @@ class Cmahasiswa extends CI_Controller{
 	}
 
 	public function card()  {
-		$data=[
-			'title'=>'card',
-			'konten'=>$this->load->view('mahasiswa/card','',TRUE),
+		$title['title']= 'Mahasiswa';
+		$data1['data_card']=$this->mukm->get_card();
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('mahasiswa/partial/sitebar','',true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
+			'konten'=>$this->load->view('mahasiswa/card',$data1,TRUE),
 			'table'=>'',
 		];
-		$this->load->view('mahasiswa/dashboard.php',$data);
+		$this->load->view('dashboard.php',$data);
 	}
-
-	function logout()
-		{
-			$this->session->sess_destroy();
-			redirect('clogin/login','refresh');	
-		}
 
 }

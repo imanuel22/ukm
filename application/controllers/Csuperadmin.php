@@ -4,7 +4,7 @@ class Csuperadmin extends CI_Controller{
 	{
 		parent::__construct();
 		$this->load->model('mvalidasi');
-		$this->mvalidasi->validasi();
+		$this->mvalidasi->validasisuperadmin();
 		$this->load->model('mprodi');
 		$this->load->model('mjurusan');
 		$this->load->model('mbem');

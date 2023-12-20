@@ -85,6 +85,10 @@ class Mukm extends CI_Model{
 		}
 		redirect(base_url('cfungsionaris/ukm_where/'.$data['id_ukm']),'_self');
 	}
+
+	public function get_card() {
+		return $this->db->get('tb_ukm')->result();
+	}
 }
 
 

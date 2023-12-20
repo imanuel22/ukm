@@ -12,60 +12,82 @@ class Cfungsionaris extends CI_Controller{
 		$this->load->model('mproker');
 		$this->load->model('mjabatan');
 		$this->load->model('manggotaukm');
+		$this->load->model('mvalidasi');
+		$this->mvalidasi->validasi();
 	}
 	
 	public function ukm_where($id) {
 		$data1['data_ukm']=$this->mukm->get_ukm_id($id);
 		$data1['id_ukm']=$id;
-		$data=[
-			'title'=>'ukm',
+		$title['title']= 'UKM';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>$this->load->view('fungsionaris/ukm/ukm_where',$data1,TRUE),
 			'table'=>'',
 		];
-		$this->load->view('fungsionaris/dashboard.php',$data);
+		$this->load->view('dashboard.php',$data);
 	}
 
 	public function ukm_edit($id) {
 		$data1['data_ukm']=$this->mukm->get_ukm_id($id);
 		$data1['id_ukm']=$id;
-		$data=[
-			'title'=>'ukm',
+		$title['title']= 'UKM';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>$this->load->view('fungsionaris/ukm/ukm_edit',$data1,TRUE),
 			'table'=>'',
 		];
-		$this->load->view('fungsionaris/dashboard.php',$data);
+		$this->load->view('dashboard.php',$data);
 	}
 	public function devisi($id) {
 		$data1['data_devisi']=$this->mdevisi->get_devisi($id);
 		$data1['id_ukm']=$id;
-		$data=[
-			'title'=>'ukm',
+		$title['title']= 'UKM';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>'',
 			'table'=>$this->load->view('fungsionaris/devisi/devisi',$data1,TRUE),
 		];
-		$this->load->view('fungsionaris/dashboard.php',$data);
+		$this->load->view('dashboard.php',$data);
 	}
 	public function devisi_tambah($id) {
 		$data1['data_devisi']=$this->mdevisi->get_devisi($id);
 		$data1['id_ukm']=$id;
-		$data=[
-			'title'=>'ukm',
+		$title['title']= 'UKM';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>$this->load->view('fungsionaris/devisi/devisi_insert',$data1,TRUE),
 			'table'=>$this->load->view('fungsionaris/devisi/devisi',$data1,TRUE),
 		];
-		$this->load->view('fungsionaris/dashboard.php',$data);
+		$this->load->view('dashboard.php',$data);
 	}
 	public function devisi_edit($id_ukm,$id_devisi) {
 		$data1['data_devisi']=$this->mdevisi->get_devisi($id_ukm);
 		$data1['data_devisi_id']=$this->mdevisi->get_devisi_id($id_devisi);
 		$data1['id_ukm']=$id_ukm;
 		echo "<pre>".print_r($data1)."</pre>";
-		$data=[
-			'title'=>'ukm',
+		$title['title']= 'UKM';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>$this->load->view('fungsionaris/devisi/devisi_update',$data1,TRUE),
 			'table'=>$this->load->view('fungsionaris/devisi/devisi',$data1,TRUE),
 		];
-		$this->load->view('fungsionaris/dashboard.php',$data);
+		$this->load->view('dashboard.php',$data);
 	}
 
 	public function insert_devisi() {
@@ -81,24 +103,32 @@ class Cfungsionaris extends CI_Controller{
 	public function fungsionaris($id) {
 		$data1['data_fungsionaris']=$this->mfungsionaris->get_fungsionaris($id);
 		$data1['id_ukm']=$id;
-		$data=[
-			'title'=>'ukm',
+		$title['title']= 'UKM';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>'',
 			'table'=>$this->load->view('fungsionaris/fungsionaris/fungsionaris',$data1,TRUE),
 		];
-		$this->load->view('fungsionaris/dashboard.php',$data);
+		$this->load->view('dashboard.php',$data);
 	}
 	public function fungsionaris_tambah($id) {
 		$data1['data_fungsionaris']=$this->mfungsionaris->get_fungsionaris($id);
 		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa();
 		$data1['data_jabatan']=$this->mjabatan->get_jabatan($id);
 		$data1['id_ukm']=$id;
-		$data=[
-			'title'=>'ukm',
+		$title['title']= 'UKM';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>$this->load->view('fungsionaris/fungsionaris/fungsionaris_insert',$data1,TRUE),
 			'table'=>$this->load->view('fungsionaris/fungsionaris/fungsionaris',$data1,TRUE),
 		];
-		$this->load->view('fungsionaris/dashboard.php',$data);
+		$this->load->view('dashboard.php',$data);
 	}
 	public function fungsionaris_edit($id_ukm,$id_fungsionaris) {
 		$data1['data_fungsionaris']=$this->mfungsionaris->get_fungsionaris($id_ukm);
@@ -106,12 +136,16 @@ class Cfungsionaris extends CI_Controller{
 		$data1['data_jabatan']=$this->mjabatan->get_jabatan($id_ukm);
 		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa();
 		$data1['id_ukm']=$id_ukm;
-		$data=[
-			'title'=>'ukm',
+		$title['title']= 'UKM';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>$this->load->view('fungsionaris/fungsionaris/fungsionaris_update',$data1,TRUE),
 			'table'=>$this->load->view('fungsionaris/fungsionaris/fungsionaris',$data1,TRUE),
 		];
-		$this->load->view('fungsionaris/dashboard.php',$data);
+		$this->load->view('dashboard.php',$data);
 	}
 	public function insert_fungsionaris() {
 		$this->mfungsionaris->insert_fungsionaris();
@@ -127,35 +161,47 @@ class Cfungsionaris extends CI_Controller{
 	public function proker($id) {
 		$data1['data_proker']=$this->mproker->get_proker($id);
 		$data1['id_ukm']=$id;
-		$data=[
-			'title'=>'ukm',
+		$title['title']= 'UKM';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>'',
 			'table'=>$this->load->view('fungsionaris/proker/proker',$data1,TRUE),
 		];
-		$this->load->view('fungsionaris/dashboard.php',$data);
+		$this->load->view('dashboard.php',$data);
 	}
 	public function proker_tambah($id) {
 		$data1['data_proker']=$this->mproker->get_proker($id);
 		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa();
 		$data1['id_ukm']=$id;
-		$data=[
-			'title'=>'ukm',
+		$title['title']= 'UKM';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>$this->load->view('fungsionaris/proker/proker_insert',$data1,TRUE),
 			'table'=>$this->load->view('fungsionaris/proker/proker',$data1,TRUE),
 		];
-		$this->load->view('fungsionaris/dashboard.php',$data);
+		$this->load->view('dashboard.php',$data);
 	}
 	public function proker_edit($id_ukm,$id_proker) {
 		$data1['data_proker']=$this->mproker->get_proker($id_ukm);
 		$data1['data_proker_id']=$this->mproker->get_proker_id($id_proker);
 		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa();
 		$data1['id_ukm']=$id_ukm;
-		$data=[
-			'title'=>'ukm',
+		$title['title']= 'UKM';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>$this->load->view('fungsionaris/proker/proker_update',$data1,TRUE),
 			'table'=>$this->load->view('fungsionaris/proker/proker',$data1,TRUE),
 		];
-		$this->load->view('fungsionaris/dashboard.php',$data);
+		$this->load->view('dashboard.php',$data);
 	}
 	public function insert_proker() {
 		$this->mproker->insert_proker();
@@ -170,35 +216,47 @@ class Cfungsionaris extends CI_Controller{
 	public function jabatan($id) {
 		$data1['data_jabatan']=$this->mjabatan->get_jabatan($id);
 		$data1['id_ukm']=$id;
-		$data=[
-			'title'=>'ukm',
+		$title['title']= 'UKM';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>'',
 			'table'=>$this->load->view('fungsionaris/jabatan/jabatan',$data1,TRUE),
 		];
-		$this->load->view('fungsionaris/dashboard.php',$data);
+		$this->load->view('dashboard.php',$data);
 	}
 	public function jabatan_tambah($id) {
 		$data1['data_jabatan']=$this->mjabatan->get_jabatan($id);
 		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa();
 		$data1['id_ukm']=$id;
-		$data=[
-			'title'=>'ukm',
+		$title['title']= 'UKM';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>$this->load->view('fungsionaris/jabatan/jabatan_insert',$data1,TRUE),
 			'table'=>$this->load->view('fungsionaris/jabatan/jabatan',$data1,TRUE),
 		];
-		$this->load->view('fungsionaris/dashboard.php',$data);
+		$this->load->view('dashboard.php',$data);
 	}
 	public function jabatan_edit($id_ukm,$id_jabatan) {
 		$data1['data_jabatan']=$this->mjabatan->get_jabatan($id_ukm);
 		$data1['data_jabatan_id']=$this->mjabatan->get_jabatan_id($id_jabatan);
 		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa();
 		$data1['id_ukm']=$id_ukm;
-		$data=[
-			'title'=>'ukm',
+		$title['title']= 'UKM';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>$this->load->view('fungsionaris/jabatan/jabatan_update',$data1,TRUE),
 			'table'=>$this->load->view('fungsionaris/jabatan/jabatan',$data1,TRUE),
 		];
-		$this->load->view('fungsionaris/dashboard.php',$data);
+		$this->load->view('dashboard.php',$data);
 	}
 	public function insert_jabatan() {
 		$this->mjabatan->insert_jabatan();
@@ -223,7 +281,7 @@ class Cfungsionaris extends CI_Controller{
 			'konten'=>'',
 			'table'=>$this->load->view('fungsionaris/anggota_ukm/verif_anggota/table_verif_anggota',$data1,TRUE),
 		];
-		$this->load->view('fungsionaris/dashboard.php',$data);
+		$this->load->view('dashboard.php',$data);
 	}
 
 	public function verif_anggota_form($id){
@@ -234,7 +292,7 @@ class Cfungsionaris extends CI_Controller{
 			'konten'=>$this->load->view('fungsionaris/anggota_ukm/verif_anggota/verif_anggota_form',$data1,TRUE),
 			'table'=>$this->load->view('fungsionaris/anggota_ukm/verif_anggota/table_verif_anggota',$data1,TRUE),
 		];
-		$this->load->view('fungsionaris/dashboard.php',$data);
+		$this->load->view('dashboard.php',$data);
 	}
 	
 	public function proses_verif_anggota(){
@@ -256,7 +314,7 @@ class Cfungsionaris extends CI_Controller{
 			'konten'=>'',
 			'table'=>$this->load->view('fungsionaris/fungsionaris/verif_fungsionaris/table_verif_fungsionaris',$data1,TRUE),
 		];
-		$this->load->view('fungsionaris/dashboard.php',$data);
+		$this->load->view('dashboard.php',$data);
 	}
 
 	public function verif_fungsionaris_form($id_daftar_fungsionaris){
@@ -267,7 +325,7 @@ class Cfungsionaris extends CI_Controller{
 			'konten'=>$this->load->view('fungsionaris/fungsionaris/verif_fungsionaris/verif_fungsionaris_form',$data1,TRUE),
 			'table'=>$this->load->view('fungsionaris/fungsionaris/verif_fungsionaris/table_verif_fungsionaris',$data1,TRUE),
 		];
-		$this->load->view('fungsionaris/dashboard.php',$data);
+		$this->load->view('dashboard.php',$data);
 	}
 	
 	public function proses_verif_fungsionaris(){
@@ -283,24 +341,32 @@ class Cfungsionaris extends CI_Controller{
 	public function anggota_ukm($id) {
 		$data1['data_anggota_ukm']=$this->manggotaukm->get_anggota_ukm($id);
 		$data1['id_ukm']=$id;
-		$data=[
-			'title'=>'ukm',
+		$title['title']= 'UKM';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>'',
 			'table'=>$this->load->view('fungsionaris/anggota_ukm/anggota_ukm',$data1,TRUE),
 		];
-		$this->load->view('fungsionaris/dashboard.php',$data);
+		$this->load->view('dashboard.php',$data);
 	}
 	public function anggota_tambah($id) {
 		$data1['data_anggota_ukm']=$this->manggotaukm->get_anggota_ukm($id);
 		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa();
 		$data1['data_devisi']=$this->mdevisi->get_devisi($id);
 		$data1['id_ukm']=$id;
-		$data=[
-			'title'=>'ukm',
+		$title['title']= 'UKM';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>$this->load->view('fungsionaris/anggota_ukm/anggota_insert',$data1,TRUE),
 			'table'=>$this->load->view('fungsionaris/anggota_ukm/anggota_ukm',$data1,TRUE),
 		];
-		$this->load->view('fungsionaris/dashboard.php',$data);
+		$this->load->view('dashboard.php',$data);
 	}
 	public function form_edit_anggota($id_ukm,$id_anggota) {
 		$data1['data_anggota_ukm']=$this->manggotaukm->get_anggota_ukm($id_ukm);
@@ -308,8 +374,12 @@ class Cfungsionaris extends CI_Controller{
 		$data1['data_jabatan']=$this->mjabatan->get_jabatan($id_ukm);
 		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa();
 		$data1['id_ukm']=$id_ukm;
-		$data=[
-			'title'=>'ukm',
+		$title['title']= 'UKM';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>$this->load->view('fungsionaris/anggota_ukm/form_edit_anggota',$data1,TRUE),
 			'table'=>$this->load->view('fungsionaris/anggota_ukm/anggota_ukm',$data1,TRUE),
 		];

@@ -32,14 +32,6 @@ main {
   padding: 60px 0;
 }
 
-.text--medium {
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 400;
-  color: #ecf0f1;
-}
-
 .cards {
   grid-column: 2 / span 12;
   display: grid;
@@ -51,7 +43,6 @@ main {
   grid-column-end: span 4;
   display: flex;
   flex-direction: column;
-  background-color: #39393b;
   cursor: pointer;
   transition: all 0.3s ease 0s;
 }
@@ -62,7 +53,7 @@ main {
 
 .card__image-container {
   width: 100%;
-  padding-top: 56.25%;
+  padding-top: 100%;
   overflow: hidden;
   position: relative;
 }
@@ -87,13 +78,6 @@ main {
   display: flex;
   align-self: end;
   align-items: center;
-}
-
-.card__price {
-  margin-left: auto;
-  padding: 5px 20px;
-  background-color: #303032;
-  border-radius: 20px;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -128,30 +112,30 @@ main {
 
 </style>
 <main>
-      <section class="cards">  
+    <section class="cards">  
 		<?php foreach($data_ukm as $row): ?>
-        <div class="card">
-          <div class="card__image-container">
+        <a href="<?=base_url('cmahasiswa/cek_level_user/').$row->id_ukm?>" class="card rounded-3 bg-primary">
+          <div class="card__image-container bg-light">
             <img
-              src="<?=base_url('assets/img/').$row->img_ukm?>"
+              src="<?=base_url('assets/uploads/ukm/').$row->img_ukm?>"
             />
           </div>
           <div class="card__content">
-			<p class="card__title text--medium">
-			<?=$row->nama_ukm?>
-			</p>
-            <p class="card__info text--medium">
+          <h3 class="card__title text-light  text-center">
+          <?=$row->nama_ukm?>
+          </h3>
+            <p class="d-flex text-light">
               <?php 
               if(!empty($row->deskripsi)){
                 echo substr($row->deskripsi,0,200);
               }
               ?>
             </p>
-            <div class="card__info">
-              <button type="button" onclick="opens(<?=$row->id_ukm?>)" class="card__price text--medium">View</button>
+            <div class="d-flex justify-content-end">
+              <button type="button" onclick="opens(<?=$row->id_ukm?>)" class="btn btn-light">View</button>
             </div>
           </div>
-        </div>
+        </a>
 		<?php endforeach; ?>
       </section>
 </main>

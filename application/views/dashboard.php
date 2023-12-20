@@ -32,7 +32,14 @@
 		else {
 		?>
 			<div class="card_bg1 p-2 rounded-4">
-				<h1 class="text-capitalize">Selamat Datang <?=$this->session->userdata('username')?>.</h1>
+				<h1 class="text-capitalize">Selamat Datang <?php
+				if(!empty($this->session->userdata('username'))){
+					echo $this->session->userdata('username');
+				}
+				else{
+					echo $this->session->userdata('nama_mahasiswa');
+				}
+				?>.</h1>
         <h3>Di sistem informasi Unit Kegiatan Mahasiswa Politeknik Negeri Bali</h3>
 			</div>
 			<?php

@@ -22,11 +22,6 @@ class Cketua extends CI_Controller{
 		];
 		$this->load->view('ketua/dashboard.php',$data);
 	}
-	function logout()
-		{
-			$this->session->sess_destroy();
-			redirect('clogin/login','refresh');	
-		}
 
 	function ukm() {
 		$data1['data_ukm']=$this->mketua->getdataukm();

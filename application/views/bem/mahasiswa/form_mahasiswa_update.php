@@ -17,15 +17,20 @@
 		</div>
 		<div class="mb-3">
 			<label for="password" class="form-label text-light">password</label>
-			<input type="text" name="password" class="form-control bg-light" id="password" value="<?=$data_mhs_where->password?>">
+			<input type="password" name="password" class="form-control bg-light" id="password" value="<?=$data_mhs_where->password?>">
 		</div>
 		<div class="mb-3">
 			<label for="no_telp" class="form-label text-light">no_telp</label>
 			<input type="text" name="no_telp" class="form-control bg-light" id="no_telp" value="<?=$data_mhs_where->no_telp?>">
 		</div>
-		<div class="mb-3">
-			<label for="img_mahasiswa" class="form-label text-light">img_mahasiswa</label>
-			<input type="file" name="img_mahasiswa" class="form-control bg-light" id="img_mahasiswa" value="<?=$data_mhs_where->img_mahasiswa?>">
+		<div class="mb-3 row">
+		<div class="col-2">
+				<img src="<?=base_url('assets/uploads/img_mahasiswa/').$data_mhs_where->img_mahasiswa?>" alt="<?=$data_mhs_where->img_mahasiswa?>" width="150" height="200">
+			</div>
+			<div class="col-10 mt-5">
+				<label for="img_mahasiswa" class="form-label text-light">IMG</label>	
+				<input type="file" name="img_mahasiswa" class="form-control bg-light" id="img_mahasiswa">
+			</div>
 		</div>
 		<div class="mb-3">
 			<label for="status" class="form-label text-light">status</label>
