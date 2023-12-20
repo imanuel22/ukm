@@ -1,31 +1,26 @@
 <link rel="stylesheet" href="<?=base_url();?>assets/DataTables/datatables.css">
-<div class="rounded-4 p-4 bg-info mt-3">
-	<div class="row mb-2">
-		<div class="col-10">
-			<h1 class="fw-bold ">Table bem</h1>
-		</div>
-		<div class="col-2">
-			<button type="button" onclick="tambah()" class="btn btn-primary p-1 col-12">+Data</button>
-		</div>
+<h3 class="mb-4">Table Prodi</h3>
+<div class="card bg-primary mt-3 text-light">
+	<div class="card-header d-flex justify-content-end">
+		<button type="button" onclick="tambah()" class="btn btn-light px-5">+Data</button>
 	</div>
-	<div  style="overflow-x:auto;">
-
-<table id="myTable" class="table display table-warning table-hover table-responsive">
-    <thead>
-        <tr>
-            <th>no</th>
-            <th>nim</th>
-            <th>nama_mahasiswa</th>
-            <th>angkatan</th>
-            <th>password</th>
-            <th>no_telp</th>
-            <th>img_mahasiswa</th>
-            <th>status</th>
-            <th>nama prodi</th>
-            <th>Action</th>
+	<div class="card-body">
+		<div style="overflow-x:scroll;">
+			<table id="myTable" class="table table-bordered display table-striped ">
+				<thead class="table-light">
+					<tr>
+            <th class=" text-center">No</th>
+            <th class=" text-center">NIM</th>
+            <th class=" text-center">Nama Mahasiswa</th>
+            <th class=" text-center">Angkatan</th>
+            <th class=" text-center">Nomer Telphone</th>
+            <th class=" text-center">Img</th>
+            <th class=" text-center">Status</th>
+            <th class=" text-center">Nama Prodi</th>
+            <th class=" text-center">Action</th>
         </tr>
     </thead>
-    <tbody>
+	<tbody class="table-light">
         <?php 
 		$no=1;
 		foreach($data_bem as $row):
@@ -35,14 +30,22 @@
 				<td><?=$row->nim?></td>
 				<td><?=$row->nama_mahasiswa?></td>
 				<td><?=$row->angkatan?></td>
-				<td><?=$row->password?></td>
 				<td><?=$row->no_telp?></td>
-				<td><?=$row->img_mahasiswa?></td>
-				<td><?=$row->status?></td>
+				<td>
+					<img src="<?=base_url('assets/uploads/img_mahasiswa/')?><?=$row->img_mahasiswa?>" alt="<?=$row->img_mahasiswa?>" width="75" height="100">
+				</td>
+				<td class="text-center">
+					<?php if ($row->status == 'aktif'):?>
+                        <span class="badge bg-primary rounded-3 fw-semibold">Aktif</span>
+					<?php else:?>
+                        <span class="badge bg-danger rounded-3 fw-semibold">Tidak Aktif</span>
+					<?php endif ?>
+					
+				</td>
 				<td><?=$row->nama_prodi?></td>
 				<td class="text-center">
-					<button type="button" class="btn btn-warning" onclick="edit(<?=$row->id_mahasiswa?>)"><i class="bi bi-pencil"></i></button>
-					<button type="button" class="btn btn-danger" onclick="hapus(<?=$row->id_mahasiswa?>)"><i class="bi bi-trash3"></i></button>
+					<button type="button" class="btn btn-warning" onclick="edit(<?=$row->id_mahasiswa?>)"><i class="ti ti-pencil"></i></button>
+					<button type="button" class="btn btn-danger" onclick="hapus(<?=$row->id_mahasiswa?>)"><i class="ti ti-trash"></i></button>
 				</td>
 			</tr>
 		<?php endforeach;?>

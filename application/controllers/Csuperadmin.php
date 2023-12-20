@@ -30,7 +30,7 @@ class Csuperadmin extends CI_Controller{
 	}
 	public function jurusan() {
 		$data1['data_jurusan']=$this->mjurusan->get_jurusan();
-		$title['title']= 'Dashboard';
+		$title['title']= 'Jurusan';
 		$data = [
 			'header'=>$this->load->view('superadmin/partial/header',$title,true),
 			'sitebar'=>$this->load->view('superadmin/partial/sitebar','',true),
@@ -81,7 +81,7 @@ class Csuperadmin extends CI_Controller{
 	//prodi
 	public function prodi() {
 		$data1['data_prodi']=$this->mprodi->view_prodi();
-		$title['title']= 'Dashboard';
+		$title['title']= 'Prodi';
 		$data = [
 			'header'=>$this->load->view('superadmin/partial/header',$title,true),
 			'sitebar'=>$this->load->view('superadmin/partial/sitebar','',true),
@@ -133,7 +133,7 @@ class Csuperadmin extends CI_Controller{
 
 	public function bem() {
 		$data1['data_bem']=$this->mbem->get_bem();
-		$title['title']= 'Dashboard';
+		$title['title']= 'BEM';
 		$data = [
 			'header'=>$this->load->view('superadmin/partial/header',$title,true),
 			'sitebar'=>$this->load->view('superadmin/partial/sitebar','',true),
