@@ -6,24 +6,27 @@ class Cbem extends CI_Controller{
 		parent::__construct();
 		$this->load->model('mvalidasi');
 		$this->mvalidasi->validasi();
-		
-		// $this->load->model('mdmahasiswa');
 		$this->load->model('mmahasiswa');
 		$this->load->model('mjurusan');
 		$this->load->model('mprodi');
 		$this->load->model('mukm');
+		// $this->load->model('mdmahasiswa');
 	}
 
 
 	//halaman utama
-	public function dashboard()
-	{	
-		$data=[
-			'title'=>'Dashboard',
+	public function dashboard() {
+		$title['title']= 'Dashboard';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('bem/partial/sitebar','',true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>'',
-			'table'=>''
-		];
-		$this->load->view('bem/dashboard.php',$data);
+			'table'=>'',
+			];
+
+		$this->load->view('dashboard',$data);
 	}
 
 	//coba
@@ -38,23 +41,31 @@ class Cbem extends CI_Controller{
 	{	
 		$data1['data_mhs']=$this->mmahasiswa->get_mahasiswa();
 		$data1['data_prodi']=$this->mprodi->get_prodi();
-		$data=[
-			'title'=>'Data Mahasiswa',
+		$title['title']= 'Mahasiswa';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('bem/partial/sitebar','',true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>'',
 			'table'=>$this->load->view('bem/mahasiswa/table_mahasiswa',$data1,TRUE),
 		];
-		$this->load->view('bem/dashboard.php',$data);
+		$this->load->view('dashboard',$data);
 	}
 	public function mahasiswa_tambah()
 	{	
 		$data1['data_mhs']=$this->mmahasiswa->get_mahasiswa();
 		$data1['data_prodi']=$this->mprodi->get_prodi();
-		$data=[
-			'title'=>'Data Mahasiswa',
+		$title['title']= 'Mahasiswa';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('bem/partial/sitebar','',true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>$this->load->view('bem/mahasiswa/form_mahasiswa_insert',$data1,TRUE),
 			'table'=>$this->load->view('bem/mahasiswa/table_mahasiswa',$data1,TRUE),
 		];
-		$this->load->view('bem/dashboard.php',$data);
+		$this->load->view('dashboard',$data);
 	}
 
 	public function mahasiswa_edit($id_mahasiswa)
@@ -62,12 +73,16 @@ class Cbem extends CI_Controller{
 		$data1['data_mhs']=$this->mmahasiswa->get_mahasiswa();
 		$data1['data_mhs_where']=$this->mmahasiswa->get_mahasiswa_id($id_mahasiswa);
 		$data1['data_prodi']=$this->mprodi->get_prodi();
-		$data=[
-			'title'=>'Data Mahasiswa',
+		$title['title']= 'Mahasiswa';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('bem/partial/sitebar','',true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>$this->load->view('bem/mahasiswa/form_mahasiswa_update',$data1,TRUE),
 			'table'=>$this->load->view('bem/mahasiswa/table_mahasiswa',$data1,TRUE),
 		];
-		$this->load->view('bem/dashboard.php',$data);
+		$this->load->view('dashboard',$data);
 	}
 
 	public function insert_data_mhs()
@@ -87,31 +102,43 @@ class Cbem extends CI_Controller{
 	//halaman ukm
 	public function ukm() {
 		$data1['data_ukm']=$this->mukm->get_masterukm();
-		$data=[
-			'title'=>'Data ukm',
+		$title['title']= 'UKM';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('bem/partial/sitebar','',true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>'',
 			'table'=>$this->load->view('bem/ukm/table_ukm',$data1,TRUE),
 		];
-		$this->load->view('bem/dashboard.php',$data);
+		$this->load->view('dashboard',$data);
 	}
 	public function ukm_tambah() {
 		$data1['data_ukm']=$this->mukm->get_masterukm();
 		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa();
-		$data=[
-			'title'=>'Data ukm',
+		$title['title']= 'UKM';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('bem/partial/sitebar','',true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>$this->load->view('bem/ukm/form_ukm_insert',$data1,TRUE),
 			'table'=>$this->load->view('bem/ukm/table_ukm',$data1,TRUE),
 		];
-		$this->load->view('bem/dashboard.php',$data);
+		$this->load->view('dashboard',$data);
 	}
 	public function ukm_edit() {
 		$data1['data_ukm']=$this->mukm->get_masterukm();
-		$data=[
-			'title'=>'Data ukm',
+		$title['title']= 'UKM';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('bem/partial/sitebar','',true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>$this->load->view('bem/ukm/form_ukm_insert',$data1,TRUE),
 			'table'=>$this->load->view('bem/ukm/table_ukm',$data1,TRUE),
 		];
-		$this->load->view('bem/dashboard.php',$data);
+		$this->load->view('dashboard',$data);
 	}
 
 	public function insert_ukm()
