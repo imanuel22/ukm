@@ -68,7 +68,15 @@
     						<span>
     							<i class="ti ti-user"></i>
     						</span>
-    						<span class="hide-menu">fungsionaris</span>
+    						<span class="hide-menu">Fungsionaris</span>
+    					</a>
+    				</li>
+					<li class="sidebar-item">
+    					<a class="sidebar-link" href="<?=base_url('cfungsionaris/verif_fungsionaris/').$id_ukm?>" aria-expanded="false">
+    						<span>
+    							<i class="ti ti-user"></i>
+    						</span>
+    						<span class="hide-menu">Verifikasi Fungsionaris</span>
     					</a>
     				</li>
 					<li class="sidebar-item">
@@ -76,7 +84,15 @@
     						<span>
     							<i class="ti ti-user"></i>
     						</span>
-    						<span class="hide-menu">anggota_ukm</span>
+    						<span class="hide-menu">Anggota UKM</span>
+    					</a>
+    				</li>
+					<li class="sidebar-item">
+    					<a class="sidebar-link" href="<?=base_url('cfungsionaris/verif_anggota/').$id_ukm?>" aria-expanded="false">
+    						<span>
+    							<i class="ti ti-user"></i>
+    						</span>
+    						<span class="hide-menu">Verisikasi Anggota UKM</span>
     					</a>
     				</li>
 					<li class="sidebar-item">

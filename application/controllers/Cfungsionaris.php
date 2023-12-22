@@ -18,6 +18,7 @@ class Cfungsionaris extends CI_Controller{
 	
 	public function ukm_where($id) {
 		$data1['data_ukm']=$this->mukm->get_ukm_id($id);
+		$data1['data_fungsionaris']=$this->mfungsionaris->get_fungsionaris($id);
 		$data1['id_ukm']=$id;
 		$title['title']= 'UKM';
 		$data = [
@@ -274,10 +275,15 @@ class Cfungsionaris extends CI_Controller{
 
 
 	//verif anggota
-	public function verif_anggota() {
+	public function verif_anggota($id_ukm) {
 		$data1['data_verif_anggota']=$this->mdanggota->get_daftar_anggota();
-		$data=[
-			'title'=>'Data verif_anggota',
+		$data1['id_ukm']=$id_ukm;
+		$title['title']= 'UKM';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>'',
 			'table'=>$this->load->view('fungsionaris/anggota_ukm/verif_anggota/table_verif_anggota',$data1,TRUE),
 		];
@@ -287,8 +293,12 @@ class Cfungsionaris extends CI_Controller{
 	public function verif_anggota_form($id){
 		$data1['data_verif_anggota']=$this->mdanggota->get_daftar_anggota();
 		$data1['data_verif_anggota_id']=$this->mdanggota->get_daftar_anggota_id($id);
-		$data=[
-			'title'=>'Data verif_anggota',
+		$title['title']= 'UKM';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>$this->load->view('fungsionaris/anggota_ukm/verif_anggota/verif_anggota_form',$data1,TRUE),
 			'table'=>$this->load->view('fungsionaris/anggota_ukm/verif_anggota/table_verif_anggota',$data1,TRUE),
 		];
@@ -307,10 +317,15 @@ class Cfungsionaris extends CI_Controller{
 	}
 
 	//verif fungsionaris
-	public function verif_fungsionaris() {
+	public function verif_fungsionaris($id_ukm) {
 		$data1['data_verif_fungsionaris']=$this->mdfungsionaris->get_daftar_fungsionaris();
-		$data=[
-			'title'=>'Data verif_fungsionaris',
+		$data1['id_ukm']=$id_ukm;		
+		$title['title']= 'UKM';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>'',
 			'table'=>$this->load->view('fungsionaris/fungsionaris/verif_fungsionaris/table_verif_fungsionaris',$data1,TRUE),
 		];
@@ -320,8 +335,12 @@ class Cfungsionaris extends CI_Controller{
 	public function verif_fungsionaris_form($id_daftar_fungsionaris){
 		$data1['data_verif_fungsionaris']=$this->mdfungsionaris->get_daftar_fungsionaris();
 		$data1['data_verif_fungsionaris_id']=$this->mdfungsionaris->get_daftar_fungsionaris_id($id_daftar_fungsionaris);
-		$data=[
-			'title'=>'Data verif_fungsionaris',
+		$title['title']= 'UKM';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
 			'konten'=>$this->load->view('fungsionaris/fungsionaris/verif_fungsionaris/verif_fungsionaris_form',$data1,TRUE),
 			'table'=>$this->load->view('fungsionaris/fungsionaris/verif_fungsionaris/table_verif_fungsionaris',$data1,TRUE),
 		];

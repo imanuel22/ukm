@@ -116,14 +116,12 @@ main {
 		<?php foreach($data_ukm as $row): ?>
         <a href="<?=base_url('cmahasiswa/cek_level_user/').$row->id_ukm?>" class="card rounded-3 bg-primary">
           <div class="card__image-container bg-light">
-            <img
-              src="<?=base_url('assets/uploads/ukm/').$row->img_ukm?>"
-            />
+            <img src="<?=base_url('assets/uploads/ukm/').$row->img_ukm?>"/>
           </div>
           <div class="card__content">
-          <h3 class="card__title text-light  text-center">
-          <?=$row->nama_ukm?>
-          </h3>
+            <h3 class="card__title text-light  text-center">
+              <?=$row->nama_ukm?>
+            </h3>
             <p class="d-flex text-light">
               <?php 
               if(!empty($row->deskripsi)){
