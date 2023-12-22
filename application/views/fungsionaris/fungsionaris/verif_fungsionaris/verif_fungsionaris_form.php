@@ -1,5 +1,6 @@
-<div class="rounded-4 p-4 bg-info mt-3">
-<h1>Data Verif</h1>
+<h3 class="mb-4">Form Verifikasi Fungsionaris</h3>
+<div class="card bg-primary ">
+	<div class="card-body">
 <form action="<?=base_url('cfungsionaris/proses_verif_fungsionaris')?>" method="post">
 <input type="hidden" name="id_daftar_fungsionaris" value="<?=$data_verif_fungsionaris_id->id_daftar_fungsionaris?>">
 	<table class="table table-warning">
@@ -27,3 +28,6 @@
 	</div>
 </form>
 </div>
+</div>
+<hr class="border border-primary border-2 opacity-50">
+

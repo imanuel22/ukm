@@ -107,21 +107,19 @@
 		<h1 class=" text-light">Deskripsi</h1>
 		<p><?=$data_ukm->deskripsi?></p>
 	</div>
-</div>
-<div class=" bg-primary text-light rounded-4 p-3 mb-3">
-	<div class="row">
-		<div class="col-11">
-			<h1 class=" text-light">peraturan</h1>
-		</div>
-		<div class=" text-end col-1">
-			<button type="button" class="btn btn-light" onclick="edit1(<?=$id_ukm?>)">Edit</button>
-		</div>
+	<div class="peraturan">
+		<h1 class=" text-light">peraturan</h1>
+		<p><?=$data_ukm->peraturan?></p>
 	</div>
-
-	<p><?=$data_ukm->peraturan?></p>
+	<div class="devisi">
+		<h1 class=" text-light">devisi</h1>
+		<ul>
+			<?php foreach($data_devisi as $row):?>
+			<li><?=$row->nama_devisi?></li>
+			<?php endforeach;?>
+		</ul>
+	</div>
 </div>
-
-
 
 <div class=" bg-primary text-light rounded-4 p-3 mb-3">
 	<div>
