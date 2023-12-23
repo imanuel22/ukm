@@ -1,38 +1,34 @@
-<div class="rounded-4 p-4 bg-info mt-3">
-<h1>EditS Anggota UKM</h1>
+<h3 class="mb-4">Form Edit Anggota UKM</h3>
+<div class="card bg-primary ">
+	<div class="card-body">
 <form action="<?= base_url('cfungsionaris/update_anggota')?>" method="post">
 		<div class="mb-3">
-			<label for="nim" class="form-label">nim</label>
-			<p class="form-control"><?= $this->session->userdata('nim')?></p>
+			<label for="id_mahasiswa" class=" form-label text-light">mahasiswa</label>
+			<select name="id_mahasiswa" id="id_mahasiswa" class="form-control bg-light">
+				<option value="" hidden>pilih</option>
+				<?php foreach($data_mahasiswa as $row):?>	
+				<option value="<?=$row->id_mahasiswa?>"><?=$row->nama_mahasiswa?></option>
+				<?php endforeach;?>
+			</select>
 		</div>
 		<div class="mb-3">
-			<label for="nama_mahasiswa" class="form-label">nama_mahasiswa</label>
-			<p class="form-control"><?= $this->session->userdata('nama_mahasiswa')?></p>
-		</div>
-		<div class="mb-3">
-			<label for="angkatan" class="form-label">angkatan</label>
-			<p class="form-control"><?= $this->session->userdata('angkatan')?></p>
-		</div>
-		<div class="mb-3">
-			<label for="id_prodi">prodi</label>
-			<p class="form-control"><?= $this->session->userdata('id_prodi')?></p>
-		</div>		
-		<input type="hidden" name="id_mahasiswa" value="<?= $this->session->userdata('id_mahasiswa')?>">
-		<div class="mb-3">
-			<label for="id_devisi">devisi</label>
-			<select name="id_devisi" id="id_devisi" class="form-control">
+			<label for="id_devisi" class=" form-label text-light">devisi</label>
+			<select name="id_devisi" id="id_devisi" class="form-control bg-light">
 				<option value="" hidden>pilih</option>
 				<?php foreach($data_devisi as $row):?>	
 				<option value="<?=$row->id_devisi?>"><?=$row->nama_devisi?></option>
 				<?php endforeach;?>
 			</select>
 		</div>
-        <div class="mb-3">
-			<label for="alasan" class="form-label">alasan</label>
-			<input type="text" name="alasan" class="form-control" id="alasan">
-        </div>
-		<div class="mb-3">
-			<button type="submit" class="btn btn-primary col-12">Submit</button>
+		<div class="mb-3 row">
+			<div class="col-6">
+				<button type="submit" class="btn btn-success col-12">Submit</button>
+			</div>
+			<div class="col-6">
+				<button type="reset" class="btn btn-danger col-12">Reset</button>
+			</div>
 		</div>
 	</form>
-</div>
+	</div>
+</div>	
+<hr class="border border-primary border-2 opacity-50">

@@ -1,4 +1,4 @@
-<h3 class="mb-4">Form Tambah Fungsionaris</h3>
+<h3 class="mb-4">Form Tambah Anggota UKM</h3>
 <div class="card bg-primary ">
 	<div class="card-body">
     <form action="<?=base_url('cfungsionaris/insert_anggota')?>" method="post">

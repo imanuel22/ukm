@@ -45,7 +45,7 @@
 		window.open("<?=base_url('cfungsionaris/anggota_tambah/')?>"+id_ukm,'_self');
 	};
 	function edit(id_ukm,id_anggota_ukm){
-		window.open("<?=base_url('cfungsionaris/form_edit_anggota/')?>"+id_ukm+'/'+id_anggota_ukm,'_self');
+		window.open("<?=base_url('cfungsionaris/anggota_edit/')?>"+id_ukm+'/'+id_anggota_ukm,'_self');
 	};
 	function hapus(id_ukm,id_anggota_ukm){
 		if (confirm('apakah ingin menghapus data id '+id_anggota_ukm+' ini?')) {
