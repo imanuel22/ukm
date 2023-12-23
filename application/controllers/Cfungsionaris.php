@@ -79,7 +79,6 @@ class Cfungsionaris extends CI_Controller{
 		$data1['data_devisi']=$this->mdevisi->get_devisi($id_ukm);
 		$data1['data_devisi_id']=$this->mdevisi->get_devisi_id($id_devisi);
 		$data1['id_ukm']=$id_ukm;
-		echo "<pre>".print_r($data1)."</pre>";
 		$title['title']= 'UKM';
 		$data = [
 			'header'=>$this->load->view('partial/header',$title,true),
