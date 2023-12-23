@@ -1,55 +1,57 @@
 <link rel="stylesheet" href="<?=base_url();?>assets/DataTables/datatables.css">
-<div class="rounded-4 p-4 bg-info mt-3">
-	<div class="row mb-2">
-		<div class="col-10">
-			<h1 class="fw-bold ">Table Verif anggota	</h1>
-		</div>
-	</div>
-	<div  style="overflow-x:auto;">
-
-<table id="myTable" class="table display table-warning table-hover table-responsive">
-    <thead>
-        <tr>
-            <th>no</th>
-            <th>id_mahasiswa</th>
-			<th>id_devisi</th>
-			<th>alasan</th>
-			<th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php 
+<h3 class="mb-4">Table Verifikasi Anggota</h3>
+<div class="card bg-primary mt-3 text-light">
+	<div class="card-body">
+		<div style="overflow-x:scroll;">
+			<table id="myTable" class="table table-bordered display table-striped ">
+				<thead class="table-light">
+					<tr>
+						<th class="text-center">No</th>
+						<th class="text-center">id_mahasiswa</th>
+						<th class="text-center">id_devisi</th>
+						<th class="text-center">alasan</th>
+						<th class="text-center">Action</th>
+					</tr>
+				</thead>
+				<tbody class="bg-light">
+					<?php 
 		$no=1;
 		foreach($data_verif_anggota as $row):
 		?>
-			<tr>
-				<td><?=$no++?></td>
-				<td><?=$row->id_mahasiswa?></td>
-				<td><?=$row->id_devisi?></td>
-				<td><?=$row->alasan?></td>
-				<td>
-					<button type="button" class="btn btn-warning" onclick="verif(<?=$row->id_daftar_anggota?>)"><i class="bi bi-check2-circle"></i></button>
-					<button type="button" class="btn btn-danger" onclick="hapus(<?=$row->id_daftar_anggota?>)"><i class="bi bi-trash3"></i></button>
-				</td>
-			</tr>
-		<?php endforeach;?>
-    </tbody>
-	</table>
+					<tr>
+						<td><?=$no++?></td>
+						<td><?=$row->id_mahasiswa?></td>
+						<td><?=$row->id_devisi?></td>
+						<td><?=$row->alasan?></td>
+						<td class="text-center">
+							<button type="button" class="btn btn-warning"
+								onclick="verif(<?=$row->id_daftar_anggota?>,<?=$id_ukm?>)"><i
+									class="ti ti-eye"></i></button>
+							<button type="button" class="btn btn-danger"
+								onclick="hapus(<?=$row->id_daftar_anggota?>)"><i class="ti ti-trash"></i></button>
+						</td>
+					</tr>
+					<?php endforeach;?>
+				</tbody>
+			</table>
 
-</div>
-</div>
-<script src="<?=base_url();?>assets/DataTables/datatables.js"></script>
-<script>
-	let table = new DataTable('#myTable', {
-    // options
-	responsive: true
-	});
-	function verif(id_daftar_anggota){
-		window.open("<?=base_url('cfungsionaris/verif_anggota_form/')?>"+id_daftar_anggota,'_self');
-	}
-	function hapus(id_daftar_anggota){
-		if (confirm('apakah ingin menghapus data id '+id_daftar_anggota+' ini?')) {
-			window.open("<?=base_url('cfungsionaris/proseshapus/')?>"+id_daftar_anggota,'_self');
+		</div>
+	</div>
+	<script src="<?=base_url();?>assets/DataTables/datatables.js"></script>
+	<script>
+		let table = new DataTable('#myTable', {
+			// options
+			responsive: true
+		});
+
+		function verif(id_daftar_anggota, id_ukm) {
+			window.open("<?=base_url('cfungsionaris/verif_anggota_form/')?>" + id_daftar_anggota + '/' + id_ukm, '_self');
 		}
-	}
-</script>
+
+		function hapus(id_daftar_anggota) {
+			if (confirm('apakah ingin menghapus data id ' + id_daftar_anggota + ' ini?')) {
+				window.open("<?=base_url('cfungsionaris/proseshapus/')?>" + id_daftar_anggota, '_self');
+			}
+		}
+
+	</script>

@@ -1,19 +1,20 @@
-<div class="rounded-4 p-4 bg-info mt-3">
-<h1>Data Verif</h1>
+<h3 class="mb-4">Form Verifikasi Anggota</h3>
+<div class="card bg-primary ">
+	<div class="card-body">
 <form action="<?=base_url('cfungsionaris/proses_verif_anggota')?>" method="post">
 <input type="hidden" name="id_daftar_anggota" value="<?=$data_verif_anggota_id->id_daftar_anggota?>">
-	<table class="table table-warning">
-		<tr>
+	<table class="table table-light">
+		<tr >
 			<th>id mahasiswa</th>
-			<td><input type="text" class="form-control-plaintext" value="<?=$data_verif_anggota_id->id_mahasiswa?>" readonly name="id_mahasiswa"></td>
+			<td ><input type="text" class="form-control-plaintext text-dark" value="<?=$data_verif_anggota_id->id_mahasiswa?>" readonly name="id_mahasiswa"></td>
 		</tr>
 		<tr>
 			<th>id_devisi</th>
-			<td><input type="text" class="form-control-plaintext" value="<?=$data_verif_anggota_id->id_devisi?>" readonly name="id_devisi"></td>
+			<td><input type="text" class="form-control-plaintext text-dark" value="<?=$data_verif_anggota_id->id_devisi?>" readonly name="id_devisi"></td>
 		</tr>
 		<tr>
 			<th>alasan</th>
-			<td class="form-control-plaintext"><?=$data_verif_anggota_id->alasan?></td>
+			<td class="form-control-plaintext text-dark"><?=$data_verif_anggota_id->alasan?></td>
 		</tr>
 	</table>
 	<div class="mb-3 row">
@@ -24,5 +25,7 @@
 			<button type="submit" name="btn" value="gagal" class="btn btn-danger col-12">tolak</button>
 		</div>
 	</div>
-</form>
+	</form>
 </div>
+</div>
+<hr class="border border-primary border-2 opacity-50">

@@ -291,10 +291,11 @@ class Cfungsionaris extends CI_Controller{
 		$this->load->view('dashboard.php',$data);
 	}
 
-	public function verif_anggota_form($id){
+	public function verif_anggota_form($id,$id_ukm){
 		$data1['data_verif_anggota']=$this->mdanggota->get_daftar_anggota();
 		$data1['data_verif_anggota_id']=$this->mdanggota->get_daftar_anggota_id($id);
 		$title['title']= 'UKM';
+		$data1['id_ukm']= $id_ukm;
 		$data = [
 			'header'=>$this->load->view('partial/header',$title,true),
 			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
