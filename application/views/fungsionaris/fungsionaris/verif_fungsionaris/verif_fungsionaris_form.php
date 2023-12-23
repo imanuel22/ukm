@@ -3,19 +3,19 @@
 	<div class="card-body">
 <form action="<?=base_url('cfungsionaris/proses_verif_fungsionaris')?>" method="post">
 <input type="hidden" name="id_daftar_fungsionaris" value="<?=$data_verif_fungsionaris_id->id_daftar_fungsionaris?>">
-	<table class="table table-warning">
+	<table class="table table-light text-dark">
 		<tr>
 			<th>id mahasiswa</th>
-			<td><input type="text" class="form-control-plaintext" value="<?=$data_verif_fungsionaris_id->id_mahasiswa?>" readonly name="id_mahasiswa"></td>
+			<td><input type="text" class="form-control-plaintext text-dark	" value="<?=$data_verif_fungsionaris_id->id_mahasiswa?>" readonly name="id_mahasiswa"></td>
 		</tr>
 
 		<tr>
 			<th>id_jabatan</th>
-			<td><input type="text" class="form-control-plaintext" value="<?=$data_verif_fungsionaris_id->id_jabatan?>" readonly name="id_jabatan"></td>
+			<td><input type="text" class="form-control-plaintext text-dark	" value="<?=$data_verif_fungsionaris_id->id_jabatan?>" readonly name="id_jabatan"></td>
 		</tr>
 		<tr>
 			<th>alasan</th>
-			<td class="form-control-plaintext"><?=$data_verif_fungsionaris_id->alasan?></td>
+			<td class="form-control-plaintext text-dark	"><?=$data_verif_fungsionaris_id->alasan?></td>
 		</tr>
 	</table>
 	<div class="mb-3 row">

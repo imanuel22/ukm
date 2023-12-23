@@ -333,9 +333,11 @@ class Cfungsionaris extends CI_Controller{
 		$this->load->view('dashboard.php',$data);
 	}
 
-	public function verif_fungsionaris_form($id_daftar_fungsionaris){
+	public function verif_fungsionaris_form($id_daftar_fungsionaris,$id_ukm){
 		$data1['data_verif_fungsionaris']=$this->mdfungsionaris->get_daftar_fungsionaris();
 		$data1['data_verif_fungsionaris_id']=$this->mdfungsionaris->get_daftar_fungsionaris_id($id_daftar_fungsionaris);
+		$data1['id_ukm']=$id_ukm;		
+
 		$title['title']= 'UKM';
 		$data = [
 			'header'=>$this->load->view('partial/header',$title,true),

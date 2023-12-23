@@ -13,6 +13,7 @@
 			<th class="text-center">Action</th>
         </tr>
     </thead>
+	
 	<tbody class=" table-light">
         <?php 
 		$no=1;
@@ -24,8 +25,8 @@
 				<td><?=$row->id_jabatan?></td>
 				<td><?=$row->alasan?></td>
 				<td class="text-center">
-					<button type="button" class="btn btn-warning" onclick="verif(<?=$row->id_daftar_fungsionaris?>)"><i class="bi bi-check2-circle"></i></button>
-					<button type="button" class="btn btn-danger" onclick="hapus(<?=$row->id_daftar_fungsionaris?>)"><i class="bi bi-trash3"></i></button>
+					<button type="button" class="btn btn-warning" onclick="verif(<?=$row->id_daftar_fungsionaris?>,<?=$id_ukm?>)"><i class="ti ti-eye"></i></button>
+					<button type="button" class="btn btn-danger" onclick="hapus(<?=$row->id_daftar_fungsionaris?>,<?=$id_ukm?>)"><i class="ti ti-trash"></i></button>
 				</td>
 			</tr>
 		<?php endforeach;?>
@@ -40,12 +41,12 @@
     // options
 	responsive: true
 	});
-	function verif(id_daftar_anggota){
-		window.open("<?=base_url('cfungsionaris/verif_fungsionaris_form/')?>"+id_daftar_anggota,'_self');
+	function verif(id_daftar_anggota,id_ukm){
+		window.open("<?=base_url('cfungsionaris/verif_fungsionaris_form/')?>"+id_daftar_anggota+'/'+id_ukm,'_self');
 	}
-	function hapus(id_daftar_anggota){
+	function hapus(id_daftar_anggota,id_ukm){
 		if (confirm('apakah ingin menghapus data id '+id_daftar_anggota+' ini?')) {
-			window.open("<?=base_url('cfungsionaris/proseshapus/')?>"+id_daftar_anggota,'_self');
+			window.open("<?=base_url('cfungsionaris/proseshapus/')?>"+id_daftar_anggota+'/'+id_ukm,'_self');
 		}
 	}
 </script>
