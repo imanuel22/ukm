@@ -5,4 +5,12 @@
 <script src="<?=base_url()?>vendor/src/assets/js/app.min.js"></script>
 <script src="<?=base_url()?>vendor/src/assets/libs/simplebar/dist/simplebar.js"></script>
 
-</html>
+<!-- ini untuk memanggil file yang ada pada folder jquery-->       
+<script src="<?php echo base_url(); ?>vendor/jquery/jquery.js"></script>
+        <script src="<?php echo base_url(); ?>vendor/jquery/app.js"></script>
+        <script language="javascript">
+			var site = "<?php echo base_url()?>index.php/";
+			var loading_image_large = "<?php echo base_url()?>vendor/gambar/loading_large.gif";
+		</script>
+</body>
+<div id="script"></div>

@@ -10,13 +10,14 @@
 				<thead class="table-light">
 					<tr>
 						<th class=" text-center">No</th>
+						<th class=" text-center">Img</th>
 						<th class=" text-center">NIM</th>
 						<th class=" text-center">Nama Mahasiswa</th>
 						<th class=" text-center">Angkatan</th>
 						<th class=" text-center">Nomer Telphone</th>
-						<th class=" text-center">Img</th>
-						<th class=" text-center">Status</th>
+						<th class=" text-center">Jurusan</th>
 						<th class=" text-center">Prodi</th>
+						<th class=" text-center">Status</th>
 						<th class=" text-center">Action</th>
 					</tr>
 				</thead>
@@ -27,14 +28,16 @@
 		?>
 					<tr>
 						<td><?=$no++?></td>
-						<td><?=$row->nim?></td>
-						<td><?=$row->nama_mahasiswa?></td>
-						<td><?=$row->angkatan?></td>
-						<td><?=$row->no_telp?></td>
 						<td>
 							<img src="<?=base_url('assets/uploads/img_mahasiswa/')?><?=$row->img_mahasiswa?>"
 								alt="<?=$row->img_mahasiswa?>" width="75" height="100">
 						</td>
+						<td><?=$row->nim?></td>
+						<td><?=$row->nama_mahasiswa?></td>
+						<td><?=$row->angkatan?></td>
+						<td><?=$row->no_telp?></td>
+						<td><?=$row->nama_jurusan?></td>
+						<td><?=$row->nama_prodi?></td>
 						<td class="text-center">
 							<?php if ($row->status == 'aktif'):?>
 							<span class="badge bg-primary rounded-3 fw-semibold">Aktif</span>
@@ -43,11 +46,10 @@
 							<?php endif ?>
 
 						</td>
-						<td><?=$row->nama_prodi?></td>
 						<td class="text-center">
-							<button type="button" class="btn btn-warning" onclick="edit(<?=$row->id_mahasiswa?>)"><i
+							<button type="button" class="btn btn-warning mb-1" onclick="edit(<?=$row->id_mahasiswa?>)"><i
 									class="ti ti-pencil"></i></button>
-							<button type="button" class="btn btn-danger" onclick="hapus(<?=$row->id_mahasiswa?>)"><i
+							<button type="button" class="btn btn-danger mb-1" onclick="hapus(<?=$row->id_mahasiswa?>)"><i
 									class="ti ti-trash"></i></button>
 						</td>
 					</tr>

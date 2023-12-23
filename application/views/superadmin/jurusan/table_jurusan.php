@@ -2,7 +2,7 @@
 <h3 class="mb-4">Table Jurusan</h3>
 <div class="card bg-primary mt-3 text-light">
 	<div class="card-header d-flex justify-content-end">
-			<button type="button" onclick="tambah()" class="btn btn-light px-5">+Data</button>
+			<button type="button" onclick="hideShow()" class="btn btn-light px-5">+Data</button>
 		</div>
 	<div class="card-body">
 	<div style="overflow-x:scroll;">
@@ -29,7 +29,7 @@
 					<td><?=$row->Kajur?></td>
 					<td><?=$row->keterangan?></td>
 					<td class="text-center">
-						<button type="button" class="btn btn-warning" onclick="edit(<?=$row->id_jurusan?>)"><i
+						<button type="button" class="btn btn-warning" onclick="editdata(<?=$row->id_jurusan?>)"><i
 								class="ti ti-pencil"></i></button>
 						<button type="button" class="btn btn-danger" onclick="hapus(<?=$row->id_jurusan?>)"><i
 								class="ti ti-trash"></i></button>
@@ -55,15 +55,35 @@
 		window.open("<?=base_url('csuperadmin/tambah_jurusan/')?>", '_self');
 
 	}
+	var div = document.getElementById('form-jurusan');
+	var display = 1;
+	function hideShow() {
+		if(display == 1)
+		{
+			div.style.display = 'block';
+			display = 0;
+		}
+		else{
+			div.style.display = 'none';
+			display = 1;
+		}
+	}
 
 	function edit(id_jurusan) {
 		window.open("<?=base_url('csuperadmin/edit_jurusan/')?>" + id_jurusan, '_self');
 	}
 
 	function hapus(id_jurusan) {
-		if (confirm('apakah ingin menghapus data id ' + id_jurusan + ' ini?')) {
+		if (confirm("Apakah yakin menghapus data ini?")) {
 			window.open("<?=base_url('csuperadmin/delete_jurusan/')?>" + id_jurusan, '_self');
 		}
+	}
+
+	function editdata(id_jurusan)
+	{	
+		div.style.display = 'block';
+		display = 0;
+		load("csuperadmin/edit_jurusan/"+id_jurusan,"#script");	
 	}
 
 </script>
