@@ -1,7 +1,8 @@
-<h3 class="mb-4">Form Tambah Mahasiswa</h3>
+<div id="form" style="display: none;">
+<h3 class="mb-4">Form Mahasiswa</h3>
 <div class="card bg-primary ">
 	<div class="card-body">
-<form action="<?= base_url('cbem/insert_data_mhs')?>" method="post">
+<form action="<?= base_url('cbem/proses_mahasiswa')?>" method="post" enctype="multipart/form-data"> 
 	<input type="hidden" name="id_mahasiswa" id="id_mahasiswa">
 	<input type="hidden" name="img_mahasiswa_old" id="img_mahasiswa_old">
 		<div class="mb-3">
@@ -25,17 +26,17 @@
 			<input type="text" name="no_telp" class="form-control bg-light" id="no_telp">
 		</div>
 		<div class="mb-3 row">
-		<div class="col-2">
-				<img src="<?=base_url('assets/uploads/img_mahasiswa/').$data_mhs_where->img_mahasiswa?>" alt="<?=$data_mhs_where->img_mahasiswa?>" width="150" height="200">
+			<div class="col-2">
+				<img src="" alt="" id="img_mahasiswas" width="150" height="225">
 			</div>
 			<div class="col-10 mt-5">
-				<label for="img_mahasiswa" class="form-label text-light">IMG</label>	
-				<input type="file" name="img_mahasiswa" class="form-control bg-light" id="img_mahasiswa">
+				<label for="img_mahasiswa" class="form-label text-light">IMG</label>
+				<input type="file" name="img_mahasiswa" class="form-control bg-light" >
 			</div>
 		</div>
 		<div class="mb-3">
 			<label for="status" class="form-label text-light">Status</label>
-			<select name="status" id="" class="form-control bg-light">
+			<select name="status" id="status" class="form-control bg-light">
 				<option value="" hidden>pilih</option>
 				<option value="aktif">aktif</option>
 				<option value="tidakaktif">tidakaktif</option>
@@ -62,3 +63,4 @@
 	</div>
 </div>	
 <hr class="border border-primary border-2 opacity-50">
+</div>

@@ -36,7 +36,7 @@ class Cbem extends CI_Controller{
 		var_dump($getdataprodi);
 	}
 
-	//halaman mahasiswa
+	//Mahasiswa Start.
 	public function mahasiswa()
 	{	
 		$data1['data_mhs']=$this->mmahasiswa->get_mahasiswa();
@@ -47,57 +47,26 @@ class Cbem extends CI_Controller{
 			'sitebar'=>$this->load->view('bem/partial/sitebar','',true),
 			'navbar'=>$this->load->view('partial/navbar','',true),
 			'footer'=>$this->load->view('partial/footer','',true),
-			'konten'=>'',
-			'table'=>$this->load->view('bem/mahasiswa/table_mahasiswa',$data1,TRUE),
-		];
-		$this->load->view('dashboard',$data);
-	}
-	public function mahasiswa_tambah()
-	{	
-		$data1['data_mhs']=$this->mmahasiswa->get_mahasiswa();
-		$data1['data_prodi']=$this->mprodi->get_prodi();
-		$title['title']= 'Mahasiswa';
-		$data = [
-			'header'=>$this->load->view('partial/header',$title,true),
-			'sitebar'=>$this->load->view('bem/partial/sitebar','',true),
-			'navbar'=>$this->load->view('partial/navbar','',true),
-			'footer'=>$this->load->view('partial/footer','',true),
-			'konten'=>$this->load->view('bem/mahasiswa/form_mahasiswa_insert',$data1,TRUE),
+			'konten'=>$this->load->view('bem/mahasiswa/form_mahasiswa',$data1,TRUE),
 			'table'=>$this->load->view('bem/mahasiswa/table_mahasiswa',$data1,TRUE),
 		];
 		$this->load->view('dashboard',$data);
 	}
 
-	public function mahasiswa_edit($id_mahasiswa)
-	{	
-		$data1['data_mhs']=$this->mmahasiswa->get_mahasiswa();
-		$data1['data_mhs_where']=$this->mmahasiswa->get_mahasiswa_id($id_mahasiswa);
-		$data1['data_prodi']=$this->mprodi->get_prodi();
-		$title['title']= 'Mahasiswa';
-		$data = [
-			'header'=>$this->load->view('partial/header',$title,true),
-			'sitebar'=>$this->load->view('bem/partial/sitebar','',true),
-			'navbar'=>$this->load->view('partial/navbar','',true),
-			'footer'=>$this->load->view('partial/footer','',true),
-			'konten'=>$this->load->view('bem/mahasiswa/form_mahasiswa_update',$data1,TRUE),
-			'table'=>$this->load->view('bem/mahasiswa/table_mahasiswa',$data1,TRUE),
-		];
-		$this->load->view('dashboard',$data);
-	}
-
-	public function insert_data_mhs()
+	public function proses_mahasiswa()
 	{
-		$this->mmahasiswa->insert_data_mhs();
+		$this->mmahasiswa->proses_mahasiswa();
 	}
 
-	public function update_data_mhs()
+	public function edit_mahasiswa($id_mhs)
 	{
-		$this->mmahasiswa->update_data_mhs();
+		$this->mmahasiswa->edit_mahasiswa($id_mhs);
 	}
 
 	public function delete_data_mhs($id_mhs){
 		$this->mmahasiswa->delete_data_mhs($id_mhs);
 	}
+	//Mahasiswa End.
 
 	//halaman ukm
 	public function ukm() {

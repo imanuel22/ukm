@@ -2,7 +2,7 @@
 <h3 class="mb-4">Table Mahasiswa</h3>
 <div class="card bg-primary mt-3 text-light">
 	<div class="card-header d-flex justify-content-end">
-		<button type="button" onclick="tambah()" class="btn btn-light px-5">+Data</button>
+	<button id="btn-tampil" type="button" onclick="hideShow()" class="btn btn-light px-5">Form Show</button>
 	</div>
 	<div class="card-body">
 		<div style="overflow-x:scroll;">
@@ -46,7 +46,7 @@
 
 						</td>					
 						<td>
-							<button type="button" class="btn btn-warning" onclick="edit(<?=$row->id_mahasiswa?>)"><i
+							<button type="button" class="btn btn-warning" onclick="editdata(<?=$row->id_mahasiswa?>)"><i
 									class="ti ti-pencil"></i></button>
 							<button type="button" class="btn btn-danger" onclick="hapus(<?=$row->id_mahasiswa?>)"><i
 									class="ti ti-trash"></i></button>
@@ -55,22 +55,36 @@
 					<?php endforeach;?>
 				</tbody>
 			</table>
-		</div>
+			</div>
+	</div>
+</div>
 		<script src="<?=base_url();?>assets/DataTables/datatables.js"></script>
 		<script>
-			let table = new DataTable('#myTable', {
-				// options
-				responsive: true
-			});
+	let table = new DataTable('#myTable', {
 
-			function tambah() {
-				window.open("<?=base_url('cbem/mahasiswa_tambah/')?>", '_self');
-			}
+	});
+	var div = document.getElementById('form');
+	var btn = document.getElementById('btn-tampil');
+	var display = 1;
 
-			function edit(id_mahasiswa) {
-				window.open("<?=base_url('cbem/mahasiswa_edit/')?>" + id_mahasiswa, '_self');
-			}
+	function hideShow() {
+		if (display == 1) {
+			btn.textContent = 'Form Hide'
+			div.style.display = 'block';
+			display = 0;
+		} else {
+			btn.textContent = 'Form Show'
+			div.style.display = 'none';
+			display = 1;
+		}
+	}
 
+	function editdata(id_mahasiswa) {
+		btn.textContent = 'Form Hide';
+		div.style.display = 'block';
+		display = 0;
+		load("cbem/edit_mahasiswa/" + id_mahasiswa, "#script");
+	}
 			function hapus(id_mahasiswa) {
 				if (confirm('apakah ingin menghapus data id ' + id_mahasiswa + ' ini?')) {
 					window.open("<?=base_url('cbem/delete_data_mhs/')?>" + id_mahasiswa, '_self');
