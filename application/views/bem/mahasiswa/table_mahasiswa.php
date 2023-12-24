@@ -13,6 +13,7 @@
 						<th class="text-center">Img</th>
 						<th class="text-center">NIM</th>
 						<th class="text-center">Nama Mahasiswa</th>
+						<th class="text-center">Jurusan</th>
 						<th class="text-center">Prodi</th>
 						<th class="text-center">Angkatan</th>
 						<th class="text-center">No Telphone</th>
@@ -32,6 +33,7 @@
 						</td>
 						<td><?=$row->nim?></td>
 						<td><?=$row->nama_mahasiswa?></td>
+						<td><?=$row->nama_jurusan?></td>
 						<td><?=$row->nama_prodi?></td>
 						<td><?=$row->angkatan?></td>
 						<td><?=$row->no_telp?></td>

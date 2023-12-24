@@ -27,7 +27,7 @@ class Mprodi extends CI_Model{
 		redirect(base_url('csuperadmin/prodi'),'_self');
 	}
 	public function edit_prodi($id_prodi){
-		$query = $this->db->get_where('tb_prodi',['id_prodi',$id_prodi]);
+		$query = $this->db->get_where('tb_prodi',['id_prodi'=>$id_prodi]);
 		if($query->num_rows()>0)
 		{
 			$data=$query->row();

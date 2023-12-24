@@ -34,7 +34,7 @@ class Mjurusan extends CI_Model{
 	}
 
 	public function edit_jurusan($id_jurusan){
-			$query = $this->db->get_where('tb_jurusan',['id_jurusan',$id_jurusan]);
+			$query = $this->db->get_where('tb_jurusan',['id_jurusan'=>$id_jurusan]);
 			if($query->num_rows()>0)
 			{
 				$data=$query->row();

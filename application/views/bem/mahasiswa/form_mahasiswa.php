@@ -2,7 +2,8 @@
 <div class="card bg-primary ">
 	<div class="card-body">
 <form action="<?= base_url('cbem/insert_data_mhs')?>" method="post">
-	<input type="hidden" name="level" value="user">
+	<input type="hidden" name="id_mahasiswa" id="id_mahasiswa">
+	<input type="hidden" name="img_mahasiswa_old" id="img_mahasiswa_old">
 		<div class="mb-3">
 			<label for="nim" class="form-label text-light">NIM</label>
 			<input type="text" name="nim" class="form-control bg-light" id="nim">
@@ -23,9 +24,14 @@
 			<label for="no_telp" class="form-label text-light">Nomer Telphone</label>
 			<input type="text" name="no_telp" class="form-control bg-light" id="no_telp">
 		</div>
-		<div class="mb-3">
-			<label for="img_mahasiswa" class="form-label text-light">IMG</label>
-			<input type="file" name="img_mahasiswa" class="form-control bg-light" id="img_mahasiswa">
+		<div class="mb-3 row">
+		<div class="col-2">
+				<img src="<?=base_url('assets/uploads/img_mahasiswa/').$data_mhs_where->img_mahasiswa?>" alt="<?=$data_mhs_where->img_mahasiswa?>" width="150" height="200">
+			</div>
+			<div class="col-10 mt-5">
+				<label for="img_mahasiswa" class="form-label text-light">IMG</label>	
+				<input type="file" name="img_mahasiswa" class="form-control bg-light" id="img_mahasiswa">
+			</div>
 		</div>
 		<div class="mb-3">
 			<label for="status" class="form-label text-light">Status</label>
