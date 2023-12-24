@@ -24,6 +24,7 @@ class Csuperadmin extends CI_Controller{
 		$this->load->view('dashboard',$data);
 	}
 	
+	//Jurusan Start.
 	public function jurusan() {
 		$data1['data_jurusan']=$this->mjurusan->get_jurusan();
 		$title['title']= 'Jurusan';
@@ -32,66 +33,25 @@ class Csuperadmin extends CI_Controller{
 			'sitebar'=>$this->load->view('superadmin/partial/sitebar','',true),
 			'navbar'=>$this->load->view('partial/navbar','',true),
 			'footer'=>$this->load->view('partial/footer','',true),
-			'konten'=>$this->load->view('superadmin/jurusan/form_jurusan_insert','',TRUE),
+			'konten'=>$this->load->view('superadmin/jurusan/form_jurusan','',TRUE),
 			'table'=>$this->load->view('superadmin/jurusan/table_jurusan',$data1,TRUE),
 			];
 		$this->load->view('dashboard',$data);
 	}
-	public function tambah_jurusan() {
-		$data1['data_jurusan']=$this->mjurusan->get_jurusan();
-		$title['title']= 'Jurusan';
-		$data = [
-			'header'=>$this->load->view('partial/header',$title,true),
-			'sitebar'=>$this->load->view('superadmin/partial/sitebar','',true),
-			'navbar'=>$this->load->view('partial/navbar','',true),
-			'footer'=>$this->load->view('partial/footer','',true),
-			'konten'=>$this->load->view('superadmin/jurusan/form_jurusan_insert','',TRUE),
-			'table'=>$this->load->view('superadmin/jurusan/table_jurusan',$data1,TRUE),
-			];
-		$this->load->view('dashboard',$data);
+	public function proses_jurusan() {
+		$this->mjurusan->proses_jurusan();	
 	}
 	public function edit_jurusan($id_jurusan) {
-		// $data1['data_jurusan']=$this->mjurusan->get_jurusan();
-		// $data1['data_jurusan_id']=$this->mjurusan->get_jurusan_id($id);
-		// $title['title']= 'Jurusan';
-		// $data = [
-		// 	'header'=>$this->load->view('partial/header',$title,true),
-		// 	'sitebar'=>$this->load->view('superadmin/partial/sitebar','',true),
-		// 	'navbar'=>$this->load->view('partial/navbar','',true),
-		// 	'footer'=>$this->load->view('partial/footer','',true),
-		// 	'konten'=>$this->load->view('superadmin/jurusan/form_jurusan_update',$data1,TRUE),
-		// 	'table'=>$this->load->view('superadmin/jurusan/table_jurusan',$data1,TRUE),
-		// 	];
-		// $this->load->view('dashboard',$data);
 		$this->mjurusan->edit_jurusan($id_jurusan);	
+	}
+	public function delete_jurusan($id_jurusan){
+		$this->mjurusan->delete_jurusan($id_jurusan);
+	}
+	//Jurusan End.
 
-	}
-	public function insert_jurusan(){
-		$this->mjurusan->insert_jurusan();
-	}
-	public function update_jurusan(){
-		$this->mjurusan->update_jurusan();
-	}
-	public function delete_jurusan($id){
-		$this->mjurusan->delete_jurusan($id);
-	}
-
-	//prodi
+	//prodi Start.
 	public function prodi() {
-		$data1['data_prodi']=$this->mprodi->view_prodi();
-		$title['title']= 'Prodi';
-		$data = [
-			'header'=>$this->load->view('partial/header',$title,true),
-			'sitebar'=>$this->load->view('superadmin/partial/sitebar','',true),
-			'navbar'=>$this->load->view('partial/navbar','',true),
-			'footer'=>$this->load->view('partial/footer','',true),
-			'konten'=>'',
-			'table'=>$this->load->view('superadmin/prodi/table_prodi',$data1,TRUE),
-			];
-		$this->load->view('dashboard',$data);
-	}
-	public function tambah_prodi() {
-		$data1['data_prodi']=$this->mprodi->view_prodi();
+		$data1['data_prodi']=$this->mprodi->get_prodi();
 		$data1['data_jurusan']=$this->mjurusan->get_jurusan();
 		$title['title']= 'Prodi';
 		$data = [
@@ -99,40 +59,23 @@ class Csuperadmin extends CI_Controller{
 			'sitebar'=>$this->load->view('superadmin/partial/sitebar','',true),
 			'navbar'=>$this->load->view('partial/navbar','',true),
 			'footer'=>$this->load->view('partial/footer','',true),
-			'konten'=>$this->load->view('superadmin/prodi/form_prodi_insert',$data1,TRUE),
+			'konten'=>$this->load->view('superadmin/prodi/form_prodi',$data1,TRUE),
 			'table'=>$this->load->view('superadmin/prodi/table_prodi',$data1,TRUE),
 			];
 		$this->load->view('dashboard',$data);
 	}
-	public function edit_prodi($id) {
-		$data1['data_prodi']=$this->mprodi->view_prodi();
-		$data1['data_jurusan']=$this->mjurusan->get_jurusan();
-		$data1['data_prodi_id']=$this->mprodi->get_prodi_id($id);
-		$title['title']= 'Prodi';
-		$data = [
-			'header'=>$this->load->view('partial/header',$title,true),
-			'sitebar'=>$this->load->view('superadmin/partial/sitebar','',true),
-			'navbar'=>$this->load->view('partial/navbar','',true),
-			'footer'=>$this->load->view('partial/footer','',true),
-			'konten'=>$this->load->view('superadmin/prodi/form_prodi_update',$data1,TRUE),
-			'table'=>$this->load->view('superadmin/prodi/table_prodi',$data1,TRUE),
-			];
-		$this->load->view('dashboard',$data);
+	public function proses_prodi() {
+		$this->mprodi->proses_prodi();	
 	}
-	public function insert_prodi(){
-		$this->mprodi->insert_prodi();
+	public function edit_prodi($id_prodi) {
+		$this->mprodi->edit_prodi($id_prodi);	
 	}
-	public function update_prodi(){
-		$this->mprodi->update_prodi();
+	public function delete_prodi($id_prodi){
+		$this->mprodi->delete_prodi($id_prodi);
 	}
-	public function delete_prodi($id){
-		$this->mprodi->delete_prodi($id);
-	}
+	//Prodi End.
 
-
-
-
-
+	//BEM Start.
 	public function bem() {
 		$data1['data_bem']=$this->mbem->get_bem();
 		$title['title']= 'BEM';
@@ -185,5 +128,6 @@ class Csuperadmin extends CI_Controller{
 	public function delete_bem($id){
 		$this->mbem->delete_bem($id);
 	}
+	//BEM End.
 }
 ?>

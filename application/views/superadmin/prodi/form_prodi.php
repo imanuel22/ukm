@@ -1,7 +1,9 @@
-<h3 class="mb-4">Form Tambah Prodi</h3>
+<div id="form" style="display: none;">
+<h3 class="mb-4">Form Prodi</h3>
 <div class="card bg-primary ">
 	<div class="card-body">
-<form action="<?= base_url('csuperadmin/insert_prodi')?>" method="post">
+<form action="<?= base_url('csuperadmin/proses_prodi')?>" method="post">
+<input type="hidden" name="id_prodi" id="id_prodi">
 		<div class="mb-3">
 			<label for="nama_prodi" class="form-label text-light">Nama Prodi</label>
 			<input type="text" name="nama_prodi" class="form-control bg-light" id="nama_prodi">
@@ -52,3 +54,4 @@
 	</div>
 </div>	
 <hr class="border border-primary border-2 opacity-50">
+</div>

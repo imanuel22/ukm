@@ -2,7 +2,7 @@
 <h3 class="mb-4">Table Prodi</h3>
 <div class="card bg-primary mt-3 text-light">
 	<div class="card-header d-flex justify-content-end">
-		<button type="button" onclick="tambah()" class="btn btn-light px-5">+Data</button>
+		<button id="btn-tampil" type="button" onclick="hideShow()" class="btn btn-light px-5">Form Show</button>
 	</div>
 	<div class="card-body">
 		<div style="overflow-x:scroll;">
@@ -21,9 +21,9 @@
 				</thead>
 				<tbody class="table-light">
 					<?php 
-		$no=1;
-		foreach($data_prodi as $row):
-		?>
+						$no=1;
+						foreach($data_prodi as $row):
+					?>
 					<tr>
 						<td><?=$no++?></td>
 						<td><?=$row->nama_prodi?></td>
@@ -33,7 +33,7 @@
 						<td><?=$row->Kaprodi?></td>
 						<td><?=$row->Keterangan?></td>
 						<td class="text-center">
-							<button type="button" class="btn btn-warning" onclick="edit(<?=$row->id_prodi?>)"><i
+							<button type="button" class="btn btn-warning" onclick="editdata(<?=$row->id_prodi?>)"><i
 									class="ti ti-pencil"></i></button>
 							<button type="button" class="btn btn-danger" onclick="hapus(<?=$row->id_prodi?>)"><i
 									class="ti ti-trash"></i></button>
@@ -43,29 +43,39 @@
 				</tbody>
 			</table>
 		</div>
-		<script src="<?=base_url();?>assets/DataTables/datatables.js"></script>
-		<script>
-			//var DataTable = require( 'datatables.net' );
+	</div>
+</div>
+<script src="<?=base_url();?>assets/DataTables/datatables.js"></script>
 
-			let table = new DataTable('#myTable', {
-				// config options...
-			});
+<script>
+	let table = new DataTable('#myTable', {});
+	var div = document.getElementById('form');
+	var btn = document.getElementById('btn-tampil');
+	var display = 1;
 
-		</script>
-		<script>
-			function tambah() {
-				window.open("<?=base_url('csuperadmin/tambah_prodi/')?>", '_self');
+	function hideShow() {
+		if (display == 1) {
+			btn.textContent = 'Form Hide'
+			div.style.display = 'block';
+			display = 0;
+		} else {
+			btn.textContent = 'Form Show'
+			div.style.display = 'none';
+			display = 1;
+		}
+	}
 
-			}
+	function editdata(id_prodi) {
+		btn.textContent = 'Form Hide'
+		div.style.display = 'block';
+		display = 0;
+		load("csuperadmin/edit_prodi/" + id_prodi, "#script");
+	}
 
-			function edit(id_prodi) {
-				window.open("<?=base_url('csuperadmin/edit_prodi/')?>" + id_prodi, '_self');
-			}
+	function hapus(id_prodi) {
+		if (confirm('apakah ingin menghapus data id ini?')) {
+			window.open("<?=base_url('csuperadmin/delete_prodi/')?>" + id_prodi, '_self');
+		}
+	}
 
-			function hapus(id_prodi) {
-				if (confirm('apakah ingin menghapus data id ' + id_prodi + ' ini?')) {
-					window.open("<?=base_url('csuperadmin/delete_prodi/')?>" + id_prodi, '_self');
-				}
-			}
-
-		</script>
+</script>

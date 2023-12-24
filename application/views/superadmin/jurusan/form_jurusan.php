@@ -1,8 +1,8 @@
-<div id="form-jurusan" style="display: none;">
+<div id="form" style="display: none;">
 <h3 class="mb-4">Form Jurusan</h3>
 <div class="card bg-primary">
 	<div class="card-body">
-	<form action="<?= base_url('csuperadmin/insert_jurusan')?>" method="post">
+	<form action="<?= base_url('csuperadmin/proses_jurusan')?>" method="post">
 	<input type="hidden" name="id_jurusan" id="id_jurusan">
 	<div class="mb-3">
 			<label for="nama_jurusan" class="form-label text-light">Nama Jurusan</label>
