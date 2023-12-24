@@ -1,3 +1,5 @@
+<div id="form" style="display: none;">
+
 <h3 class="mb-4">Form Tambah Master UKM</h3>
 <div class="card bg-primary ">
 	<div class="card-body">
@@ -16,6 +18,15 @@
 			</select>
 		</div>		
 		<div class="mb-3 row">
+			<div class="col-2">
+				<img src="" alt="" id="img_mahasiswas" width="150" height="225">
+			</div>
+			<div class="col-10 mt-5">
+				<label for="img_mahasiswa" class="form-label text-light">IMG</label>
+				<input type="file" name="img_mahasiswa" class="form-control bg-light" >
+			</div>
+		</div>
+		<div class="mb-3 row">
 			<div class="col-6">
 				<button type="submit" class="btn btn-success col-12">Submit</button>
 			</div>
@@ -28,3 +39,4 @@
 </div>	
 <hr class="border border-primary border-2 opacity-50">
 
+</div>
