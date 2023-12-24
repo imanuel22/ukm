@@ -78,55 +78,26 @@ class Csuperadmin extends CI_Controller{
 	//BEM Start.
 	public function bem() {
 		$data1['data_bem']=$this->mbem->get_bem();
-		$title['title']= 'BEM';
-		$data = [
-			'header'=>$this->load->view('partial/header',$title,true),
-			'sitebar'=>$this->load->view('superadmin/partial/sitebar','',true),
-			'navbar'=>$this->load->view('partial/navbar','',true),
-			'footer'=>$this->load->view('partial/footer','',true),
-			'konten'=>'',
-			'table'=>$this->load->view('superadmin/bem/table_bem',$data1,TRUE),
-			];
-		$this->load->view('dashboard',$data);
-	}
-	public function tambah_bem() {
-		$data1['data_bem']=$this->mbem->get_bem();
 		$data1['data_prodi']=$this->mprodi->get_prodi();
-
 		$title['title']= 'BEM';
 		$data = [
 			'header'=>$this->load->view('partial/header',$title,true),
 			'sitebar'=>$this->load->view('superadmin/partial/sitebar','',true),
 			'navbar'=>$this->load->view('partial/navbar','',true),
 			'footer'=>$this->load->view('partial/footer','',true),
-			'konten'=>$this->load->view('superadmin/bem/form_bem_insert',$data1,TRUE),
+			'konten'=>$this->load->view('superadmin/bem/form_bem',$data1,TRUE),
 			'table'=>$this->load->view('superadmin/bem/table_bem',$data1,TRUE),
 			];
 		$this->load->view('dashboard',$data);
 	}
-	public function edit_bem($id) {
-		$data1['data_bem']=$this->mbem->get_bem();
-		$data1['data_prodi']=$this->mprodi->get_prodi();
-		$data1['data_bem_id']=$this->mbem->get_bem_id($id);
-		$title['title']= 'BEM';
-		$data = [
-			'header'=>$this->load->view('partial/header',$title,true),
-			'sitebar'=>$this->load->view('superadmin/partial/sitebar','',true),
-			'navbar'=>$this->load->view('partial/navbar','',true),
-			'footer'=>$this->load->view('partial/footer','',true),
-			'konten'=>$this->load->view('superadmin/bem/form_bem_update',$data1,TRUE),
-			'table'=>$this->load->view('superadmin/bem/table_bem',$data1,TRUE),
-			];
-		$this->load->view('dashboard',$data);
+	public function proses_bem(){
+		$this->mbem->proses_bem();
 	}
-	public function insert_bem(){
-		$this->mbem->insert_bem();
+	public function edit_bem($id_mahasiswa){
+		$this->mbem->edit_bem($id_mahasiswa);
 	}
-	public function update_bem(){
-		$this->mbem->update_bem();
-	}
-	public function delete_bem($id){
-		$this->mbem->delete_bem($id);
+	public function delete_bem($id_mahasiswa){
+		$this->mbem->delete_bem($id_mahasiswa);
 	}
 	//BEM End.
 }

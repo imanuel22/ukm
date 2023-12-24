@@ -24,7 +24,6 @@
 		grid-column-end: span 4;
 		display: flex;
 		flex-direction: column;
-		cursor: pointer;
 		transition: all 0.3s ease 0s;
 	}
 

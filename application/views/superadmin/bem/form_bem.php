@@ -1,7 +1,10 @@
-<h3 class="mb-4">Form Tambah BEM</h3>
+<div id="form" style="display: none;">
+<h3 class="mb-4">Form BEM</h3>
 <div class="card bg-primary ">
 	<div class="card-body">
-<form action="<?= base_url('csuperadmin/insert_bem')?>" method="post">
+<form action="<?= base_url('csuperadmin/proses_bem')?>" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="id_mahasiswa" id="id_mahasiswa">
+		<input type="hidden" name="img_mahasiswa_old" id="img_mahasiswa_old">
 		<div class="mb-3">
 			<label for="nim" class="form-label text-light">NIM</label>
 			<input type="text" name="nim" class="form-control bg-light" id="nim">
@@ -22,9 +25,14 @@
 			<label for="no_telp" class="form-label text-light">Nomer Telphone</label>
 			<input type="text" name="no_telp" class="form-control bg-light" id="no_telp">
 		</div>
-		<div class="mb-3">
-			<label for="img_mahasiswa" class="form-label text-light">IMG</label>
-			<input type="file" name="img_mahasiswa" class="form-control bg-light" id="img_mahasiswa">
+		<div class="mb-3 row">
+			<div class="col-2">
+				<img src="" alt="" id="img_mahasiswas" width="150" height="225">
+			</div>
+			<div class="col-10 mt-5">
+				<label for="img_mahasiswa" class="form-label text-light">IMG</label>
+				<input type="file" name="img_mahasiswa" class="form-control bg-light" id="img_mahasiswa">
+			</div>
 		</div>
 		<div class="mb-3">
 			<label for="status"  class="form-label text-light">Status</label>
@@ -48,10 +56,17 @@
 				<button type="submit" class="btn btn-success col-12">Submit</button>
 			</div>
 			<div class="col-6">
-				<button type="reset" class="btn btn-danger col-12">Reset</button>
+				<button type="reset" onclick="reset_img()" class="btn btn-danger col-12">Reset</button>
 			</div>
 		</div>
 	</form>
 	</div>
 </div>	
 <hr class="border border-primary border-2 opacity-50">
+</div>
+
+<script>
+function reset_img() {
+	$('#img_mahasiswas').attr('src','')
+}
+</script>

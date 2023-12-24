@@ -2,7 +2,7 @@
 <h3 class="mb-4">Table BEM</h3>
 <div class="card bg-primary mt-3 text-light">
 	<div class="card-header d-flex justify-content-end">
-		<button type="button" onclick="tambah()" class="btn btn-light px-5">+Data</button>
+		<button id="btn-tampil" type="button" onclick="hideShow()" class="btn btn-light px-5">Form Show</button>
 	</div>
 	<div class="card-body">
 		<div style="overflow-x:scroll;">
@@ -23,9 +23,9 @@
 				</thead>
 				<tbody class="table-light">
 					<?php 
-		$no=1;
-		foreach($data_bem as $row):
-		?>
+					$no=1;
+					foreach($data_bem as $row):
+					?>
 					<tr>
 						<td><?=$no++?></td>
 						<td>
@@ -47,38 +47,50 @@
 
 						</td>
 						<td class="text-center">
-							<button type="button" class="btn btn-warning mb-1" onclick="edit(<?=$row->id_mahasiswa?>)"><i
-									class="ti ti-pencil"></i></button>
-							<button type="button" class="btn btn-danger mb-1" onclick="hapus(<?=$row->id_mahasiswa?>)"><i
-									class="ti ti-trash"></i></button>
+							<button type="button" class="btn btn-warning mb-1"
+								onclick="editdata(<?=$row->id_mahasiswa?>)"><i class="ti ti-pencil"></i></button>
+							<button type="button" class="btn btn-danger mb-1"
+								onclick="hapus(<?=$row->id_mahasiswa?>)"><i class="ti ti-trash"></i></button>
 						</td>
 					</tr>
 					<?php endforeach;?>
 				</tbody>
 			</table>
-
 		</div>
 	</div>
-	<script src="<?=base_url();?>assets/DataTables/datatables.min.js"></script>
-	<script>
-		let table = new DataTable('#myTable', {
-			// options
-			responsive: true
-		});
+</div>
+<script src="<?=base_url();?>assets/DataTables/datatables.min.js"></script>
+<script>
+	let table = new DataTable('#myTable', {
 
-		function tambah() {
-			window.open("<?=base_url('csuperadmin/tambah_bem/')?>", '_self');
+	});
+	var div = document.getElementById('form');
+	var btn = document.getElementById('btn-tampil');
+	var display = 1;
 
+	function hideShow() {
+		if (display == 1) {
+			btn.textContent = 'Form Hide'
+			div.style.display = 'block';
+			display = 0;
+		} else {
+			btn.textContent = 'Form Show'
+			div.style.display = 'none';
+			display = 1;
 		}
+	}
 
-		function edit(id_mahasiswa) {
-			window.open("<?=base_url('csuperadmin/edit_bem/')?>" + id_mahasiswa, '_self');
+	function editdata(id_mahasiswa) {
+		btn.textContent = 'Form Hide';
+		div.style.display = 'block';
+		display = 0;
+		load("csuperadmin/edit_bem/" + id_mahasiswa, "#script");
+	}
+
+	function hapus(id_mahasiswa) {
+		if (confirm('apakah ingin menghapus data id ' + id_mahasiswa + ' ini?')) {
+			window.open("<?=base_url('csuperadmin/delete_bem/')?>" + id_mahasiswa, '_self');
 		}
+	}
 
-		function hapus(id_mahasiswa) {
-			if (confirm('apakah ingin menghapus data id ' + id_mahasiswa + ' ini?')) {
-				window.open("<?=base_url('csuperadmin/delete_bem/')?>" + id_mahasiswa, '_self');
-			}
-		}
-
-	</script>
+</script>
