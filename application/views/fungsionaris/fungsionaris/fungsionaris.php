@@ -43,7 +43,8 @@
 							<span class="badge bg-danger rounded-3 fw-semibold">Tidak Aktif</span>
 							<?php endif ?>
 
-						</td>						<td class="text-center">
+						</td>						
+							<td class="text-center">
 							<button type="button" class="btn btn-warning" onclick="editdata(<?=$row->id_fungsionaris?>)"><i
 									class="ti ti-pencil"></i></button>
 							<button type="button" class="btn btn-danger" onclick="hapus(<?=$id_ukm?>,<?=$row->id_fungsionaris?>)"><i

@@ -52,6 +52,8 @@ class Cfungsionaris extends CI_Controller{
 	//Fungsionaris Start.
 	public function fungsionaris($id) {
 		$data1['data_fungsionaris']=$this->mfungsionaris->get_fungsionaris($id);
+		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa();
+		$data1['data_jabatan']=$this->mjabatan->get_jabatan($id);
 		$data1['id_ukm']=$id;
 		$title['title']= 'UKM';
 		$data = [
@@ -68,8 +70,8 @@ class Cfungsionaris extends CI_Controller{
 	public function proses_fungsionaris() {
 		$this->mfungsionaris->proses_fungsionaris();
 	}
-	public function edit_fungsionaris() {
-		$this->mfungsionaris->edit_fungsionaris();
+	public function edit_fungsionaris($id_fungsionaris) {
+		$this->mfungsionaris->edit_fungsionaris($id_fungsionaris);
 	}
 	public function delete_fungsionaris($id_ukm,$id_fungsionaris) {
 		$this->mfungsionaris->delete_fungsionaris($id_ukm,$id_fungsionaris);

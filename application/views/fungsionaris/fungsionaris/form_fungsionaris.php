@@ -3,12 +3,14 @@
 <div class="card bg-primary ">
 	<div class="card-body">
     <form action="<?=base_url('cfungsionaris/proses_fungsionaris')?>" method="post">
+	<input type="hidden" name="id_fungsionaris" id="id_fungsionaris">
+	<input type="hidden" name="id_ukm" id="id_ukm" value="<?=$id_ukm?>">
     <div class="mb-3">
-			<label for="id_mahasiswa" class="form-label text-light">nama mahasiswa</label>
+			<label for="id_mahasiswa" class="form-label text-light">NIM</label>
 			<select name="id_mahasiswa" id="id_mahasiswa" class="form-control bg-light">
 				<option value="" hidden>pilih</option>
 				<?php foreach($data_mahasiswa as $row):?>
-				<option value="<?=$row->id_mahasiswa?>"><?=$row->nama_mahasiswa?></option>
+				<option value="<?=$row->id_mahasiswa?>"><?=$row->nim?></option>
 				<?php endforeach;?>
 			</select>
 	</div>	
@@ -19,6 +21,15 @@
 				<?php foreach($data_jabatan as $row):?>
 				<option value="<?=$row->id_jabatan?>"><?=$row->nama_jabatan?></option>
 				<?php endforeach;?>
+			</select>
+	</div>	
+	<div class="mb-3">
+			<label for="status" class="form-label text-light">status</label>
+			<select name="status" id="status" class="form-control bg-light">
+				<option value="" hidden>pilih</option>
+				<option value="aktif">aktif</option>
+				<option value="tidakaktif">tidak aktif</option>
+	
 			</select>
 	</div>	
 	<div class="mb-3 row">
