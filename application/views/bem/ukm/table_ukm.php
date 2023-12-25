@@ -11,9 +11,9 @@
 					<tr>
             <th class="text-center">no</th>
             <th class="text-center">IMG</th>
-            <th class="text-center">nama_ukm</th>
-            <th class="text-center">nama_mahasiswa</th>
-            <th class="text-center">jabatan</th>
+            <th class="text-center">Nama UKM</th>
+            <th class="text-center">Nama Mahasiswa</th>
+            <th class="text-center">Jabatan</th>
             <th class="text-center">Aktion</th>
         </tr>
     </thead>
@@ -31,7 +31,7 @@
 				<td><?=$row->nama_mahasiswa?></td>
 				<td><?=$row->nama_jabatan?></td>
 				<td class="text-center">
-				<button type="button" class="btn btn-warning" onclick="editdata(<?=$row->id_mahasiswa?>)"><i class="ti ti-pencil"></i></button>
+				<button type="button" class="btn btn-warning" onclick="editdata(<?=$row->id_ukm?>)"><i class="ti ti-pencil"></i></button>
 				<button type="button" class="btn btn-danger" onclick="hapus(<?=$row->id_ukm?>)"><i class="ti ti-trash"></i></button>
 				</td>
 			</tr>
@@ -60,15 +60,19 @@
 		}
 	}
 
-	function editdata(id_mahasiswa) {
+	function editdata(id_ukm) {
 		btn.textContent = 'Form Hide';
 		div.style.display = 'block';
 		display = 0;
-		load("cbem/edit_mahasiswa/" + id_mahasiswa, "#script");
+		load("cbem/edit_ukm/" + id_ukm, "#script");
 	}
 	function hapus(id_ukm){
-		if (confirm('apakah ingin menghapus data id '+id_ukm+' ini?')) {
-			window.open("<?=base_url('cbem/delete_data_mhs/')?>"+id_ukm,'_self');
+		if (confirm('apakah ingin menghapus data id ini?')) {
+			if (confirm('data ini terhubung dengan data lain apakah tetap ingin menghapus?')){
+				if (confirm('anda sudah yakin ingin menghapusnya data ini tidak dapat dikembalikan?')){
+					window.open("<?=base_url('cbem/delete_ukm/')?>"+id_ukm,'_self')
+				}
+			}
 		}
 	}
 </script>

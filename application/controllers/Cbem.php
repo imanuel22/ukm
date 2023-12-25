@@ -68,9 +68,10 @@ class Cbem extends CI_Controller{
 	}
 	//Mahasiswa End.
 
-	//halaman ukm
+	//UKM Start.
 	public function ukm() {
 		$data1['data_ukm']=$this->mukm->get_masterukm();
+		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa();
 		$title['title']= 'UKM';
 		$data = [
 			'header'=>$this->load->view('partial/header',$title,true),
@@ -83,15 +84,20 @@ class Cbem extends CI_Controller{
 		$this->load->view('dashboard',$data);
 	}
 
-	public function insert_ukm()
+	public function proses_ukm()
 	{
-		$this->mukm->insert_ukm();
+		$this->mukm->proses_ukm();
+	}
+	public function edit_ukm($id_ukm)
+	{
+		$this->mukm->edit_ukm($id_ukm);
 	}
 
 
 	public function delete_ukm($id_ukm){
 		$this->mukm->delete_ukm($id_ukm);
 	}
+	//UKM End.
 
 
 

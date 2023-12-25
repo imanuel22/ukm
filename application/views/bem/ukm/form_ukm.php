@@ -3,7 +3,9 @@
 <h3 class="mb-4">Form Tambah Master UKM</h3>
 <div class="card bg-primary ">
 	<div class="card-body">
-<form action="<?= base_url('cbem/insert_ukm')?>" method="post">
+<form action="<?= base_url('cbem/proses_ukm')?>" method="post"  enctype="multipart/form-data">
+<input type="hidden" name="id_ukm" id="id_ukm">
+<input type="hidden" name="img_ukm_old" id="img_ukm_old">
 		<div class="mb-3">
 			<label for="nama_ukm" class="form-label text-light">nama_ukm</label>
 			<input type="text" name="nama_ukm" class="form-control bg-light" id="nama_ukm">
@@ -18,10 +20,10 @@
 			</select>
 		</div>		
 		<div class="mb-3 row">
-			<div class="col-2">
-				<img src="" alt="" id="img_mahasiswas" width="150" height="225">
+			<div class="col-md-2">
+				<img src="" alt="" id="img_ukms" width="150" height="150">
 			</div>
-			<div class="col-10 mt-5">
+			<div class="col-md-10 mt-4">
 				<label for="img_mahasiswa" class="form-label text-light">IMG</label>
 				<input type="file" name="img_mahasiswa" class="form-control bg-light" >
 			</div>
@@ -31,7 +33,7 @@
 				<button type="submit" class="btn btn-success col-12">Submit</button>
 			</div>
 			<div class="col-6">
-				<button type="reset" class="btn btn-danger col-12">Reset</button>
+				<button type="reset"  onclick="reset_img()"  class="btn btn-danger col-12">Reset</button>
 			</div>
 		</div>
 	</form>
@@ -40,3 +42,8 @@
 <hr class="border border-primary border-2 opacity-50">
 
 </div>
+<script>
+function reset_img() {
+	$('#img_ukms').attr('src','')
+}
+</script>
