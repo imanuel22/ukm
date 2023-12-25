@@ -146,10 +146,43 @@
 		</main>
 	</div>
 </div>
+<div class=" bg-primary text-light rounded-4 p-3 mb-3">
+	<div>
+		<h1 class=" text-light text-center">Proker</h1>
+	</div>
+	<div class="rounded-3">
+		<main>
+			<section class="cards">
+				<?php foreach($data_proker as $row): ?>
+				<a href="<?=base_url('cfungsionaris/prokers/').$id_ukm.'/'.$row->id_proker;?>" class="card rounded-3 bg-primary">
+					<div class="card__image-container bg-light ">
+						<img src="<?=base_url('assets/uploads/proker/')?>" />
+					</div>
+					<div class="card__content">
+						<h3 class="card__title text-light text-center">
+							<?=$row->nama_proker?>
+						</h3>
+						<h5 class=" text-center text-light">
+							<?php 
+							if(!empty($row->deskripsi)){
+								echo substr($row->deskripsi,0,200);
+							}
+							?>
+						</h5>
+						<div class="d-flex justify-content-end">
+							<button type="button" onclick="opens(<?=$row->id_ukm?>)" class="btn btn-light">View</button>
+						</div>
+					</div>
+				</a>
+				<?php endforeach; ?>
+			</section>
+		</main>
+	</div>
+</div>
 
 <script>
 	function edit1(id_ukm) {
-		window.open('<?=base_url('cfungsionaris / ukm_edit / ')?>' + id_ukm, '_self')
+		window.open('<?=base_url('cfungsionaris/ukm_edit/')?>' + id_ukm, '_self')
 	}
 
 </script>

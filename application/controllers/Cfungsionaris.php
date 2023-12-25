@@ -19,6 +19,8 @@ class Cfungsionaris extends CI_Controller{
 	public function ukm_where($id) {
 		$data1['data_ukm']=$this->mukm->get_ukm_id($id);
 		$data1['data_fungsionaris']=$this->mfungsionaris->get_fungsionaris($id);
+		$data1['data_proker']=$this->mproker->get_proker($id);
+
 		$data1['data_devisi']=$this->mdevisi->get_devisi($id);
 		$data1['id_ukm']=$id;
 		$title['title']= 'UKM';
@@ -214,6 +216,20 @@ class Cfungsionaris extends CI_Controller{
 		$this->mproker->delete_proker($id_ukm,$id_proker);
 	}
 
+	public function prokers($id_ukm,$id_proker) {
+		$data1['data_proker']=$this->mproker->get_proker_id($id_proker);
+		$title['title']= 'Mahasiswa';
+		$data1['id_ukm']=$id_ukm;
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
+			'konten'=>$this->load->view('fungsionaris/ukm/proker',$data1,true),
+			'table'=>''
+		];
+		$this->load->view('dashboard.php',$data);
+	}
 	public function jabatan($id) {
 		$data1['data_jabatan']=$this->mjabatan->get_jabatan($id);
 		$data1['id_ukm']=$id;

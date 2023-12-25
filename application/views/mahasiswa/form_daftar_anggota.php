@@ -1,27 +1,19 @@
 
-<div class="rounded-4 p-4 bg-info mt-3">
-<h1>Daftar Anggota UKM</h1>
-<form action="<?= base_url('cmahasiswa/daftar_anggota')?>" method="post">
+<div  class=" bg-primary text-light rounded-4 p-3 mb-3">
+<h1 class=" text-light text-center mb-4">Daftar Anggota UKM</h1>
+<form action="<?= base_url('cmahasiswa/daftar_anggota')?>" method="post" >
 		<div class="mb-3">
-			<label for="nim" class="form-label">nim</label>
-			<p class="form-control"><?= $this->session->userdata('nim')?></p>
+			<label for="nim" class="form-label text-light">nim</label>
+			<p class="form-control bg-light"><?= $this->session->userdata('nama_mahasiswa')?></p>
 		</div>
 		<div class="mb-3">
-			<label for="nama_mahasiswa" class="form-label">nama_mahasiswa</label>
-			<p class="form-control"><?= $this->session->userdata('nama_mahasiswa')?></p>
-		</div>
-		<div class="mb-3">
-			<label for="angkatan" class="form-label">angkatan</label>
-			<p class="form-control"><?= $this->session->userdata('angkatan')?></p>
-		</div>
-		<div class="mb-3">
-			<label for="id_prodi">prodi</label>
-			<p class="form-control"><?= $this->session->userdata('id_prodi')?></p>
-		</div>		
+			<label for="nama_mahasiswa" class="form-label text-light">nama_mahasiswa</label>
+			<p class="form-control bg-light"><?= $this->session->userdata('nama_mahasiswa')?></p>
+		</div>	
 		<input type="hidden" name="id_mahasiswa" value="<?= $this->session->userdata('id_mahasiswa')?>">
 		<div class="mb-3">
 			<label for="id_devisi">devisi</label>
-			<select name="id_devisi" id="id_devisi" class="form-control">
+			<select name="id_devisi" id="id_devisi" class="form-control bg-light">
 				<option value="" hidden>pilih</option>
 				<?php foreach($data_devisi as $row):?>	
 				<option value="<?=$row->id_devisi?>"><?=$row->nama_devisi?></option>
@@ -29,11 +21,21 @@
 			</select>
 		</div>
         <div class="mb-3">
-			<label for="alasan" class="form-label">alasan</label>
-			<input type="text" name="alasan" class="form-control" id="alasan">
+			<label for="alasan" class="form-label text-light">alasan</label>
+			<input type="text" name="alasan" class="form-control bg-light" id="alasan">
         </div>
-		<div class="mb-3">
-			<button type="submit" class="btn btn-primary col-12">Submit</button>
+		<div class="mb-3 row">
+			<div class="col-6">
+				<button type="submit" class="btn btn-success col-12">Submit</button>
+			</div>
+			<div class="col-6">
+				<button type="reset" class="btn btn-danger col-12">Reset</button>
+			</div>
 		</div>
 	</form>
 </div>
+<script>
+	function data_mahasiswa(id) {
+		load('cmahasiswa/data_mahasiswa/'+id)
+	}
+</script>
