@@ -49,6 +49,32 @@ class Cfungsionaris extends CI_Controller{
 		];
 		$this->load->view('dashboard.php',$data);
 	}
+	//Fungsionaris Start.
+	public function fungsionaris($id) {
+		$data1['data_fungsionaris']=$this->mfungsionaris->get_fungsionaris($id);
+		$data1['id_ukm']=$id;
+		$title['title']= 'UKM';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
+			'konten'=>$this->load->view('fungsionaris/fungsionaris/form_fungsionaris',$data1,TRUE),
+			'table'=>$this->load->view('fungsionaris/fungsionaris/fungsionaris',$data1,TRUE),
+		];
+		$this->load->view('dashboard.php',$data);
+	}
+
+	public function proses_fungsionaris() {
+		$this->mfungsionaris->proses_fungsionaris();
+	}
+	public function edit_fungsionaris() {
+		$this->mfungsionaris->edit_fungsionaris();
+	}
+	public function delete_fungsionaris($id_ukm,$id_fungsionaris) {
+		$this->mfungsionaris->delete_fungsionaris($id_ukm,$id_fungsionaris);
+	}
+	//Fungsionaris End.
 	public function devisi($id) {
 		$data1['data_devisi']=$this->mdevisi->get_devisi($id);
 		$data1['id_ukm']=$id;
@@ -103,62 +129,6 @@ class Cfungsionaris extends CI_Controller{
 		$this->mdevisi->delete_devisi($id_ukm,$id_devisi);
 	}
 
-	public function fungsionaris($id) {
-		$data1['data_fungsionaris']=$this->mfungsionaris->get_fungsionaris($id);
-		$data1['id_ukm']=$id;
-		$title['title']= 'UKM';
-		$data = [
-			'header'=>$this->load->view('partial/header',$title,true),
-			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
-			'navbar'=>$this->load->view('partial/navbar','',true),
-			'footer'=>$this->load->view('partial/footer','',true),
-			'konten'=>'',
-			'table'=>$this->load->view('fungsionaris/fungsionaris/fungsionaris',$data1,TRUE),
-		];
-		$this->load->view('dashboard.php',$data);
-	}
-	public function fungsionaris_tambah($id) {
-		$data1['data_fungsionaris']=$this->mfungsionaris->get_fungsionaris($id);
-		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa();
-		$data1['data_jabatan']=$this->mjabatan->get_jabatan($id);
-		$data1['id_ukm']=$id;
-		$title['title']= 'UKM';
-		$data = [
-			'header'=>$this->load->view('partial/header',$title,true),
-			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
-			'navbar'=>$this->load->view('partial/navbar','',true),
-			'footer'=>$this->load->view('partial/footer','',true),
-			'konten'=>$this->load->view('fungsionaris/fungsionaris/fungsionaris_insert',$data1,TRUE),
-			'table'=>$this->load->view('fungsionaris/fungsionaris/fungsionaris',$data1,TRUE),
-		];
-		$this->load->view('dashboard.php',$data);
-	}
-	public function fungsionaris_edit($id_ukm,$id_fungsionaris) {
-		$data1['data_fungsionaris']=$this->mfungsionaris->get_fungsionaris($id_ukm);
-		$data1['data_fungsionaris_id']=$this->mfungsionaris->get_fungsionaris_id($id_fungsionaris);
-		$data1['data_jabatan']=$this->mjabatan->get_jabatan($id_ukm);
-		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa();
-		$data1['id_ukm']=$id_ukm;
-		$title['title']= 'UKM';
-		$data = [
-			'header'=>$this->load->view('partial/header',$title,true),
-			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
-			'navbar'=>$this->load->view('partial/navbar','',true),
-			'footer'=>$this->load->view('partial/footer','',true),
-			'konten'=>$this->load->view('fungsionaris/fungsionaris/fungsionaris_update',$data1,TRUE),
-			'table'=>$this->load->view('fungsionaris/fungsionaris/fungsionaris',$data1,TRUE),
-		];
-		$this->load->view('dashboard.php',$data);
-	}
-	public function insert_fungsionaris() {
-		$this->mfungsionaris->insert_fungsionaris();
-	}
-	public function update_fungsionaris() {
-		$this->mfungsionaris->update_fungsionaris();
-	}
-	public function delete_fungsionaris($id_ukm,$id_fungsionaris) {
-		$this->mfungsionaris->delete_fungsionaris($id_ukm,$id_fungsionaris);
-	}
 
 	
 	public function proker($id) {

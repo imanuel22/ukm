@@ -1,7 +1,8 @@
+<div id="form" style="display: none;">
 <h3 class="mb-4">Form Tambah Fungsionaris</h3>
 <div class="card bg-primary ">
 	<div class="card-body">
-    <form action="<?=base_url('cfungsionaris/insert_fungsionaris')?>" method="post">
+    <form action="<?=base_url('cfungsionaris/proses_fungsionaris')?>" method="post">
     <div class="mb-3">
 			<label for="id_mahasiswa" class="form-label text-light">nama mahasiswa</label>
 			<select name="id_mahasiswa" id="id_mahasiswa" class="form-control bg-light">
@@ -32,3 +33,4 @@
 	</div>
 </div>	
 <hr class="border border-primary border-2 opacity-50">
+</div>
