@@ -2,7 +2,7 @@
 <h3 class="mb-4">Table Anggota UKM</h3>
 <div class="card bg-primary mt-3 text-light">
 	<div class="card-header d-flex justify-content-end">
-		<button type="button" onclick="tambah(<?=$id_ukm?>)" class="btn btn-light px-5">+Data</button>
+	<button id="btn-tampil" type="button" onclick="hideShow()" class="btn btn-light px-5">Form Show</button>
 	</div>
 	<div class="card-body">
 		<div style="overflow-x:scroll;">
@@ -45,7 +45,7 @@
 						</td>
 						<td class="text-center">
 							<button type="button" class="btn btn-warning"
-								onclick="edit(<?=$id_ukm?>,<?=$row->id_anggota_ukm?>)"><i
+								onclick="editdata(<?=$row->id_anggota_ukm?>)"><i
 									class="ti ti-pencil"></i></button>
 							<button type="button" class="btn btn-danger"
 								onclick="hapus(<?=$id_ukm?>,<?=$row->id_anggota_ukm?>)"><i
@@ -61,20 +61,32 @@
 <script src="<?=base_url();?>assets/DataTables/datatables.js"></script>
 <script>
 	let table = new DataTable('#myTable', {
-		// options
-		responsive: true
+
 	});
+	var div = document.getElementById('form');
+	var btn = document.getElementById('btn-tampil');
+	var display = 1;
 
-	function tambah(id_ukm) {
-		window.open("<?=base_url('cfungsionaris/anggota_tambah/')?>" + id_ukm, '_self');
-	};
+	function hideShow() {
+		if (display == 1) {
+			btn.textContent = 'Form Hide'
+			div.style.display = 'block';
+			display = 0;
+		} else {
+			btn.textContent = 'Form Show'
+			div.style.display = 'none';
+			display = 1;
+		}
+	}
 
-	function edit(id_ukm, id_anggota_ukm) {
-		window.open("<?=base_url('cfungsionaris/anggota_edit/')?>" + id_ukm + '/' + id_anggota_ukm, '_self');
-	};
-
+	function editdata(id_anggotaUKM) {
+		btn.textContent = 'Form Hide'
+		div.style.display = 'block';
+		display = 0;
+		load("cfungsionaris/edit_anggotaUKM/" + id_anggotaUKM, "#script");
+	}
 	function hapus(id_ukm, id_anggota_ukm) {
-		if (confirm('apakah ingin menghapus data id ' + id_anggota_ukm + ' ini?')) {
+		if (confirm('apakah ingin menghapus data id ini?')) {
 			window.open("<?=base_url('cfungsionaris/delete_anggota/')?>" + id_ukm + '/' + id_anggota_ukm, '_self');
 		}
 	};

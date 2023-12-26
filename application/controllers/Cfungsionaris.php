@@ -77,6 +77,36 @@ class Cfungsionaris extends CI_Controller{
 		$this->mfungsionaris->delete_fungsionaris($id_ukm,$id_fungsionaris);
 	}
 	//Fungsionaris End.
+	
+	//Anggota UKM Start.
+	public function anggota_ukm($id) {
+		$data1['data_anggota_ukm']=$this->manggotaukm->get_anggota_ukm($id);
+		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa();
+		$data1['data_devisi']=$this->mdevisi->get_devisi($id);
+		$data1['id_ukm']=$id;
+		$title['title']= 'UKM';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
+			'konten'=>$this->load->view('fungsionaris/anggota_ukm/form_anggota',$data1,TRUE),
+			'table'=>$this->load->view('fungsionaris/anggota_ukm/anggota_ukm',$data1,TRUE),
+		];
+		$this->load->view('dashboard.php',$data);
+	}
+
+	public function proses_anggotaUKM() {
+		$this->manggotaukm->proses_anggotaUKM();
+	}
+	public function edit_anggotaUKM($id_anggota) {
+		$this->manggotaukm->edit_anggotaUKM($id_anggota);
+	}
+	public function delete_anggota($id_ukm,$id_anggota) {
+		$this->manggotaukm->delete_anggota($id_ukm,$id_anggota);
+	}
+	//Anggota UKM End.
+
 	public function devisi($id) {
 		$data1['data_devisi']=$this->mdevisi->get_devisi($id);
 		$data1['id_ukm']=$id;
@@ -347,186 +377,5 @@ class Cfungsionaris extends CI_Controller{
 	public function proseshapus2($id){
 		$this->mdfungsionaris->proseshapus($id);
 	}
-
-	public function anggota_ukm($id) {
-		$data1['data_anggota_ukm']=$this->manggotaukm->get_anggota_ukm($id);
-		$data1['id_ukm']=$id;
-		$title['title']= 'UKM';
-		$data = [
-			'header'=>$this->load->view('partial/header',$title,true),
-			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
-			'navbar'=>$this->load->view('partial/navbar','',true),
-			'footer'=>$this->load->view('partial/footer','',true),
-			'konten'=>'',
-			'table'=>$this->load->view('fungsionaris/anggota_ukm/anggota_ukm',$data1,TRUE),
-		];
-		$this->load->view('dashboard.php',$data);
-	}
-	public function anggota_tambah($id) {
-		$data1['data_anggota_ukm']=$this->manggotaukm->get_anggota_ukm($id);
-		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa();
-		$data1['data_devisi']=$this->mdevisi->get_devisi($id);
-		$data1['id_ukm']=$id;
-		$title['title']= 'UKM';
-		$data = [
-			'header'=>$this->load->view('partial/header',$title,true),
-			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
-			'navbar'=>$this->load->view('partial/navbar','',true),
-			'footer'=>$this->load->view('partial/footer','',true),
-			'konten'=>$this->load->view('fungsionaris/anggota_ukm/anggota_insert',$data1,TRUE),
-			'table'=>$this->load->view('fungsionaris/anggota_ukm/anggota_ukm',$data1,TRUE),
-		];
-		$this->load->view('dashboard.php',$data);
-	}
-	public function anggota_edit($id_ukm,$id_anggota) {
-		$data1['data_anggota_ukm']=$this->manggotaukm->get_anggota_ukm($id_ukm);
-		$data1['data_anggota_id']=$this->manggotaukm->get_anggota_id($id_anggota);
-		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa();
-		$data1['data_devisi']=$this->mdevisi->get_devisi($id_ukm);
-		$data1['id_ukm']=$id_ukm;
-		$title['title']= 'UKM';
-		$data = [
-			'header'=>$this->load->view('partial/header',$title,true),
-			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
-			'navbar'=>$this->load->view('partial/navbar','',true),
-			'footer'=>$this->load->view('partial/footer','',true),
-			'konten'=>$this->load->view('fungsionaris/anggota_ukm/anggota_update',$data1,TRUE),
-			'table'=>$this->load->view('fungsionaris/anggota_ukm/anggota_ukm',$data1,TRUE),
-		];
-		$this->load->view('dashboard.php',$data);
-	}
-	public function insert_anggota() {
-		$this->manggotaukm->insert_anggota();
-	}
-	public function update_anggota() {
-		$this->manggotaukm->update_anggota();
-	}
-	public function delete_anggota($id_ukm,$id_anggota) {
-		$this->manggotaukm->delete_anggota($id_ukm,$id_anggota);
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
-	// 	//old
-	// public function dashboard(){
-	// 	$data=['judul'=>'dashboard'
-	// 		];
-	// 	$this->load->view('fungsio/header.php',$data);
-	// 	$this->load->view('fungsio/dasboard.php');
-	// 	$this->load->view('fungsio/footer.php');
-	// }
-
-	// public function ukm() {
-	// 	$dataukm=$this->mfungsio->getviewukm();
-	// 	$data=['judul'=>'dashboard',
-	// 		   'data_ukm'=>$dataukm
-	// 		];
-	// 	$this->load->view('fungsio/header.php',$data);
-	// 	$this->load->view('fungsio/ukm/ukm.php',$data);
-	// 	$this->load->view('fungsio/footer.php');
-	// }
-
-	// public function forminsertukm(){
-	// 	$dataukm=$this->mfungsio->getviewukm();
-	// 	$data=['judul'=>'dashboard',
-	// 		   'data_ukm'=>$dataukm
-	// 		];
-	// 	$this->load->view('fungsio/header.php',$data);
-	// 	$this->load->view('fungsio/ukm/insert.php',$data);
-	// 	$this->load->view('fungsio/footer.php');
-	// }
-
-	// public function prosesinsertukm() {
-	// 	$this->mfungsio->prosesinsertukm();
-	// }
-
-	// public function prosesdeleteukm($id) {
-	// 	$this->mfungsio->prosesdeleteukm($id);
-	// }
-
-	// public function formupdateukm($id){
-	// 	$dataukmdetail=$this->mfungsio->getdataukm($id);
-	// 	$data=['judul'=>'dashboard',
-	// 			'tombol'=>'active',
-	// 			'data_ukm1'=>$dataukmdetail
-	// 		];
-	// 	$this->load->view('test/header.php',$data);
-	// 	$this->load->view('fungsio/ukm/update.php',$data);
-	// 	$this->load->view('test/footer.php');
-	// }
-	// public function prosesupdateukm(){
-	// 	$this->mfungsio->prosesupdateukm();
-	// }
-
-
-	// // public function proker() {
-	// // 	$dataproker=$this->mfungsio->getviewproker();
-	// // 	$data=['judul'=>'dashboard',
-	// // 		   'data_proker'=>$dataproker
-	// // 		];
-	// // 	$this->load->view('fungsio/header.php',$data);
-	// // 	$this->load->view('fungsio/proker/proker.php',$data);
-	// // 	$this->load->view('fungsio/footer.php');
-	// // }
-
-	// // public function forminsertproker(){
-	// // 	$dataproker=$this->mfungsio->getviewproker();
-	// // 	$data=['judul'=>'dashboard',
-	// // 		   'data_proker'=>$dataproker
-	// // 		];
-	// // 	$this->load->view('fungsio/header.php',$data);
-	// // 	$this->load->view('fungsio/proker/insert.php',$data);
-	// // 	$this->load->view('fungsio/footer.php');
-	// // }
-
-	// // public function prosesinsertproker() {
-	// // 	$this->mfungsio->prosesinsertproker();
-	// // }
-
-	// // public function prosesdeleteproker($id) {
-	// // 	$this->mfungsio->prosesdeleteproker($id);
-	// // }
-
-	// public function formupdateproker($id){
-	// 	$dataprokerdetail=$this->mfungsio->getdataproker($id);
-	// 	$data=['judul'=>'dashboard',
-	// 			'tombol'=>'active',
-	// 			'data_proker1'=>$dataprokerdetail
-	// 		];
-	// 	$this->load->view('test/header.php',$data);
-	// 	$this->load->view('fungsio/proker/update.php',$data);
-	// 	$this->load->view('test/footer.php');
-	// }
-	// public function prosesupdateproker(){
-	// 	$this->mfungsio->prosesupdateproker();
-	// }
-
-
-
-
-
-
-	// function logout()
-	// 	{
-	// 		$this->session->sess_destroy();
-	// 		redirect('clogin/login','refresh');	
-	// 	}
 
 }
