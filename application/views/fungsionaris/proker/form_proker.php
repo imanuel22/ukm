@@ -1,20 +1,21 @@
-<h3 class="mb-4">Form Edit Proker</h3>
+<div id="form" style="display: none;">
+<h3 class="mb-4">Form Proker</h3>
 <div class="card bg-primary ">
 	<div class="card-body">
-    <form action="<?=base_url('cfungsionaris/update_proker')?>" method="post">
+    <form action="<?=base_url('cfungsionaris/proses_proker')?>" method="post">
     <input type="hidden" name="id_ukm" value="<?=$id_ukm?>">
-    <input type="hidden" name="id_proker" value="<?=$data_proker_id->id_proker?>">
+    <input type="hidden" name="id_proker" id="id_proker">
     <div class="mb-3">
 			<label for="nama_proker" class="form-label text-light">nama_proker</label>
-			<input type="text" name="nama_proker" id="nama_proker" class="form-control bg-light" value="<?=$data_proker_id->nama_proker?>">
+			<input type="text" name="nama_proker" id="nama_proker" class="form-control bg-light">
 	</div>	
 	<div class="mb-3">
 			<label for="deskripsi" class="form-label text-light">deskripsi</label>
-			<input type="text" name="deskripsi" id="deskripsi" class="form-control bg-light"  value="<?=$data_proker_id->deskripsi?>">
+			<input type="text" name="deskripsi" id="deskripsi" class="form-control bg-light">
 	</div>	
 	<div class="mb-3">
 			<label for="peraturan" class="form-label text-light">peraturan</label>
-			<input type="text" name="peraturan" id="peraturan" class="form-control bg-light"  value="<?=$data_proker_id->peraturan?>">
+			<input type="text" name="peraturan" id="peraturan" class="form-control bg-light">
 	</div>	
     <div class="mb-3 row">
 			<div class="col-6">
@@ -28,3 +29,4 @@
 	</div>
 </div>	
 <hr class="border border-primary border-2 opacity-50">
+</div>

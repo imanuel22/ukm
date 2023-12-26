@@ -2,7 +2,7 @@
 <h3 class="mb-4">Form Devisi</h3>
 <div class="card bg-primary ">
 	<div class="card-body">
-    <form action="<?=base_url('cfungsionaris/proses_devisi	')?>" method="post">
+    <form action="<?=base_url('cfungsionaris/proses_devisi')?>" method="post">
     <input type="hidden" name="id_ukm" value="<?=$id_ukm?>">
     <input type="hidden" name="id_devisi" id="id_devisi">
     <div class="mb-3">

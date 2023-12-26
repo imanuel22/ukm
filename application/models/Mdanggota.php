@@ -2,7 +2,7 @@
 
 class Mdanggota extends CI_Model{
     public function get_daftar_anggota(){
-		return $this->db->get('tb_daftar_anggota')->result();
+		return $this->db->get('daftar_anggotaukm')->result();
 	}
 	public function get_daftar_anggota_id($id_daftar_anggota){
 		return $this->db->get_where('tb_daftar_anggota',['id_daftar_anggota'=>$id_daftar_anggota])->row();

@@ -7,8 +7,12 @@
 				<thead class="table-light">
 					<tr>
 						<th class="text-center">No</th>
-						<th class="text-center">id_mahasiswa</th>
-						<th class="text-center">id_devisi</th>
+						<th class="text-center">IMG</th>
+						<th class="text-center">Nama Mahasiswa</th>
+						<th class="text-center">NIM</th>
+						<th class="text-center">Jurusan</th>
+						<th class="text-center">Prodi</th>
+						<th class="text-center">Jabatan</th>
 						<th class="text-center">alasan</th>
 						<th class="text-center">Action</th>
 					</tr>
@@ -20,12 +24,19 @@
 		?>
 					<tr>
 						<td><?=$no++?></td>
-						<td><?=$row->id_mahasiswa?></td>
-						<td><?=$row->id_devisi?></td>
+						<td>
+							<img src="<?=base_url('assets/uploads/img_mahasiswa/')?><?=$row->img_mahasiswa?>"
+								alt="<?=$row->img_mahasiswa?>" width="75" height="100">
+						</td>
+						<td><?=$row->nama_mahasiswa?></td>
+						<td><?=$row->nim?></td>
+						<td><?=$row->nama_jurusan?></td>
+						<td><?=$row->nama_prodi?></td>
+						<td><?=$row->nama_devisi?></td>
 						<td><?=$row->alasan?></td>
 						<td class="text-center">
 							<button type="button" class="btn btn-warning"
-								onclick="verif(<?=$row->id_daftar_anggota?>,<?=$id_ukm?>)"><i
+								onclick="verifdata(<?=$row->id_daftar_anggota?>)"><i
 									class="ti ti-eye"></i></button>
 							<button type="button" class="btn btn-danger"
 								onclick="hapus(<?=$row->id_daftar_anggota?>)"><i class="ti ti-trash"></i></button>
@@ -44,8 +55,8 @@
 			responsive: true
 		});
 
-		function verif(id_daftar_anggota, id_ukm) {
-			window.open("<?=base_url('cfungsionaris/verif_anggota_form/')?>" + id_daftar_anggota + '/' + id_ukm, '_self');
+		function verifdata(id_daftar_anggota) {
+			load("cfungsionaris/verifdatafungsionaris/" + id_daftar_anggota, "#script");
 		}
 
 		function hapus(id_daftar_anggota) {
