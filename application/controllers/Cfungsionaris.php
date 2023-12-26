@@ -107,6 +107,7 @@ class Cfungsionaris extends CI_Controller{
 	}
 	//Anggota UKM End.
 
+	//Devisi Start.
 	public function devisi($id) {
 		$data1['data_devisi']=$this->mdevisi->get_devisi($id);
 		$data1['id_ukm']=$id;
@@ -116,50 +117,22 @@ class Cfungsionaris extends CI_Controller{
 			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
 			'navbar'=>$this->load->view('partial/navbar','',true),
 			'footer'=>$this->load->view('partial/footer','',true),
-			'konten'=>'',
-			'table'=>$this->load->view('fungsionaris/devisi/devisi',$data1,TRUE),
-		];
-		$this->load->view('dashboard.php',$data);
-	}
-	public function devisi_tambah($id) {
-		$data1['data_devisi']=$this->mdevisi->get_devisi($id);
-		$data1['id_ukm']=$id;
-		$title['title']= 'UKM';
-		$data = [
-			'header'=>$this->load->view('partial/header',$title,true),
-			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
-			'navbar'=>$this->load->view('partial/navbar','',true),
-			'footer'=>$this->load->view('partial/footer','',true),
-			'konten'=>$this->load->view('fungsionaris/devisi/devisi_insert',$data1,TRUE),
-			'table'=>$this->load->view('fungsionaris/devisi/devisi',$data1,TRUE),
-		];
-		$this->load->view('dashboard.php',$data);
-	}
-	public function devisi_edit($id_ukm,$id_devisi) {
-		$data1['data_devisi']=$this->mdevisi->get_devisi($id_ukm);
-		$data1['data_devisi_id']=$this->mdevisi->get_devisi_id($id_devisi);
-		$data1['id_ukm']=$id_ukm;
-		$title['title']= 'UKM';
-		$data = [
-			'header'=>$this->load->view('partial/header',$title,true),
-			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
-			'navbar'=>$this->load->view('partial/navbar','',true),
-			'footer'=>$this->load->view('partial/footer','',true),
-			'konten'=>$this->load->view('fungsionaris/devisi/devisi_update',$data1,TRUE),
+			'konten'=>$this->load->view('fungsionaris/devisi/form_devisi',$data1,TRUE),
 			'table'=>$this->load->view('fungsionaris/devisi/devisi',$data1,TRUE),
 		];
 		$this->load->view('dashboard.php',$data);
 	}
 
-	public function insert_devisi() {
-		$this->mdevisi->insert_devisi();
+	public function proses_devisi() {
+		$this->mdevisi->proses_devisi();
 	}
-	public function update_devisi() {
-		$this->mdevisi->update_devisi();
+	public function edit_devisi($id_devisi) {
+		$this->mdevisi->edit_devisi($id_devisi);
 	}
 	public function delete_devisi($id_ukm,$id_devisi) {
 		$this->mdevisi->delete_devisi($id_ukm,$id_devisi);
 	}
+	//Devisi End.
 
 
 	

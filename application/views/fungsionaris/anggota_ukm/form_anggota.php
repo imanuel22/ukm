@@ -1,5 +1,5 @@
 <div id="form" style="display: none;">
-	<h3 class="mb-4">Form Tambah Anggota UKM</h3>
+	<h3 class="mb-4">Form Anggota UKM</h3>
 	<div class="card bg-primary ">
 		<div class="card-body">
 			<form action="<?=base_url('cfungsionaris/proses_anggotaUKM')?>" method="post">

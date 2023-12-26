@@ -39,7 +39,7 @@ class Mprodi extends CI_Model{
 			echo "<script>$('#Kaprodi').val('".$data->Kaprodi."')</script>";
 			echo "<script>$('#Keterangan').val('".$data->Keterangan."')</script>";
 		}	
-}
+	}
 	public function update_prodi(){
 		$data=$_POST;
 		$this->db->where('id_prodi',$data['id_prodi']);
