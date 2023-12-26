@@ -43,4 +43,15 @@ class Mdfungsionaris extends CI_Model{
 		$this->db->delete('tb_daftar_fungsionaris');
 		redirect(base_url('cfungsionaris/verif_fungsionaris/').$id_ukm,'_self');
 	}
+
+	public function daftar_fungsionaris() {
+		$data = [
+			'id_mahasiswa'=>$this->input->post('id_mahasiswa'),
+            'id_jabatan'=>$this->input->post('id_jabatan'),
+            'alasan'=>$this->input->post('alasan'),
+		];
+		$this->db->insert('tb_daftar_fungsionaris',$data);
+		$this->session->set_flashdata(['pesan'=>'Silakan Mengunggu diverifikasi oleh fungsionaris!','color'=>'info']);
+		redirect(base_url('cmahasiswa/ukm/').$this->input->post('id_ukm'),'_self');
+	}
 }

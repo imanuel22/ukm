@@ -86,7 +86,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="angkatan" class="form-label">angkatan:</label>
-                        <input type="text" class="form-control" id="angkatan" name="angkatan" required>
+                        <input type="number" min="1900" class="form-control" id="angkatan" name="angkatan" required placeholder="YYYY">
                     </div>
                     <div class="mb-3">
                         <button class="btn btn-primary col-12" type="submit">REGISTER</button>

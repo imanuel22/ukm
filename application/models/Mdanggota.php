@@ -44,18 +44,15 @@ class Mdanggota extends CI_Model{
 		$this->db->delete('tb_daftar_anggota');
 		redirect(base_url('cfungsionaris/verif_anggota/').$id_ukm,'_self');
 	}
+	public function daftar_anggota() {
+		$data = [
+			'id_mahasiswa'=>$this->input->post('id_mahasiswa'),
+            'id_devisi'=>$this->input->post('id_devisi'),
+            'alasan'=>$this->input->post('alasan'),
+		];
+		$this->db->insert('tb_daftar_anggota',$data);
+		$this->session->set_flashdata(['pesan'=>'Silakan Mengunggu diverifikasi oleh fungsionaris!','color'=>'info']);
+		redirect(base_url('cmahasiswa/ukm/').$this->input->post('id_ukm'),'_self');
+	}
 
-	// public function daftar_anggota() {
-    //     $data=$_POST;
-    //         $this->db->insert('tb_daftar_anggota',$data);
-    //         $this->session->set_flashdata('pesan','Data Sudah Disimpan...');
-	// 		redirect('cmahasiswa/dashboard','refresh');
-	// }
-	// public function daftar_anggota() {
-    //     $data=$_POST;
-    //         $this->db->insert('tb_daftar_anggota',$data);
-    //         $this->session->set_flashdata('pesan','Silakan tunggu verifikasi');
-    //         $this->session->set_flashdata('color','info');
-	// 		redirect('cmahasiswa/dashboard','refresh');
-	// }
 }
