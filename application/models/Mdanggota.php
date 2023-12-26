@@ -11,6 +11,24 @@ class Mdanggota extends CI_Model{
 		return $this->db->get_where('tb_devisi',['id_devisi',$id_devisi])->row();
 	}
 
+	public function verifdataanggota($id_daftar_anggota){
+		$query = $this->db->get_where('daftar_anggotaukm',['id_daftar_anggota'=>$id_daftar_anggota]);
+		if($query->num_rows()>0)
+		{
+			$data=$query->row();
+			echo "<script>$('#id_daftar_anggota').val('".$data->id_daftar_anggota."')</script>";
+			echo "<script>$('#img_mahasiswas').attr('src','".base_url()."assets/uploads/img_mahasiswa/".$data->img_mahasiswa."')</script>";
+			echo "<script>$('#nama_mahasiswa').val('".$data->nama_mahasiswa."')</script>";
+			echo "<script>$('#nim').val('".$data->nim."')</script>";
+			echo "<script>$('#id_devisi').val('".$data->id_devisi."')</script>";
+			echo "<script>$('#id_mahasiswa').val('".$data->id_mahasiswa."')</script>";
+			echo "<script>$('#nama_devisi').val('".$data->nama_devisi."')</script>";
+			echo "<script>$('#nama_prodi').val('".$data->nama_prodi."')</script>";
+			echo "<script>$('#nama_jurusan').val('".$data->nama_jurusan."')</script>";
+			echo "<script>$('#alasan').val('".$data->alasan."')</script>";
+		}	
+	}
+
 	public function proses_verif_berhasil(){
 		$data = [
 			'id_mahasiswa'=>$this->input->post('id_mahasiswa'),
@@ -18,8 +36,7 @@ class Mdanggota extends CI_Model{
 			'status'=>'aktif'
 		];
 		$this->db->insert('tb_anggota_ukm',$data);
-		$result = $this->get_devisi_id($data['id_devisi']);
-		$this->proseshapus($this->input->post('id_daftar_anggota'),$result->id_ukm);
+		$this->proseshapus($this->input->post('id_daftar_anggota'),$this->input->post('id_ukm'));
 	}
 	
 	public function proseshapus($id_daftar_anggota,$id_ukm){
@@ -28,17 +45,17 @@ class Mdanggota extends CI_Model{
 		redirect(base_url('cfungsionaris/verif_anggota/').$id_ukm,'_self');
 	}
 
-	public function daftar_fungsionaris() {
-        $data=$_POST;
-            $this->db->insert('tb_daftar_fungsionaris',$data);
-            $this->session->set_flashdata('pesan','Data Sudah Disimpan...');
-			redirect('cmahasiswa/dashboard','refresh');
-	}
-	public function daftar_anggota() {
-        $data=$_POST;
-            $this->db->insert('tb_daftar_anggota',$data);
-            $this->session->set_flashdata('pesan','Silakan tunggu verifikasi');
-            $this->session->set_flashdata('color','info');
-			redirect('cmahasiswa/dashboard','refresh');
-	}
+	// public function daftar_anggota() {
+    //     $data=$_POST;
+    //         $this->db->insert('tb_daftar_anggota',$data);
+    //         $this->session->set_flashdata('pesan','Data Sudah Disimpan...');
+	// 		redirect('cmahasiswa/dashboard','refresh');
+	// }
+	// public function daftar_anggota() {
+    //     $data=$_POST;
+    //         $this->db->insert('tb_daftar_anggota',$data);
+    //         $this->session->set_flashdata('pesan','Silakan tunggu verifikasi');
+    //         $this->session->set_flashdata('color','info');
+	// 		redirect('cmahasiswa/dashboard','refresh');
+	// }
 }

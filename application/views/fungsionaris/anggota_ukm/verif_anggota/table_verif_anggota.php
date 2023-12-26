@@ -12,16 +12,16 @@
 						<th class="text-center">NIM</th>
 						<th class="text-center">Jurusan</th>
 						<th class="text-center">Prodi</th>
-						<th class="text-center">Jabatan</th>
+						<th class="text-center">Devisi</th>
 						<th class="text-center">alasan</th>
 						<th class="text-center">Action</th>
 					</tr>
 				</thead>
 				<tbody class="bg-light">
 					<?php 
-		$no=1;
-		foreach($data_verif_anggota as $row):
-		?>
+					$no=1;
+					foreach($data_verif_anggota as $row):
+					?>
 					<tr>
 						<td><?=$no++?></td>
 						<td>
@@ -35,11 +35,11 @@
 						<td><?=$row->nama_devisi?></td>
 						<td><?=$row->alasan?></td>
 						<td class="text-center">
-							<button type="button" class="btn btn-warning"
+							<button type="button" class="btn btn-info"
 								onclick="verifdata(<?=$row->id_daftar_anggota?>)"><i
 									class="ti ti-eye"></i></button>
 							<button type="button" class="btn btn-danger"
-								onclick="hapus(<?=$row->id_daftar_anggota?>)"><i class="ti ti-trash"></i></button>
+								onclick="hapus(<?=$row->id_daftar_anggota?>,<?=$id_ukm?>)"><i class="ti ti-trash"></i></button>
 						</td>
 					</tr>
 					<?php endforeach;?>
@@ -48,20 +48,25 @@
 
 		</div>
 	</div>
+</div>
 	<script src="<?=base_url();?>assets/DataTables/datatables.js"></script>
 	<script>
-		let table = new DataTable('#myTable', {
-			// options
-			responsive: true
-		});
+	let table = new DataTable('#myTable', {
 
-		function verifdata(id_daftar_anggota) {
-			load("cfungsionaris/verifdatafungsionaris/" + id_daftar_anggota, "#script");
-		}
+});
+var div = document.getElementById('form');
+var btn = document.getElementById('btn-tampil');
+var display = 1;
 
-		function hapus(id_daftar_anggota) {
-			if (confirm('apakah ingin menghapus data id ' + id_daftar_anggota + ' ini?')) {
-				window.open("<?=base_url('cfungsionaris/proseshapus/')?>" + id_daftar_anggota, '_self');
+function verifdata(id_danggota) {
+	div.style.display = 'block';
+	display = 0;
+	load("cfungsionaris/verifdataanggota/" + id_danggota, "#script");
+}
+
+		function hapus(id_daftar_anggota,id_ukm) {
+			if (confirm('apakah ingin menghapus data ini?')) {
+				window.open("<?=base_url('cfungsionaris/proses_hapus_anggotaukm/')?>" + id_daftar_anggota+'/'+id_ukm, '_self');
 			}
 		}
 

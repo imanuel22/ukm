@@ -27,7 +27,8 @@
 						<td>
 							<img src="<?=base_url('assets/uploads/img_mahasiswa/')?><?=$row->img_mahasiswa?>"
 								alt="<?=$row->img_mahasiswa?>" width="75" height="100">
-						</td>						<td><?=$row->nama_mahasiswa?></td>
+						</td>
+						<td><?=$row->nama_mahasiswa?></td>
 						<td><?=$row->nim?></td>
 						<td><?=$row->nama_jurusan?></td>
 						<td><?=$row->nama_prodi?></td>
@@ -37,7 +38,8 @@
 								onclick="verifdata(<?=$row->id_daftar_fungsionaris?>)"><i
 									class="ti ti-eye"></i></button>
 							<button type="button" class="btn btn-danger"
-								onclick="hapus(<?=$row->id_daftar_fungsionaris?>,<?=$id_ukm?>)"><i class="ti ti-trash"></i></button>
+								onclick="hapus(<?=$row->id_daftar_fungsionaris?>,<?=$id_ukm?>)"><i
+									class="ti ti-trash"></i></button>
 						</td>
 					</tr>
 					<?php endforeach;?>
@@ -46,27 +48,29 @@
 
 		</div>
 	</div>
-	<script src="<?=base_url();?>assets/DataTables/datatables.js"></script>
+</div>
+<script src="<?=base_url();?>assets/DataTables/datatables.js"></script>
 
-	<script>
-		let table = new DataTable('#myTable', {
+<script>
+	let table = new DataTable('#myTable', {
 
-});
-var div = document.getElementById('form');
-var btn = document.getElementById('btn-tampil');
-var display = 1;
+	});
+	var div = document.getElementById('form');
+	var btn = document.getElementById('btn-tampil');
+	var display = 1;
 
 	function verifdata(id_dfungsionaris) {
-			div.style.display = 'block';
-			display = 0;
-			load("cfungsionaris/verifdatafungsionaris/" + id_dfungsionaris, "#script");
+		div.style.display = 'block';
+		display = 0;
+		load("cfungsionaris/verifdatafungsionaris/" + id_dfungsionaris, "#script");
+	}
+
+
+	function hapus(id_dfungsionaris, id_ukm) {
+		if (confirm('apakah ingin menghapus data id ' + id_dfungsionaris + ' ini?')) {
+			window.open("<?=base_url('cfungsionaris/proses_hapus_fungsionaris/')?>" + id_dfungsionaris + '/' + id_ukm,
+				'_self');
 		}
+	}
 
-
-		function hapus(id_dfungsionaris,id_ukm) {
-			if (confirm('apakah ingin menghapus data id ' + id_dfungsionaris + ' ini?')) {
-				window.open("<?=base_url('cfungsionaris/proses_hapus_fungsionaris/')?>" + id_dfungsionaris+'/'+id_ukm, '_self');
-			}
-		}
-
-	</script>
+</script>

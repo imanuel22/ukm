@@ -233,58 +233,43 @@ class Cfungsionaris extends CI_Controller{
 		if($this->input->post('btn')=='berhasil'){
 		$this->mdfungsionaris->proses_verif_berhasil();
 		}else{
-		$this->proses_hapus_fungsionaris($this->input->post('id_daftar_anggota'),$this->input->post('id_ukm'));}
+		$this->proses_hapus_fungsionaris($this->input->post('id_daftar_fungsionaris'),$this->input->post('id_ukm'));}
 	}
 	public function proses_hapus_fungsionaris($id_daftar_fungsionaris,$id_ukm){
 		$this->mdfungsionaris->proseshapus($id_daftar_fungsionaris,$id_ukm);
 	}
 	//Verifikasi Fungsionaris End.
 
-
-	//verif anggota
-	public function verif_anggota($id_ukm) {
-		$data1['data_verif_anggota']=$this->mdanggota->get_daftar_anggota();
-		$data1['id_ukm']=$id_ukm;
-		$title['title']= 'UKM';
-		$data = [
-			'header'=>$this->load->view('partial/header',$title,true),
-			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
-			'navbar'=>$this->load->view('partial/navbar','',true),
-			'footer'=>$this->load->view('partial/footer','',true),
-			'konten'=>'',
-			'table'=>$this->load->view('fungsionaris/anggota_ukm/verif_anggota/table_verif_anggota',$data1,TRUE),
-		];
-		$this->load->view('dashboard.php',$data);
-	}
-
-	public function verif_anggota_form($id,$id_ukm){
-		$data1['data_verif_anggota']=$this->mdanggota->get_daftar_anggota();
-		$data1['data_verif_anggota_id']=$this->mdanggota->get_daftar_anggota_id($id);
-		$title['title']= 'UKM';
-		$data1['id_ukm']= $id_ukm;
-		$data = [
-			'header'=>$this->load->view('partial/header',$title,true),
-			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
-			'navbar'=>$this->load->view('partial/navbar','',true),
-			'footer'=>$this->load->view('partial/footer','',true),
-			'konten'=>$this->load->view('fungsionaris/anggota_ukm/verif_anggota/verif_anggota_form',$data1,TRUE),
-			'table'=>$this->load->view('fungsionaris/anggota_ukm/verif_anggota/table_verif_anggota',$data1,TRUE),
-		];
-		$this->load->view('dashboard.php',$data);
-	}
-	
-	public function proses_verif_anggota(){
-		if($this->input->post('btn')=='berhasil'){
-			$this->mdanggota->proses_verif_berhasil();
-		}else{
-			$this->mdanggota->proseshapus($this->input->post('id_daftar_anggota'));
+	//Verifikasi Anggota UKM Start.
+		public function verif_anggota($id_ukm) {
+			$data1['data_verif_anggota']=$this->mdanggota->get_daftar_anggota();
+			$data1['id_ukm']=$id_ukm;
+			$title['title']= 'UKM';
+			$data = [
+				'header'=>$this->load->view('partial/header',$title,true),
+				'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
+				'navbar'=>$this->load->view('partial/navbar','',true),
+				'footer'=>$this->load->view('partial/footer','',true),
+				'konten'=>$this->load->view('fungsionaris/anggota_ukm/verif_anggota/verif_anggota_form',$data1,TRUE),
+				'table'=>$this->load->view('fungsionaris/anggota_ukm/verif_anggota/table_verif_anggota',$data1,TRUE),
+			];
+			$this->load->view('dashboard.php',$data);
 		}
-	}
-	public function proseshapus1($id){
-		$this->mdanggota->proseshapus($id);
-	}
+		public function verifdataanggota($id_daftar_anggota) {
+			$this->mdanggota->verifdataanggota($id_daftar_anggota);
+		}
+		public function proses_verif_anggota(){
+			if($this->input->post('btn')=='berhasil'){
+				$this->mdanggota->proses_verif_berhasil();
+			}else{
+				$this->proses_hapus_anggotaukm($this->input->post('id_daftar_anggota'),$this->input->post('id_ukm'));
+			}
+		}
+		public function proses_hapus_anggotaukm($id_daftar_anggota,$id_ukm){
+			$this->mdanggota->proseshapus($id_daftar_anggota,$id_ukm);
+		}
+	//Verifikasi Anggota UKM End.
 
-	//verif fungsionaris
 	
 
 }
