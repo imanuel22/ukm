@@ -8,6 +8,8 @@ class Csuperadmin extends CI_Controller{
 		$this->load->model('mprodi');
 		$this->load->model('mjurusan');
 		$this->load->model('mbem');
+		$this->load->model('mukm');
+		$this->load->model('mmahasiswa');
 	}
 
 	public function dashboard() {
@@ -100,5 +102,67 @@ class Csuperadmin extends CI_Controller{
 		$this->mbem->delete_bem($id_mahasiswa);
 	}
 	//BEM End.
+	//Mahasiswa Start.
+	public function mahasiswa()
+	{	
+		$data1['data_mhs']=$this->mmahasiswa->get_mahasiswa();
+		$data1['data_prodi']=$this->mprodi->get_prodi();
+		$title['title']= 'Mahasiswa';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('superadmin/partial/sitebar','',true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
+			'konten'=>$this->load->view('bem/mahasiswa/form_mahasiswa',$data1,TRUE),
+			'table'=>$this->load->view('bem/mahasiswa/table_mahasiswa',$data1,TRUE),
+		];
+		$this->load->view('dashboard',$data);
+	}
+
+	public function proses_mahasiswa()
+	{
+		$this->mmahasiswa->proses_mahasiswa();
+	}
+
+	public function edit_mahasiswa($id_mhs)
+	{
+		$this->mmahasiswa->edit_mahasiswa($id_mhs);
+	}
+
+	public function delete_data_mhs($id_mhs){
+		$this->mmahasiswa->delete_data_mhs($id_mhs);
+	}
+	//Mahasiswa End.
+
+	//UKM Start.
+	public function ukm() {
+		$data1['data_ukm']=$this->mukm->get_masterukm();
+		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa();
+		$title['title']= 'UKM';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('superadmin/partial/sitebar','',true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
+			'konten'=>$this->load->view('bem/ukm/form_ukm',$data1,TRUE),
+			'table'=>$this->load->view('bem/ukm/table_ukm',$data1,TRUE),
+		];
+		$this->load->view('dashboard',$data);
+	}
+
+	public function proses_ukm()
+	{
+		$this->mukm->proses_ukm();
+	}
+	public function edit_ukm($id_ukm)
+	{
+		$this->mukm->edit_ukm($id_ukm);
+	}
+
+
+	public function delete_ukm($id_ukm){
+		$this->mukm->delete_ukm($id_ukm);
+	}
+	//UKM End.
 }
 ?>

@@ -10,7 +10,6 @@ class Cbem extends CI_Controller{
 		$this->load->model('mjurusan');
 		$this->load->model('mprodi');
 		$this->load->model('mukm');
-		// $this->load->model('mdmahasiswa');
 	}
 
 
@@ -29,13 +28,56 @@ class Cbem extends CI_Controller{
 		$this->load->view('dashboard',$data);
 	}
 
-	//coba
-	function getdataprodi() {
-		$id_jurusan = $this->input->post('jurusan');
-		$getdataprodi = $this->mbem->getdataprodiwherejurusan($id_jurusan);
-		var_dump($getdataprodi);
+	//Jurusan Start.
+	public function jurusan() {
+		$data1['data_jurusan']=$this->mjurusan->get_jurusan();
+		$title['title']= 'Jurusan';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('bem/partial/sitebar','',true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
+			'konten'=>$this->load->view('superadmin/jurusan/form_jurusan','',TRUE),
+			'table'=>$this->load->view('superadmin/jurusan/table_jurusan',$data1,TRUE),
+			];
+		$this->load->view('dashboard',$data);
 	}
+	public function proses_jurusan() {
+		$this->mjurusan->proses_jurusan();	
+	}
+	public function edit_jurusan($id_jurusan) {
+		$this->mjurusan->edit_jurusan($id_jurusan);	
+	}
+	public function delete_jurusan($id_jurusan){
+		$this->mjurusan->delete_jurusan($id_jurusan);
+	}
+	//Jurusan End.
 
+	//prodi Start.
+	public function prodi() {
+		$data1['data_prodi']=$this->mprodi->get_prodi();
+		$data1['data_jurusan']=$this->mjurusan->get_jurusan();
+		$title['title']= 'Prodi';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('bem/partial/sitebar','',true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
+			'konten'=>$this->load->view('superadmin/prodi/form_prodi',$data1,TRUE),
+			'table'=>$this->load->view('superadmin/prodi/table_prodi',$data1,TRUE),
+			];
+		$this->load->view('dashboard',$data);
+	}
+	public function proses_prodi() {
+		$this->mprodi->proses_prodi();	
+	}
+	public function edit_prodi($id_prodi) {
+		$this->mprodi->edit_prodi($id_prodi);	
+	}
+	public function delete_prodi($id_prodi){
+		$this->mprodi->delete_prodi($id_prodi);
+	}
+	//Prodi End.
 	//Mahasiswa Start.
 	public function mahasiswa()
 	{	
@@ -98,39 +140,5 @@ class Cbem extends CI_Controller{
 		$this->mukm->delete_ukm($id_ukm);
 	}
 	//UKM End.
-
-
-
-	//verif mhs
-	// public function verifmhs() {
-	// 	$data1['data_verifmhs']=$this->mdmahasiswa->get_daftafmhs();
-	// 	$data=[
-	// 		'title'=>'Data verifmhs',
-	// 		'konten'=>'',
-	// 		'table'=>$this->load->view('bem/verifmhs/table_verifmhs',$data1,TRUE),
-	// 	];
-	// 	$this->load->view('bem/dashboard.php',$data);
-	// }
-
-	// public function verifmhs_form($id_daftar_mhs){
-	// 	$data1['data_verifmhs']=$this->mdmahasiswa->get_daftafmhs();
-	// 	$data1['datamhs']=$this->mdmahasiswa->get_daftarmhs_id($id_daftar_mhs);
-	// 	$data=[
-	// 		'title'=>'Data verifmhs',
-	// 		'konten'=>$this->load->view('bem/verifmhs/verifmhs_form',$data1,TRUE),
-	// 		'table'=>$this->load->view('bem/verifmhs/table_verifmhs',$data1,TRUE),
-	// 	];
-	// 	$this->load->view('bem/dashboard.php',$data);
-	// }
-	
-	// public function proses_verif(){
-	// 	if($this->input->post('status')=='terima'){
-	// 	$this->mdmahasiswa->proses_verif_berhasil();
-	// 	}else{
-	// 	$this->mdmahasiswa->proses_verif_gagal();}
-	// }
-	// public function proseshapus($id){
-	// 	$this->mdmahasiswa->proseshapus($id);
-	// }
 }
 ?>

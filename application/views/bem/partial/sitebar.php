@@ -34,7 +34,23 @@
     				</li>
     				<li class="nav-small-cap">
     					<i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-    					<span class="hide-menu">CRUD</span>
+    					<span class="hide-menu">Fitur</span>
+    				</li>
+					<li class="sidebar-item">
+    					<a class="sidebar-link" href="<?=base_url('cbem/jurusan')?>" aria-expanded="false">
+    						<span>
+    							<i class="ti ti-school"></i>
+    						</span>
+    						<span class="hide-menu">Jurusan</span>
+    					</a>
+    				</li>
+    				<li class="sidebar-item">
+    					<a class="sidebar-link" href="<?=base_url('cbem/prodi')?>" aria-expanded="false">
+    						<span>
+    							<i class="ti ti-school"></i>
+    						</span>
+    						<span class="hide-menu">Prodi</span>
+    					</a>
     				</li>
     				<li class="sidebar-item">
     					<a class="sidebar-link" href="<?=base_url('cbem/mahasiswa')?>" aria-expanded="false">

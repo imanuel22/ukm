@@ -71,7 +71,7 @@
     					</a>
     				</li>
 					<li class="sidebar-item">
-    					<a class="sidebar-link" href="<?=base_url('csuperadmin/ukmmaster')?>" aria-expanded="false">
+    					<a class="sidebar-link" href="<?=base_url('csuperadmin/ukm')?>" aria-expanded="false">
     						<span>
     							<i class="ti ti-user"></i>
     						</span>
