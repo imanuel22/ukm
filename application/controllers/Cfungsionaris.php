@@ -134,6 +134,33 @@ class Cfungsionaris extends CI_Controller{
 	}
 	//Devisi End.
 
+	//Jabatan Start.
+	public function jabatan($id) {
+		$data1['data_jabatan']=$this->mjabatan->get_jabatan($id);
+		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa();
+		$data1['id_ukm']=$id;
+		$title['title']= 'UKM';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
+			'konten'=>$this->load->view('fungsionaris/jabatan/form_jabatan',$data1,TRUE),
+			'table'=>$this->load->view('fungsionaris/jabatan/jabatan',$data1,TRUE),
+		];
+		$this->load->view('dashboard.php',$data);
+	}
+	
+	public function proses_jabatan() {
+		$this->mjabatan->proses_jabatan();
+	}
+	public function edit_jabatan($id_jabatan) {
+		$this->mjabatan->edit_jabatan($id_jabatan);
+	}
+	public function delete_jabatan($id_ukm,$id_jabatan) {
+		$this->mjabatan->delete_jabatan($id_ukm,$id_jabatan);
+	}
+	//Jabatan End.
 
 	
 	public function proker($id) {
@@ -181,15 +208,16 @@ class Cfungsionaris extends CI_Controller{
 		];
 		$this->load->view('dashboard.php',$data);
 	}
-	public function insert_proker() {
-		$this->mproker->insert_proker();
+	public function proses_proker() {
+		$this->mproker->proses_proker();
 	}
-	public function update_proker() {
-		$this->mproker->update_proker();
+	public function edit_proker($id_proker) {
+		$this->mproker->edit_proker($id_proker);
 	}
 	public function delete_proker($id_ukm,$id_proker) {
 		$this->mproker->delete_proker($id_ukm,$id_proker);
 	}
+
 
 	public function prokers($id_ukm,$id_proker) {
 		$data1['data_proker']=$this->mproker->get_proker_id($id_proker);
@@ -205,60 +233,7 @@ class Cfungsionaris extends CI_Controller{
 		];
 		$this->load->view('dashboard.php',$data);
 	}
-	public function jabatan($id) {
-		$data1['data_jabatan']=$this->mjabatan->get_jabatan($id);
-		$data1['id_ukm']=$id;
-		$title['title']= 'UKM';
-		$data = [
-			'header'=>$this->load->view('partial/header',$title,true),
-			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
-			'navbar'=>$this->load->view('partial/navbar','',true),
-			'footer'=>$this->load->view('partial/footer','',true),
-			'konten'=>'',
-			'table'=>$this->load->view('fungsionaris/jabatan/jabatan',$data1,TRUE),
-		];
-		$this->load->view('dashboard.php',$data);
-	}
-	public function jabatan_tambah($id) {
-		$data1['data_jabatan']=$this->mjabatan->get_jabatan($id);
-		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa();
-		$data1['id_ukm']=$id;
-		$title['title']= 'UKM';
-		$data = [
-			'header'=>$this->load->view('partial/header',$title,true),
-			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
-			'navbar'=>$this->load->view('partial/navbar','',true),
-			'footer'=>$this->load->view('partial/footer','',true),
-			'konten'=>$this->load->view('fungsionaris/jabatan/jabatan_insert',$data1,TRUE),
-			'table'=>$this->load->view('fungsionaris/jabatan/jabatan',$data1,TRUE),
-		];
-		$this->load->view('dashboard.php',$data);
-	}
-	public function jabatan_edit($id_ukm,$id_jabatan) {
-		$data1['data_jabatan']=$this->mjabatan->get_jabatan($id_ukm);
-		$data1['data_jabatan_id']=$this->mjabatan->get_jabatan_id($id_jabatan);
-		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa();
-		$data1['id_ukm']=$id_ukm;
-		$title['title']= 'UKM';
-		$data = [
-			'header'=>$this->load->view('partial/header',$title,true),
-			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
-			'navbar'=>$this->load->view('partial/navbar','',true),
-			'footer'=>$this->load->view('partial/footer','',true),
-			'konten'=>$this->load->view('fungsionaris/jabatan/jabatan_update',$data1,TRUE),
-			'table'=>$this->load->view('fungsionaris/jabatan/jabatan',$data1,TRUE),
-		];
-		$this->load->view('dashboard.php',$data);
-	}
-	public function insert_jabatan() {
-		$this->mjabatan->insert_jabatan();
-	}
-	public function update_jabatan() {
-		$this->mjabatan->update_jabatan();
-	}
-	public function delete_jabatan($id_ukm,$id_jabatan) {
-		$this->mjabatan->delete_jabatan($id_ukm,$id_jabatan);
-	}
+	
 
 	public function proses_ukm() {
 		$this->mukm->proses_ukm();

@@ -2,7 +2,7 @@
 <h3 class="mb-4">Table jabatan</h3>
 <div class="card bg-primary mt-3 text-light">
 	<div class="card-header d-flex justify-content-end">
-		<button type="button" onclick="tambah(<?=$id_ukm?>)" class="btn btn-light px-5">+Data</button>
+	<button id="btn-tampil" type="button" onclick="hideShow()" class="btn btn-light px-5">Form Show</button>
 	</div>
 	<div class="card-body">
 		<div style="overflow-x:scroll;">
@@ -25,7 +25,7 @@
 				<td><?=$row->nama_jabatan?></td>
 				<td><?=$row->deskripsi_jabatan?></td>
 				<td class="text-center">
-					<button type="button" class="btn btn-warning" onclick="edit(<?=$id_ukm?>,<?=$row->id_jabatan?>)"><i class="ti ti-pencil"></i></button>
+					<button type="button" class="btn btn-warning" onclick="editdata(<?=$row->id_jabatan?>)"><i class="ti ti-pencil"></i></button>
 					<button type="button" class="btn btn-danger" onclick="hapus(<?=$id_ukm?>,<?=$row->id_jabatan?>)"><i class="ti ti-trash"></i></button>
 				</td>
 			</tr>
@@ -36,16 +36,31 @@
 <script src="<?=base_url();?>assets/DataTables/datatables.js"></script>
 <script>
 	let table = new DataTable('#myTable', {
-    // options
-	responsive: true
-	});
 
-    function tambah(id_ukm){
-		window.open("<?=base_url('cfungsionaris/jabatan_tambah/')?>"+id_ukm,'_self');
-	};
-	function edit(id_ukm,id_jabatan){
-		window.open("<?=base_url('cfungsionaris/jabatan_edit/')?>"+id_ukm+'/'+id_jabatan,'_self');
-	};
+	});
+	var div = document.getElementById('form');
+	var btn = document.getElementById('btn-tampil');
+	var display = 1;
+
+	function hideShow() {
+		if (display == 1) {
+			btn.textContent = 'Form Hide'
+			div.style.display = 'block';
+			display = 0;
+		} else {
+			btn.textContent = 'Form Show'
+			div.style.display = 'none';
+			display = 1;
+		}
+	}
+
+	function editdata(id_jabatan) {
+		btn.textContent = 'Form Hide'
+		div.style.display = 'block';
+		display = 0;
+		load("cfungsionaris/edit_jabatan/" + id_jabatan, "#script");
+	}
+
 	function hapus(id_ukm,id_jabatan){
 		if (confirm('apakah ingin menghapus data id '+id_jabatan+' ini?')) {
 			window.open("<?=base_url('cfungsionaris/delete_jabatan/')?>"+id_ukm+'/'+id_jabatan,'_self');

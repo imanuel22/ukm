@@ -41,9 +41,6 @@ class Mproker extends CI_Model{
         if($query>0){
             $this->session->set_flashdata('pesan','data berhasil Tersimpan');
             $this->session->set_flashdata('color','success');
-        }else {
-            $this->session->set_flashdata('pesan','data gagal Tersimpan');
-            $this->session->set_flashdata('color','danger');
         }
         redirect(base_url('cfungsionaris/proker/').$id_ukm,'_self');
     }
