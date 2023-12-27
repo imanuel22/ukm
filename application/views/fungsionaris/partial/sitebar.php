@@ -7,7 +7,7 @@
 				<table>
 					<tbody>
 						<tr>
-							<td><img src="<?=base_url()?>vendor/src/assets/images/logos/ukm.png" heigth="60" width="60"></td>
+							<td><img src="<?=base_url()?>assets/images/logos/ukm.png" heigth="60" width="60"></td>
 							<td class="text-dark fs-3"><b>Unit Kegiatan Mahasiswa</b></td>
 						</tr>
 					</tbody>
