@@ -5,24 +5,25 @@ class Mauth extends CI_Model
 		//ambil data dari form 
 		$nim=$this->input->post('nim');
 		$password=$this->input->post('password');
-		//cek apakah supper admin
-		$query=$this->db->get_where('tb_superadmin',['username'=>$nim])->row();
-		if(password_verify($password,$query->password)){
-				$array=[
-					'id_superadmin'=>$query->id_superadmin,
-					'username'=>$query->username,
-					'email'=>$query->email,
-				];	
-				$this->session->sess_expiration=10;
-				$this->session->set_userdata($array);	
-				redirect(base_url('csuperadmin/dashboard'),'refresh');
-			
+		//cek apakah super admin
+		$query=$this->db->get_where('tb_superadmin',['username'=>$nim]);
+		if($query->num_rows()>0){
+			if(password_verify($password,$query['password'])){
+				$data = $query->row_array();
+					$array=[
+						'id_superadmin'=>$data['id_superadmin'],
+						'username'=>$data['username'],
+						'email'=>$data['email'],
+					];	
+					$this->session->set_userdata($array);	
+					redirect(base_url('csuperadmin/dashboard'),'refresh');
+				
+			}
 		}
 		//cek apaka mahasiswa & bem
 		else{
 			$query1=$this->db->get_where('tb_mahasiswa',['nim'=>$nim])->row_array();
 			if(password_verify($password,$query1['password'])){
-					
 					$array=array(
 						'id_mahasiswa'=>$query1['id_mahasiswa'],
 						'nim'=>$query1['nim'],
