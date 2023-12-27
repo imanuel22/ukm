@@ -1,9 +1,10 @@
 <html>
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 	<title>Cetak PDF</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
         }
@@ -24,18 +25,27 @@
         .card-body {
             padding: 20px;
         }
-        .member-name {
+        .nama {
             font-size: 18px;
             font-weight: bold;
             margin-bottom: 10px;
+            padding-left: 10px;
         }
-        .member-id {
+        .nim {
             font-size: 14px;
             margin-bottom: 10px;
+            padding-left: 10px;
         }
-        .expiration-date {
+        .divataujab {
             font-size: 12px;
-            color: #888;
+            padding-left: 10px;
+        }
+
+        .photo {
+            width: 75px;
+            border-radius: 15%;
+            margin-bottom: 10px;
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -50,13 +60,13 @@
             <table>
                 <tr>
                     <td>
-                        <img src="<?php echo base_url()?>gambar/pasfoto.jpeg" alt="Member Photo" class="member-photo" width="75">
+                        <img src="<?php echo base_url()?>gambar/pasfoto.jpeg" class="photo" alt="Pas Foto" width="75">
                     </td>
                 
                     <td>
-                    <div class="member-name">Nama</div>
-                    <div class="member-id">NIM</div>
-                    <div class="expiration-date">Jabatan/Divisi</div>
+                    <div class="nama">Nama: </div>
+                    <div class="nim">NIM: </div>
+                    <div class="divataujab">Jabatan/Divisi: </div>
                     </td>
                 </tr>
             </table>
