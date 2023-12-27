@@ -25,6 +25,7 @@ class Mukm extends CI_Model{
 		$data= [
 			'id_ukm' => $this->input->post('id_ukm'),
 			'nama_ukm'=>$this->input->post('nama_ukm'),
+			'tgl_buat'=>date('Y-m-d',time()),
 			'deskripsi'=>'Lorem ipsum dolor sit amet consectetur adipisicing elit. A suscipit quod tempora ratione, laborum numquam ullam mollitia magnam sunt voluptas officiis molestiae adipisci? Aliquid assumenda harum repudiandae sequi cupiditate, minus laborum maxime modi, fugiat exercitationem porro eveniet pariatur saepe dicta molestiae? Voluptas ab nobis mollitia, beatae nam animi, aspernatur maxime at incidunt iste assumenda eos enim itaque accusamus error tenetur minus. Nisi voluptatem libero provident minima accusamus explicabo maxime esse est similique ratione odio optio possimus animi iusto, cumque quod ipsam ab distinctio enim eius cupiditate. Ab cum totam nisi explicabo neque unde, accusantium odit ipsa sequi ipsam ex. Magnam.',
 			'peraturan'=>'Lorem ipsum dolor sit amet consectetur adipisicing elit. A suscipit quod tempora ratione, laborum numquam ullam mollitia magnam sunt voluptas officiis molestiae adipisci? Aliquid assumenda harum repudiandae sequi cupiditate, minus laborum maxime modi, fugiat exercitationem porro eveniet pariatur saepe dicta molestiae? Voluptas ab nobis mollitia, beatae nam animi, aspernatur maxime at incidunt iste assumenda eos enim itaque accusamus error tenetur minus. Nisi voluptatem libero provident minima accusamus explicabo maxime esse est similique ratione odio optio possimus animi iusto, cumque quod ipsam ab distinctio enim eius cupiditate. Ab cum totam nisi explicabo neque unde, accusantium odit ipsa sequi ipsam ex. Magnam.',
 		];
@@ -59,7 +60,6 @@ class Mukm extends CI_Model{
 				'id_mahasiswa'=>$id_mahasiswa,
 				'id_jabatan'=>$id_jabatan,
 				'status'=>'aktif',
-				'tgl_mulai'=>date('Ymd'),
 			];
 			$this->db->insert('tb_fungsionaris',$data2);
 			

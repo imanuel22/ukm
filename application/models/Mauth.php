@@ -8,8 +8,8 @@ class Mauth extends CI_Model
 		//cek apakah super admin
 		$query=$this->db->get_where('tb_superadmin',['username'=>$nim]);
 		if($query->num_rows()>0){
-			if(password_verify($password,$query['password'])){
-				$data = $query->row_array();
+			$data = $query->row_array();
+			if(password_verify($password,$data['password'])){
 					$array=[
 						'id_superadmin'=>$data['id_superadmin'],
 						'username'=>$data['username'],
@@ -22,26 +22,29 @@ class Mauth extends CI_Model
 		}
 		//cek apaka mahasiswa & bem
 		else{
-			$query1=$this->db->get_where('tb_mahasiswa',['nim'=>$nim])->row_array();
-			if(password_verify($password,$query1['password'])){
+			$query1=$this->db->get_where('tb_mahasiswa',['nim'=>$nim]);
+			if($query1->num_rows()>0){
+				$data1 = $query1->row_array();
+				if(password_verify($password,$data1['password'])){
 					$array=array(
-						'id_mahasiswa'=>$query1['id_mahasiswa'],
-						'nim'=>$query1['nim'],
-						'nama_mahasiswa'=>$query1['nama_mahasiswa'],
-						'angkatan'=>$query1['angkatan'],
-						'id_prodi'=>$query1['id_prodi'],
+						'id_mahasiswa'=>$data1['id_mahasiswa'],
+						'nim'=>$data1['nim'],
+						'nama_mahasiswa'=>$data1['nama_mahasiswa'],
+						'angkatan'=>$data1['angkatan'],
+						'id_prodi'=>$data1['id_prodi'],
 					);	
 
 					$this->session->set_userdata($array);
 					//bem
-					if($query1['level']=='admin'){
+					if($data1['level']=='admin'){
 						redirect(base_url('cbem/dashboard'),'refresh');
 					}
 					//mahasiswa
-					else if($query1['level']=='user'){
+					else if($data1['level']=='user'){
 						redirect(base_url('cmahasiswa/dashboard'),'refresh');
 					}
 			
+				}
 			}
 			//jika bukan keduanya
 			else{
