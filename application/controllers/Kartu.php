@@ -13,9 +13,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$pdf->set_option('isPhpEnabled', true);
 			$pdf->set_option('isFontSubsettingEnabled', true);
 			
-			$pdf->loadHtml($this->load->view('cetak_pdf',$data, true));
+			$pdf->loadHtml($this->load->view('cetakID',$data, true));
 			$pdf->render();
-			$pdf->stream('NamaFile', ['Attachment' => false]);	
+			$pdf->stream('ID Card UKM', ['Attachment' => false]);	
             
 		}
 ?>
