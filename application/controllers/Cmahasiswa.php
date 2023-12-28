@@ -10,6 +10,7 @@ class Cmahasiswa extends CI_Controller{
 			$this->load->model('mdevisi');
 			$this->load->model('mprodi');
 			$this->load->model('mmahasiswa');
+			$this->load->model('mcard');
 			$this->load->model('mfungsionaris');
 			$this->load->model('mproker');
 			$this->load->model('mdanggota');
@@ -145,7 +146,8 @@ class Cmahasiswa extends CI_Controller{
 
 	public function card()  {
 		$title['title']= 'Mahasiswa';
-		$data1['data_card']=$this->mukm->get_card();
+		$data1['data_cardF']=$this->mcard->card_fungsionaris($this->session->userdata('id_mahasiswa'));
+		$data1['data_cardA']=$this->mcard->card_anggotaUKM($this->session->userdata('id_mahasiswa'));
 		$data = [
 			'header'=>$this->load->view('partial/header',$title,true),
 			'sitebar'=>$this->load->view('mahasiswa/partial/sitebar','',true),
