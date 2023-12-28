@@ -1,117 +1,57 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
-    <title>Register</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <style>
-        body {
-            background-color: #3498db;
-            color: #fff;
-        }
-
-        .container {
-            margin-top: 50px;
-        }
-
-        .card {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            color: #3498db;
-        }
-
-        .btn-primary {
-            background-color: #3498db;
-            border: none;
-        }
-
-        .btn-primary:hover {
-            background-color: #2980b9;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Register Page</title>
+  <link rel="shortcut icon" type="image/png" href="logo.png" />
+  <link rel="stylesheet" href="../assets/css/styles.min.css" />
 </head>
 
 <body>
-    <div class="container">
-        <div class="d-flex justify-content-center">
-            <div class="card mt-5 p-4 col-md-8">
-                <h1 class="text-center p-3">Register</h1>
-                <?php
-                $pesan = $this->session->flashdata('pesan');
-                if ($pesan != "") {
-                ?>
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <?php echo $pesan; ?>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                <?php
-                }
-                ?>
-                <?php echo form_open_multipart('cauth/prosesregister');?>
-                    <div class="mb-3">
-                        <label for="nim" class="form-label">NIM:</label>
-                        <input type="text" class="form-control" id="nim" name="nim" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="nama_mahasiswa" class="form-label">Nama Mahasiswa:</label>
-                        <input type="text" class="form-control" id="nama_mahasiswa" name="nama_mahasiswa" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="img_mahasiswa" class="form-label">Upload Foto Mahasiswa:</label>
-                        <input type="file" class="form-control" id="img_mahasiswa" name="img_mahasiswa" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Password:</label>
-                        <input type="password" class="form-control" id="password" name="password" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="no_telp" class="form-label">No. Telepon:</label>
-                        <input type="text" class="form-control" id="no_telp" name="no_telp" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="id_prodi" class="form-label">ID Prodi:</label>
-                        <select class="form-control" name="id_prodi" id="id_prodi" required>
-                            <option value="0" hidden>pilih</option>
-                            <?php 
-                            foreach($data_prodi as $row):
-                            ?>
-                            <option value="<?=$row->id_prodi?>"><?=$row->nama_prodi?></option>
-                            <?php endforeach;?>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="angkatan" class="form-label">angkatan:</label>
-                        <input type="number" min="1900" class="form-control" id="angkatan" name="angkatan" required placeholder="YYYY">
-                    </div>
-                    <div class="mb-3">
-                        <button class="btn btn-primary col-12" type="submit">REGISTER</button>
-                    </div>
-                    <hr>
-                    <div class="col-12 text-center p-2">
-                        <button type="button" class="btn col-12" onclick="login()">Sudah punya Akun</button>
-                    </div>
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    <div
+      class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
+      <div class="d-flex align-items-center justify-content-center w-100">
+        <div class="row justify-content-center w-100">
+          <div class="col-md-8 col-lg-6 col-xxl-3">
+            <div class="card mb-0">
+              <div class="card-body">
+                <a href="./index.html" class="text-nowrap logo-img text-center d-block py-3 w-100">
+                  <img src="../assets/images/logos/dark-logo.svg" width="180" alt="">
+                </a>
+                <p class="text-center">Politeknik Negeri Bali</p>
+                <form>
+                  <div class="mb-3">
+                    <label for="exampleInputtext1" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  </div>
+                  <div class="mb-4">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1">
+                  </div>
+                  <a href="./index.html" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Sign Up</a>
+                  <div class="d-flex align-items-center justify-content-center">
+                    <p class="fs-4 mb-0 fw-bold">Already have an Account?</p>
+                    <a class="text-primary fw-bold ms-2" href="./authentication-login.html">Sign In</a>
+                  </div>
                 </form>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-
-    <script language='javascript'>
-        function login() {
-            window.open("<?= base_url('chome/login')?>", "_self");
-        }
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-        crossorigin="anonymous"></script>
+  </div>
+  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
