@@ -17,9 +17,9 @@
 			<label for="angkatan" class="form-label text-light">Angkatan</label>
 			<input type="text" name="angkatan" class="form-control bg-light" id="angkatan">
 		</div>
-		<div class="mb-3">
+		<div class="mb-3" id="pass">
 			<label for="password" class="form-label text-light">Password</label>
-			<input type="text" name="password" class="form-control bg-light" id="password">
+			<input type="password" name="password" class="form-control bg-light" id="password">
 		</div>
 		<div class="mb-3">
 			<label for="no_telp" class="form-label text-light">Nomor Telepon</label>
@@ -68,5 +68,7 @@
 <script>
 function reset_img() {
 	$('#img_mahasiswas').attr('src','')
+	// formpass.style.display = 'block';
 }
+
 </script>

@@ -17,10 +17,9 @@ class Mauth extends CI_Model
 					];	
 					$this->session->set_userdata($array);	
 					redirect(base_url('csuperadmin/dashboard'),'refresh');
-				
 			}
 		}
-		//cek apaka mahasiswa & bem
+		//cek apakah mahasiswa & bem
 		else{
 			$query1=$this->db->get_where('tb_mahasiswa',['nim'=>$nim]);
 			if($query1->num_rows()>0){

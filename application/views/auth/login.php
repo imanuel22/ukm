@@ -84,6 +84,7 @@
                     <div class="form-group mt-3">
                         <label for="password">Password</label>
                         <input type="password" class="form-control" id="password" name="password">
+                        <input type="checkbox" onclick="showpassword()">Show Password
                     </div>
                     <div class="form-group mt-3">
                         <button class="btn btn-primary col-12 btn-login" type="submit">LOGIN</button>
@@ -100,6 +101,15 @@
     <script language='javascript'>
         function daftar() {
             window.open("<?= base_url('cauth/register')?>", "_self");
+        }
+        function showpassword() {
+            var password = document.getElementById('password');
+            if (password.type == 'password') {
+                password.type = 'text';
+            }else{
+                password.type = 'text';
+            }
+
         }
     </script>
 
