@@ -86,7 +86,7 @@
 		load("cbem/edit_mahasiswa/" + id_mahasiswa, "#script");
 	}
 			function hapus(id_mahasiswa) {
-				if (confirm('apakah ingin menghapus data id ' + id_mahasiswa + ' ini?')) {
+				if (confirm('apakah ingin menghapus data ini?')) {
 					window.open("<?=base_url('cbem/delete_data_mhs/')?>" + id_mahasiswa, '_self');
 				}
 			}
