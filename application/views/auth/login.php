@@ -81,13 +81,16 @@
                 <form action="<?= base_url('cauth/proseslogin') ?>" method="post">
                     <div class="form-group mt-3">
                         <label for="nim">NIM</label>
-                        <input type="text" class="form-control" id="nim" name="nim">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="nim" name="nim">
+                            <span class="input-group-text bg-primary text-light"><i class="ti ti-user text-center"></i></span>
+                        </div>
                     </div>
                     <div class="form-group mt-3">
                         <label for="password">Password</label>
                         <div class="input-group">
-                            <input type="password" class="form-control" id="password" name="password" aria-describedby="basic-addon2" aria-label="Username">
-                            <button type="button" id="basic-addon2" class="input-group-text btn btn-primary" onclick="showpassword()"><i id="icon" class="ti ti-eye text-center"></i></button>
+                            <input type="password" class="form-control" id="password" name="password">
+                            <button type="button" id="passwords" class="input-group-text btn btn-primary" onclick="showpassword()"><i id="icon" class="ti ti-eye text-center"></i></button>
                         </div>  
                     </div>
                     <div class="form-group mt-3">
