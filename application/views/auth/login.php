@@ -87,8 +87,8 @@
                         <label for="password">Password</label>
                         <div class="input-group">
                             <input type="password" class="form-control" id="password" name="password" aria-describedby="basic-addon2" aria-label="Username">
-                            <button type="button" id="basic-addon2" class="input-group-text" onclick="showpassword()"><i id="icon" class="ti ti-eye text-center"></i></button>
-                        </div>
+                            <button type="button" id="basic-addon2" class="input-group-text btn btn-primary" onclick="showpassword()"><i id="icon" class="ti ti-eye text-center"></i></button>
+                        </div>  
                     </div>
                     <div class="form-group mt-3">
                         <button class="btn btn-primary col-12 btn-login" type="submit">LOGIN</button>
