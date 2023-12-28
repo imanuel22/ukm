@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="<?=base_url();?>assets/DataTables/datatables.css">
-<h3 class="mb-4">Table Verifikasi Fungsionaris</h3>
+<h3 class="mb-4">Tabel Verifikasi Fungsionaris</h3>
 <div class="card bg-primary mt-3 text-light">
 	<div class="card-body">
 		<div style="overflow-x:scroll;">
@@ -67,7 +67,7 @@
 
 
 	function hapus(id_dfungsionaris, id_ukm) {
-		if (confirm('apakah ingin menghapus data id ' + id_dfungsionaris + ' ini?')) {
+		if (confirm('Apakah ingin menghapus data ini?')) {
 			window.open("<?=base_url('cfungsionaris/proses_hapus_fungsionaris/')?>" + id_dfungsionaris + '/' + id_ukm,
 				'_self');
 		}

@@ -3,7 +3,7 @@
         <img src="" alt="" srcset="" width="300" height="300">
     </div>
     
-    <div class="mb-3">nama proker : <?=$data_proker->nama_proker?></div>
-    <div class="mb-3">deskripsi proker : <?=$data_proker->deskripsi?></div>
-    <div class="mb-3">peraturan proker : <?=$data_proker->peraturan?></div>
+    <div class="mb-3">Nama Program Kerja: <?=$data_proker->nama_proker?></div>
+    <div class="mb-3">Deskripsi Program Kerja: <?=$data_proker->deskripsi?></div>
+    <div class="mb-3">Peraturan Program Kerja: <?=$data_proker->peraturan?></div>
 </div>

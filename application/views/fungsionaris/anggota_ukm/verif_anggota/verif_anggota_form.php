@@ -28,11 +28,11 @@
 					<td><input class="form-control-plaintext text-dark" id="nama_prodi"></td>
 				</tr>
 				<tr>
-					<th>Devisi</th>
+					<th>Divisi</th>
 					<td><input class="form-control-plaintext text-dark" id="nama_devisi"></td>
 				</tr>
 				<tr>
-					<th>alasan</th>
+					<th>Alasan</th>
 					<td><input class="form-control-plaintext text-dark" id="alasan"></td>
 				</tr>
 			</table>

@@ -8,16 +8,16 @@
     <div class="mb-3">
 			<label for="id_mahasiswa" class="form-label text-light">NIM</label>
 			<select name="id_mahasiswa" id="id_mahasiswa" class="form-control bg-light">
-				<option value="" hidden>pilih</option>
+				<option value="" hidden>Pilih</option>
 				<?php foreach($data_mahasiswa as $row):?>
 				<option value="<?=$row->id_mahasiswa?>"><?=$row->nim?></option>
 				<?php endforeach;?>
 			</select>
 	</div>	
     <div class="mb-3">
-			<label for="jabatan" class="form-label text-light">jabatan</label>
+			<label for="jabatan" class="form-label text-light">Jabatan</label>
 			<select name="id_jabatan" id="id_jabatan" class="form-control bg-light">
-				<option value="" hidden>pilih</option>
+				<option value="" hidden>Pilih</option>
 				<?php foreach($data_jabatan as $row):?>
 				<option value="<?=$row->id_jabatan?>"><?=$row->nama_jabatan?></option>
 				<?php endforeach;?>

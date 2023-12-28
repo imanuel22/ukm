@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="<?=base_url();?>assets/DataTables/datatables.css">
-<h3 class="mb-4">Table Fungsionaris</h3>
+<h3 class="mb-4">Tabel Fungsionaris</h3>
 <div class="card bg-primary mt-3 text-light">
 	<div class="card-header d-flex justify-content-end">
 		<button id="btn-tampil" type="button" onclick="hideShow()" class="btn btn-light px-5">Form Show</button>
@@ -13,8 +13,8 @@
 						<th class="text-center">IMG</th>
 						<th class="text-center">Nama Mahasiswa</th>
 						<th class="text-center">NIM</th>
-						<th class="text-center">jurusan</th>
-						<th class="text-center">prodi</th>
+						<th class="text-center">Jurusan</th>
+						<th class="text-center">Prodi</th>
 						<th class="text-center">Jabatan</th>
 						<th class="text-center">Status</th>
 						<th class="text-center">Action</th>
@@ -87,7 +87,7 @@
 
 
 	function hapus(id_ukm, id_fungsionaris) {
-		if (confirm('apakah ingin menghapus data id ' + id_fungsionaris + ' ini?')) {
+		if (confirm('Apakah ingin menghapus data ini?')) {
 			window.open("<?=base_url('cfungsionaris/delete_fungsionaris/')?>" + id_ukm + '/' + id_fungsionaris, '_self');
 		}
 	};

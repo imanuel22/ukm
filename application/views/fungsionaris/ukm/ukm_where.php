@@ -107,11 +107,11 @@
 		<p><?=$data_ukm->deskripsi?></p>
 	</div>
 	<div class="peraturan">
-		<h1 class=" text-light">peraturan</h1>
+		<h1 class=" text-light">Peraturan</h1>
 		<p><?=$data_ukm->peraturan?></p>
 	</div>
 	<div class="devisi">
-		<h1 class=" text-light">devisi</h1>
+		<h1 class=" text-light">Divisi</h1>
 		<ul>
 			<?php foreach($data_devisi as $row):?>
 			<li><?=$row->nama_devisi?></li>
