@@ -66,6 +66,7 @@
 	});
 	var div = document.getElementById('form');
 	var btn = document.getElementById('btn-tampil');
+	// var formpass = document.getElementById('pass');
 	var display = 1;
 
 	function hideShow() {
@@ -82,6 +83,7 @@
 
 	function editdata(id_mahasiswa) {
 		btn.textContent = 'Form Hide';
+		// formpass.style.display = 'none';
 		div.style.display = 'block';
 		display = 0;
 		load("csuperadmin/edit_bem/" + id_mahasiswa, "#script");
@@ -92,5 +94,7 @@
 			window.open("<?=base_url('csuperadmin/delete_bem/')?>" + id_mahasiswa, '_self');
 		}
 	}
+
+
 
 </script>

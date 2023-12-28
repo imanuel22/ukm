@@ -65,6 +65,7 @@
 	});
 	var div = document.getElementById('form');
 	var btn = document.getElementById('btn-tampil');
+	// var formpass = document.getElementById('pass');
 	var display = 1;
 
 	function hideShow() {
@@ -82,6 +83,7 @@
 	function editdata(id_mahasiswa) {
 		btn.textContent = 'Form Hide';
 		div.style.display = 'block';
+		// formpass.style.display = 'none';
 		display = 0;
 		load("cbem/edit_mahasiswa/" + id_mahasiswa, "#script");
 	}
