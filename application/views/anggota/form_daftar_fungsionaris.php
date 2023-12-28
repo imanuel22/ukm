@@ -4,7 +4,7 @@
 <form action="<?= base_url('canggota/daftar_fungsionaris')?>" method="post" >
 		<div class="mb-3">
 			<label for="nim" class="form-label text-light">NIM</label>
-			<p class="form-control bg-light"><?= $this->session->userdata('nama_mahasiswa')?></p>
+			<p class="form-control bg-light"><?= $this->session->userdata('nim')?></p>
 		</div>
 		<div class="mb-3">
 			<label for="nama_mahasiswa" class="form-label text-light">Nama Mahasiswa</label>
