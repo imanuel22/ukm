@@ -84,7 +84,7 @@ class Mmahasiswa extends CI_Model{
 	public function delete_data_mhs($id_mahasiswa){
 		$this->db->where('id_mahasiswa',$id_mahasiswa);
 		$this->db->delete('tb_mahasiswa');
-		echo "<script>alert('databas sudah berhasil di simpan');</script>";
+		echo "<script>alert('Data sudah berhasil di simpan');</script>";
 		redirect(base_url('cbem/mahasiswa'),'_self');
 	}
 }
