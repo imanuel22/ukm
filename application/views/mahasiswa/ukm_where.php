@@ -100,11 +100,11 @@
 		<p><?=$data_ukm->deskripsi?></p>
 	</div>
 	<div class="peraturan">
-		<h1 class=" text-light">peraturan</h1>
+		<h1 class=" text-light">Peraturan</h1>
 		<p><?=$data_ukm->peraturan?></p>
 	</div>
 	<div class="devisi">
-		<h1 class=" text-light">devisi</h1>
+		<h1 class=" text-light">Divisi</h1>
 		<ul>
 			<?php foreach($data_devisi as $row):?>
 			<li><?=$row->nama_devisi?></li>
@@ -141,7 +141,7 @@
 </div>
 <div class=" bg-primary text-light rounded-4 p-3 mb-3">
 	<div>
-		<h1 class=" text-light text-center">Proker</h1>
+		<h1 class=" text-light text-center">Program Kerja</h1>
 	</div>
 	<div class="rounded-3">
 		<main>

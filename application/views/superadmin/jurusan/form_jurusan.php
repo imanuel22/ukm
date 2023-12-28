@@ -9,7 +9,7 @@
 			<input type="text" name="nama_jurusan" class="form-control bg-light" id="nama_jurusan">
 		</div>
 		<div class="mb-3">
-			<label for="NoSKJurusan" class="form-label text-light">NoSk. Jurusan</label>
+			<label for="NoSKJurusan" class="form-label text-light">No SK. Jurusan</label>
 			<input type="text" name="NoSKJurusan" class="form-control bg-light" id="NoSKJurusan">
 		</div>
 		<div class="mb-3">

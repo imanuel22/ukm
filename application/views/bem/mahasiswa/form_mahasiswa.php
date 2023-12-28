@@ -22,7 +22,7 @@
 			<input type="password" name="password" class="form-control bg-light" id="password">
 		</div>
 		<div class="mb-3">
-			<label for="no_telp" class="form-label text-light">Nomer Telphone</label>
+			<label for="no_telp" class="form-label text-light">Nomor Telepon</label>
 			<input type="text" name="no_telp" class="form-control bg-light" id="no_telp">
 		</div>
 		<div class="mb-3 row">
@@ -37,9 +37,9 @@
 		<div class="mb-3">
 			<label for="status" class="form-label text-light">Status</label>
 			<select name="status" id="status" class="form-control bg-light">
-				<option value="" hidden>pilih</option>
-				<option value="aktif">aktif</option>
-				<option value="tidakaktif">tidakaktif</option>
+				<option value="" hidden>Pilih</option>
+				<option value="aktif">Aktif</option>
+				<option value="tidakaktif">Tidak Aktif</option>
 			</select>
 		</div>
 		<div class="mb-3">

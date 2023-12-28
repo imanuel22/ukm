@@ -31,7 +31,7 @@
 			</select>
 		</div>
 		<div class="mb-3">
-			<label for="NoSKProdi" class="form-label text-light">NoSK. Prodi</label>
+			<label for="NoSKProdi" class="form-label text-light">No SK. Prodi</label>
 			<input type="text" name="NoSKProdi" class="form-control bg-light" id="NoSKProdi">
 		</div>
 		<div class="mb-3">

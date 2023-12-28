@@ -1,27 +1,27 @@
 
 <div  class=" bg-primary text-light rounded-4 p-3 mb-3">
-<h1 class=" text-light text-center mb-4">Daftar fungsionaris UKM</h1>
+<h1 class=" text-light text-center mb-4">Daftar Fungsionaris UKM</h1>
 <form action="<?= base_url('canggota/daftar_fungsionaris')?>" method="post" >
 		<div class="mb-3">
-			<label for="nim" class="form-label text-light">nim</label>
+			<label for="nim" class="form-label text-light">NIM</label>
 			<p class="form-control bg-light"><?= $this->session->userdata('nama_mahasiswa')?></p>
 		</div>
 		<div class="mb-3">
-			<label for="nama_mahasiswa" class="form-label text-light">nama_mahasiswa</label>
+			<label for="nama_mahasiswa" class="form-label text-light">Nama Mahasiswa</label>
 			<p class="form-control bg-light"><?= $this->session->userdata('nama_mahasiswa')?></p>
 		</div>	
 		<input type="hidden" name="id_mahasiswa" value="<?= $this->session->userdata('id_mahasiswa')?>">
 		<div class="mb-3">
-			<label for="id_jabatan">jabatan</label>
+			<label for="id_jabatan">Jabatan</label>
 			<select name="id_jabatan" id="id_jabatan" class="form-control bg-light">
-				<option value="" hidden>pilih</option>
+				<option value="" hidden>Pilih</option>
 				<?php foreach($data_jabatan as $row):?>	
 				<option value="<?=$row->id_jabatan?>"><?=$row->nama_jabatan?></option>
 				<?php endforeach;?>
 			</select>
 		</div>
         <div class="mb-3">
-			<label for="alasan" class="form-label text-light">alasan</label>
+			<label for="alasan" class="form-label text-light">Alasan</label>
 			<input type="text" name="alasan" class="form-control bg-light" id="alasan">
         </div>
 		<div class="mb-3 row">
