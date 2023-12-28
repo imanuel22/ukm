@@ -78,7 +78,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="id_jurusan" class="form-label">Jurusan:</label>
-                        <select class="form-control" name="id_jurusan" id="id_jurusan" required>
+                        <select class="form-control" id="id_jurusan" required>
                             <option value="" hidden>Pilih Jurusan</option>
                             <?php 
                             foreach($data_jurusan as $row):
