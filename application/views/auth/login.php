@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/png" href="<?=base_url()?>assets/images/logos/ukm.png" />
+    <link rel="stylesheet" href="<?=base_url()?>assets/css/styles.min.css" />
     <style>
         body {
             background-color: #007bff;
@@ -83,8 +85,10 @@
                     </div>
                     <div class="form-group mt-3">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" name="password">
-                        <input type="checkbox" onclick="showpassword()">Show Password
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="password" name="password" aria-describedby="basic-addon2" aria-label="Username">
+                            <button type="button" id="basic-addon2" class="input-group-text" onclick="showpassword()"><i id="icon" class="ti ti-eye text-center"></i></button>
+                        </div>
                     </div>
                     <div class="form-group mt-3">
                         <button class="btn btn-primary col-12 btn-login" type="submit">LOGIN</button>
@@ -104,10 +108,14 @@
         }
         function showpassword() {
             var password = document.getElementById('password');
+            var icon = document.getElementById('icon');
             if (password.type == 'password') {
                 password.type = 'text';
+                icon.className = 'ti ti-eye-off';
             }else{
-                password.type = 'text';
+                password.type = 'password';
+                icon.className = 'ti ti-eye';
+                
             }
 
         }

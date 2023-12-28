@@ -31,6 +31,7 @@ class Mauth extends CI_Model
 						'nama_mahasiswa'=>$data1['nama_mahasiswa'],
 						'angkatan'=>$data1['angkatan'],
 						'id_prodi'=>$data1['id_prodi'],
+						'img_mahasiswa'=>$data1['img_mahasiswa'],
 					);	
 
 					$this->session->set_userdata($array);
