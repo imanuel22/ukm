@@ -10,6 +10,7 @@
 				<thead class="table-light">
 					<tr>
 						<th class="text-center">No</th>
+			<th class="text-center">IMG</th>
             <th class="text-center">Nama Program Kerja</th>
             <th class="text-center">Deskripsi</th>
             <th class="text-center">Peraturan</th>
@@ -23,6 +24,10 @@
 		?>
 			<tr>
 				<td><?=$no++?></td>
+				<td>
+					<img src="<?=base_url('assets/uploads/img_proker/')?><?=$row->img_proker?>"
+					alt="<?=$row->img_proker?>" width="75" height="100">
+				</td>
 				<td><?=$row->nama_proker?></td>
 				<td><?=$row->deskripsi?></td>
 				<td><?=$row->peraturan?></td>
