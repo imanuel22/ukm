@@ -27,4 +27,12 @@ class Mcard extends CI_Model
             return null;
          }
      }
+     function card_anggotaUKM_ukm($id_mahasiswa,$id_ukm) {
+          $data_anggota=$this->db->get_where('cekanggota',['id_mahasiswa'=>$id_mahasiswa,'status'=>'aktif','id_ukm'=>$id_ukm]);
+          if($data_anggota->num_rows()>0){
+              return $data_anggota->row();
+          }else{
+             return null;
+          }
+      }
 }

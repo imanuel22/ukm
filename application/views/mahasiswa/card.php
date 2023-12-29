@@ -174,7 +174,7 @@
 					</tr>
 				</table>
 				<div class="d-flex justify-content-end mt-3">
-					<a href="<?=base_url('Pdfview')?>" class="btn btn-secondary">Print</a>
+					<a href="<?=base_url().'kartu/printcarda/'.$row->id_mahasiswa.'/'.$row->id_ukm?>" class="btn btn-primary">Print</a>
 				</div>
 			</div>
 

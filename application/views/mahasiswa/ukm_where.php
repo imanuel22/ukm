@@ -90,26 +90,30 @@
 	}
 
 </style>
-<div class=" bg-primary text-light rounded-4 p-3 mb-3">
-	<div class="row">
-		<img src="<?=base_url('assets/uploads/ukm/').$data_ukm->img_ukm?>" class="imgs mx-3 col-4" alt="">
-		<h1 class="col-9 mt-5 text-light"><?=$data_ukm->nama_ukm?></h1>
+<div class=" bg-primary text-light rounded-4 p-3 mb-3 text-center">
+	<div class="nama-ukm mb-5">
+		<h1 class="mt-5 text-light"><?=$data_ukm->nama_ukm?></h1>
 	</div>
-	<div class="deskripsi">
-		<h1 class=" text-light">Deskripsi</h1>
+	<div class="img-ukm mb-5">
+		<img src="<?=base_url('assets/uploads/ukm/').$data_ukm->img_ukm?>" class="rounded-circle bg-light" alt="" width="225" height="225">
+	</div>
+	<div class="deskripsi mb-3">
+		<h1 class=" text-light"></h1>
 		<p><?=$data_ukm->deskripsi?></p>
 	</div>
-	<div class="peraturan">
-		<h1 class=" text-light">Peraturan</h1>
-		<p><?=$data_ukm->peraturan?></p>
-	</div>
-	<div class="devisi">
-		<h1 class=" text-light">Divisi</h1>
-		<ul>
-			<?php foreach($data_devisi as $row):?>
-			<li><?=$row->nama_devisi?></li>
-			<?php endforeach;?>
-		</ul>
+	<div class="row mb-3">
+		<div class="col-8 text-light shadow" >
+			<h3 class="text-light">Peraturan</h3>
+			<p><?=$data_ukm->peraturan?></p>
+		</div>
+		<div class="col-4 text-light shadow-lg">
+			<h3 class=" text-light">Divisi</h3>
+			<ul>
+				<?php foreach($data_devisi as $row):?>
+				<li><?=$row->nama_devisi?></li>
+				<?php endforeach;?>
+			</ul>
+		</div>
 	</div>
 </div>
 
@@ -119,9 +123,9 @@
 	</div>
 	<div class="rounded-3">
 		<main>
-			<section class="cards">
+			<section class="cards ">
 				<?php foreach($data_fungsionaris as $row): ?>
-				<div class="card rounded-3 bg-primary">
+				<div class="card rounded-3 bg-light">
 					<div class="card__content">
 						<h3 class="card__title text-light text-center">
 							<?=$row->nama_jabatan?>
