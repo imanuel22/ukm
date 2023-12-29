@@ -1,77 +1,99 @@
 <html>
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 	<title>Cetak PDF</title>
     <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
         .card {
-            width: 100%;
-            height: auto;
+            width:122.2%;
+            transform: translate(-10.2%,-16.3%);
+            height: 150%;
             border: 1px solid #ccc;
-            border-radius: 10px;
             overflow: hidden;
-            position: relative;
+            position: absolute;
+            grid-column-end: span 4;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            transition: all 0.3s ease 0s;
         }
+        
         .card-header {
-            background-color: #3498db;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
-        .card-body {
-            padding: 20px;
-        }
-        .nama {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            padding-left: 10px;
-        }
-        .nim {
-            font-size: 14px;
-            margin-bottom: 10px;
-            padding-left: 10px;
-        }
-        .divataujab {
-            font-size: 12px;
-            padding-left: 10px;
-        }
+    	background-color: #3498db;
+		color: #fff;
+		padding: 10px;
+		text-align: center;
+	}
 
-        .photo {
-            width: 75px;
-            border-radius: 15%;
-            margin-bottom: 10px;
-            margin-right: 10px;
-        }
+	.card-body {
+		padding: 20px;
+	}
+
+	.nama {
+        transform: translate(10.2%,16.3%);
+		font-size: 18px;
+		font-weight: bold;
+		margin-bottom: 10px;
+		padding-left: 10px;
+	}
+
+	.nim {
+        transform: translate(10.2%,16.3%);
+		font-size: 14px;
+		margin-bottom: 10px;
+		padding-left: 10px;
+	}
+
+	.divataujab {
+        
+		font-size: 12px;
+		padding-left: 10px;
+	}
+
+	.photo {
+        transform: translate(10.2%,16.3%);
+		border-radius: 15%;
+		margin-bottom: 10px;
+		margin-right: 10px;
+	}
     </style>
 </head>
 
 <body>
 
-  <div class="card">
-        <div class="card-header">
-            Nama UKM
-        </div>
-        <div class="card-body">
-            <table>
-                <tr>
-                    <td>
-                        <img src="<?php echo base_url()?>gambar/pasfoto.jpeg" class="photo" alt="Pas Foto" width="75">
-                    </td>
-                
-                    <td>
-                    <div class="nama">Nama: </div>
-                    <div class="nim">NIM: </div>
-                    <div class="divataujab">Jabatan/Divisi: </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>
+    <div class="card">
+			<div class="card-header bg-primary">
+				<?=$data_cardF->nama_ukm?>
+			</div>
+			<div class="card-body">
+				<table>
+					<tr>
+						<td>
+							<img src="<?=base_url('assets/uploads/img_mahasiswa/').$this->session->userdata('img_mahasiswa')?>"
+								class="photo" alt="Pas Foto" width="100" height="130">
+						</td>
+
+						<td>
+                        <div class="nama"><?= $data_cardF->nama_mahasiswa?></div>
+							<div class="nim"><?= $data_cardF->nim?></div>
+                            <table style="transform: translate(15.2%,16.3%);">
+                                <tr>
+                                    <td class="divataujab">Role</td>
+                                    <td class="divataujab"> : </td>
+                                    <td class="divataujab">Fungsionaris </td>
+                                </tr>
+                                <tr>
+                                    <td class="divataujab">Jabatan</td>
+                                    <td class="divataujab"> : </td>
+                                    <td class="divataujab"><?= $data_cardF->nama_jabatan?></td>
+                                </tr>
+                            </table>
+							<!-- <div class="divataujab">Role : Fungsionaris</div>
+							<div class="divataujab">Jabatan : <?= $data_cardF->nama_jabatan?></div> -->
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
 
 </body>
 </html>

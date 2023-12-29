@@ -1,0 +1,18 @@
+{
+    "glyphicons halflings": {
+        "normal": "glyphicons_halflings_normal_91a063d0f3772b152f606edc0383c99d"
+    },
+    "montserrat": {
+        "normal": "C:\\xampp\\htdocs\\ukm\\application\\libraries\\dompdf\\vendor\\dompdf\\dompdf\/lib\/fonts\/montserrat_normal_00833106404dc8458cdfb436c759f23d",
+        "bold": "montserrat_bold_5da7810bf4e960efe50d20e94a894069"
+    },
+    "plus jakarta sans": {
+        "200": "C:\\xampp\\htdocs\\ukm\\application\\libraries\\dompdf\\vendor\\dompdf\\dompdf\/lib\/fonts\/plus_jakarta_sans_200_277e28ff1bd95f6ee74e3ebf75fd694a",
+        "300": "C:\\xampp\\htdocs\\ukm\\application\\libraries\\dompdf\\vendor\\dompdf\\dompdf\/lib\/fonts\/plus_jakarta_sans_300_c8ee6bef3fddb12ad267aaf863f88104",
+        "normal": "C:\\xampp\\htdocs\\ukm\\application\\libraries\\dompdf\\vendor\\dompdf\\dompdf\/lib\/fonts\/plus_jakarta_sans_normal_5ed97e5f43a5dc53fa6c89b950e11b7b",
+        "500": "C:\\xampp\\htdocs\\ukm\\application\\libraries\\dompdf\\vendor\\dompdf\\dompdf\/lib\/fonts\/plus_jakarta_sans_500_9b45299e5dc17f8b60f3e529e6063a53",
+        "600": "C:\\xampp\\htdocs\\ukm\\application\\libraries\\dompdf\\vendor\\dompdf\\dompdf\/lib\/fonts\/plus_jakarta_sans_600_52292ca49aef04de3d9fae360ace3e03",
+        "bold": "C:\\xampp\\htdocs\\ukm\\application\\libraries\\dompdf\\vendor\\dompdf\\dompdf\/lib\/fonts\/plus_jakarta_sans_bold_f88b5642402136892e17e854cb148dd4",
+        "800": "plus_jakarta_sans_800_4c0e0d5ea3a33630f193ed8df833c172"
+    }
+}
