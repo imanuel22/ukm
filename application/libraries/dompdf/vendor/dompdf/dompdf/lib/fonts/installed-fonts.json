@@ -1,11 +1,4 @@
 {
-    "glyphicons halflings": {
-        "normal": "glyphicons_halflings_normal_91a063d0f3772b152f606edc0383c99d"
-    },
-    "montserrat": {
-        "normal": "C:\\xampp\\htdocs\\ukm\\application\\libraries\\dompdf\\vendor\\dompdf\\dompdf\/lib\/fonts\/montserrat_normal_00833106404dc8458cdfb436c759f23d",
-        "bold": "montserrat_bold_5da7810bf4e960efe50d20e94a894069"
-    },
     "plus jakarta sans": {
         "200": "C:\\xampp\\htdocs\\ukm\\application\\libraries\\dompdf\\vendor\\dompdf\\dompdf\/lib\/fonts\/plus_jakarta_sans_200_277e28ff1bd95f6ee74e3ebf75fd694a",
         "300": "C:\\xampp\\htdocs\\ukm\\application\\libraries\\dompdf\\vendor\\dompdf\\dompdf\/lib\/fonts\/plus_jakarta_sans_300_c8ee6bef3fddb12ad267aaf863f88104",
