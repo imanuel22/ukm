@@ -68,7 +68,7 @@
 				<table>
 					<tr>
 						<td>
-							<img src="<?=base_url('assets/uploads/img_mahasiswa/').$this->session->userdata('img_mahasiswa')?>"
+							<img src="<?=base_url('assets/uploads/img_mahasiswa/').$data_cardF->img_mahasiswa?>"
 								class="photo" alt="Pas Foto" width="100" height="130">
 						</td>
 
