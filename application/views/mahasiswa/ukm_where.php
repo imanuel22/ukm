@@ -152,7 +152,7 @@
 				<a href="<?=base_url('cmahasiswa/proker/').$id_ukm.'/'.$row->id_proker;?>"
 					class="card rounded-3 bg-primary">
 					<div class="card__image-container bg-light ">
-						<img src="<?=base_url('assets/uploads/proker/')?>" />
+					<img src="<?=base_url('assets/uploads/img_proker/').$row->img_proker?>" />
 					</div>
 					<div class="card__content">
 						<h3 class="card__title text-light text-center">
