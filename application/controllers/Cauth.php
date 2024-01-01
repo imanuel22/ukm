@@ -17,7 +17,6 @@ class Cauth extends CI_Controller{
 		$id_jurusan = $this->input->post('id_jurusan');
 		$getprodi=$this->mprodi->get_prodi_id_jurusan($id_jurusan);
 		echo json_encode($getprodi);
-		
 	}
 
 

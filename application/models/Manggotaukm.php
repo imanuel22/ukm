@@ -3,13 +3,12 @@
         public function get_anggota_ukm($id_ukm){
             $query = $this->db->get_where('anggota_ukm',['id_ukm'=>$id_ukm]);
             return $query->result();
-        }public function get_anggota_id($id_anggota_ukm){
-            $query = $this->db->get_where('tb_anggota_ukm',['id_anggota_ukm'=>$id_anggota_ukm]);
-            return $query->row();
         }
+        // public function get_anggota_id($id_anggota_ukm){
+        //     $query = $this->db->get_where('tb_anggota_ukm',['id_anggota_ukm'=>$id_anggota_ukm]);
+        //     return $query->row();
+        // }
         public function proses_anggotaUKM(){
-            $pesan = '';
-            $color = '';
             $data= [
                 'id_anggota_ukm'=>$this->input->post('id_anggota_ukm'),
                 'id_mahasiswa'=>$this->input->post('id_mahasiswa'),

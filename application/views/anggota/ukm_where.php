@@ -144,6 +144,9 @@
 		</main>
 	</div>
 </div>
+<?php
+if(!empty($data_proker)):
+?>
 <div class=" bg-primary text-light rounded-4 p-3 mb-3">
 	<div>
 		<h1 class=" text-light text-center">Proker</h1>
@@ -177,3 +180,4 @@
 		</main>
 	</div>
 </div>
+<?php  endif;?>

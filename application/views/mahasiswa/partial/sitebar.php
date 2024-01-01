@@ -46,7 +46,7 @@
 					<li class="sidebar-item">
     					<a class="sidebar-link" href="<?=base_url('cmahasiswa/card')?>" aria-expanded="false">
     						<span>
-    							<i class="ti ti-user"></i>
+    							<i class="ti ti-credit-card"></i>
     						</span>
     						<span class="hide-menu">Kartu UKM</span>
     					</a>
