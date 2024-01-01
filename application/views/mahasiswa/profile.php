@@ -54,14 +54,11 @@
 				<label for="img_mahasiswa" class="form-label">IMG</label>
 				<input type="file" name="img_mahasiswa" class="form-control bg-light" >
 		</div>
-		<div class="mb-3">
-			<label for="status" class="form-label">Status</label>
-			<select name="status" id="status" class="form-control bg-light">
+			<select name="status" hidden id="status" class="form-control bg-light">
 				<option value="" hidden>Pilih</option>
 				<option value="aktif">Aktif</option>
 				<option value="tidakaktif">Tidak Aktif</option>
 			</select>
-		</div>
         <div class="mb-3">
 			<label for="id_jurusan" class="form-label">jurusan</label>
 			<select name="id_jurusan" id="id_jurusan" class="form-control bg-light">
