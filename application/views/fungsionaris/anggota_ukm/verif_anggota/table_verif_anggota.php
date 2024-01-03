@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="<?=base_url();?>assets/DataTables/datatables.css">
-<h3 class="mb-4">Table Verifikasi Anggota</h3>
+<h3 class="mb-4">Tabel Verifikasi Anggota</h3>
 <div class="card bg-primary mt-3 text-light">
 	<div class="card-body">
 		<div style="overflow-x:scroll;">
@@ -12,8 +12,8 @@
 						<th class="text-center">NIM</th>
 						<th class="text-center">Jurusan</th>
 						<th class="text-center">Prodi</th>
-						<th class="text-center">Devisi</th>
-						<th class="text-center">alasan</th>
+						<th class="text-center">Divisi</th>
+						<th class="text-center">Alasan</th>
 						<th class="text-center">Action</th>
 					</tr>
 				</thead>
@@ -65,7 +65,7 @@ function verifdata(id_danggota) {
 }
 
 		function hapus(id_daftar_anggota,id_ukm) {
-			if (confirm('apakah ingin menghapus data ini?')) {
+			if (confirm('Apakah ingin menghapus data ini?')) {
 				window.open("<?=base_url('cfungsionaris/proses_hapus_anggotaukm/')?>" + id_daftar_anggota+'/'+id_ukm, '_self');
 			}
 		}

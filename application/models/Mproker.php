@@ -7,13 +7,24 @@ class Mproker extends CI_Model{
         return $this->db->get_where('tb_proker',['id_proker'=>$id_proker])->row();
     }
     public function proses_proker()  {
-        $data = [
+		$data = [
 			'id_proker'=>$this->input->post('id_proker'),
 			'nama_proker'=>$this->input->post('nama_proker'),
 			'deskripsi'=>$this->input->post('deskripsi'),
 			'peraturan'=>$this->input->post('peraturan'),
 			'id_ukm'=>$this->input->post('id_ukm'),
 		];
+		$file_name='img-'.$data['nama_proker'];
+			$config = [
+				'upload_path'=> 'assets/uploads/img_proker',
+				'allowed_types'=>'jpg|jpeg|png',
+				'max_size'=>0,	
+				'file_name'=>$file_name,
+			];
+			$this->load->library('upload',$config);
+			$this->upload->do_upload('img_proker');
+			$data['img_proker']=$this->upload->data('file_name');
+        
 		$id_proker = $data['id_proker'];
 		if(empty($id_proker)){
 			$this->db->insert('tb_proker',$data);
@@ -37,6 +48,7 @@ class Mproker extends CI_Model{
 		{
 			$data=$query->row();
 			echo "<script>$('#id_proker').val('".$data->id_proker."')</script>";
+			echo "<script>$('#img_proker').val('".$data->img_proker."')</script>";
 			echo "<script>$('#nama_proker').val('".$data->nama_proker."')</script>";
 			echo "<script>$('#deskripsi').val('".$data->deskripsi."')</script>";
 			echo "<script>$('#peraturan').val('".$data->peraturan."')</script>";

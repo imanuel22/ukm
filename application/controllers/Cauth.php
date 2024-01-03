@@ -5,17 +5,29 @@ class Cauth extends CI_Controller{
 		parent::__construct();
 		$this->load->model('mauth');
 		$this->load->model('mprodi');
+		$this->load->model('mjurusan');
 		$this->load->helper(array('form', 'url'));
 
 	}
 	public function login(){
 		$this->load->view('auth/login');
 	}
+
+	public function getprodi() {
+		$id_jurusan = $this->input->post('id_jurusan');
+		$getprodi=$this->mprodi->get_prodi_id_jurusan($id_jurusan);
+		echo json_encode($getprodi);
+	}
+
+
+
 	public function proseslogin(){
 		$this->mauth->proseslogin();
 	}
 	public function register(){
-		$data=['data_prodi'=>$this->mprodi->get_prodi()];
+		$data=[
+			'data_jurusan'=>$this->mjurusan->get_jurusan(),
+		];
 		$this->load->view('auth/register',$data);
 	}
 	public function prosesregister() {

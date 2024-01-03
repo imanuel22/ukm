@@ -1,22 +1,26 @@
 <div id="form" style="display: none;">
-<h3 class="mb-4">Form Proker</h3>
+<h3 class="mb-4">Form Program Kerja</h3>
 <div class="card bg-primary ">
 	<div class="card-body">
-    <form action="<?=base_url('cfungsionaris/proses_proker')?>" method="post">
+    <form action="<?=base_url('cfungsionaris/proses_proker')?>" method="post" enctype="multipart/form-data">
     <input type="hidden" name="id_ukm" value="<?=$id_ukm?>">
     <input type="hidden" name="id_proker" id="id_proker">
     <div class="mb-3">
-			<label for="nama_proker" class="form-label text-light">nama_proker</label>
+			<label for="nama_proker" class="form-label text-light">Nama Program Kerjar</label>
 			<input type="text" name="nama_proker" id="nama_proker" class="form-control bg-light">
 	</div>	
 	<div class="mb-3">
-			<label for="deskripsi" class="form-label text-light">deskripsi</label>
+			<label for="deskripsi" class="form-label text-light">Deskripsi</label>
 			<input type="text" name="deskripsi" id="deskripsi" class="form-control bg-light">
 	</div>	
 	<div class="mb-3">
-			<label for="peraturan" class="form-label text-light">peraturan</label>
+			<label for="peraturan" class="form-label text-light">Peraturan</label>
 			<input type="text" name="peraturan" id="peraturan" class="form-control bg-light">
 	</div>	
+	<div class="mb-3">
+			<label for="img_proker" class="form-label">Upload Foto</label>
+			<input type="file" class="form-control bg-light" id="img_proker" name="img_proker" required>
+    </div>
     <div class="mb-3 row">
 			<div class="col-6">
 				<button type="submit" class="btn btn-success col-12">Submit</button>

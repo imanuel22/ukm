@@ -11,7 +11,7 @@
 					<tr>
 						<th class="text-center">No</th>
 						<th class="text-center">Nama Jurusan</th>
-						<th class="text-center">NoSK.Jurusan</th>
+						<th class="text-center">No SK.Jurusan</th>
 						<th class="text-center">Kepala Jurusan</th>
 						<th class="text-center">Keterangan</th>
 						<th class="text-center">Action</th>

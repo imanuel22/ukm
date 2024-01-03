@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="<?=base_url();?>assets/DataTables/datatables.css">
-<h3 class="mb-4">Table Devisi</h3>
+<h3 class="mb-4">Tabel Divisi</h3>
 <div class="card bg-primary mt-3 text-light">
 	<div class="card-header d-flex justify-content-end">
 	<button id="btn-tampil" type="button" onclick="hideShow()" class="btn btn-light px-5">Form Show</button>
@@ -10,8 +10,8 @@
 				<thead class="table-light">
 					<tr>
 						<th class="text-center">No</th>
-            <th class="text-center">nama_devisi</th>
-            <th class="text-center">Aktion</th>
+            <th class="text-center">Nama Divisi</th>
+            <th class="text-center">Action</th>
         </tr>
     </thead>
     <tbody class="bg-light">
@@ -61,7 +61,7 @@
 
 
 	function hapus(id_ukm,id_devisi){
-		if (confirm('apakah ingin menghapus data id '+id_devisi+' ini?')) {
+		if (confirm('Apakah ingin menghapus data ini?')) {
 			window.open("<?=base_url('cfungsionaris/delete_devisi/')?>"+id_ukm+'/'+id_devisi,'_self');
 		}
 	};

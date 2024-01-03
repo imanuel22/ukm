@@ -14,11 +14,15 @@
               <li class="nav-item dropdown">
                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
                   aria-expanded="false">
-                  <img src="<?=base_url()?>assets/images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
+                  <?php if (!empty($this->session->userdata('img_mahasiswa'))) :?>
+                   <img src="<?=base_url('assets/uploads/img_mahasiswa/').$this->session->userdata('img_mahasiswa')?>" alt="" width="35" height="35" class="rounded-circle">
+                  <?php else:?>
+                    <img src="<?=base_url()?>assets/images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
+                  <?php endif; ?>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                   <div class="message-body">
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                    <a href="<?=base_url('cmahasiswa/profile/').$this->session->userdata('id_mahasiswa')?>" class="d-flex align-items-center gap-2 dropdown-item">
                       <i class="ti ti-mail fs-6"></i>
                       <p class="mb-0 fs-3">My Account</p>
                     </a>

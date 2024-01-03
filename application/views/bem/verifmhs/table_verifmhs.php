@@ -2,7 +2,7 @@
 <div class="rounded-4 p-4 bg-info mt-3">
 	<div class="row mb-2">
 		<div class="col-10">
-			<h1 class="fw-bold ">Table Verif Mahasiswa	</h1>
+			<h1 class="fw-bold ">Tabel Verifikasi Mahasiswa	</h1>
 		</div>
 	</div>
 	<div  style="overflow-x:auto;">

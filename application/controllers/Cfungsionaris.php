@@ -23,7 +23,7 @@ class Cfungsionaris extends CI_Controller{
 
 		$data1['data_devisi']=$this->mdevisi->get_devisi($id);
 		$data1['id_ukm']=$id;
-		$title['title']= 'UKM';
+		$title['title']= 'UKM Detail';
 		$data = [
 			'header'=>$this->load->view('partial/header',$title,true),
 			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
@@ -36,7 +36,7 @@ class Cfungsionaris extends CI_Controller{
 	}
 	public function prokers($id_ukm,$id_proker) {
 		$data1['data_proker']=$this->mproker->get_proker_id($id_proker);
-		$title['title']= 'Mahasiswa';
+		$title['title']= 'Proker Detail';
 		$data1['id_ukm']=$id_ukm;
 		$data = [
 			'header'=>$this->load->view('partial/header',$title,true),
@@ -52,7 +52,7 @@ class Cfungsionaris extends CI_Controller{
 	public function ukm_edit($id) {
 		$data1['data_ukm']=$this->mukm->get_ukm_id($id);
 		$data1['id_ukm']=$id;
-		$title['title']= 'UKM';
+		$title['title']= 'UKM Edit';
 		$data = [
 			'header'=>$this->load->view('partial/header',$title,true),
 			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
@@ -74,7 +74,7 @@ class Cfungsionaris extends CI_Controller{
 		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa();
 		$data1['data_jabatan']=$this->mjabatan->get_jabatan($id);
 		$data1['id_ukm']=$id;
-		$title['title']= 'UKM';
+		$title['title']= 'Fungsionaris';
 		$data = [
 			'header'=>$this->load->view('partial/header',$title,true),
 			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
@@ -103,7 +103,7 @@ class Cfungsionaris extends CI_Controller{
 		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa();
 		$data1['data_devisi']=$this->mdevisi->get_devisi($id);
 		$data1['id_ukm']=$id;
-		$title['title']= 'UKM';
+		$title['title']= 'Anggota UKM';
 		$data = [
 			'header'=>$this->load->view('partial/header',$title,true),
 			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
@@ -130,7 +130,7 @@ class Cfungsionaris extends CI_Controller{
 	public function devisi($id) {
 		$data1['data_devisi']=$this->mdevisi->get_devisi($id);
 		$data1['id_ukm']=$id;
-		$title['title']= 'UKM';
+		$title['title']= 'Divisi';
 		$data = [
 			'header'=>$this->load->view('partial/header',$title,true),
 			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
@@ -158,7 +158,7 @@ class Cfungsionaris extends CI_Controller{
 		$data1['data_jabatan']=$this->mjabatan->get_jabatan($id);
 		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa();
 		$data1['id_ukm']=$id;
-		$title['title']= 'UKM';
+		$title['title']= 'Jabatan';
 		$data = [
 			'header'=>$this->load->view('partial/header',$title,true),
 			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
@@ -186,7 +186,7 @@ class Cfungsionaris extends CI_Controller{
 	public function proker($id) {
 		$data1['data_proker']=$this->mproker->get_proker($id);
 		$data1['id_ukm']=$id;
-		$title['title']= 'UKM';
+		$title['title']= 'Proker';
 		$data = [
 			'header'=>$this->load->view('partial/header',$title,true),
 			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
@@ -213,7 +213,7 @@ class Cfungsionaris extends CI_Controller{
 	public function verif_fungsionaris($id_ukm) {
 		$data1['data_verif_fungsionaris']=$this->mdfungsionaris->get_daftar_fungsionaris();
 		$data1['id_ukm']=$id_ukm;		
-		$title['title']= 'UKM';
+		$title['title']= 'Verifikasi Fungsionaris';
 		$data = [
 			'header'=>$this->load->view('partial/header',$title,true),
 			'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),
@@ -244,7 +244,7 @@ class Cfungsionaris extends CI_Controller{
 		public function verif_anggota($id_ukm) {
 			$data1['data_verif_anggota']=$this->mdanggota->get_daftar_anggota();
 			$data1['id_ukm']=$id_ukm;
-			$title['title']= 'UKM';
+			$title['title']= 'Verifikasi Anggota UKM';
 			$data = [
 				'header'=>$this->load->view('partial/header',$title,true),
 				'sitebar'=>$this->load->view('fungsionaris/partial/sitebar',$data1,true),

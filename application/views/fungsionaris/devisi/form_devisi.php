@@ -1,12 +1,12 @@
 <div id="form" style="display: none;">
-<h3 class="mb-4">Form Devisi</h3>
+<h3 class="mb-4">Form Divisi</h3>
 <div class="card bg-primary ">
 	<div class="card-body">
     <form action="<?=base_url('cfungsionaris/proses_devisi')?>" method="post">
     <input type="hidden" name="id_ukm" value="<?=$id_ukm?>">
     <input type="hidden" name="id_devisi" id="id_devisi">
     <div class="mb-3">
-        <label for="nama_devisi" class="form-label text-light">nama_devisi</label>
+        <label for="nama_devisi" class="form-label text-light">Nama Divisi</label>
         <input type="text" class=" form-control bg-light" name="nama_devisi" id="nama_devisi">
     </div>
     <div class="mb-3 row">

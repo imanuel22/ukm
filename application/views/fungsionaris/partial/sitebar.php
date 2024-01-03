@@ -46,7 +46,7 @@
 					<li class="sidebar-item">
     					<a class="sidebar-link" href="<?=base_url('cmahasiswa/card')?>" aria-expanded="false">
     						<span>
-    							<i class="ti ti-user"></i>
+    							<i class="ti ti-credit-card"></i>
     						</span>
     						<span class="hide-menu">Kartu UKM</span>
     					</a>
@@ -92,7 +92,7 @@
     						<span>
     							<i class="ti ti-user"></i>
     						</span>
-    						<span class="hide-menu">Verisikasi Anggota UKM</span>
+    						<span class="hide-menu">Verifikasi Anggota UKM</span>
     					</a>
     				</li>
 					<li class="sidebar-item">
@@ -100,7 +100,7 @@
     						<span>
     							<i class="ti ti-user"></i>
     						</span>
-    						<span class="hide-menu">devisi</span>
+    						<span class="hide-menu">Divisi</span>
     					</a>
     				</li>
 					<li class="sidebar-item">
@@ -108,7 +108,7 @@
     						<span>
     							<i class="ti ti-user"></i>
     						</span>
-    						<span class="hide-menu">proker</span>
+    						<span class="hide-menu">Program Kerja</span>
     					</a>
     				</li>
 					<li class="sidebar-item">
@@ -116,7 +116,7 @@
     						<span>
     							<i class="ti ti-user"></i>
     						</span>
-    						<span class="hide-menu">jabatan</span>
+    						<span class="hide-menu">Jabatan</span>
     					</a>
     				</li>
     			</ul>

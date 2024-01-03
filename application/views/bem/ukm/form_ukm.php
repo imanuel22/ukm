@@ -7,13 +7,13 @@
 <input type="hidden" name="id_ukm" id="id_ukm">
 <input type="hidden" name="img_ukm_old" id="img_ukm_old">
 		<div class="mb-3">
-			<label for="nama_ukm" class="form-label text-light">nama_ukm</label>
+			<label for="nama_ukm" class="form-label text-light">Nama UKM</label>
 			<input type="text" name="nama_ukm" class="form-control bg-light" id="nama_ukm">
 		</div>
 		<div class="mb-3">
-			<label for="id_mahasiswa" class="form-label text-light">nama mahasiswa</label>
+			<label for="id_mahasiswa" class="form-label text-light">Nama Mahasiswa</label>
 			<select name="id_mahasiswa" id="id_mahasiswa" class="form-control bg-light">
-				<option value="" hidden>pilih</option>
+				<option value="" hidden>Pilih</option>
 				<?php foreach($data_mahasiswa as $row):?>
 				<option value="<?=$row->id_mahasiswa?>"><?=$row->nama_mahasiswa?></option>
 				<?php endforeach;?>

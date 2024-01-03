@@ -13,7 +13,7 @@
 						<th class="text-center">Nama Prodi</th>
 						<th class="text-center">Nama Jurusan</th>
 						<th class="text-center">Jenjang</th>
-						<th class="text-center">NoSK. Prodi</th>
+						<th class="text-center">No SK. Prodi</th>
 						<th class="text-center">Kepala Prodi</th>
 						<th class="text-center">Keterangan</th>
 						<th class="text-center">Action</th>
@@ -73,7 +73,7 @@
 	}
 
 	function hapus(id_prodi) {
-		if (confirm('apakah ingin menghapus data id ini?')) {
+		if (confirm('apakah ingin menghapus data ini?')) {
 			window.open("<?=base_url('csuperadmin/delete_prodi/')?>" + id_prodi, '_self');
 		}
 	}

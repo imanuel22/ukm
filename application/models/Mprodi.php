@@ -4,8 +4,11 @@ class Mprodi extends CI_Model{
     public function get_prodi() {
 		return $this->db->get('prodi')->result();
 	}
-	public function get_prodi_id($id_prodi){
-		return $this->db->get_where('tb_prodi',['id_prodi'=>$id_prodi])->row();
+	// public function get_prodi_id($id_prodi) {
+	// 	return $this->db->get_where('prodi',['id_prodi'=>$id_prodi])->row();
+	// }
+	public function get_prodi_id_jurusan($id_jurusan){
+		return $this->db->get_where('tb_prodi',['id_jurusan'=>$id_jurusan])->result();
 	}
 	public function proses_prodi(){
 		$data = $_POST;

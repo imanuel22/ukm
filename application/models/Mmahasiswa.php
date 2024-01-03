@@ -4,7 +4,7 @@ class Mmahasiswa extends CI_Model{
 		return $this->db->get('mahasiswa')->result();
 	}
     public function get_mahasiswa_id($id_mahasiswa){
-		return$this->db->get_where('tb_mahasiswa',['id_mahasiswa'=>$id_mahasiswa])->row();
+		return$this->db->get_where('mahasiswa',['id_mahasiswa'=>$id_mahasiswa])->row();
 	}
 
 	public function proses_mahasiswa(){
@@ -65,7 +65,7 @@ class Mmahasiswa extends CI_Model{
 		redirect(base_url('cbem/mahasiswa'),'_self');
 	}
 	public function edit_mahasiswa($id_mahasiswa){
-		$query = $this->db->get_where('tb_mahasiswa',['id_mahasiswa'=>$id_mahasiswa,'level'=>'user']);
+		$query = $this->db->get_where('mahasiswa',['id_mahasiswa'=>$id_mahasiswa]);
 		if($query->num_rows()>0)
 		{
 			$data=$query->row();
@@ -79,12 +79,13 @@ class Mmahasiswa extends CI_Model{
 			echo "<script>$('#img_mahasiswas').attr('src','".base_url()."assets/uploads/img_mahasiswa/".$data->img_mahasiswa."')</script>";
 			echo "<script>$('#status').val('".$data->status."')</script>";
 			echo "<script>$('#id_prodi').val('".$data->id_prodi."')</script>";
+			echo "<script>$('#id_jurusan').val('".$data->id_jurusan."')</script>";
 		}	
 	}
 	public function delete_data_mhs($id_mahasiswa){
 		$this->db->where('id_mahasiswa',$id_mahasiswa);
 		$this->db->delete('tb_mahasiswa');
-		echo "<script>alert('databas sudah berhasil di simpan');</script>";
+		echo "<script>alert('Data sudah berhasil di simpan');</script>";
 		redirect(base_url('cbem/mahasiswa'),'_self');
 	}
 }

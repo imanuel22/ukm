@@ -10,15 +10,15 @@
 				<thead class="table-light">
 					<tr>
 						<th class="text-center">No</th>
-						<th class="text-center">Img</th>
+						<th class="text-center">IMG</th>
 						<th class="text-center">NIM</th>
 						<th class="text-center">Nama Mahasiswa</th>
 						<th class="text-center">Jurusan</th>
 						<th class="text-center">Prodi</th>
 						<th class="text-center">Angkatan</th>
-						<th class="text-center">No Telphone</th>
+						<th class="text-center">Nomor Telepon</th>
 						<th class="text-center">Status</th>
-						<th class="text-center">Aktion</th>
+						<th class="text-center">Action</th>
 					</tr>
 				</thead>
 				<tbody class="table-light">
@@ -65,6 +65,7 @@
 	});
 	var div = document.getElementById('form');
 	var btn = document.getElementById('btn-tampil');
+	// var formpass = document.getElementById('pass');
 	var display = 1;
 
 	function hideShow() {
@@ -82,11 +83,12 @@
 	function editdata(id_mahasiswa) {
 		btn.textContent = 'Form Hide';
 		div.style.display = 'block';
+		// formpass.style.display = 'none';
 		display = 0;
 		load("cbem/edit_mahasiswa/" + id_mahasiswa, "#script");
 	}
 			function hapus(id_mahasiswa) {
-				if (confirm('apakah ingin menghapus data id ' + id_mahasiswa + ' ini?')) {
+				if (confirm('apakah ingin menghapus data ini?')) {
 					window.open("<?=base_url('cbem/delete_data_mhs/')?>" + id_mahasiswa, '_self');
 				}
 			}

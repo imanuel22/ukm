@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="<?=base_url();?>assets/DataTables/datatables.css">
-<h3 class="mb-4">Table proker</h3>
+<h3 class="mb-4">Tabel Program Kerja</h3>
 <div class="card bg-primary mt-3 text-light">
 	<div class="card-header d-flex justify-content-end">
 	<button id="btn-tampil" type="button" onclick="hideShow()" class="btn btn-light px-5">Form Show</button>
@@ -10,10 +10,11 @@
 				<thead class="table-light">
 					<tr>
 						<th class="text-center">No</th>
-            <th class="text-center">nama_proker</th>
-            <th class="text-center">deskripsi</th>
-            <th class="text-center">peraturan</th>
-            <th class="text-center">Aktion</th>
+			<th class="text-center">IMG</th>
+            <th class="text-center">Nama Program Kerja</th>
+            <th class="text-center">Deskripsi</th>
+            <th class="text-center">Peraturan</th>
+            <th class="text-center">Action</th>
         </tr>
     </thead>
     <tbody class="bg-light">
@@ -23,6 +24,10 @@
 		?>
 			<tr>
 				<td><?=$no++?></td>
+				<td>
+					<img src="<?=base_url('assets/uploads/img_proker/')?><?=$row->img_proker?>"
+					alt="<?=$row->img_proker?>" width="75" height="100">
+				</td>
 				<td><?=$row->nama_proker?></td>
 				<td><?=$row->deskripsi?></td>
 				<td><?=$row->peraturan?></td>
@@ -64,7 +69,7 @@
 	}
 
 	function hapus(id_ukm,id_proker){
-		if (confirm('apakah ingin menghapus data id '+id_proker+' ini?')) {
+		if (confirm('apakah ingin menghapus data ini?')) {
 			window.open("<?=base_url('cfungsionaris/delete_proker/')?>"+id_ukm+'/'+id_proker,'_self');
 		}
 	};

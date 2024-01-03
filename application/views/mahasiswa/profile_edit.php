@@ -6,27 +6,27 @@
             <input type="hidden" name="img_mahasiswa_old" value="<?=$data_mahasiswa->img_mahasiswa?>">
         </div>
         <div class="mb-3">
-            <label for="nim" class=" form-label">nim</label>
+            <label for="nim" class=" form-label">NIM</label>
             <input type="text" class=" form-control" name="nim" id="nim" value="<?=$data_mahasiswa->nim?>">
         </div>
         <div class="mb-3">
-            <label for="nama_mahasiswa" class=" form-label">nama_mahasiswa</label>
+            <label for="nama_mahasiswa" class=" form-label">Nama Mahasiswa</label>
             <input type="text" class=" form-control" name="nama_mahasiswa" id="nama_mahasiswa" value="<?=$data_mahasiswa->nama_mahasiswa?>">
         </div>
         <div class="mb-3">
-            <label for="angkatan" class=" form-label">angkatan</label>
+            <label for="angkatan" class=" form-label">Angkatan</label>
             <input type="text" class=" form-control" name="angkatan" id="angkatan" value="<?=$data_mahasiswa->angkatan?>">
         </div>
         <div class="mb-3">
-            <label for="no_telp" class=" form-label">no_telp</label>
+            <label for="no_telp" class=" form-label">Nomor Telepon</label>
             <input type="text" class=" form-control" name="no_telp" id="no_telp" value="<?=$data_mahasiswa->no_telp?>">
         </div>
         <div class="mb-3">
-            <label for="img_mahasiswa" class=" form-label">img_mahasiswa</label>
+            <label for="img_mahasiswa" class=" form-label">IMG</label>
             <input type="file" class=" form-control" name="img_mahasiswa" id="img_mahasiswa">
         </div>
         <div class="mb-3">
-            <label for="id_prodi" class=" form-label">id_prodi</label>
+            <label for="id_prodi" class=" form-label">Prodi</label>
             <select class="form-control" name="id_prodi" id="id_prodi" required>
                             <option value="<?=$data_mahasiswa->id_prodi?>" hidden><?=$data_mahasiswa->id_prodi?></option>
                             <?php 
@@ -37,7 +37,7 @@
                         </select>
         </div>
         <div class="mb-3">
-            <button class="btn btn-primary" type="submit">EDIT</button>
+            <button class="btn btn-primary" type="submit">Edit</button>
         </div>
     </form>
 </div>

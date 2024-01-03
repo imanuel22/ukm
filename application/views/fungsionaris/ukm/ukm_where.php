@@ -90,36 +90,38 @@
 	}
 
 </style>
-<div class=" bg-primary text-light rounded-4 p-3 mb-3">
-	<div class="row">
-		<div class="col-11 ">
-			<div class="row">
-				<img src="<?=base_url('assets/uploads/ukm/').$data_ukm->img_ukm?>" class="imgs mx-3 col-4" alt="">
-				<h1 class="col-9 mt-5 text-light"><?=$data_ukm->nama_ukm?></h1>
-			</div>
-		</div>
-		<div class=" text-end col-1">
-			<button type="button" class="btn btn-light" onclick="edit1(<?=$id_ukm?>)">Edit</button>
-		</div>
+
+
+<div class=" bg-primary text-light rounded-4 p-3 mb-3 text-center">
+	<div class="d-flex justify-content-end">
+		<button type="button" class="btn btn-light" onclick="edit1(<?=$id_ukm?>)">Edit</button>
 	</div>
-	<div class="deskripsi">
-		<h1 class=" text-light">Deskripsi</h1>
+	<div class="nama-ukm mb-5">
+		<h1 class="text-light"><?=$data_ukm->nama_ukm?></h1>
+	</div>
+	<div class="img-ukm mb-5">
+		<img src="<?=base_url('assets/uploads/ukm/').$data_ukm->img_ukm?>" class="rounded-circle bg-light" alt=""
+			width="225" height="225">
+	</div>
+	<div class="deskripsi mb-5">
+		<h1 class="text-light "></h1>
 		<p><?=$data_ukm->deskripsi?></p>
 	</div>
-	<div class="peraturan">
-		<h1 class=" text-light">peraturan</h1>
-		<p><?=$data_ukm->peraturan?></p>
-	</div>
-	<div class="devisi">
-		<h1 class=" text-light">devisi</h1>
-		<ul>
-			<?php foreach($data_devisi as $row):?>
-			<li><?=$row->nama_devisi?></li>
-			<?php endforeach;?>
-		</ul>
+	<div class="row mb-3">
+		<div class="col-8 text-light shadow">
+			<h3 class="text-light">Peraturan</h3>
+			<p class="text-start"><?=$data_ukm->peraturan?></p>
+		</div>
+		<div class="col-4 text-light shadow-lg">
+			<h3 class=" text-light">Divisi</h3>
+			<ul>
+				<?php $no=1; foreach($data_devisi as $row):?>
+				<li class="text-start"><?=$no++.'. '.$row->nama_devisi?></li>
+				<?php endforeach;?>
+			</ul>
+		</div>
 	</div>
 </div>
-
 <div class=" bg-primary text-light rounded-4 p-3 mb-3">
 	<div>
 		<h1 class=" text-light text-center">Fungsionaris</h1>
@@ -146,6 +148,9 @@
 		</main>
 	</div>
 </div>
+<?php
+if(!empty($data_proker)):
+?>
 <div class=" bg-primary text-light rounded-4 p-3 mb-3">
 	<div>
 		<h1 class=" text-light text-center">Proker</h1>
@@ -156,7 +161,7 @@
 				<?php foreach($data_proker as $row): ?>
 				<a href="<?=base_url('cfungsionaris/prokers/').$id_ukm.'/'.$row->id_proker;?>" class="card rounded-3 bg-primary">
 					<div class="card__image-container bg-light ">
-						<img src="<?=base_url('assets/uploads/proker/')?>" />
+						<img src="<?=base_url('assets/uploads/img_proker/').$row->img_proker?>" />
 					</div>
 					<div class="card__content">
 						<h3 class="card__title text-light text-center">
@@ -179,7 +184,7 @@
 		</main>
 	</div>
 </div>
-
+<?php endif; ?>
 <script>
 	function edit1(id_ukm) {
 		window.open('<?=base_url('cfungsionaris/ukm_edit/')?>' + id_ukm, '_self')

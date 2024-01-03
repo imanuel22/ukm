@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="<?=base_url();?>assets/DataTables/datatables.css">
-<h3 class="mb-4">Table BEM</h3>
+<h3 class="mb-4">Tabel BEM</h3>
 <div class="card bg-primary mt-3 text-light">
 	<div class="card-header d-flex justify-content-end">
 		<button id="btn-tampil" type="button" onclick="hideShow()" class="btn btn-light px-5">Form Show</button>
@@ -14,7 +14,7 @@
 						<th class=" text-center">NIM</th>
 						<th class=" text-center">Nama Mahasiswa</th>
 						<th class=" text-center">Angkatan</th>
-						<th class=" text-center">Nomer Telphone</th>
+						<th class=" text-center">Nomor Telepon</th>
 						<th class=" text-center">Jurusan</th>
 						<th class=" text-center">Prodi</th>
 						<th class=" text-center">Status</th>
@@ -66,6 +66,7 @@
 	});
 	var div = document.getElementById('form');
 	var btn = document.getElementById('btn-tampil');
+	// var formpass = document.getElementById('pass');
 	var display = 1;
 
 	function hideShow() {
@@ -82,6 +83,7 @@
 
 	function editdata(id_mahasiswa) {
 		btn.textContent = 'Form Hide';
+		// formpass.style.display = 'none';
 		div.style.display = 'block';
 		display = 0;
 		load("csuperadmin/edit_bem/" + id_mahasiswa, "#script");
@@ -92,5 +94,7 @@
 			window.open("<?=base_url('csuperadmin/delete_bem/')?>" + id_mahasiswa, '_self');
 		}
 	}
+
+
 
 </script>

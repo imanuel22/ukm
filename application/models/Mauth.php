@@ -5,6 +5,7 @@ class Mauth extends CI_Model
 		//ambil data dari form 
 		$nim=$this->input->post('nim');
 		$password=$this->input->post('password');
+
 		//cek apakah super admin
 		$query=$this->db->get_where('tb_superadmin',['username'=>$nim]);
 		if($query->num_rows()>0){
@@ -17,24 +18,27 @@ class Mauth extends CI_Model
 					];	
 					$this->session->set_userdata($array);	
 					redirect(base_url('csuperadmin/dashboard'),'refresh');
-				
+			}else{
+				$this->session->set_flashdata(['pesan'=>'password salah','color'=>'danger']);
+				redirect(base_url('cauth/login'),'refresh');
 			}
 		}
-		//cek apaka mahasiswa & bem
+		//cek apakah mahasiswa & bem
 		else{
 			$query1=$this->db->get_where('tb_mahasiswa',['nim'=>$nim]);
 			if($query1->num_rows()>0){
 				$data1 = $query1->row_array();
 				if(password_verify($password,$data1['password'])){
-					$array=array(
+					$array1=array(
 						'id_mahasiswa'=>$data1['id_mahasiswa'],
 						'nim'=>$data1['nim'],
 						'nama_mahasiswa'=>$data1['nama_mahasiswa'],
 						'angkatan'=>$data1['angkatan'],
 						'id_prodi'=>$data1['id_prodi'],
+						'img_mahasiswa'=>$data1['img_mahasiswa'],
 					);	
 
-					$this->session->set_userdata($array);
+					$this->session->set_userdata($array1);
 					//bem
 					if($data1['level']=='admin'){
 						redirect(base_url('cbem/dashboard'),'refresh');
@@ -45,10 +49,14 @@ class Mauth extends CI_Model
 					}
 			
 				}
+				else{
+					$this->session->set_flashdata(['pesan'=>'Password salah','color'=>'danger']);
+					redirect(base_url('cauth/login'),'refresh');
+				}
 			}
 			//jika bukan keduanya
 			else{
-				$this->session->set_flashdata('pesan','Login gagal...');
+				$this->session->set_flashdata(['pesan'=>'Anda belum punya akun','color'=>'danger']);
 				redirect(base_url('cauth/login'),'refresh');
 			}
 		}

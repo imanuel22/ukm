@@ -44,15 +44,17 @@
                   <form action="<?= base_url('cauth/proseslogin') ?>" method="post">
                     <div class="form-group mt-3">
                         <label for="nim">NIM</label>
-                        <input type="text" class="form-control" id="nim" name="nim">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="nim" name="nim">
+                            <span class="input-group-text bg-primary text-light"><i class="ti ti-user text-center"></i></span>
+                        </div>
                     </div>
                     <div class="form-group mt-3">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" name="password">
-                        <input class="form-check-input primary" type="checkbox" onclick="showpassword()">
-                        <label class="form-check-label text-dark" for="flexCheckChecked">
-                        Show Password
-                      </label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="password" name="password">
+                            <button type="button" id="passwords" class="input-group-text btn btn-primary" onclick="showpassword()"><i id="icon" class="ti ti-eye text-center"></i></button>
+                        </div>  
                     </div>
                     <br>
                   <div class="d-flex align-items-center justify-content-between mb-4">
@@ -83,11 +85,16 @@
         }
         function showpassword() {
             var password = document.getElementById('password');
+            var icon = document.getElementById('icon');
             if (password.type == 'password') {
                 password.type = 'text';
+                icon.className = 'ti ti-eye-off';
             }else{
-                password.type = 'text';
+                password.type = 'password';
+                icon.className = 'ti ti-eye';
+                
             }
+
         }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

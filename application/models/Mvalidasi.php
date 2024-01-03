@@ -19,7 +19,7 @@
 		
 		public function cek_level_user($id_ukm) {
             $id_mahasiswa = $this->session->userdata('id_mahasiswa');
-            $query = $this->db->get_where('cekfungsionaris',['id_mahasiswa'=>$id_mahasiswa,'id_ukm'=>$id_ukm]);
+            $query = $this->db->get_where('cekfungsionaris',['id_mahasiswa'=>$id_mahasiswa,'id_ukm'=>$id_ukm,'status'=>'aktif']);
             if($query->num_rows()>0){
 				$data=$query->row();
 				$array=array(
@@ -28,7 +28,7 @@
 				);	
 				$this->session->set_userdata($array);
             }else{
-				$query1 = $this->db->get_where('cekanggota',['id_mahasiswa'=>$id_mahasiswa,'id_ukm'=>$id_ukm]);
+				$query1 = $this->db->get_where('cekanggota',['id_mahasiswa'=>$id_mahasiswa,'id_ukm'=>$id_ukm,'status'=>'aktif']);
 				if($query1->num_rows()>0){
 					$data1=$query1->row();
 					$array1=array(

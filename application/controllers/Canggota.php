@@ -33,7 +33,7 @@ class Canggota extends CI_Controller{
 		$data1['data_fungsionaris']=$this->mfungsionaris->get_fungsionaris($id);
 		$data1['data_proker']=$this->mproker->get_proker($id);
 		$data1['id_ukm']=$id;
-		$title['title']= 'anggota';
+		$title['title']= 'UKM Detail';
 		$data = [
 			'header'=>$this->load->view('partial/header',$title,true),
 			'sitebar'=>$this->load->view('anggota/partial/sitebarukm',$data1,true),
@@ -48,7 +48,7 @@ class Canggota extends CI_Controller{
 
 	public function proker($id_ukm,$id_proker) {
 		$data1['data_proker']=$this->mproker->get_proker_id($id_proker);
-		$title['title']= 'anggota';
+		$title['title']= 'Proker';
 		$data1['id_ukm']=$id_ukm;
 		$data = [
 			'header'=>$this->load->view('partial/header',$title,true),

@@ -32,7 +32,7 @@
 				<td><input class="form-control-plaintext text-dark" id="nama_jabatan"></td>
 			</tr>
 			<tr>
-				<th>alasan</th>
+				<th>Alasan</th>
 				<td><input class="form-control-plaintext text-dark" id="alasan"></td>
 			</tr>
 		</table>
@@ -45,10 +45,10 @@
 					<button type="submit" name="btn" value="berhasil" class="btn btn-success col-12">Terima</button>
 				</div>
 				<div class="col-6 mb-3">
-					<button type="submit" name="btn" value="gagal" class="btn btn-danger col-12">tolak</button>
+					<button type="submit" name="btn" value="gagal" class="btn btn-danger col-12">Tolak</button>
 				</div>
 				<div class="col-12 mb-3">
-					<button type="reset" onclick="reset_img()" class="btn btn-light col-12">cancel</button>
+					<button type="reset" onclick="reset_img()" class="btn btn-light col-12">Cancel</button>
 				</div>
 			</div>
 		</form>
