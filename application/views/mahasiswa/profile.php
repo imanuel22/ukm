@@ -1,15 +1,15 @@
 <div class="d-flex justify-content-center ">
 
     <div class="bg-primary rounded-4  p-3 text-center" style="width: 50%;">
-        <div class="">
+        <div class="mb-3" >
             <img class=" rounded-circle" src="<?=base_url('assets/uploads/img_mahasiswa/').$data_mahasiswa->img_mahasiswa?>" alt="<?=$data_mahasiswa->img_mahasiswa?>" width="200px">
         </div>
-        <h2 class=" text-light"><?=$data_mahasiswa->nama_mahasiswa?></h2>
-        <h3 class=" text-light"><?=$data_mahasiswa->nim?></h3>
-        <h3 class=" text-light"><?=$data_mahasiswa->nama_jurusan?></h3>
-        <h3 class=" text-light"><?=$data_mahasiswa->nama_prodi?></h3>
-        <h3 class=" text-light"><?=$data_mahasiswa->angkatan?></h3>
-        <h3 class=" text-light"><?=$data_mahasiswa->no_telp?></h3>
+        <h3 class="mb-3 text-light"><?=$data_mahasiswa->nama_mahasiswa?></h3>
+        <h4 class="mb-3 text-light"><?=$data_mahasiswa->nim?></h4>
+        <h4 class="mb-3 text-light"><?=$data_mahasiswa->nama_jurusan?></h4>
+        <h4 class="mb-3 text-light"><?=$data_mahasiswa->nama_prodi?></h4>
+        <h4 class="mb-3 text-light"><?=$data_mahasiswa->angkatan?></h4>
+        <h4 class="mb-3 text-light"><?=$data_mahasiswa->no_telp?></h4>
         <button type="button" class="btn btn-light col-12" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="editdata(<?=$data_mahasiswa->id_mahasiswa?>)">
             Edit Profile
         </button>
@@ -55,7 +55,6 @@
 				<input type="file" name="img_mahasiswa" class="form-control bg-light" >
 		</div>
 			<select name="status" hidden id="status" class="form-control bg-light">
-				<option value="" hidden>Pilih</option>
 				<option value="aktif">Aktif</option>
 				<option value="tidakaktif">Tidak Aktif</option>
 			</select>

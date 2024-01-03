@@ -3,13 +3,13 @@
 	{
 		function validasi()
 		{
-			if ($this->session->userdata('id_mahasiswa')=='')
+			if (empty($this->session->userdata('id_mahasiswa')))
 			{
 					echo "<script>alert ('Anda tidak dapat mengakses halaman ini..!');</script>";
 					redirect('cauth/login','refresh');
-
 			}
 		}
+		
 		function validasisuperadmin() {
 			if ($this->session->userdata('username')==''){
 				echo "<script>alert ('Anda tidak dapat mengakses halaman ini..!');</script>";

@@ -9,6 +9,7 @@ class Cbem extends CI_Controller{
 		$this->load->model('mmahasiswa');
 		$this->load->model('mjurusan');
 		$this->load->model('mprodi');
+		$this->load->model('mdmahasiswa');
 		$this->load->model('mukm');
 	}
 
@@ -140,5 +141,41 @@ class Cbem extends CI_Controller{
 		$this->mukm->delete_ukm($id_ukm);
 	}
 	//UKM End.
+
+	//Verifikasi Mahasiswa Start.
+	public function verif_mahasiswa()
+	{	
+		$data1['data_verifmhs']=$this->mdmahasiswa->get_daftafmhs();
+		$title['title']= 'Mahasiswa';
+		$data = [
+			'header'=>$this->load->view('partial/header',$title,true),
+			'sitebar'=>$this->load->view('bem/partial/sitebar','',true),
+			'navbar'=>$this->load->view('partial/navbar','',true),
+			'footer'=>$this->load->view('partial/footer','',true),
+			'konten'=>$this->load->view('bem/verifmhs/form_verifmhs',$data1,TRUE),
+			'table'=>$this->load->view('bem/verifmhs/table_verifmhs',$data1,TRUE),
+		];
+		$this->load->view('dashboard',$data);
+	}
+
+	public function verifdatamahasiswa($id_daftar_mahasiswa)
+	{
+		$this->mdmahasiswa->verifdatamahasiswa($id_daftar_mahasiswa);
+	}
+
+	public function proses_verif()
+	{
+		if ($this->input->post('btn') == 'terima') {
+			
+			$this->mdmahasiswa->proses_verif_berhasil();
+		}else{
+			$this->proseshapus($this->input->post('id_daftar_mahasiswa'));
+		}
+	}
+	public function proseshapus($id_mhs){
+		$this->mdmahasiswa->proseshapus($id_mhs);
+	}
+	//Verifikasi Mahasiswa End.
+
 }
 ?>

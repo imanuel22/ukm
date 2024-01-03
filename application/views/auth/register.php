@@ -69,6 +69,10 @@
                         <input type="file" class="form-control" id="img_mahasiswa" name="img_mahasiswa" required>
                     </div>
                     <div class="mb-3">
+                        <label for="img_ktm" class="form-label">Upload Foto KTM:</label>
+                        <input type="file" class="form-control" id="img_ktm" name="img_ktm" required>
+                    </div>
+                    <div class="mb-3">
                         <label for="password" class="form-label">Password:</label>
                         <input type="password" class="form-control" id="password" name="password" required>
                     </div>

@@ -62,6 +62,8 @@ class Mauth extends CI_Model
 		}
 	}	
 	public function prosesregister() {
+		//upload foto mhs
+		$this->load->library('upload');
 		$namafile='img-'.$this->input->post('nim');
 		$config = [
 			'upload_path'=> 'assets/uploads/img_mahasiswa',
@@ -69,21 +71,33 @@ class Mauth extends CI_Model
 			'max_size'=>0,	
 			'file_name'=>$namafile,
 		];
-		$this->load->library('upload',$config);
+		$this->upload->initialize($config);
 		$this->upload->do_upload('img_mahasiswa');
+		$img_mahasiswa=$this->upload->data('file_name');
+		
+		//upload foto ktm
+		$namafile1='ktm-'.$this->input->post('nim');
+		$config1 = [
+			'upload_path'=> 'assets/uploads/img_ktm',
+			'allowed_types'=>'jpg|jpeg|png',
+			'max_size'=>0,	
+			'file_name'=>$namafile1,
+		];
+		$this->upload->initialize($config1);
+		$this->upload->do_upload('img_ktm');
+		$img_ktm=$this->upload->data('file_name');
 		$data = [
 			'nim'=>$this->input->post('nim'),
 			'nama_mahasiswa'=>$this->input->post('nama_mahasiswa'),
 			'angkatan '=>$this->input->post('angkatan'),
 			'password'=> password_hash($this->input->post('password'),PASSWORD_DEFAULT),
 			'no_telp'=>$this->input->post('no_telp'),
-			'level'=>'user',
-			'img_mahasiswa'=>$this->upload->data('file_name'),
-			'status'=>'aktif',
 			'id_prodi'=>$this->input->post('id_prodi'),
+			'img_mahasiswa'=>$img_mahasiswa,
+			'img_ktm'=>$img_ktm,
 		];
-		$this->db->insert('tb_mahasiswa',$data);
-		$this->session->set_flashdata(['pesan'=>'Berhasil Register...','color'=>'success']);
+		$this->db->insert('tb_daftar_mahasiswa',$data);
+			$this->session->set_flashdata(['pesan'=>'Berhasil Register silakan tunggu Verifikasi	','color'=>'success']);
 		redirect(base_url('cauth/login'),'refresh');
 	}
 }
