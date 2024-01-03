@@ -4,6 +4,8 @@ class Canggota extends CI_Controller{
 	 public function __construct()
 	 	{
 	 		parent::__construct();
+			$this->load->model('mvalidasi');
+			$this->mvalidasi->validasi();
 			$this->load->model('mdevisi');
 			$this->load->model('mmahasiswa');
 			$this->load->model('mdanggota');
@@ -12,9 +14,7 @@ class Canggota extends CI_Controller{
 			$this->load->model('manggotaukm');
 			$this->load->model('mproker');
 	 		$this->load->model('mdfungsionaris');
-	 		$this->load->model('mvalidasi');
 	 		$this->load->model('mukm');
-	 		$this->mvalidasi->validasi();
 		}
 	
 		public function dashboard(){

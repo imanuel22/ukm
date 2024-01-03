@@ -4,10 +4,9 @@ class Cauth extends CI_Controller{
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('mauth');
-		$this->load->model('mprodi');
 		$this->load->model('mjurusan');
 		$this->load->helper(array('form', 'url'));
-
+		$this->load->model('mprodi');
 	}
 	public function login(){
 		$this->load->view('auth/login');
@@ -15,6 +14,7 @@ class Cauth extends CI_Controller{
 
 	public function getprodi() {
 		$id_jurusan = $this->input->post('id_jurusan');
+		
 		$getprodi=$this->mprodi->get_prodi_id_jurusan($id_jurusan);
 		echo json_encode($getprodi);
 	}
