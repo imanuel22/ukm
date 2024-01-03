@@ -1,5 +1,5 @@
 <div id="form" style="display: none;">
-<div class="rounded-4 p-4 bg-info mt-3">
+<div class="rounded-4 p-4 bg-primary mt-3">
 <h1>Data Verif</h1>
 <form action="<?=base_url('cbem/proses_verif')?>" method="post">
 	<table class="table table-warning">
