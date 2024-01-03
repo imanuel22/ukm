@@ -43,6 +43,8 @@
 	<div>
 		<input type="hidden" id="img_mahasiswa" name="img_mahasiswa" readonly>
 		<input type="hidden" id="id_prodi" name="id_prodi" readonly>
+		<input type="hidden" id="id_daftar_mahasiswa" name="id_daftar_mahasiswa" readonly>
+		<input type="hidden" id="password" name="password" readonly>
 
 	</div>
 	<div class="mb-3 row">

@@ -11,9 +11,17 @@ class Mdmahasiswa extends CI_Model{
 	}
 
 	public function proses_verif_berhasil(){
-		$data = $_POST;
-		$data['status']='aktif';
-		$data['level']='user';
+		$data=[
+			'nim'=>$this->input->post('nim'),
+			'nama_mahasiswa'=>$this->input->post('nama_mahasiswa'),
+			'angkatan'=>$this->input->post('angkatan'),
+			'password'=>$this->input->post('password'),
+			'no_telp'=>$this->input->post('no_telp'),
+			'level'=>'user',
+			'img_mahasiswa'=>$this->input->post('img_mahasiswa'),
+			'status'=>'aktif',
+			'id_prodi'=>$this->input->post('id_prodi'),
+		];
 		$this->db->insert('tb_mahasiswa',$data);
 		$query = $this->get_daftarmhs_nim($data['nim']);
 		$id_daftar_mahasiswa1 = $query->id_daftar_mahasiswa;
