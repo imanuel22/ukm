@@ -14,6 +14,7 @@ class Mproker extends CI_Model{
 			'peraturan'=>$this->input->post('peraturan'),
 			'id_ukm'=>$this->input->post('id_ukm'),
 		];
+		
 		$file_name='img-'.$data['nama_proker'];
 			$config = [
 				'upload_path'=> 'assets/uploads/img_proker',

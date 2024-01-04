@@ -22,7 +22,7 @@ class Kartu extends CI_Controller{
 			$pdf->render();
 			$pdf->stream('ID Card UKM', ['Attachment' => false]);	
             
-		}
+		}	
 		function printcarda($id_mahasiswa,$id_ukm)
 		{
 			
