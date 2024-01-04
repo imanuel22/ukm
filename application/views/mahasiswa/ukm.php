@@ -59,7 +59,7 @@ main {
 }
 
 .card__image-container img {
-  width: 100%;
+  width: 70%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -115,11 +115,11 @@ main {
     <section class="cards">  
 		<?php foreach($data_ukm as $row): ?>
         <a href="<?=base_url('cmahasiswa/cek_level_user/').$row->id_ukm?>" class="card rounded-3 bg-primary">
-          <div class="card__image-container bg-light">
-            <img src="<?=base_url('assets/uploads/ukm/').$row->img_ukm?>"/>
-          </div>
           <div class="card__content">
-            <h3 class="card__title text-light  text-center">
+            <div class="card__image-container bg-light rounded-3">
+              <img src="<?=base_url('assets/uploads/ukm/').$row->img_ukm?>"/>
+            </div>
+            <h3 class="card__title text-light  text-center mt-3">
               <?=$row->nama_ukm?>
             </h3>
             <p class="d-flex text-light">

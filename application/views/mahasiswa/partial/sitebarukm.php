@@ -39,7 +39,7 @@
     				<li class="sidebar-item">
     					<a class="sidebar-link" href="<?=base_url('cmahasiswa/ukm')?>" aria-expanded="false">
     						<span>
-    							<i class="ti ti-user"></i>
+    							<i class="ti ti-home"></i>
     						</span>
     						<span class="hide-menu">UKM</span>
     					</a>
@@ -59,7 +59,7 @@
     				<li class="sidebar-item">
     					<a class="sidebar-link" href="<?=base_url('cmahasiswa/ukm_where/').$id_ukm?>" aria-expanded="false">
     						<span>
-    							<i class="ti ti-user"></i>
+    							<i class="ti ti-home"></i>
     						</span>
     						<span class="hide-menu">UKM</span>
     					</a>

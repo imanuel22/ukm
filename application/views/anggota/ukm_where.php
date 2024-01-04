@@ -1,11 +1,10 @@
 <style>
-	.imgs {
-		width: 150px;
-		height: 150px;
+	.img-ukm{
+		width: 100%;
+		padding: 15px;
+		overflow:hidden;
 	}
 
-</style>
-<style>
 	main {
 		display: grid;
 		grid-template-columns: 1fr repeat(12, minmax(auto, 60px)) 1fr;
@@ -24,7 +23,6 @@
 		grid-column-end: span 4;
 		display: flex;
 		flex-direction: column;
-		transition: all 0.3s ease 0s;
 	}
 
 	.card__image-container {
@@ -35,7 +33,8 @@
 	}
 
 	.card__image-container img {
-		width: 100%;
+		width: 60%;
+		height: 80%;
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -44,10 +43,12 @@
 
 	.card__content {
 		padding: 20px;
+		margin-top: -50px;
 	}
 
 	.card__title {
-		margin-bottom: 20px;
+		margin-top: 10px;
+		margin-bottom: -15px;
 	}
 
 	.card__info {
@@ -60,6 +61,7 @@
 		.card {
 			grid-column-end: span 6;
 		}
+
 	}
 
 	@media only screen and (max-width: 700px) {
@@ -88,19 +90,50 @@
 			grid-column-end: span 6;
 		}
 	}
+	
+	.card__image-container1 {
+		width: 100%;
+		padding-top: 100%;
+		overflow: hidden;
+		position: relative;
+	}
+
+	.card__image-container1 img {
+		width: 75%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.card__content1 {
+		padding: 20px;
+	}
+
+	.card__title1 {
+		margin-bottom: 20px;
+	}
+
+	.card__info1 {
+		display: flex;
+		align-self: end;
+		align-items: center;
+	}
 
 </style>
+
 
 <div class=" bg-primary text-light rounded-4 p-3 mb-3 text-center">
 	<div class="nama-ukm mb-5">
 		<h1 class="mt-5 text-light"><?=$data_ukm->nama_ukm?></h1>
 	</div>
-	<div class="img-ukm mb-5">
-		<img src="<?=base_url('assets/uploads/ukm/').$data_ukm->img_ukm?>" class="rounded-circle bg-light" alt=""
-			width="225" height="225">
+	<div class="d-flex justify-content-center">
+		<div class=" bg-light rounded-3 mb-5 ">
+			<img class="img-ukm" src="<?=base_url('assets/uploads/ukm/').$data_ukm->img_ukm?>" class="rounded-circle bg-light" alt="">
+		</div>
 	</div>
 	<div class="deskripsi mb-5">
-		<h1 class="text-light "></h1>
+		<h3 class="text-light "></h3>
 		<p><?=$data_ukm->deskripsi?></p>
 	</div>
 	<div class="row mb-3">
@@ -118,60 +151,60 @@
 		</div>
 	</div>
 </div>
+
 <div class=" bg-primary text-light rounded-4 p-3 mb-3">
 	<div>
-		<h1 class=" text-light text-center">Fungsionaris</h1>
+		<h3 class=" text-light text-center mt-3">Fungsionaris</h3>
 	</div>
-	<div class="rounded-3">
-		<main>
-			<section class="cards">
-				<?php foreach($data_fungsionaris as $row): ?>
-				<div class="card rounded-3 bg-primary">
-					<div class="card__content">
-						<h3 class="card__title text-light text-center">
-							<?=$row->nama_jabatan?>
-						</h3>
-						<div class="card__image-container bg-light rounded-5">
-							<img src="<?=base_url('assets/uploads/img_mahasiswa/').$row->img_mahasiswa?>" />
-						</div>
-						<h3 class=" text-center text-light">
-							<?=$row->nama_mahasiswa?>
-						</h3>
-					</div>
+	<main>
+		<section class="cards">
+			<?php foreach($data_fungsionaris as $row): ?>
+			<div class="card bg-light rounded-3">
+				<h4 class="card__title text-center text-capitalize">
+					<?=$row->nama_jabatan?>
+				</h4>
+				<div class="card__image-container rounded-3">
+					<img src="<?=base_url('assets/uploads/img_mahasiswa/').$row->img_mahasiswa?>" class="rounded-3">
 				</div>
-				<?php endforeach; ?>
-			</section>
-		</main>
-	</div>
+				<div class="card__content">
+					<h4 class=" text-center text-capitalize">
+						<?=$row->nama_mahasiswa?>
+					</h4>
+				</div>
+			</div>
+			<?php endforeach; ?>
+		</section>
+	</main>
 </div>
 <?php
 if(!empty($data_proker)):
 ?>
 <div class=" bg-primary text-light rounded-4 p-3 mb-3">
 	<div>
-		<h1 class=" text-light text-center">Proker</h1>
+		<h3 class=" text-light text-center mt-3">Program Kerja</h3>
 	</div>
 	<div class="rounded-3">
 		<main>
 			<section class="cards">
 				<?php foreach($data_proker as $row): ?>
-				<a href="<?=base_url('canggota/proker/').$id_ukm.'/'.$row->id_proker;?>" class="card rounded-3 bg-primary">
-					<div class="card__image-container bg-light ">
-					<img src="<?=base_url('assets/uploads/img_proker/').$row->img_proker?>" />
-					</div>
-					<div class="card__content">
-						<h3 class="card__title text-light text-center">
+				<a href="<?=base_url('cmahasiswa/proker/').$id_ukm.'/'.$row->id_proker;?>"
+					class="card rounded-3 bg-light">
+					<div class="card__content1">
+						<div class="card__image-container1  rounded-3 mb-2">
+						 <img src="<?=base_url('assets/uploads/img_proker/').$row->img_proker?>"  />
+						</div>
+						<h4 class="card__title1 text-center">
 							<?=$row->nama_proker?>
-						</h3>
-						<h5 class=" text-center text-light">
+						</h4>
+						<h6 class="card-info text-center1 text-center mb-4">
 							<?php 
 							if(!empty($row->deskripsi)){
 								echo substr($row->deskripsi,0,200);
 							}
 							?>
-						</h5>
-						<div class="d-flex justify-content-end">
-							<button type="button" onclick="opens(<?=$row->id_ukm?>)" class="btn btn-light">View</button>
+						</h6>
+						<div class="d-flex justify-content-end ">
+							<button type="button" onclick="opens(<?=$row->id_ukm?>)" class="btn btn-primary">View</button>
 						</div>
 					</div>
 				</a>
@@ -180,4 +213,4 @@ if(!empty($data_proker)):
 		</main>
 	</div>
 </div>
-<?php  endif;?>
+<?php endif; ?>
