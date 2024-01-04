@@ -23,11 +23,8 @@
                 $pesan='Data sudah disimpan';
                 $color='success';
             }else{
-                //mengedit data ke tb_anggota_ukm dari id_anggota_ukm
-                $update=array(
-                    'id_anggota_ukm'=>$id_anggota_ukm
-                );
-                $this->db->where($update);
+                //mengedit data ke tb_anggota_ukm dengan id_anggota_ukm = $id_anggota_ukm
+                $this->db->where('id_anggota_ukm',$id_anggota_ukm);
                 $this->db->update('tb_anggota_ukm',$data);
                 $pesan='Data sudah diedit';
                 $color='success';
@@ -54,6 +51,7 @@
 
         //menghapus data ke tb_anggota_ukm dari id_anggota_ukm
         public function delete_anggota($id_ukm,$id_anggota_ukm) {
+			//delete data dari tb_anggota_ukm dengan id_anggota_ukm = $id_anggota_ukm
             $this->db->where('id_anggota_ukm',$id_anggota_ukm);
             $this->db->delete('tb_anggota_ukm');
             $query = $this->db->affected_rows();
