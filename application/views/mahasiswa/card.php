@@ -134,7 +134,7 @@
 					</tr>
 				</table>
 				<div class="d-flex mt-3 justify-content-end">
-					<a href="<?=base_url().'kartu/printcardf/'.$row->id_mahasiswa.'/'.$row->id_ukm?>" class="btn btn-primary">Print</a>
+					<a target="_blank" href="<?=base_url().'kartu/printcardf/'.$row->id_mahasiswa.'/'.$row->id_ukm?>" class="btn btn-primary">Print</a>
 				</div>
 			</div>
 		</div>
@@ -174,7 +174,7 @@
 					</tr>
 				</table>
 				<div class="d-flex justify-content-end mt-3">
-					<a href="<?=base_url().'kartu/printcarda/'.$row->id_mahasiswa.'/'.$row->id_ukm?>" class="btn btn-primary">Print</a>
+					<a target="_blank" href="<?=base_url().'kartu/printcarda/'.$row->id_mahasiswa.'/'.$row->id_ukm?>" class="btn btn-primary">Print</a>
 				</div>
 			</div>
 

@@ -32,22 +32,27 @@
                 $pesan='Data sudah diedit';
                 $color='success';
             }
-            //mengirim pesan 
+            //mengirim pesan ke user
             $this->session->set_flashdata(['pesan'=>$pesan,'color'=>$color]);
             redirect(base_url('cfungsionaris/anggota_ukm/').$this->input->post('id_ukm'),'_self');
         }
     
+        //mengirim data ke form 
         public function edit_anggotaUKM($id_anggota_ukm){
+            //mengambil data ke tb_anggota_ukm dari id_anggota_ukm sama dengan parameter
                 $query = $this->db->get_where('tb_anggota_ukm',['id_anggota_ukm'=>$id_anggota_ukm]);
                 if($query->num_rows()>0)
                 {
                     $data=$query->row();
+                    //ajax untuk mengirim data ke form byid
                     echo "<script>$('#id_anggota_ukm').val('".$data->id_anggota_ukm."')</script>";
                     echo "<script>$('#id_mahasiswa').val('".$data->id_mahasiswa."')</script>";
                     echo "<script>$('#id_devisi').val('".$data->id_devisi."')</script>";
                     echo "<script>$('#status').val('".$data->status."')</script>";
                 }	
         }
+
+        //menghapus data ke tb_anggota_ukm dari id_anggota_ukm
         public function delete_anggota($id_ukm,$id_anggota_ukm) {
             $this->db->where('id_anggota_ukm',$id_anggota_ukm);
             $this->db->delete('tb_anggota_ukm');
