@@ -65,7 +65,7 @@ class Mukm extends CI_Model{
 			
 		}else{
 			if(!empty($_FILES['img_ukm']['name'])){
-				$file_name='img-'.$data['nama_ukm'];
+				$file_name='ukm-'.$data['nama_ukm'];
 				$config = [
 					'upload_path'=> 'assets/uploads/ukm',
 					'allowed_types'=>'jpg|jpeg|png',
