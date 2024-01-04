@@ -1,10 +1,10 @@
 <?=$header?>
 <!--  Body Wrapper -->
-<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+<div class="page-wrapper bg-custom" style="background-image: url(<?=base_url('')?>assets/images/logos/ukm.png);"  id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
 	data-sidebar-position="fixed" data-header-position="fixed">
 	<?=$sitebar;?>
 	<!--  Main wrapper -->
-	<div class="body-wrapper">
+	<div class="body-wrapper ">
     <?=$navbar?>
 		<!-- main -->
 		<div class="container-fluid">
@@ -31,7 +31,7 @@
 		}
 		else {
 		?>
-			<div class="card_bg1 p-2 rounded-4">
+			<div class="p-2 rounded-4" style="height: 600px;">
 				<h1 class="text-capitalize">Selamat Datang <?php
 				if(!empty($this->session->userdata('username'))){
 					echo $this->session->userdata('username');
@@ -40,7 +40,7 @@
 					echo $this->session->userdata('nama_mahasiswa');
 				}
 				?>.</h1>
-        <h3>Di sistem informasi Unit Kegiatan Mahasiswa Politeknik Negeri Bali</h3>
+        		<h3>Di sistem informasi Unit Kegiatan Mahasiswa Politeknik Negeri Bali</h3>
 			</div>
 			<?php
 	}

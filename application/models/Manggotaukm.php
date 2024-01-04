@@ -1,14 +1,14 @@
 <?php
     class Manggotaukm extends CI_Model {
+        //mengambila data ke view anggota ukm dari id_ukmnya sama dengan parameter
         public function get_anggota_ukm($id_ukm){
             $query = $this->db->get_where('anggota_ukm',['id_ukm'=>$id_ukm]);
             return $query->result();
         }
-        // public function get_anggota_id($id_anggota_ukm){
-        //     $query = $this->db->get_where('tb_anggota_ukm',['id_anggota_ukm'=>$id_anggota_ukm]);
-        //     return $query->row();
-        // }
+
+        //proses simpan dan edit data anggota ukm
         public function proses_anggotaUKM(){
+            //data dari form di tampung di array data
             $data= [
                 'id_anggota_ukm'=>$this->input->post('id_anggota_ukm'),
                 'id_mahasiswa'=>$this->input->post('id_mahasiswa'),
@@ -16,11 +16,14 @@
                 'status'=>$this->input->post('status'),
             ];
             $id_anggota_ukm=$data['id_anggota_ukm'];
+            //jika ada id_anggota_ukm kosong lakukan isert kalo ada update
             if(empty($id_anggota_ukm)){
+                //menambahkan data ke tb_anggota_ukm
                 $this->db->insert('tb_anggota_ukm',$data);
                 $pesan='Data sudah disimpan';
                 $color='success';
             }else{
+                //mengedit data ke tb_anggota_ukm dari id_anggota_ukm
                 $update=array(
                     'id_anggota_ukm'=>$id_anggota_ukm
                 );
@@ -29,6 +32,7 @@
                 $pesan='Data sudah diedit';
                 $color='success';
             }
+            //mengirim pesan 
             $this->session->set_flashdata(['pesan'=>$pesan,'color'=>$color]);
             redirect(base_url('cfungsionaris/anggota_ukm/').$this->input->post('id_ukm'),'_self');
         }

@@ -73,7 +73,6 @@ class Mukm extends CI_Model{
 					'file_name'=>$file_name,
 				];
 				$this->load->library('upload',$config);
-				
 				$target_file ='assets/uploads/ukm/'.$this->input->post('img_ukm_old');
 				unlink($target_file);
 				$this->upload->do_upload('img_ukm');
@@ -100,6 +99,16 @@ class Mukm extends CI_Model{
 		}
 		$this->session->set_flashdata(['pesan'=>$pesan,'color'=>$color]);
 		redirect(base_url('cbem/ukm'),'_self');
+	}
+
+	public function proses_ukmf(){
+		$data = $_POST;
+		$this->db->where('id_ukm',$data['id_ukm']);
+		$this->db->update('tb_ukm',$data);
+		$pesan='Data sudah diedit';
+		$color='warning';
+		$this->session->set_flashdata(['pesan'=>$pesan,'color'=>$color]);
+		redirect(base_url('cfungsionaris/ukm_where/').$data['id_ukm'],'_self');
 	}
 	
 	// public function get_mahasiswa_user($user){

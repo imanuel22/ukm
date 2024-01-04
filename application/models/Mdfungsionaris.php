@@ -2,7 +2,7 @@
 
 class Mdfungsionaris extends CI_Model{
 	public function get_daftar_fungsionaris(){
-		return $this->db->get('daftar_fungsinaris')->result();
+		return $this->db->get('daftar_fungsionaris')->result();
 	}
 	public function get_daftar_fungsionaris_id($id_daftar_fungsionaris){
 		return $this->db->get_where('tb_daftar_fungsionaris',['id_daftar_fungsionaris'=>$id_daftar_fungsionaris])->row();

@@ -1,12 +1,15 @@
 <?php 
 class Mjabatan extends CI_Model{
     public function get_jabatan($id_ukm) {  
+		//ambil ada tb_jabatan dari id ukm
         return $this->db->get_where('tb_jabatan',['id_ukm'=>$id_ukm])->result();
     }
     public function get_jabatan_id($id_jabatan) {
+		//ambil ada tb_jabatan dari id jabatan
         return $this->db->get_where('tb_jabatan',['id_jabatan'=>$id_jabatan])->row();
     }
     public function proses_jabatan()  {
+		//data dari form
         $data = [
 			'id_jabatan'=>$this->input->post('id_jabatan'),
 			'nama_jabatan'=>$this->input->post('nama_jabatan'),
@@ -15,10 +18,12 @@ class Mjabatan extends CI_Model{
 		];
 		$id_jabatan = $data['id_jabatan'];
 		if(empty($id_jabatan)){
+			//insert data tb_jabatan
 			$this->db->insert('tb_jabatan',$data);
 			$pesan = 'data berhasil Tertambah';
 			$color = 'success';
 		}else{
+			//update data tb_jabatan dari id jabatan
 			$update=array(
 				'id_jabatan'=>$id_jabatan
 			);

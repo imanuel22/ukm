@@ -7,7 +7,7 @@
 				<input type="hidden" name="id_anggota_ukm" id="id_anggota_ukm">
 				<div class="mb-3">
 					<label for="id_mahasiswa" class="form-label text-light">NIM</label>
-					<select name="id_mahasiswa" id="id_mahasiswa" class="form-control bg-light">
+					<select name="id_mahasiswa" id="id_mahasiswa" class="form-control bg-light" required>
 						<option value="" hidden>Pilih</option>
 						<?php foreach($data_mahasiswa as $row):?>
 						<option value="<?=$row->id_mahasiswa?>"><?=$row->nim?></option>
@@ -16,7 +16,7 @@
 				</div>
 				<div class="mb-3">
 					<label for="id_devisi" class="form-label text-light">Divisi</label>
-					<select name="id_devisi" id="id_devisi" class="form-control bg-light">
+					<select name="id_devisi" id="id_devisi" class="form-control bg-light" required>
 						<option value="" hidden>Pilih</option>
 						<?php foreach($data_devisi as $row):?>
 						<option value="<?=$row->id_devisi?>"><?=$row->nama_devisi?></option>
@@ -25,7 +25,7 @@
 				</div>
 				<div class="mb-3">
 					<label for="status" class="form-label text-light">Status</label>
-					<select name="status" id="status" class="form-control bg-light">
+					<select name="status" id="status" class="form-control bg-light" required>
 						<option value="" hidden>Pilih</option>
 						<option value="aktif">Aktif</option>
 						<option value="tidakaktif">Tidak Aktif</option>

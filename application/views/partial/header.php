@@ -9,6 +9,7 @@
 
   <link rel="shortcut icon" type="image/png" href="<?=base_url()?>assets/images/logos/ukm.png" />
   <link rel="stylesheet" href="<?=base_url()?>assets/css/styles.min.css" />
+  <link rel="stylesheet" href="<?=base_url()?>assets/css/bgcustom.css" />
 </head>
 
 <body>

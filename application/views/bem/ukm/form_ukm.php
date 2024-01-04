@@ -24,8 +24,8 @@
 				<img src="" alt="" id="img_ukms" width="150" height="150">
 			</div>
 			<div class="col-md-10 mt-4">
-				<label for="img_mahasiswa" class="form-label text-light">IMG</label>
-				<input type="file" name="img_mahasiswa" class="form-control bg-light" >
+				<label for="img_ukm" class="form-label text-light">IMG</label>
+				<input type="file" name="img_ukm" class="form-control bg-light" >
 			</div>
 		</div>
 		<div class="mb-3 row">

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>LOGIN PAGE</title>
   <link rel="shortcut icon" type="image/png" href="logo.png" />
-  <link rel="stylesheet" href="../assets/css/styles.min.css" />
+  <link rel="stylesheet" href="<?=base_url()?>assets/css/styles.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-qieyhf5jcqt6S8z0p6fOPcufGPFnZlM5aV5r8H8i53Mh5KXtgr4Og0BzgUpnMYY" crossorigin="anonymous">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/solid.css">

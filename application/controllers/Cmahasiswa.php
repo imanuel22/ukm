@@ -64,7 +64,7 @@ class Cmahasiswa extends CI_Controller{
 		$data1['data_mahasiswa']=$this->mmahasiswa->get_mahasiswa_id($id_mahasiswa);
 		$data1['data_prodi']= $this->mprodi->get_prodi();
 		$data1['data_jurusan']= $this->mjurusan->get_jurusan();
-		$title['title']= 'Mahasiswa';
+		$title['title']= 'Profile';
 		$data = [
 			'header'=>$this->load->view('partial/header',$title,true),
 			'sitebar'=>$this->load->view('mahasiswa/partial/sitebar','',true),
@@ -79,7 +79,7 @@ class Cmahasiswa extends CI_Controller{
 
 	public function proker($id_ukm,$id_proker) {
 		$data1['data_proker']=$this->mproker->get_proker_id($id_proker);
-		$title['title']= 'Mahasiswa';
+		$title['title']= 'Proker';
 		$data1['id_ukm']=$id_ukm;
 		$data = [
 			'header'=>$this->load->view('partial/header',$title,true),

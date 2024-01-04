@@ -64,7 +64,7 @@ class Cfungsionaris extends CI_Controller{
 		$this->load->view('dashboard.php',$data);
 	}
 	public function proses_ukm() {
-		$this->mukm->proses_ukm();
+		$this->mukm->proses_ukmf();
 	}
 	//UKM End.
 
@@ -112,7 +112,9 @@ class Cfungsionaris extends CI_Controller{
 			'konten'=>$this->load->view('fungsionaris/anggota_ukm/form_anggota',$data1,TRUE),
 			'table'=>$this->load->view('fungsionaris/anggota_ukm/anggota_ukm',$data1,TRUE),
 		];
-		$this->load->view('dashboard.php',$data);
+
+	
+			$this->load->view('dashboard.php',$data);
 	}
 
 	public function proses_anggotaUKM() {
