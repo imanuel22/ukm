@@ -132,7 +132,9 @@
 
 <div class=" bg-primary text-light rounded-4 p-3 mb-3 text-center">
 	<div class="d-flex justify-content-end">
-		<button type="button" class="btn btn-light" onclick="edit1(<?=$id_ukm?>)">Edit</button>
+		<button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
+		Edit
+		</button>
 	</div>
 	<div class="nama-ukm mb-5">
 		<h1 class="text-light"><?=$data_ukm->nama_ukm?></h1>
@@ -197,7 +199,7 @@ if(!empty($data_proker)):
 		<main>
 			<section class="cards">
 				<?php foreach($data_proker as $row): ?>
-				<a href="<?=base_url('cmahasiswa/proker/').$id_ukm.'/'.$row->id_proker;?>"
+				<a href="<?=base_url('cfungsionaris/prokers/').$id_ukm.'/'.$row->id_proker;?>"
 					class="card rounded-3 bg-light">
 					<div class="card__content1">
 						<div class="card__image-container1  rounded-3 mb-2">
@@ -224,3 +226,47 @@ if(!empty($data_proker)):
 	</div>
 </div>
 <?php endif; ?>
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">EDIT UKM</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+	  <form action="<?=base_url('cfungsionaris/proses_ukm')?>" method="post">
+    <input type="hidden" name="id_ukm" value="<?=$data_ukm->id_ukm?>">
+    <div class="mb-3">
+        <label for="deskripsi" class="form-label">Deskripsi</label>
+		<textarea name="deskripsi" id="deskripsi" cols="30" rows="5" class=" form-control bg-light">
+		<?=$data_ukm->deskripsi?>
+		</textarea>
+    </div>
+    <div class="mb-3">
+		<label for="peraturan" class="form-label">Peraturan</label>
+		<textarea name="peraturan" id="peraturan" cols="30" rows="5" class=" form-control bg-light">
+		<?=$data_ukm->peraturan?>
+		</textarea>
+    </div>
+
+    <div class="mb-3 row">
+        <div class="col-6">
+            <button class="btn btn-success col-12" type="submit">Submit</button>
+        </div>
+        <div class="col-6">
+            <button class="btn btn-danger col-12" type="reset">Reset</button>
+        </div>
+    </div>
+    </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

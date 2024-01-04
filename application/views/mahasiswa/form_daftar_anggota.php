@@ -1,4 +1,3 @@
-
 <div  class=" bg-primary text-light rounded-4 p-3 mb-3">
 <h1 class=" text-light text-center mb-4">Daftar Anggota UKM</h1>
 <form action="<?= base_url('cmahasiswa/daftar_anggota')?>" method="post" >

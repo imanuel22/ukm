@@ -1,6 +1,6 @@
 <?=$header?>
 <!--  Body Wrapper -->
-<div class="page-wrapper bg-custom" style="background-image: url(<?=base_url('')?>assets/images/logos/ukm.png);"  id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+<div class="page-wrapper"  id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
 	data-sidebar-position="fixed" data-header-position="fixed">
 	<?=$sitebar;?>
 	<!--  Main wrapper -->
@@ -31,7 +31,7 @@
 		}
 		else {
 		?>
-			<div class="p-2 rounded-4" style="height: 600px;">
+			<div class="p-3 rounded-4 bg-primary bg-opacity-50">
 				<h1 class="text-capitalize">Selamat Datang <?php
 				if(!empty($this->session->userdata('username'))){
 					echo $this->session->userdata('username');
