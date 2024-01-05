@@ -4,7 +4,7 @@ class Mprodi extends CI_Model{
     public function get_prodi() {
 		return $this->db->get('prodi')->result();
 	}
-	//mengambila data ke tb_prodi dari id_jurusan = parameter dan level = admin
+	//mengambila data ke tb_prodi dari id_jurusan = parameter 
 
 	public function get_prodi_id_jurusan($id_jurusan){
 		return $this->db->get_where('tb_prodi',['id_jurusan'=>$id_jurusan])->result();
