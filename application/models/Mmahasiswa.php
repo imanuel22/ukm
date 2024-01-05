@@ -97,6 +97,11 @@ class Mmahasiswa extends CI_Model{
 	}
 	//function buat delete 
 	public function delete_data_mhs($id_mahasiswa){
+		//memangggil function get_bem_id
+		$data_mahasiswa=$this->get_mahasiswa_id($id_mahasiswa);
+		//menghapus foto dari folder 
+		$target_file ='assets/uploads/img_mahasiswa/'.$data_mahasiswa->img_mahasiswa;
+		unlink($target_file);
 		//delete dari tb_mahasiswa dengan id_mahasiswa = $id_mahasiswa
 		$this->db->where('id_mahasiswa',$id_mahasiswa);
 		$this->db->delete('tb_mahasiswa');
