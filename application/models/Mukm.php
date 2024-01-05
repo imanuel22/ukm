@@ -1,19 +1,24 @@
 <?php
 class Mukm extends CI_Model{
-
+	//mengambila data ke view masterukm
     public function get_masterukm(){
 		$query = $this->db->get('masterukm');
 		return $query->result();
 	}
+	//mengambila data ke tb_ukm
+
     public function get_ukm(){
 		$query = $this->db->get('tb_ukm');
 		return $query->result();
 	}
+	//mengambila data ke tb_ukm dari id_ukm = parameter
+
 	public function get_ukm_id($id_ukm){
         $this->db->where('id_ukm',$id_ukm);
         $query = $this->db->get('tb_ukm');
         return $query->row();
     }
+	//mengambila data ke tb_ukm dari nama_ukm = parameter
 	public function get_ukm_nama($nama_ukm){
 		$this->db->select('id_ukm');
 		$this->db->where('nama_ukm',$nama_ukm);
@@ -21,6 +26,8 @@ class Mukm extends CI_Model{
 		return $query->row();
 	}
 
+	
+	//function buat insert + update data 
 	public function proses_ukm(){
 		$data= [
 			'id_ukm' => $this->input->post('id_ukm'),
@@ -30,13 +37,16 @@ class Mukm extends CI_Model{
 			'tgl_buat'=>date('Y-m-d',time()),
 		];
 		$id_ukm = $data['id_ukm'];
+		//cek jika tidak ada id_mahasiswa lakukan insert
 		if(empty($id_ukm)){
+			//jika deskripsi & peraturan kosong set lorem
 			if(empty($data['deskripsi'] && $data['peraturan'])){
 				$data=[
 				'peraturan'=>'Lorem ipsum dolor sit amet consectetur adipisicing elit. A suscipit quod tempora ratione, laborum numquam ullam mollitia magnam sunt voluptas officiis molestiae adipisci? Aliquid assumenda harum repudiandae sequi cupiditate, minus laborum maxime modi, fugiat exercitationem porro eveniet pariatur saepe dicta molestiae? Voluptas ab nobis mollitia, beatae nam animi, aspernatur maxime at incidunt iste assumenda eos enim itaque accusamus error tenetur minus. Nisi voluptatem libero provident minima accusamus explicabo maxime esse est similique ratione odio optio possimus animi iusto, cumque quod ipsam ab distinctio enim eius cupiditate. Ab cum totam nisi explicabo neque unde, accusantium odit ipsa sequi ipsam ex. Magnam.',
 				'deskripsi'=>'Lorem ipsum dolor sit amet consectetur adipisicing elit. A suscipit quod tempora ratione, laborum numquam ullam mollitia magnam sunt voluptas officiis molestiae adipisci? Aliquid assumenda harum repudiandae sequi cupiditate, minus laborum maxime modi, fugiat exercitationem porro eveniet pariatur saepe dicta molestiae? Voluptas ab nobis mollitia, beatae nam animi, aspernatur maxime at incidunt iste assumenda eos enim itaque accusamus error tenetur minus. Nisi voluptatem libero provident minima accusamus explicabo maxime esse est similique ratione odio optio possimus animi iusto, cumque quod ipsam ab distinctio enim eius cupiditate. Ab cum totam nisi explicabo neque unde, accusantium odit ipsa sequi ipsam ex. Magnam.',
 				];
 			}
+			//upload img
 			$file_name='img-'.$data['nama_ukm'];
 			$config = [
 				'upload_path'=> 'assets/uploads/ukm',
@@ -47,6 +57,7 @@ class Mukm extends CI_Model{
 			$this->load->library('upload',$config);
 			$this->upload->do_upload('img_mahasiswa');
 			$data['img_ukm']=$this->upload->data('file_name');
+			
 			//insert ukm
 			$this->db->insert('tb_ukm',$data);
 			//insert jabatan
@@ -116,12 +127,7 @@ class Mukm extends CI_Model{
 		$this->session->set_flashdata(['pesan'=>$pesan,'color'=>$color]);
 		redirect(base_url('cfungsionaris/ukm_where/').$data['id_ukm'],'_self');
 	}
-	
-	// public function get_mahasiswa_user($user){
-	// 	$this->db->where('level',$user);
-	// 	$query = $this->db->get('tb_mahasiswa');
-	// 	return $query->result();
-	// }
+
 	
 	public function edit_ukm($id_ukm){
 		$query = $this->db->get_where('masterukm',['id_ukm'=>$id_ukm]);
