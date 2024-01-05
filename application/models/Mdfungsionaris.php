@@ -11,10 +11,13 @@ class Mdfungsionaris extends CI_Model{
 		return $this->db->get_where('tb_jabatan',['id_jabatan',$id_jabatan])->row();
 	}
 
-	public function verifdatafungsionaris($id_daftar_fungsionaris){
+        //mengirim data ke form 
+		public function verifdatafungsionaris($id_daftar_fungsionaris){
+        //mengambil data ke daftar_fungsinaris dari id_daftar_fungsionaris sama dengan parameter
 		$query = $this->db->get_where('daftar_fungsinaris',['id_daftar_fungsionaris'=>$id_daftar_fungsionaris]);
 		if($query->num_rows()>0)
 		{
+	        //ajax untuk mengirim data ke form byid
 			$data=$query->row();
 			echo "<script>$('#id_daftar_fungsionaris').val('".$data->id_daftar_fungsionaris."')</script>";
 			echo "<script>$('#img_mahasiswas').attr('src','".base_url()."assets/uploads/img_mahasiswa/".$data->img_mahasiswa."')</script>";
@@ -28,17 +31,21 @@ class Mdfungsionaris extends CI_Model{
 			echo "<script>$('#alasan').val('".$data->alasan."')</script>";
 		}	
 	}
+
 	public function proses_verif_berhasil(){
 		$data = [
 			'id_mahasiswa'=>$this->input->post('id_mahasiswa'),
 			'id_jabatan'=>$this->input->post('id_jabatan'),
 			'status'=>'aktif'
 		];
+		//menambah data ke tb_fungsionaris
 		$this->db->insert('tb_fungsionaris',$data);
+		//memanggil fungsi hapus
 		$this->proseshapus($this->input->post('id_daftar_fungsionaris'),$this->input->post('id_ukm'));
 	}
 	
 	public function proseshapus($id_daftar_fungsionaris,$id_ukm){
+		//menghapus data tb_daftar_fungsionaris dengan id_daftar_fungsionaris = $id_daftar_fungsionaris
 		$this->db->where('id_daftar_fungsionaris',$id_daftar_fungsionaris);
 		$this->db->delete('tb_daftar_fungsionaris');
 		redirect(base_url('cfungsionaris/verif_fungsionaris/').$id_ukm,'_self');
@@ -50,6 +57,7 @@ class Mdfungsionaris extends CI_Model{
             'id_jabatan'=>$this->input->post('id_jabatan'),
             'alasan'=>$this->input->post('alasan'),
 		];
+		//menambah data ke tb_daftar_fungsionaris
 		$this->db->insert('tb_daftar_fungsionaris',$data);
 		$this->session->set_flashdata(['pesan'=>'Silakan tunggu verifikasi oleh fungsionaris!','color'=>'info']);
 		redirect(base_url('cmahasiswa/ukm/').$this->input->post('id_ukm'),'_self');
