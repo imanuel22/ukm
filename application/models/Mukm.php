@@ -25,12 +25,18 @@ class Mukm extends CI_Model{
 		$data= [
 			'id_ukm' => $this->input->post('id_ukm'),
 			'nama_ukm'=>$this->input->post('nama_ukm'),
+			'deskripsi'=>$this->input->post('deskripsi'),
+			'peraturan'=>$this->input->post('peraturan'),
 			'tgl_buat'=>date('Y-m-d',time()),
-			'deskripsi'=>'Lorem ipsum dolor sit amet consectetur adipisicing elit. A suscipit quod tempora ratione, laborum numquam ullam mollitia magnam sunt voluptas officiis molestiae adipisci? Aliquid assumenda harum repudiandae sequi cupiditate, minus laborum maxime modi, fugiat exercitationem porro eveniet pariatur saepe dicta molestiae? Voluptas ab nobis mollitia, beatae nam animi, aspernatur maxime at incidunt iste assumenda eos enim itaque accusamus error tenetur minus. Nisi voluptatem libero provident minima accusamus explicabo maxime esse est similique ratione odio optio possimus animi iusto, cumque quod ipsam ab distinctio enim eius cupiditate. Ab cum totam nisi explicabo neque unde, accusantium odit ipsa sequi ipsam ex. Magnam.',
-			'peraturan'=>'Lorem ipsum dolor sit amet consectetur adipisicing elit. A suscipit quod tempora ratione, laborum numquam ullam mollitia magnam sunt voluptas officiis molestiae adipisci? Aliquid assumenda harum repudiandae sequi cupiditate, minus laborum maxime modi, fugiat exercitationem porro eveniet pariatur saepe dicta molestiae? Voluptas ab nobis mollitia, beatae nam animi, aspernatur maxime at incidunt iste assumenda eos enim itaque accusamus error tenetur minus. Nisi voluptatem libero provident minima accusamus explicabo maxime esse est similique ratione odio optio possimus animi iusto, cumque quod ipsam ab distinctio enim eius cupiditate. Ab cum totam nisi explicabo neque unde, accusantium odit ipsa sequi ipsam ex. Magnam.',
 		];
 		$id_ukm = $data['id_ukm'];
 		if(empty($id_ukm)){
+			if(empty($data['deskripsi'] && $data['peraturan'])){
+				$data=[
+				'peraturan'=>'Lorem ipsum dolor sit amet consectetur adipisicing elit. A suscipit quod tempora ratione, laborum numquam ullam mollitia magnam sunt voluptas officiis molestiae adipisci? Aliquid assumenda harum repudiandae sequi cupiditate, minus laborum maxime modi, fugiat exercitationem porro eveniet pariatur saepe dicta molestiae? Voluptas ab nobis mollitia, beatae nam animi, aspernatur maxime at incidunt iste assumenda eos enim itaque accusamus error tenetur minus. Nisi voluptatem libero provident minima accusamus explicabo maxime esse est similique ratione odio optio possimus animi iusto, cumque quod ipsam ab distinctio enim eius cupiditate. Ab cum totam nisi explicabo neque unde, accusantium odit ipsa sequi ipsam ex. Magnam.',
+				'deskripsi'=>'Lorem ipsum dolor sit amet consectetur adipisicing elit. A suscipit quod tempora ratione, laborum numquam ullam mollitia magnam sunt voluptas officiis molestiae adipisci? Aliquid assumenda harum repudiandae sequi cupiditate, minus laborum maxime modi, fugiat exercitationem porro eveniet pariatur saepe dicta molestiae? Voluptas ab nobis mollitia, beatae nam animi, aspernatur maxime at incidunt iste assumenda eos enim itaque accusamus error tenetur minus. Nisi voluptatem libero provident minima accusamus explicabo maxime esse est similique ratione odio optio possimus animi iusto, cumque quod ipsam ab distinctio enim eius cupiditate. Ab cum totam nisi explicabo neque unde, accusantium odit ipsa sequi ipsam ex. Magnam.',
+				];
+			}
 			$file_name='img-'.$data['nama_ukm'];
 			$config = [
 				'upload_path'=> 'assets/uploads/ukm',
@@ -123,6 +129,8 @@ class Mukm extends CI_Model{
 		{
 			$data=$query->row();
 			echo "<script>$('#id_ukm').val('".$data->id_ukm."')</script>";
+			echo "<script>$('#deskripsi').val('".$data->deskripsi."')</script>";
+			echo "<script>$('#peraturan').val('".$data->peraturan."')</script>";
 			echo "<script>$('#nama_ukm').val('".$data->nama_ukm."')</script>";
 			echo "<script>$('#id_mahasiswa').val('".$data->id_mahasiswa."')</script>";
 			echo "<script>$('#img_ukm_old').val('".$data->img_ukm."')</script>";

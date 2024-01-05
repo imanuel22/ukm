@@ -1,21 +1,27 @@
 <?php
 
 class Mdanggota extends CI_Model{
+	//mengambila data ke view daftar_anggotaukm
     public function get_daftar_anggota(){
 		return $this->db->get('daftar_anggotaukm')->result();
 	}
+	//mengambila data ke tb_daftar_anggota dari id_daftar_anggota sama dengan parameter	
 	public function get_daftar_anggota_id($id_daftar_anggota){
 		return $this->db->get_where('tb_daftar_anggota',['id_daftar_anggota'=>$id_daftar_anggota])->row();
 	}
+	//mengambila data ke view tb_devisi dari id_devisi sama dengan parameter	
     public function get_devisi_id($id_devisi) {
 		return $this->db->get_where('tb_devisi',['id_devisi',$id_devisi])->row();
 	}
 
+	//function buat mengisi data ke halaman form
 	public function verifdataanggota($id_daftar_anggota){
+		//mengambil data ke tb_mahasiswa dari id_mahasiswa sama dengan parameter
 		$query = $this->db->get_where('daftar_anggotaukm',['id_daftar_anggota'=>$id_daftar_anggota]);
 		if($query->num_rows()>0)
 		{
 			$data=$query->row();
+			//ajax untuk mengirim data ke form byid
 			echo "<script>$('#id_daftar_anggota').val('".$data->id_daftar_anggota."')</script>";
 			echo "<script>$('#img_mahasiswas').attr('src','".base_url()."assets/uploads/img_mahasiswa/".$data->img_mahasiswa."')</script>";
 			echo "<script>$('#nama_mahasiswa').val('".$data->nama_mahasiswa."')</script>";
@@ -29,27 +35,34 @@ class Mdanggota extends CI_Model{
 		}	
 	}
 
+	
 	public function proses_verif_berhasil(){
 		$data = [
 			'id_mahasiswa'=>$this->input->post('id_mahasiswa'),
 			'id_devisi'=>$this->input->post('id_devisi'),
 			'status'=>'aktif'
 		];
+		//menambah data ke tb_anggota_ukm
 		$this->db->insert('tb_anggota_ukm',$data);
+		//memanggil fungsi hapus
 		$this->proseshapus($this->input->post('id_daftar_anggota'),$this->input->post('id_ukm'));
 	}
 	
 	public function proseshapus($id_daftar_anggota,$id_ukm){
+		//menghapus data tb_daftar_anggota dengan id_daftar_anggota = $id_daftar_anggota
 		$this->db->where('id_daftar_anggota',$id_daftar_anggota);
 		$this->db->delete('tb_daftar_anggota');
 		redirect(base_url('cfungsionaris/verif_anggota/').$id_ukm,'_self');
 	}
+
+
 	public function daftar_anggota() {
 		$data = [
 			'id_mahasiswa'=>$this->input->post('id_mahasiswa'),
             'id_devisi'=>$this->input->post('id_devisi'),
             'alasan'=>$this->input->post('alasan'),
 		];
+		//menambah data ke tb_daftar_anggota
 		$this->db->insert('tb_daftar_anggota',$data);
 		$this->session->set_flashdata(['pesan'=>'Silakan tunggu verifikasi oleh fungsionaris!','color'=>'info']);
 		redirect(base_url('cmahasiswa/ukm/').$this->input->post('id_ukm'),'_self');

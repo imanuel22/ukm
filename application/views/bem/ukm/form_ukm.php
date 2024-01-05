@@ -6,6 +6,8 @@
 <form action="<?= base_url('cbem/proses_ukm')?>" method="post"  enctype="multipart/form-data">
 <input type="hidden" name="id_ukm" id="id_ukm">
 <input type="hidden" name="img_ukm_old" id="img_ukm_old">
+<input type="hidden" name="deskripsi" id="deskripsi">
+<input type="hidden" name="peraturan" id="peraturan">
 		<div class="mb-3">
 			<label for="nama_ukm" class="form-label text-light">Nama UKM</label>
 			<input type="text" name="nama_ukm" class="form-control bg-light" id="nama_ukm">
