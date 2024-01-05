@@ -1,12 +1,15 @@
 <?php
 
 class Mdfungsionaris extends CI_Model{
+	//mengambila data ke view daftar_fungsionaris
 	public function get_daftar_fungsionaris(){
 		return $this->db->get('daftar_fungsionaris')->result();
 	}
+	//mengambila data ke tb_daftar_fungsionaris dari id_daftar_fungsionaris sama dengan parameter	
 	public function get_daftar_fungsionaris_id($id_daftar_fungsionaris){
 		return $this->db->get_where('tb_daftar_fungsionaris',['id_daftar_fungsionaris'=>$id_daftar_fungsionaris])->row();
 	}
+	//mengambila data ke tb_daftar_fungsionaris dari id_jabatan sama dengan parameter	
     public function get_jabatan_id($id_jabatan) {
 		return $this->db->get_where('tb_jabatan',['id_jabatan',$id_jabatan])->row();
 	}
