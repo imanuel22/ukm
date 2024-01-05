@@ -1,11 +1,14 @@
 <?php 
 class Mmahasiswa extends CI_Model{  
-    public function get_mahasiswa(){
+   	//mengambila data ke view mahasiswa
+ public function get_mahasiswa(){
 		return $this->db->get('mahasiswa')->result();
 	}
-    public function get_mahasiswa_id($id_mahasiswa){
+   	//mengambila data ke view mahasiswa dari id_mahasiswa = $id_mahasiswa
+ public function get_mahasiswa_id($id_mahasiswa){
 		return$this->db->get_where('mahasiswa',['id_mahasiswa'=>$id_mahasiswa])->row();
 	}
+	//function buat insert + update data 
 
 	public function proses_mahasiswa(){
 		$data = [
@@ -21,7 +24,9 @@ class Mmahasiswa extends CI_Model{
 
 		];
 		$id_mahasiswa = $data['id_mahasiswa'];
+		//cek jika tidak ada id_mahasiswa lakukan insert
 		if(empty($id_mahasiswa)){
+			//upload img mahasiswa
 			$file_name='img-'.$data['nim'];
 			$config = [
 				'upload_path'=> 'assets/uploads/img_mahasiswa',
@@ -33,10 +38,13 @@ class Mmahasiswa extends CI_Model{
 			$this->load->library('upload',$config);
 			$this->upload->do_upload('img_mahasiswa');
 			$data['img_mahasiswa']=$this->upload->data('file_name');
+			//menambahkan data ke tb_mahasiswa
 			$this->db->insert('tb_mahasiswa',$data);
 			$pesan='Data sudah disimpan';
 			$color='success';
-		}else{
+		//jika ada id_mahasiswa lakukan update
+	}else{
+			//cek apakah ada foto yang ingin di ganti
 			if(!empty($_FILES['img_mahasiswa']['name'])){
 				$file_name='img-'.$data['nim'];
 				$config = [
@@ -50,13 +58,13 @@ class Mmahasiswa extends CI_Model{
 				unlink($target_file);
 				$this->upload->do_upload('img_mahasiswa');
 				$data['img_mahasiswa']=$this->upload->data('file_name');
-			}else{
+			//jika tidak pake foto lama
+		}else{
 				$data['img_mahasiswa']=$this->input->post('img_mahasiswa_old');
 			}
-			$update=array(
-				'id_mahasiswa'=>$id_mahasiswa
-			);
-			$this->db->where($update);
+			
+			//update tb_mahasiswa dengan id_mahasiswa = $id_mahasiswa
+			$this->db->where('id_mahasiswa',$id_mahasiswa);
 			$this->db->update('tb_mahasiswa',$data);
 			$pesan='Data sudah diedit';
 			$color='warning';
@@ -64,11 +72,16 @@ class Mmahasiswa extends CI_Model{
 		$this->session->set_flashdata(['pesan'=>$pesan,'color'=>$color]);
 		redirect(base_url('cbem/mahasiswa'),'_self');
 	}
+
+	//function buat mengisi data ke halaman form
+	
 	public function edit_mahasiswa($id_mahasiswa){
+		//mengambil data ke view mahasiswa dari id_mahasiswa sama dengan parameter
 		$query = $this->db->get_where('mahasiswa',['id_mahasiswa'=>$id_mahasiswa]);
 		if($query->num_rows()>0)
 		{
 			$data=$query->row();
+			//ajax untuk mengirim data ke form byid
 			echo "<script>$('#id_mahasiswa').val('".$data->id_mahasiswa."')</script>";
 			echo "<script>$('#nim').val('".$data->nim."')</script>";
 			echo "<script>$('#nama_mahasiswa').val('".$data->nama_mahasiswa."')</script>";
@@ -82,7 +95,9 @@ class Mmahasiswa extends CI_Model{
 			echo "<script>$('#id_jurusan').val('".$data->id_jurusan."')</script>";
 		}	
 	}
+	//function buat delete 
 	public function delete_data_mhs($id_mahasiswa){
+		//delete dari tb_mahasiswa dengan id_mahasiswa = $id_mahasiswa
 		$this->db->where('id_mahasiswa',$id_mahasiswa);
 		$this->db->delete('tb_mahasiswa');
 		echo "<script>alert('Data sudah berhasil di simpan');</script>";
