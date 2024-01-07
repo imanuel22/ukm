@@ -25,7 +25,7 @@ class Csuperadmin extends CI_Controller{
 			'table'=>'',
 			];
 
-		$this->load->view('superadmin/dashboard',$data);
+		$this->load->view('dashboard',$data);
 	}
 	
 	//Jurusan Start.
