@@ -16,7 +16,7 @@ class Mmahasiswa extends CI_Model{
 			'nim' => $this->input->post('nim'),
 			'nama_mahasiswa' => $this->input->post('nama_mahasiswa'),
 			'angkatan' => $this->input->post('angkatan'),
-			'password' => $this->input->post('password'),
+			'password'=> password_hash($this->input->post('password'),PASSWORD_DEFAULT),
 			'no_telp' => $this->input->post('no_telp'),
 			'id_prodi' => $this->input->post('id_prodi'),
 			'level' =>'user',
