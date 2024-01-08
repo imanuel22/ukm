@@ -24,11 +24,11 @@
 			</select>
 	</div>	
 	<div class="mb-3">
-			<label for="status" class="form-label text-light">status</label>
+			<label for="status" class="form-label text-light">Status</label>
 			<select name="status" id="status" class="form-control bg-light">
-				<option value="" hidden>pilih</option>
-				<option value="aktif">aktif</option>
-				<option value="tidakaktif">tidak aktif</option>
+				<option value="" hidden>Pilih</option>
+				<option value="aktif">Aktif</option>
+				<option value="tidakaktif">Tidak Aktif</option>
 	
 			</select>
 	</div>	
