@@ -32,7 +32,7 @@ class Mbem extends CI_Model{
 			$config = [
 				'upload_path'=> 'assets/uploads/img_mahasiswa',
 				'allowed_types'=>'jpg|jpeg|png',
-				'max_size'=>0,	
+				'max_size'=>4096000,	
 				'file_name'=>$file_name,
 				
 			];
@@ -51,7 +51,7 @@ class Mbem extends CI_Model{
 				$config = [
 					'upload_path'=> 'assets/uploads/img_mahasiswa',
 					'allowed_types'=>'jpg|jpeg|png',
-					'max_size'=>0,	
+					'max_size'=>4096000,	
 					'file_name'=>$file_name,
 				];
 				$this->load->library('upload',$config);
