@@ -10,7 +10,7 @@ class Csuperadmin extends CI_Controller{
 		$this->load->model('mbem');
 		$this->load->model('mukm');
 		$this->load->model('mmahasiswa');
-		$this->load->model('mdata');
+		// $this->load->model('mdata');
 	}
 
 	public function dashboard() {
@@ -20,7 +20,7 @@ class Csuperadmin extends CI_Controller{
 			'sitebar'=>$this->load->view('superadmin/partial/sitebar','',true),
 			'navbar'=>$this->load->view('partial/navbar','',true),
 			'footer'=>$this->load->view('partial/footer','',true),
-			'data'=>$this->mdata->getdata(),
+			// 'data'=>$this->mdata->getdata(),
 			'konten'=>'',
 			'table'=>'',
 			];
