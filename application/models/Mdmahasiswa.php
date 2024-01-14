@@ -8,10 +8,6 @@ class Mdmahasiswa extends CI_Model{
 	public function get_daftarmhs_id($id_daftar_mahasiswa){
 		return $this->db->get_where('daftar_mahasiswa',['id_daftar_mahasiswa'=>$id_daftar_mahasiswa])->row();
 	}
-	//mengambila data ke view daftar_mahasiswa dari nim sama dengan parameter	
-    public function get_daftarmhs_nim($nim) {
-		return $this->db->get_where('daftar_mahasiswa',['nim',$nim])->row();
-	}
 
 	public function proses_verif_berhasil(){
 		$data=[
@@ -25,12 +21,11 @@ class Mdmahasiswa extends CI_Model{
 			'status'=>'aktif',
 			'id_prodi'=>$this->input->post('id_prodi'),
 		];
+		$id_daftar_mahasiswa=$this->input->post('id_daftar_mahasiswa');
 		//menambah data ke tb_mahasiswa
 		$this->db->insert('tb_mahasiswa',$data);
-		$query = $this->get_daftarmhs_nim($data['nim']);
-		$id_daftar_mahasiswa1 = $query->id_daftar_mahasiswa;
 		//memanggil fungsi hapus
-		$this->proseshapus($id_daftar_mahasiswa1);
+		$this->proseshapus($id_daftar_mahasiswa);
 	}
 
 	//function buat mengisi data ke halaman form

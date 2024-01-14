@@ -17,7 +17,7 @@ class Mdfungsionaris extends CI_Model{
         //mengirim data ke form 
 		public function verifdatafungsionaris($id_daftar_fungsionaris){
         //mengambil data ke daftar_fungsinaris dari id_daftar_fungsionaris sama dengan parameter
-		$query = $this->db->get_where('daftar_fungsinaris',['id_daftar_fungsionaris'=>$id_daftar_fungsionaris]);
+		$query = $this->db->get_where('daftar_fungsionaris',['id_daftar_fungsionaris'=>$id_daftar_fungsionaris]);
 		if($query->num_rows()>0)
 		{
 	        //ajax untuk mengirim data ke form byid

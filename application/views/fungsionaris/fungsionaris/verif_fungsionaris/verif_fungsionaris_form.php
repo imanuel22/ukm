@@ -13,27 +13,27 @@
 			</tr>
 			<tr>
 				<th>Nama Mahasiswa</th>
-				<td><input class="form-control-plaintext text-dark" id="nama_mahasiswa"></td>
+				<td><input disabled class="form-control-plaintext text-dark" id="nama_mahasiswa"></td>
 			</tr>
 			<tr>
 				<th>NIM</th>
-				<td><input class="form-control-plaintext text-dark" id="nim"></td>
+				<td><input disabled class="form-control-plaintext text-dark" id="nim"></td>
 			</tr>
 			<tr>
 				<th>Jurusan</th>
-				<td><input class="form-control-plaintext text-dark" id="nama_jurusan"></td>
+				<td><input disabled class="form-control-plaintext text-dark" id="nama_jurusan"></td>
 			</tr>
 			<tr>
 				<th>Prodi</th>
-				<td><input class="form-control-plaintext text-dark" id="nama_prodi"></td>
+				<td><input disabled class="form-control-plaintext text-dark" id="nama_prodi"></td>
 			</tr>
 			<tr>
 				<th>Jabatan</th>
-				<td><input class="form-control-plaintext text-dark" id="nama_jabatan"></td>
+				<td><input disabled class="form-control-plaintext text-dark" id="nama_jabatan"></td>
 			</tr>
 			<tr>
 				<th>Alasan</th>
-				<td><input class="form-control-plaintext text-dark" id="alasan"></td>
+				<td><input disabled class="form-control-plaintext text-dark" id="alasan"></td>
 			</tr>
 		</table>
 			<input type="hidden" name="id_daftar_fungsionaris" id="id_daftar_fungsionaris">
