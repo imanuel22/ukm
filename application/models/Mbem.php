@@ -20,6 +20,7 @@ class Mbem extends CI_Model{
 			'password'=> password_hash($this->input->post('password'),PASSWORD_DEFAULT),
 			'no_telp' => $this->input->post('no_telp'),
 			'id_prodi' => $this->input->post('id_prodi'),
+			'password' => $this->input->post('password'),
 			'level' =>'admin',
 			'status' => $this->input->post('status'),
 
@@ -40,6 +41,8 @@ class Mbem extends CI_Model{
 			$this->upload->do_upload('img_mahasiswa');
 			$data['img_mahasiswa']=$this->upload->data('file_name');
 			//menambahkan data ke tb_mahasiswa
+			$data=['password'=> password_hash($data['password'],PASSWORD_DEFAULT),];
+
 			$this->db->insert('tb_mahasiswa',$data);
 			$pesan='Data sudah disimpan';
 			$color='success';

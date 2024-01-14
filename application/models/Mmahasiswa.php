@@ -16,7 +16,7 @@ class Mmahasiswa extends CI_Model{
 			'nim' => $this->input->post('nim'),
 			'nama_mahasiswa' => $this->input->post('nama_mahasiswa'),
 			'angkatan' => $this->input->post('angkatan'),
-			'password'=> password_hash($this->input->post('password'),PASSWORD_DEFAULT),
+			'password'=> $this->input->post('password'),
 			'no_telp' => $this->input->post('no_telp'),
 			'id_prodi' => $this->input->post('id_prodi'),
 			'level' =>'user',
@@ -39,6 +39,7 @@ class Mmahasiswa extends CI_Model{
 			$this->upload->do_upload('img_mahasiswa');
 			$data['img_mahasiswa']=$this->upload->data('file_name');
 			//menambahkan data ke tb_mahasiswa
+			$data=['password'=> password_hash($data['password'],PASSWORD_DEFAULT),];
 			$this->db->insert('tb_mahasiswa',$data);
 			$pesan='Data sudah disimpan';
 			$color='success';

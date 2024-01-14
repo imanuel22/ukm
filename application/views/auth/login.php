@@ -56,16 +56,7 @@
                             <button type="button" id="passwords" class="input-group-text btn btn-primary" onclick="showpassword()"><i id="icon" class="ti ti-eye text-center"></i></button>
                         </div>  
                     </div>
-                    <br>
-                  <div class="d-flex align-items-center justify-content-between mb-4">
-                    <div class="form-check">
-                      <input class="form-check-input primary" type="checkbox" value="" id="flexCheckChecked" checked>
-                      <label class="form-check-label text-dark" for="flexCheckChecked">
-                        Remeber this Device
-                      </label>
-                    </div>
-                    <a class="text-primary fw-bold" href="./index.html">Forgot Password ?</a>
-                </div>                  
+                    <br>              
                 <button class="btn btn-primary col-12 btn-login" type="submit">Sign In</button>
                 <div class="d-flex align-items-center justify-content-between mb-4">
                     <p class="fs-3 mb-1 fw-bold" style="margin-top: 1rem;">New to Member?</p> 
