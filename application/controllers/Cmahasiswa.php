@@ -115,7 +115,7 @@ class Cmahasiswa extends CI_Controller{
 	}
 
 	public function card()  {
-		$title['title']= 'Katru UKM';
+		$title['title']= 'Kartu UKM';
 		$data1['data_cardF']=$this->mcard->card_fungsionaris($this->session->userdata('id_mahasiswa'));
 		$data1['data_cardA']=$this->mcard->card_anggotaUKM($this->session->userdata('id_mahasiswa'));
 		$data = [
