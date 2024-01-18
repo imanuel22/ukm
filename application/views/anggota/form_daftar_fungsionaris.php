@@ -13,7 +13,7 @@
 		<input type="hidden" name="id_mahasiswa" value="<?= $this->session->userdata('id_mahasiswa')?>">
 		<div class="mb-3">
 			<label for="id_jabatan">Jabatan</label>
-			<select name="id_jabatan" id="id_jabatan" class="form-control bg-light">
+			<select name="id_jabatan" id="id_jabatan" class="form-control bg-light" required>
 				<option value="" hidden>Pilih</option>
 				<?php foreach($data_jabatan as $row):?>	
 				<option value="<?=$row->id_jabatan?>"><?=$row->nama_jabatan?></option>

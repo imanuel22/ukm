@@ -27,7 +27,7 @@ class Mproker extends CI_Model{
 			$config = [
 				'upload_path'=> 'assets/uploads/img_proker',
 				'allowed_types'=>'jpg|jpeg|png',
-				'max_size'=>4096000,	
+				'max_size'=>2000,	
 				'file_name'=>$file_name,
 			];
 			$this->load->library('upload',$config);
@@ -45,7 +45,7 @@ class Mproker extends CI_Model{
 				$config = [
 					'upload_path'=> 'assets/uploads/img_proker',
 					'allowed_types'=>'jpg|jpeg|png',
-					'max_size'=>4096000,	
+					'max_size'=>2000,	
 					'file_name'=>$file_name,
 				];
 				$this->load->library('upload',$config);
@@ -79,10 +79,11 @@ class Mproker extends CI_Model{
 			$data=$query->row();
 			//ajax untuk mengirim data ke form byid
 			echo "<script>$('#id_proker').val('".$data->id_proker."')</script>";
-			echo "<script>$('#img_proker').val('".$data->img_proker."')</script>";
 			echo "<script>$('#nama_proker').val('".$data->nama_proker."')</script>";
 			echo "<script>$('#deskripsi').val('".$data->deskripsi."')</script>";
 			echo "<script>$('#peraturan').val('".$data->peraturan."')</script>";
+			echo "<script>$('#img_proker_old').val('".$data->img_proker."')</script>";
+			echo "<script>$('#img_prokers').attr('src','".base_url()."assets/uploads/img_proker/".$data->img_proker."')</script>";
 
 		}	
 	}
