@@ -51,7 +51,7 @@ class Mukm extends CI_Model{
 			$config = [
 				'upload_path'=> 'assets/uploads/ukm',
 				'allowed_types'=>'jpg|jpeg|png',
-				'max_size'=>4096000,	
+				'max_size'=>2000,	
 				'file_name'=>$file_name,
 			];
 			$this->load->library('upload',$config);
@@ -86,7 +86,7 @@ class Mukm extends CI_Model{
 				$config = [
 					'upload_path'=> 'assets/uploads/ukm',
 					'allowed_types'=>'jpg|jpeg|png',
-					'max_size'=>4096000,	
+					'max_size'=>2000,	
 					'file_name'=>$file_name,
 				];
 				$this->load->library('upload',$config);

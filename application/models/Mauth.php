@@ -82,7 +82,7 @@ class Mauth extends CI_Model
 		$config = [
 			'upload_path'=> 'assets/uploads/img_mahasiswa',
 			'allowed_types'=>'jpg|jpeg|png',
-			'max_size'=>4096000,	
+			'max_size'=>2000,	
 			'file_name'=>$namafile,
 		];
 		$this->upload->initialize($config);
@@ -94,7 +94,7 @@ class Mauth extends CI_Model
 		$config1 = [
 			'upload_path'=> 'assets/uploads/img_ktm',
 			'allowed_types'=>'jpg|jpeg|png',
-			'max_size'=>0,	
+			'max_size'=>2000,	
 			'file_name'=>$namafile1,
 		];
 		$this->upload->initialize($config1);
